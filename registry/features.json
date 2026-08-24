@@ -36,6 +36,12 @@
       "name": "Automated test campaign skeleton",
       "module": "tests",
       "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.CALCULATION_ENGINE_SKELETON",
+      "name": "Calculation dispatcher and structural validation engine",
+      "module": "OptimizedFlange.Calculations",
+      "status": "Enabled"
     }
   ]
 }

@@ -82,3 +82,14 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Added placeholder validation tests tagged for future clause, reference, and regression campaigns.
 - Added `doc/validation/test-campaign-skeleton.md`.
 - No normative engineering formulas or qualification claims were added.
+
+## 2026-08-24 — Core Step 4
+
+- Added `OptimizedFlange.Calculations` as the first calculation-engine package.
+- Added `ProcedureCatalog` with an implemented non-normative structural-validation procedure.
+- Added `StructuralValidationEngine.run`, which wraps `FlangedJoint.validateStructure` into the calculation result contract.
+- Added `CalculationDispatcher.run`, which routes structural validation and returns `CALCULATION.PROCEDURE.NOT_IMPLEMENTED` for future normative procedure kinds.
+- Added `OptimizedFlange.CalculationTests` for dispatcher behavior.
+- Fixed `Defaults.calculation` with an explicit `CalculationDefaults` return type to avoid ambiguous record inference.
+- Fixed `AtomicFile.writeText` so the temporary file handle is closed before replacement.
+- No ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, EN 1591, or project-policy formulas are implemented.

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <Compile Include="ProcedureCatalog.fs" />
+    <Compile Include="StructuralValidationEngine.fs" />
+    <Compile Include="CalculationDispatcher.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OptimizedFlange.Domain\OptimizedFlange.Domain.fsproj" />
+  </ItemGroup>
+
+</Project>

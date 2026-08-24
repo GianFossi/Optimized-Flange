@@ -20,6 +20,7 @@ Implemented foundations:
 
 - .NET 10 LTS single-target solution;
 - F# `OptimizedFlange.Domain` project;
+- F# `OptimizedFlange.Calculations` project;
 - F# `OptimizedFlange.Configuration` project;
 - F# `OptimizedFlange.Persistence` project;
 - SI unit declarations;
@@ -33,6 +34,7 @@ Implemented foundations:
 - atomic-style write/flush/validate/replace workflow;
 - VS Code restore/build/test/run tasks;
 - automated test campaign skeleton.
+- calculation dispatcher and non-normative structural-validation engine.
 
 The F# domain also contains the Step 2 technical skeleton for `FlangedJoint` and the Step 3 calculation/check contracts. No ASME/PCC/API engineering formula has been implemented yet. Normative calculations will be introduced only together with source traceability and their corresponding validation plan.
 
@@ -41,6 +43,7 @@ The F# domain also contains the Step 2 technical skeleton for `FlangedJoint` and
 ```text
 src/
 ├── OptimizedFlange.Domain/
+├── OptimizedFlange.Calculations/
 ├── OptimizedFlange.Configuration/
 └── OptimizedFlange.Persistence/
 ```
@@ -68,6 +71,7 @@ See:
 - `doc/architecture/core-bootstrap.md`
 - `doc/architecture/core-domain-step2.md`
 - `doc/architecture/core-calculation-contracts-step3.md`
+- `doc/architecture/calculation-engine-skeleton-step4.md`
 - `doc/persistence/settings-and-project-data.md`
 - `doc/validation/test-campaign-skeleton.md`
 - `AI.md`
@@ -89,6 +93,10 @@ These types prepare the project for traceable calculations and validation eviden
 ### Test campaign skeleton
 
 The solution now includes F# xUnit projects for unit tests, persistence tests, and validation-campaign placeholders. Current tests cover non-normative structural behavior and JSON persistence only; they do not qualify any normative engineering calculation.
+
+### Step 4 — calculation engine skeleton
+
+The F# calculation package now includes a dispatcher and an implemented non-normative structural-validation procedure. Normative procedure kinds intentionally return a stable not-implemented error until sourced rules and validation cases are added.
 
 Codex users should read the repository-root `AGENTS.md` before editing. It points to the project memory and engineering standard and records the mandatory implementation sequence: Core first, testing second, WPF/MVVM UI last.
 
