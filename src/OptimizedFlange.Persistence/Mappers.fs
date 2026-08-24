@@ -2,6 +2,7 @@ namespace OptimizedFlange.Persistence
 
 open System
 open OptimizedFlange.Configuration
+open OptimizedFlange.Domain.Units
 
 /// <summary>Maps application configuration between domain-oriented records and stable persistence DTOs.</summary>
 module PersistenceMappers =
@@ -85,6 +86,21 @@ module PersistenceMappers =
         | "Project" -> Ok OptimizedFlange.Domain.Project
         | "User" -> Ok OptimizedFlange.Domain.User
         | value -> Error $"Unknown requirement source: {value}"
+
+    /// <summary>Maps load-case kinds to stable persisted identifiers.</summary>
+    let private loadCaseKindToString = function
+        | OptimizedFlange.Domain.Design -> "Design"
+        | OptimizedFlange.Domain.Operating -> "Operating"
+        | OptimizedFlange.Domain.Misoperation -> "Misoperation"
+        | OptimizedFlange.Domain.Testing -> "Testing"
+
+    /// <summary>Parses stable persisted load-case kind identifiers.</summary>
+    let private loadCaseKindFromString = function
+        | "Design" -> Ok OptimizedFlange.Domain.Design
+        | "Operating" -> Ok OptimizedFlange.Domain.Operating
+        | "Misoperation" -> Ok OptimizedFlange.Domain.Misoperation
+        | "Testing" -> Ok OptimizedFlange.Domain.Testing
+        | value -> Error $"Unknown load case kind: {value}"
 
     /// <summary>Maps application settings to a persistence DTO.</summary>
     let applicationToDto (value: ApplicationSettings) : ApplicationSettingsDto =
@@ -336,10 +352,83 @@ module PersistenceMappers =
         | Error message, _ -> Error message
         | _, Error message -> Error message
 
+    /// <summary>Maps component pressure/temperature conditions to a persistence DTO.</summary>
+    let componentConditionToDto
+        (value: OptimizedFlange.Domain.ComponentCondition)
+        : ComponentConditionDto =
+        {
+            PressurePa = float value.PressurePa
+            TemperatureK = float value.TemperatureK
+        }
+
+    /// <summary>Maps a component condition DTO to the domain model.</summary>
+    let componentConditionFromDto
+        (dto: ComponentConditionDto)
+        : OptimizedFlange.Domain.ComponentCondition =
+        {
+            PressurePa = dto.PressurePa * 1.0<Pa>
+            TemperatureK = dto.TemperatureK * 1.0<K>
+        }
+
+    /// <summary>Maps signed force and moment components to a persistence DTO.</summary>
+    let jointLoadVectorToDto
+        (value: OptimizedFlange.Domain.JointLoadVector)
+        : JointLoadVectorDto =
+        {
+            FxN = float value.FxN
+            FyN = float value.FyN
+            FzN = float value.FzN
+            MxNm = float value.MxNm
+            MyNm = float value.MyNm
+            MzNm = float value.MzNm
+        }
+
+    /// <summary>Maps a signed force and moment DTO to the domain model.</summary>
+    let jointLoadVectorFromDto
+        (dto: JointLoadVectorDto)
+        : OptimizedFlange.Domain.JointLoadVector =
+        {
+            FxN = dto.FxN * 1.0<N>
+            FyN = dto.FyN * 1.0<N>
+            FzN = dto.FzN * 1.0<N>
+            MxNm = dto.MxNm * 1.0<N m>
+            MyNm = dto.MyNm * 1.0<N m>
+            MzNm = dto.MzNm * 1.0<N m>
+        }
+
+    /// <summary>Maps one project load case to a persistence DTO.</summary>
+    let jointLoadCaseToDto
+        (value: OptimizedFlange.Domain.JointLoadCase)
+        : JointLoadCaseDto =
+        {
+            LoadCaseId = value.LoadCaseId
+            Name = value.Name
+            Kind = loadCaseKindToString value.Kind
+            PrimaryCondition = componentConditionToDto value.PrimaryCondition
+            MatingCondition = componentConditionToDto value.MatingCondition
+            ExternalLoads = jointLoadVectorToDto value.ExternalLoads
+        }
+
+    /// <summary>Maps a project load-case DTO to the domain model.</summary>
+    let jointLoadCaseFromDto
+        (dto: JointLoadCaseDto)
+        : Result<OptimizedFlange.Domain.JointLoadCase, string> =
+        loadCaseKindFromString dto.Kind
+        |> Result.map (fun kind ->
+            {
+                LoadCaseId = dto.LoadCaseId
+                Name = dto.Name
+                Kind = kind
+                PrimaryCondition = componentConditionFromDto dto.PrimaryCondition
+                MatingCondition = componentConditionFromDto dto.MatingCondition
+                ExternalLoads = jointLoadVectorFromDto dto.ExternalLoads
+            })
+
     /// <summary>Maps technical project data to its versioned persistence DTO.</summary>
     let projectTechnicalDataToDto
         schemaVersion
         (acceptanceCriteria: OptimizedFlange.Domain.AcceptanceCriterion list)
+        (loadCases: OptimizedFlange.Domain.JointLoadCase list)
         : ProjectTechnicalDataDto =
         {
             SchemaVersion = schemaVersion
@@ -347,19 +436,41 @@ module PersistenceMappers =
                 acceptanceCriteria
                 |> List.map acceptanceCriterionToDto
                 |> List.toArray
+            LoadCases =
+                loadCases
+                |> List.map jointLoadCaseToDto
+                |> List.toArray
         }
 
     /// <summary>Maps a versioned technical-data DTO to validated project technical data fragments.</summary>
     let projectTechnicalDataFromDto
         (dto: ProjectTechnicalDataDto)
-        : Result<OptimizedFlange.Domain.AcceptanceCriterion list, string> =
-        dto.AcceptanceCriteria
-        |> Array.toList
-        |> List.fold
-            (fun state item ->
-                match state, acceptanceCriterionFromDto item with
-                | Ok items, Ok mapped -> Ok (mapped :: items)
-                | Error message, _ -> Error message
-                | _, Error message -> Error message)
-            (Ok [])
-        |> Result.map List.rev
+        : Result<OptimizedFlange.Domain.AcceptanceCriterion list * OptimizedFlange.Domain.JointLoadCase list, string> =
+        let criteria =
+            dto.AcceptanceCriteria
+            |> Array.toList
+            |> List.fold
+                (fun state item ->
+                    match state, acceptanceCriterionFromDto item with
+                    | Ok items, Ok mapped -> Ok (mapped :: items)
+                    | Error message, _ -> Error message
+                    | _, Error message -> Error message)
+                (Ok [])
+            |> Result.map List.rev
+
+        let loadCases =
+            dto.LoadCases
+            |> Array.toList
+            |> List.fold
+                (fun state item ->
+                    match state, jointLoadCaseFromDto item with
+                    | Ok items, Ok mapped -> Ok (mapped :: items)
+                    | Error message, _ -> Error message
+                    | _, Error message -> Error message)
+                (Ok [])
+            |> Result.map List.rev
+
+        match criteria, loadCases with
+        | Ok mappedCriteria, Ok mappedLoadCases -> Ok (mappedCriteria, mappedLoadCases)
+        | Error message, _ -> Error message
+        | _, Error message -> Error message

@@ -102,7 +102,7 @@ The F# calculation package now includes a dispatcher and an implemented non-norm
 
 ### Project file envelope
 
-Persistence now includes a versioned project file envelope for metadata and project-owned calculation configuration. The first explicit technical-data DTO fragment covers project acceptance criteria; full geometry/load/bolting/gasket/material persistence is still pending.
+Persistence now includes a versioned project file envelope for metadata and project-owned calculation configuration. The explicit technical-data DTO fragment currently covers project acceptance criteria and physical load cases; full geometry/bolting/gasket/material persistence is still pending.
 
 Codex users should read the repository-root `AGENTS.md` before editing. It points to the project memory and engineering standard and records the mandatory implementation sequence: Core first, testing second, WPF/MVVM UI last.
 

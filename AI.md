@@ -107,6 +107,7 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 
 - Added `ProjectTechnicalDataDto` as the first explicit technical project data DTO.
 - Added `AcceptanceCriterionDto` and mappers for requirement level/source identifiers and optional limits.
-- Added tests for acceptance-criterion DTO round-trip and technical-data acceptance-criteria collection mapping.
+- Added `JointLoadCaseDto`, `ComponentConditionDto`, and `JointLoadVectorDto` for physical load case persistence.
+- Added tests for acceptance-criterion DTO round-trip, signed load-case DTO round-trip, and technical-data collection mapping.
 - Added a direct persistence reference to `OptimizedFlange.Domain` for explicit technical DTO mapping.
-- Geometry, load cases, bolting, gaskets, materials, and full `FlangedJoint` persistence remain pending.
+- Geometry, bolting, gaskets, materials, and full `FlangedJoint` persistence remain pending.

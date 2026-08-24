@@ -5,6 +5,24 @@ open OptimizedFlange.Persistence
 open Xunit
 
 module ProjectTechnicalDataMapperTests =
+    let private loadCase: JointLoadCase =
+        {
+            LoadCaseId = "operating-1"
+            Name = "Operating 1"
+            Kind = Operating
+            PrimaryCondition = { PressurePa = 2.5e6<Pa>; TemperatureK = 450.0<K> }
+            MatingCondition = { PressurePa = 1.0e5<Pa>; TemperatureK = 420.0<K> }
+            ExternalLoads =
+                {
+                    FxN = -10.0<N>
+                    FyN = 20.0<N>
+                    FzN = -30.0<N>
+                    MxNm = 40.0<N m>
+                    MyNm = -50.0<N m>
+                    MzNm = 60.0<N m>
+                }
+        }
+
     [<Fact>]
     let ``acceptance criterion maps through explicit DTO without losing optional limits`` () =
         let criterion: AcceptanceCriterion =
@@ -34,7 +52,24 @@ module ProjectTechnicalDataMapperTests =
             Assert.Fail(message)
 
     [<Fact>]
-    let ``project technical data DTO maps acceptance criteria collection`` () =
+    let ``joint load case maps through explicit DTO without losing signs`` () =
+        let dto = PersistenceMappers.jointLoadCaseToDto loadCase
+        let actual = PersistenceMappers.jointLoadCaseFromDto dto
+
+        match actual with
+        | Ok mapped ->
+            Assert.Equal(loadCase.LoadCaseId, mapped.LoadCaseId)
+            Assert.Equal(loadCase.Kind, mapped.Kind)
+            Assert.Equal(loadCase.PrimaryCondition.PressurePa, mapped.PrimaryCondition.PressurePa)
+            Assert.Equal(loadCase.MatingCondition.TemperatureK, mapped.MatingCondition.TemperatureK)
+            Assert.Equal(loadCase.ExternalLoads.FxN, mapped.ExternalLoads.FxN)
+            Assert.Equal(loadCase.ExternalLoads.FzN, mapped.ExternalLoads.FzN)
+            Assert.Equal(loadCase.ExternalLoads.MyNm, mapped.ExternalLoads.MyNm)
+        | Result.Error message ->
+            Assert.Fail(message)
+
+    [<Fact>]
+    let ``project technical data DTO maps acceptance criteria and load case collections`` () =
         let criteria: AcceptanceCriterion list =
             [
                 {
@@ -48,13 +83,15 @@ module ProjectTechnicalDataMapperTests =
                 }
             ]
 
-        let dto = PersistenceMappers.projectTechnicalDataToDto 1 criteria
+        let dto = PersistenceMappers.projectTechnicalDataToDto 1 criteria [ loadCase ]
         let actual = PersistenceMappers.projectTechnicalDataFromDto dto
 
         match actual with
-        | Ok mapped ->
+        | Ok (mappedCriteria, mappedLoadCases) ->
             Assert.Equal(1, dto.SchemaVersion)
-            Assert.Single(mapped) |> ignore
-            Assert.Equal(criteria.Head.CriterionId, mapped.Head.CriterionId)
+            Assert.Single(mappedCriteria) |> ignore
+            Assert.Single(mappedLoadCases) |> ignore
+            Assert.Equal(criteria.Head.CriterionId, mappedCriteria.Head.CriterionId)
+            Assert.Equal(loadCase.LoadCaseId, mappedLoadCases.Head.LoadCaseId)
         | Result.Error message ->
             Assert.Fail(message)
