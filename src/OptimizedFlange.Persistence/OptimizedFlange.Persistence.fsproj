@@ -4,10 +4,12 @@
     <AssemblyName>OptimizedFlange.Persistence</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OptimizedFlange.Domain\OptimizedFlange.Domain.fsproj" />
     <ProjectReference Include="..\OptimizedFlange.Configuration\OptimizedFlange.Configuration.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dtos.fs" />
+    <Compile Include="ProjectTechnicalDataDtos.fs" />
     <Compile Include="Mappers.fs" />
     <Compile Include="JsonOptions.fs" />
     <Compile Include="AtomicFile.fs" />

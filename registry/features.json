@@ -48,6 +48,12 @@
       "name": "Versioned project file envelope",
       "module": "OptimizedFlange.Persistence",
       "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.TECHNICAL_DATA_DTO_FRAGMENT",
+      "name": "Technical data DTO fragment for acceptance criteria",
+      "module": "OptimizedFlange.Persistence",
+      "status": "Enabled"
     }
   ]
 }

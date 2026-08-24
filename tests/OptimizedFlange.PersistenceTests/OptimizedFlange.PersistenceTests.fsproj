@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Include="CalculationDefaultsStoreTests.fs" />
+    <Compile Include="ProjectTechnicalDataMapperTests.fs" />
     <Compile Include="ProjectFileStoreTests.fs" />
   </ItemGroup>
 

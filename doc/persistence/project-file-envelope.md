@@ -17,8 +17,16 @@ ProjectFileDto
 └── TechnicalDataJson?
 ```
 
+The first explicit technical-data DTO fragment is:
+
+```text
+ProjectTechnicalDataDto
+├── SchemaVersion
+└── AcceptanceCriteria[]
+```
+
 ## Boundary
 
 The envelope does not serialize F# domain internals such as `FlangedJoint` directly.
 
-Future technical data must be added through explicit persistence DTOs and migrations before full project round-trip persistence is considered implemented.
+Future geometry, load, bolting, gasket, material, and full `FlangedJoint` data must be added through explicit persistence DTOs and migrations before full project round-trip persistence is considered implemented.

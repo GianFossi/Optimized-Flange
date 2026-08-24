@@ -52,6 +52,40 @@ module PersistenceMappers =
         | "Hybrid" -> Ok Hybrid
         | value -> Error $"Unknown solver type: {value}"
 
+    /// <summary>Maps requirement levels to stable persisted identifiers.</summary>
+    let private requirementLevelToString = function
+        | OptimizedFlange.Domain.Hard -> "Hard"
+        | OptimizedFlange.Domain.Soft -> "Soft"
+        | OptimizedFlange.Domain.Informational -> "Informational"
+
+    /// <summary>Parses stable persisted requirement-level identifiers.</summary>
+    let private requirementLevelFromString = function
+        | "Hard" -> Ok OptimizedFlange.Domain.Hard
+        | "Soft" -> Ok OptimizedFlange.Domain.Soft
+        | "Informational" -> Ok OptimizedFlange.Domain.Informational
+        | value -> Error $"Unknown requirement level: {value}"
+
+    /// <summary>Maps requirement sources to stable persisted identifiers.</summary>
+    let private requirementSourceToString = function
+        | OptimizedFlange.Domain.DesignCode -> "DesignCode"
+        | OptimizedFlange.Domain.Pcc1 -> "Pcc1"
+        | OptimizedFlange.Domain.Api660 -> "Api660"
+        | OptimizedFlange.Domain.IogpS614 -> "IogpS614"
+        | OptimizedFlange.Domain.Tema -> "Tema"
+        | OptimizedFlange.Domain.Project -> "Project"
+        | OptimizedFlange.Domain.User -> "User"
+
+    /// <summary>Parses stable persisted requirement-source identifiers.</summary>
+    let private requirementSourceFromString = function
+        | "DesignCode" -> Ok OptimizedFlange.Domain.DesignCode
+        | "Pcc1" -> Ok OptimizedFlange.Domain.Pcc1
+        | "Api660" -> Ok OptimizedFlange.Domain.Api660
+        | "IogpS614" -> Ok OptimizedFlange.Domain.IogpS614
+        | "Tema" -> Ok OptimizedFlange.Domain.Tema
+        | "Project" -> Ok OptimizedFlange.Domain.Project
+        | "User" -> Ok OptimizedFlange.Domain.User
+        | value -> Error $"Unknown requirement source: {value}"
+
     /// <summary>Maps application settings to a persistence DTO.</summary>
     let applicationToDto (value: ApplicationSettings) : ApplicationSettingsDto =
         {
@@ -263,3 +297,69 @@ module PersistenceMappers =
             }
         | Error message, _ -> Error message
         | _, Error message -> Error message
+
+    /// <summary>Maps a project acceptance criterion to a persistence DTO.</summary>
+    let acceptanceCriterionToDto
+        (value: OptimizedFlange.Domain.AcceptanceCriterion)
+        : AcceptanceCriterionDto =
+        {
+            CriterionId = value.CriterionId
+            Level = requirementLevelToString value.Level
+            Source = requirementSourceToString value.Source
+            Edition =
+                match value.Edition with
+                | Some edition -> edition
+                | None -> null
+            Clause =
+                match value.Clause with
+                | Some clause -> clause
+                | None -> null
+            UtilizationLimit = value.UtilizationLimit |> optionToNullable
+            RotationLimitRad = value.RotationLimitRad |> optionToNullable
+        }
+
+    /// <summary>Maps a persistence DTO to a validated project acceptance criterion.</summary>
+    let acceptanceCriterionFromDto
+        (dto: AcceptanceCriterionDto)
+        : Result<OptimizedFlange.Domain.AcceptanceCriterion, string> =
+        match requirementLevelFromString dto.Level, requirementSourceFromString dto.Source with
+        | Ok level, Ok source ->
+            Ok {
+                CriterionId = dto.CriterionId
+                Level = level
+                Source = source
+                Edition = Option.ofObj dto.Edition
+                Clause = Option.ofObj dto.Clause
+                UtilizationLimit = nullableToOption dto.UtilizationLimit
+                RotationLimitRad = nullableToOption dto.RotationLimitRad
+            }
+        | Error message, _ -> Error message
+        | _, Error message -> Error message
+
+    /// <summary>Maps technical project data to its versioned persistence DTO.</summary>
+    let projectTechnicalDataToDto
+        schemaVersion
+        (acceptanceCriteria: OptimizedFlange.Domain.AcceptanceCriterion list)
+        : ProjectTechnicalDataDto =
+        {
+            SchemaVersion = schemaVersion
+            AcceptanceCriteria =
+                acceptanceCriteria
+                |> List.map acceptanceCriterionToDto
+                |> List.toArray
+        }
+
+    /// <summary>Maps a versioned technical-data DTO to validated project technical data fragments.</summary>
+    let projectTechnicalDataFromDto
+        (dto: ProjectTechnicalDataDto)
+        : Result<OptimizedFlange.Domain.AcceptanceCriterion list, string> =
+        dto.AcceptanceCriteria
+        |> Array.toList
+        |> List.fold
+            (fun state item ->
+                match state, acceptanceCriterionFromDto item with
+                | Ok items, Ok mapped -> Ok (mapped :: items)
+                | Error message, _ -> Error message
+                | _, Error message -> Error message)
+            (Ok [])
+        |> Result.map List.rev
