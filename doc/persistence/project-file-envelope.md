@@ -21,6 +21,8 @@ ProjectFileDto
 
 `ProjectFileStore.technicalData` extracts the payload and rejects missing, empty, unsupported, or mismatched technical-data schema versions.
 
+`ProjectFileMigrations.migrateToCurrent` is the explicit migration boundary for `.ofj` envelopes. Schema version 1 is currently accepted as-is. Legacy and future schema versions are rejected until a documented migration exists.
+
 The first explicit technical-data DTO fragment is:
 
 ```text

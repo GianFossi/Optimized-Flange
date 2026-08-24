@@ -14,7 +14,7 @@ The implementation order is:
 
 ## Current implementation step
 
-**Core Step 3 — calculation contracts and result traceability**
+**Project persistence hardening**
 
 Implemented foundations:
 
@@ -33,6 +33,7 @@ Implemented foundations:
 - `System.Text.Json` persistence;
 - atomic-style write/flush/validate/replace workflow;
 - schema-versioned project file envelope;
+- explicit project-file migration boundary;
 - VS Code restore/build/test/run tasks;
 - automated test campaign skeleton.
 - calculation dispatcher and non-normative structural-validation engine.

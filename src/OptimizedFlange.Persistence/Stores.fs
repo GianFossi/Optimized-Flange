@@ -55,7 +55,7 @@ module RecentFilesStore =
 module ProjectFileStore =
     /// <summary>Current project file schema version.</summary>
     [<Literal>]
-    let CurrentSchemaVersion = 1
+    let CurrentSchemaVersion = ProjectFileMigrations.CurrentSchemaVersion
 
     /// <summary>Current technical-data schema version stored inside a project file.</summary>
     [<Literal>]
@@ -109,8 +109,4 @@ module ProjectFileStore =
     /// <summary>Loads a project file envelope from versioned JSON and rejects unsupported schema versions.</summary>
     let load path =
         JsonStore.load<ProjectFileDto> path
-        |> Result.bind (fun dto ->
-            if dto.SchemaVersion = CurrentSchemaVersion then
-                Ok dto
-            else
-                Error $"Unsupported project file schema version: {dto.SchemaVersion}")
+        |> Result.bind ProjectFileMigrations.migrateToCurrent

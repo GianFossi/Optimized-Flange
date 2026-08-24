@@ -77,6 +77,37 @@ module ProjectFileStoreTests =
             Assert.Fail(message)
 
     [<Fact>]
+    let ``project file migration accepts current schema version`` () =
+        match ProjectFileMigrations.migrateToCurrent projectFile with
+        | Ok migrated ->
+            Assert.Equal(ProjectFileStore.CurrentSchemaVersion, migrated.SchemaVersion)
+            Assert.Equal(projectFile.Metadata.ProjectId, migrated.Metadata.ProjectId)
+        | Error message ->
+            Assert.Fail(message)
+
+    [<Fact>]
+    let ``project file migration rejects legacy schema version explicitly`` () =
+        let legacyProjectFile =
+            { projectFile with SchemaVersion = ProjectFileStore.CurrentSchemaVersion - 1 }
+
+        match ProjectFileMigrations.migrateToCurrent legacyProjectFile with
+        | Ok _ ->
+            Assert.Fail("Legacy schema version should be rejected until an explicit migration exists.")
+        | Error message ->
+            Assert.Contains("Unsupported legacy project file schema version", message)
+
+    [<Fact>]
+    let ``project file migration rejects future schema version explicitly`` () =
+        let futureProjectFile =
+            { projectFile with SchemaVersion = ProjectFileStore.CurrentSchemaVersion + 1 }
+
+        match ProjectFileMigrations.migrateToCurrent futureProjectFile with
+        | Ok _ ->
+            Assert.Fail("Future schema version should be rejected.")
+        | Error message ->
+            Assert.Contains("Unsupported future project file schema version", message)
+
+    [<Fact>]
     let ``project file envelope embeds and extracts versioned technical data`` () =
         let path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName() + ".ofj")
 

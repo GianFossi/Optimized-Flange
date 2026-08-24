@@ -10,6 +10,7 @@
   <ItemGroup>
     <Compile Include="Dtos.fs" />
     <Compile Include="ProjectTechnicalDataDtos.fs" />
+    <Compile Include="ProjectFileMigrations.fs" />
     <Compile Include="Mappers.fs" />
     <Compile Include="JsonOptions.fs" />
     <Compile Include="AtomicFile.fs" />

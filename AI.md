@@ -132,3 +132,10 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Added root `LICENSE` with required project notice.
 - Added `registry/policies/license-policy.json`.
 - Updated `README.md` and this project memory with the active license.
+
+## 2026-08-24 — Project File Migrations
+
+- Added `ProjectFileMigrations.migrateToCurrent` as the explicit `.ofj` envelope migration boundary.
+- Schema version 1 is currently accepted as-is.
+- Legacy and future project-file schema versions are rejected until documented migrations exist.
+- Added persistence tests for current, legacy, and future project-file schema handling.

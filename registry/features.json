@@ -60,6 +60,12 @@
       "name": "Project file technical-data payload integration",
       "module": "OptimizedFlange.Persistence",
       "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.PROJECT_FILE_MIGRATIONS",
+      "name": "Explicit project file schema migration boundary",
+      "module": "OptimizedFlange.Persistence",
+      "status": "Enabled"
     }
   ]
 }
