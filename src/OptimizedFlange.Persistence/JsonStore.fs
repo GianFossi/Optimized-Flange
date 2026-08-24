@@ -21,17 +21,17 @@ module JsonStore =
             Error ex.Message
 
     /// <summary>Loads and deserializes a persistence DTO from JSON.</summary>
-    let load<'T> (path: string) : Result<'T, string> =
+    let load<'T when 'T: not null> (path: string) : Result<'T, string> =
         try
             if not (File.Exists(path)) then
                 Error $"File not found: {path}"
             else
                 let options = JsonOptions.create ()
                 let json = File.ReadAllText(path)
-                let value = JsonSerializer.Deserialize(json, typeof<'T>, options)
-                if obj.ReferenceEquals(value, null) then
+                let valueOrNull = JsonSerializer.Deserialize(json, typeof<'T>, options)
+                if isNull valueOrNull then
                     Error $"Unable to deserialize: {path}"
                 else
-                    Ok (value :?> 'T)
+                    Ok (valueOrNull :?> 'T)
         with ex ->
             Error ex.Message

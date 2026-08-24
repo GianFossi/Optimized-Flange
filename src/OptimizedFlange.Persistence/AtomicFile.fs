@@ -12,10 +12,11 @@ module AtomicFile =
         (content: string)
         : Result<unit, string> =
         try
-            match Path.GetDirectoryName(path) with
-            | null | "" -> ()
-            | directory when String.IsNullOrWhiteSpace(directory) -> ()
-            | directory -> Directory.CreateDirectory(directory) |> ignore
+            let directory = Path.GetDirectoryName(path)
+            match directory with
+            | null -> ()
+            | value when String.IsNullOrWhiteSpace(value) -> ()
+            | value -> Directory.CreateDirectory(value) |> ignore
 
             let tempPath = path + ".tmp"
             use stream = new FileStream(tempPath, FileMode.Create, FileAccess.Write, FileShare.None)

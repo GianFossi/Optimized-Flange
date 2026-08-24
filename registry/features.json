@@ -18,6 +18,18 @@
       "name": "Atomic-style persistence",
       "module": "OptimizedFlange.Persistence",
       "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.TECHNICAL_DOMAIN",
+      "name": "Technical flanged-joint domain skeleton",
+      "module": "OptimizedFlange.Domain",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.CALCULATION_CONTRACTS",
+      "name": "Calculation contracts and result traceability",
+      "module": "OptimizedFlange.Domain",
+      "status": "Enabled"
     }
   ]
 }

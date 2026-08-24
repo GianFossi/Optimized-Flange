@@ -14,7 +14,7 @@ The implementation order is:
 
 ## Current implementation step
 
-**Core Bootstrap — Step 1**
+**Core Step 3 — calculation contracts and result traceability**
 
 Implemented foundations:
 
@@ -33,7 +33,7 @@ Implemented foundations:
 - atomic-style write/flush/validate/replace workflow;
 - VS Code restore/build/test tasks.
 
-No ASME/PCC/API engineering formula has been implemented yet. Normative calculations will be introduced only together with source traceability and their corresponding validation plan.
+The F# domain also contains the Step 2 technical skeleton for `FlangedJoint` and the Step 3 calculation/check contracts. No ASME/PCC/API engineering formula has been implemented yet. Normative calculations will be introduced only together with source traceability and their corresponding validation plan.
 
 ## Architecture
 
@@ -64,5 +64,27 @@ Software settings, calculation defaults, and project engineering data are differ
 See:
 
 - `doc/architecture/core-bootstrap.md`
+- `doc/architecture/core-domain-step2.md`
+- `doc/architecture/core-calculation-contracts-step3.md`
 - `doc/persistence/settings-and-project-data.md`
 - `AI.md`
+
+## Core implementation status
+
+### Step 2 — technical domain skeleton
+
+The F# core now contains the first technical domain model for a two-sided bolted and gasketed joint. The model covers physical geometry and geometry states, signed load vectors, bolting assemblies, gasket assemblies and sealing zones, partition ribs, material snapshots, acceptance criteria, and the aggregate `FlangedJoint`.
+
+No ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, or EN 1591 equations have been implemented in this step. Normative calculations will be added only after the calculation contracts and test/validation structure are in place.
+
+### Step 3 — calculation contracts and result traceability
+
+The F# core now defines calculation procedure contracts, engineering-rule metadata, structured check results, result traces, governing-case references, calculation dependencies, and the calculation-engine function shape.
+
+These types prepare the project for traceable calculations and validation evidence without adding normative equations. Future ASME/PCC/API/TEMA/EN rules must be implemented only with source, edition, clause/formula references, and corresponding tests.
+
+Codex users should read the repository-root `AGENTS.md` before editing. It points to the project memory and engineering standard and records the mandatory implementation sequence: Core first, testing second, WPF/MVVM UI last.
+
+## Codex + VS Code
+
+The repository includes a root `AGENTS.md` containing persistent instructions for Codex. Open the repository root in VS Code so Codex can discover these instructions together with `AI.md`, the architecture documents, and the registries. See `doc/codex-vscode.md` for the recommended handoff workflow.

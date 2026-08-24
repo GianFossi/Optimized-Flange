@@ -5,6 +5,16 @@ open OptimizedFlange.Configuration
 
 /// <summary>Maps application configuration between domain-oriented records and stable persistence DTOs.</summary>
 module PersistenceMappers =
+    /// <summary>Converts an option to a nullable value for persistence DTOs.</summary>
+    let private optionToNullable (value: 'T option) =
+        match value with
+        | Some item -> Nullable item
+        | None -> Nullable()
+
+    /// <summary>Converts a nullable value from a persistence DTO to an option.</summary>
+    let private nullableToOption (value: Nullable<'T>) =
+        if value.HasValue then Some value.Value else None
+
     /// <summary>Maps the display unit-system union to its stable persisted identifier.</summary>
     let private unitSystemToString = function
         | SI -> "SI"
@@ -78,9 +88,9 @@ module PersistenceMappers =
             Path = value.Path
             DisplayName = value.DisplayName
             LastOpenedAt = value.LastOpenedAt
-            LastSavedAt = value.LastSavedAt |> Option.toNullable
+            LastSavedAt = value.LastSavedAt |> optionToNullable
             FileExists = value.FileExists
-            ProjectSchemaVersion = value.ProjectSchemaVersion |> Option.toNullable
+            ProjectSchemaVersion = value.ProjectSchemaVersion |> optionToNullable
             Pinned = value.Pinned
         }
 
@@ -90,9 +100,9 @@ module PersistenceMappers =
             Path = dto.Path
             DisplayName = dto.DisplayName
             LastOpenedAt = dto.LastOpenedAt
-            LastSavedAt = Option.ofNullable dto.LastSavedAt
+            LastSavedAt = nullableToOption dto.LastSavedAt
             FileExists = dto.FileExists
-            ProjectSchemaVersion = Option.ofNullable dto.ProjectSchemaVersion
+            ProjectSchemaVersion = nullableToOption dto.ProjectSchemaVersion
             Pinned = dto.Pinned
         }
 
@@ -105,11 +115,11 @@ module PersistenceMappers =
             Enabled = value.Enabled
             ReadOnly = value.ReadOnly
             Priority = value.Priority
-            LastAccessedAt = value.LastAccessedAt |> Option.toNullable
+            LastAccessedAt = value.LastAccessedAt |> optionToNullable
             Fingerprint =
                 match value.Fingerprint with
                 | Some fingerprint -> fingerprint
-                | None -> null
+                | None -> (null: string | null)
         }
 
     /// <summary>Maps a database-location DTO to its configuration model.</summary>
@@ -121,7 +131,7 @@ module PersistenceMappers =
             Enabled = dto.Enabled
             ReadOnly = dto.ReadOnly
             Priority = dto.Priority
-            LastAccessedAt = Option.ofNullable dto.LastAccessedAt
+            LastAccessedAt = nullableToOption dto.LastAccessedAt
             Fingerprint = Option.ofObj dto.Fingerprint
         }
 
@@ -132,8 +142,8 @@ module PersistenceMappers =
             SchemaVersion = value.SchemaVersion
             RootDatabaseFolder =
                 match value.RootDatabaseFolder with
-                | Some rootDatabaseFolder -> rootDatabaseFolder
-                | None -> null
+                | Some folder -> folder
+                | None -> (null: string | null)
             Materials = map value.Materials
             Bolting = map value.Bolting
             Threads = map value.Threads

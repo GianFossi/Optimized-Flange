@@ -8,5 +8,16 @@
     <Compile Include="Provenance.fs" />
     <Compile Include="EngineeringValue.fs" />
     <Compile Include="Status.fs" />
+    <Compile Include="GeometryTypes.fs" />
+    <Compile Include="LoadTypes.fs" />
+    <Compile Include="AcceptanceTypes.fs" />
+    <Compile Include="RuleMetadataTypes.fs" />
+    <Compile Include="ResultTraceTypes.fs" />
+    <Compile Include="CheckResultTypes.fs" />
+    <Compile Include="BoltingTypes.fs" />
+    <Compile Include="GasketTypes.fs" />
+    <Compile Include="MaterialTypes.fs" />
+    <Compile Include="JointTypes.fs" />
+    <Compile Include="CalculationContractTypes.fs" />
   </ItemGroup>
 </Project>
