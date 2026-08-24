@@ -10,7 +10,7 @@ module JsonStore =
         try
             let options = JsonOptions.create ()
             let json = JsonSerializer.Serialize(value, options)
-            let validate text =
+            let validate (text: string) =
                 try
                     use _document = JsonDocument.Parse(text)
                     Ok ()
@@ -28,10 +28,10 @@ module JsonStore =
             else
                 let options = JsonOptions.create ()
                 let json = File.ReadAllText(path)
-                let value = JsonSerializer.Deserialize<'T>(json, options)
-                if obj.ReferenceEquals(box value, null) then
+                let value = JsonSerializer.Deserialize(json, typeof<'T>, options)
+                if obj.ReferenceEquals(value, null) then
                     Error $"Unable to deserialize: {path}"
                 else
-                    Ok value
+                    Ok (value :?> 'T)
         with ex ->
             Error ex.Message

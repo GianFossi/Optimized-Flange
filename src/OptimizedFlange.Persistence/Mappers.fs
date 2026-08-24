@@ -43,7 +43,7 @@ module PersistenceMappers =
         | value -> Error $"Unknown solver type: {value}"
 
     /// <summary>Maps application settings to a persistence DTO.</summary>
-    let applicationToDto (value: ApplicationSettings) =
+    let applicationToDto (value: ApplicationSettings) : ApplicationSettingsDto =
         {
             SchemaVersion = value.SchemaVersion
             Language = value.Language
@@ -57,7 +57,7 @@ module PersistenceMappers =
         }
 
     /// <summary>Maps a persistence DTO to validated application settings.</summary>
-    let applicationFromDto (dto: ApplicationSettingsDto) =
+    let applicationFromDto (dto: ApplicationSettingsDto) : Result<ApplicationSettings, string> =
         unitSystemFromString dto.DefaultUnitSystem
         |> Result.map (fun units ->
             {
@@ -73,7 +73,7 @@ module PersistenceMappers =
             })
 
     /// <summary>Maps a recent-file entry to a persistence DTO.</summary>
-    let recentFileToDto (value: RecentFileEntry) =
+    let recentFileToDto (value: RecentFileEntry) : RecentFileEntryDto =
         {
             Path = value.Path
             DisplayName = value.DisplayName
@@ -85,7 +85,7 @@ module PersistenceMappers =
         }
 
     /// <summary>Maps a recent-file persistence DTO to its configuration model.</summary>
-    let recentFileFromDto (dto: RecentFileEntryDto) =
+    let recentFileFromDto (dto: RecentFileEntryDto) : RecentFileEntry =
         {
             Path = dto.Path
             DisplayName = dto.DisplayName
@@ -97,7 +97,7 @@ module PersistenceMappers =
         }
 
     /// <summary>Maps a database location to a persistence DTO.</summary>
-    let databaseLocationToDto (value: DatabaseLocation) =
+    let databaseLocationToDto (value: DatabaseLocation) : DatabaseLocationDto =
         {
             Id = value.Id
             Name = value.Name
@@ -106,11 +106,14 @@ module PersistenceMappers =
             ReadOnly = value.ReadOnly
             Priority = value.Priority
             LastAccessedAt = value.LastAccessedAt |> Option.toNullable
-            Fingerprint = value.Fingerprint |> Option.defaultValue null
+            Fingerprint =
+                match value.Fingerprint with
+                | Some fingerprint -> fingerprint
+                | None -> null
         }
 
     /// <summary>Maps a database-location DTO to its configuration model.</summary>
-    let databaseLocationFromDto (dto: DatabaseLocationDto) =
+    let databaseLocationFromDto (dto: DatabaseLocationDto) : DatabaseLocation =
         {
             Id = dto.Id
             Name = dto.Name
@@ -123,11 +126,14 @@ module PersistenceMappers =
         }
 
     /// <summary>Maps grouped database path settings to a persistence DTO.</summary>
-    let databasePathsToDto (value: DatabasePathSettings) =
+    let databasePathsToDto (value: DatabasePathSettings) : DatabasePathSettingsDto =
         let map = List.map databaseLocationToDto >> List.toArray
         {
             SchemaVersion = value.SchemaVersion
-            RootDatabaseFolder = value.RootDatabaseFolder |> Option.defaultValue null
+            RootDatabaseFolder =
+                match value.RootDatabaseFolder with
+                | Some rootDatabaseFolder -> rootDatabaseFolder
+                | None -> null
             Materials = map value.Materials
             Bolting = map value.Bolting
             Threads = map value.Threads
@@ -138,7 +144,7 @@ module PersistenceMappers =
         }
 
     /// <summary>Maps grouped database path DTOs to the configuration model.</summary>
-    let databasePathsFromDto (dto: DatabasePathSettingsDto) =
+    let databasePathsFromDto (dto: DatabasePathSettingsDto) : DatabasePathSettings =
         let map (items: DatabaseLocationDto array) = items |> Array.map databaseLocationFromDto |> Array.toList
         {
             SchemaVersion = dto.SchemaVersion
@@ -153,7 +159,7 @@ module PersistenceMappers =
         }
 
     /// <summary>Maps solver defaults to a persistence DTO.</summary>
-    let solverToDto (value: SolverDefaults) =
+    let solverToDto (value: SolverDefaults) : SolverDefaultsDto =
         {
             SolverType = solverTypeToString value.SolverType
             RelativeTolerance = value.RelativeTolerance
@@ -168,7 +174,7 @@ module PersistenceMappers =
         }
 
     /// <summary>Maps a solver DTO to validated solver defaults.</summary>
-    let solverFromDto (dto: SolverDefaultsDto) =
+    let solverFromDto (dto: SolverDefaultsDto) : Result<SolverDefaults, string> =
         solverTypeFromString dto.SolverType
         |> Result.map (fun solverType ->
             {
@@ -185,7 +191,7 @@ module PersistenceMappers =
             })
 
     /// <summary>Maps calculation defaults to a stable persistence DTO.</summary>
-    let calculationDefaultsToDto (value: CalculationDefaults) =
+    let calculationDefaultsToDto (value: CalculationDefaults) : CalculationDefaultsDto =
         {
             SchemaVersion = value.SchemaVersion
             PrimaryCode = primaryCodeToString value.PrimaryCode
@@ -198,7 +204,7 @@ module PersistenceMappers =
         }
 
     /// <summary>Maps a calculation-defaults DTO to validated configuration values.</summary>
-    let calculationDefaultsFromDto (dto: CalculationDefaultsDto) =
+    let calculationDefaultsFromDto (dto: CalculationDefaultsDto) : Result<CalculationDefaults, string> =
         match primaryCodeFromString dto.PrimaryCode, solverFromDto dto.Solver with
         | Ok primaryCode, Ok solver ->
             Ok {

@@ -65,7 +65,7 @@ type DatabaseLocationDto =
         /// <summary>Optional last access time.</summary>
         LastAccessedAt: Nullable<DateTimeOffset>
         /// <summary>Optional fingerprint; null means unavailable.</summary>
-        Fingerprint: string
+        Fingerprint: string | null
     }
 
 /// <summary>JSON DTO grouping technical database paths.</summary>
@@ -75,7 +75,7 @@ type DatabasePathSettingsDto =
         /// <summary>Persistence schema version.</summary>
         SchemaVersion: int
         /// <summary>Optional root database folder; null means unspecified.</summary>
-        RootDatabaseFolder: string
+        RootDatabaseFolder: string | null
         /// <summary>Materials locations.</summary>
         Materials: DatabaseLocationDto array
         /// <summary>Bolting locations.</summary>
