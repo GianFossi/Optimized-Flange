@@ -7,3 +7,5 @@ TestResults/
 artifacts/
 *.autosave.ofp
 *.tmp
+
+.fake

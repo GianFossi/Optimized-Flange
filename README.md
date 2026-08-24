@@ -31,7 +31,8 @@ Implemented foundations:
 - persisted solver/calculation defaults;
 - `System.Text.Json` persistence;
 - atomic-style write/flush/validate/replace workflow;
-- VS Code restore/build/test tasks.
+- VS Code restore/build/test/run tasks;
+- automated test campaign skeleton.
 
 The F# domain also contains the Step 2 technical skeleton for `FlangedJoint` and the Step 3 calculation/check contracts. No ASME/PCC/API engineering formula has been implemented yet. Normative calculations will be introduced only together with source traceability and their corresponding validation plan.
 
@@ -51,6 +52,7 @@ Future modules will follow the frozen modular architecture documented under `doc
 ```bash
 dotnet restore OptimizedFlange.sln
 dotnet build OptimizedFlange.sln
+dotnet test OptimizedFlange.sln
 ```
 
 The repository targets .NET 10 LTS.
@@ -67,6 +69,7 @@ See:
 - `doc/architecture/core-domain-step2.md`
 - `doc/architecture/core-calculation-contracts-step3.md`
 - `doc/persistence/settings-and-project-data.md`
+- `doc/validation/test-campaign-skeleton.md`
 - `AI.md`
 
 ## Core implementation status
@@ -82,6 +85,10 @@ No ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, or EN 1591 equations have been i
 The F# core now defines calculation procedure contracts, engineering-rule metadata, structured check results, result traces, governing-case references, calculation dependencies, and the calculation-engine function shape.
 
 These types prepare the project for traceable calculations and validation evidence without adding normative equations. Future ASME/PCC/API/TEMA/EN rules must be implemented only with source, edition, clause/formula references, and corresponding tests.
+
+### Test campaign skeleton
+
+The solution now includes F# xUnit projects for unit tests, persistence tests, and validation-campaign placeholders. Current tests cover non-normative structural behavior and JSON persistence only; they do not qualify any normative engineering calculation.
 
 Codex users should read the repository-root `AGENTS.md` before editing. It points to the project memory and engineering standard and records the mandatory implementation sequence: Core first, testing second, WPF/MVVM UI last.
 

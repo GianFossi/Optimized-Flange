@@ -26,7 +26,7 @@ module Defaults =
         }
 
     /// <summary>Creates built-in calculation defaults for a new installation.</summary>
-    let calculation =
+    let calculation : CalculationDefaults =
         {
             SchemaVersion = CalculationDefaultsSchemaVersion
             PrimaryCode = AsmeViiiDivision1

@@ -42,6 +42,23 @@
       "problemMatcher": "$msCompile"
     },
     {
+      "label": "run",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "OptimizedFlange.sln",
+        "--configuration",
+        "Debug"
+      ],
+      "dependsOn": "build",
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      }
+    },
+    {
       "label": "test",
       "type": "process",
       "command": "dotnet",

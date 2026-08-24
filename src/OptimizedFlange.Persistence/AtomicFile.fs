@@ -19,11 +19,12 @@ module AtomicFile =
             | value -> Directory.CreateDirectory(value) |> ignore
 
             let tempPath = path + ".tmp"
-            use stream = new FileStream(tempPath, FileMode.Create, FileAccess.Write, FileShare.None)
-            use writer = new StreamWriter(stream)
-            writer.Write(content)
-            writer.Flush()
-            stream.Flush(true)
+            do
+                use stream = new FileStream(tempPath, FileMode.Create, FileAccess.Write, FileShare.None)
+                use writer = new StreamWriter(stream)
+                writer.Write(content)
+                writer.Flush()
+                stream.Flush(true)
 
             match validate content with
             | Error message ->

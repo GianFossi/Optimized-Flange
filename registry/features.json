@@ -30,6 +30,12 @@
       "name": "Calculation contracts and result traceability",
       "module": "OptimizedFlange.Domain",
       "status": "Enabled"
+    },
+    {
+      "featureId": "QUALITY.TEST_CAMPAIGN_SKELETON",
+      "name": "Automated test campaign skeleton",
+      "module": "tests",
+      "status": "Enabled"
     }
   ]
 }

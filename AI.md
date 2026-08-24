@@ -71,3 +71,14 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Updated architecture documentation and feature registry for Step 3.
 - No ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, or EN 1591 equations are implemented.
 - Next: create the testing and validation campaign skeleton before adding normative calculation engines.
+
+## 2026-08-24 — Test Campaign Skeleton
+
+- Added F# xUnit test projects for unit tests, persistence tests, and validation-campaign placeholders.
+- Added central NuGet package versions for xUnit, Microsoft.NET.Test.Sdk, xUnit runner, and coverlet collector.
+- Added tests for recent-file capping/pinning behavior and case-insensitive refresh.
+- Added tests for non-normative `FlangedJoint.validateStructure` behavior.
+- Added calculation-default JSON persistence round-trip coverage.
+- Added placeholder validation tests tagged for future clause, reference, and regression campaigns.
+- Added `doc/validation/test-campaign-skeleton.md`.
+- No normative engineering formulas or qualification claims were added.
