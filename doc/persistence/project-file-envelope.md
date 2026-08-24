@@ -17,6 +17,10 @@ ProjectFileDto
 └── TechnicalDataJson?
 ```
 
+`ProjectFileStore.withTechnicalData` embeds a `ProjectTechnicalDataDto` payload in the envelope and records its schema version.
+
+`ProjectFileStore.technicalData` extracts the payload and rejects missing, empty, unsupported, or mismatched technical-data schema versions.
+
 The first explicit technical-data DTO fragment is:
 
 ```text

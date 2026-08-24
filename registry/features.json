@@ -54,6 +54,12 @@
       "name": "Technical data DTO fragment with reference-based flanged-joint composition",
       "module": "OptimizedFlange.Persistence",
       "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.PROJECT_TECHNICAL_PAYLOAD",
+      "name": "Project file technical-data payload integration",
+      "module": "OptimizedFlange.Persistence",
+      "status": "Enabled"
     }
   ]
 }

@@ -61,6 +61,10 @@ dotnet test OptimizedFlange.sln
 
 The repository targets .NET 10 LTS.
 
+## License
+
+OptimizedFlange is licensed under the PolyForm Noncommercial License 1.0.0. See `LICENSE` and `registry/policies/license-policy.json`.
+
 ## Core rule
 
 Software settings, calculation defaults, and project engineering data are different data domains. Global configuration changes must never silently alter an existing engineering project.
@@ -76,6 +80,7 @@ See:
 - `doc/persistence/settings-and-project-data.md`
 - `doc/persistence/project-file-envelope.md`
 - `doc/validation/test-campaign-skeleton.md`
+- `registry/policies/license-policy.json`
 - `AI.md`
 
 ## Core implementation status
@@ -103,6 +108,8 @@ The F# calculation package now includes a dispatcher and an implemented non-norm
 ### Project file envelope
 
 Persistence now includes a versioned project file envelope for metadata and project-owned calculation configuration. The explicit technical-data DTO fragment currently covers project acceptance criteria, physical load cases, joint-side geometries, bolting assemblies, gasket assemblies, material snapshots, and reference-based flanged-joint composition.
+
+The project file store can now embed and extract the versioned technical-data payload from the `.ofj` envelope.
 
 Codex users should read the repository-root `AGENTS.md` before editing. It points to the project memory and engineering standard and records the mandatory implementation sequence: Core first, testing second, WPF/MVVM UI last.
 

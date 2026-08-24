@@ -29,6 +29,18 @@ module ProjectFileStoreTests =
             TechnicalDataJson = null
         }
 
+    let private technicalData =
+        {
+            SchemaVersion = ProjectFileStore.CurrentTechnicalDataSchemaVersion
+            AcceptanceCriteria = Array.empty
+            LoadCases = Array.empty
+            JointSideGeometries = Array.empty
+            BoltingAssemblies = Array.empty
+            GasketAssemblies = Array.empty
+            ComponentMaterials = Array.empty
+            FlangedJoints = Array.empty
+        }
+
     [<Fact>]
     let ``project file envelope round trips through versioned JSON store`` () =
         let path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName() + ".ofj")
@@ -63,3 +75,34 @@ module ProjectFileStoreTests =
             Assert.Equal(Defaults.calculation.Solver.MaxIterations, configuration.Solver.MaxIterations)
         | Error message ->
             Assert.Fail(message)
+
+    [<Fact>]
+    let ``project file envelope embeds and extracts versioned technical data`` () =
+        let path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName() + ".ofj")
+
+        try
+            let projectWithTechnicalData =
+                match ProjectFileStore.withTechnicalData technicalData projectFile with
+                | Ok value -> value
+                | Error message -> failwith message
+
+            match ProjectFileStore.save path projectWithTechnicalData with
+            | Ok () -> ()
+            | Error message -> Assert.Fail($"Save failed: {message}")
+
+            match ProjectFileStore.load path with
+            | Ok loaded ->
+                Assert.True(loaded.TechnicalDataSchemaVersion.HasValue)
+                Assert.NotNull(loaded.TechnicalDataJson)
+
+                match ProjectFileStore.technicalData loaded with
+                | Ok loadedTechnicalData ->
+                    Assert.Equal(ProjectFileStore.CurrentTechnicalDataSchemaVersion, loadedTechnicalData.SchemaVersion)
+                    Assert.Empty(loadedTechnicalData.FlangedJoints)
+                | Error message ->
+                    Assert.Fail(message)
+            | Error message ->
+                Assert.Fail(message)
+        finally
+            if File.Exists(path) then
+                File.Delete(path)

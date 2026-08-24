@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "projectLicense": {
+    "name": "PolyForm Noncommercial License 1.0.0",
+    "identifier": "PolyForm-Noncommercial-1.0.0",
+    "url": "https://polyformproject.org/licenses/noncommercial/1.0.0",
+    "licenseFile": "LICENSE",
+    "requiredNotice": "Copyright (C) 2026 GianFossi",
+    "commercialUse": "Not permitted without a separate license"
+  },
+  "notes": [
+    "This project is source-available for noncommercial purposes under PolyForm Noncommercial 1.0.0.",
+    "Dependency licenses must remain compatible with the intended distribution and release channel."
+  ]
+}

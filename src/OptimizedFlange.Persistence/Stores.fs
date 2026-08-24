@@ -1,5 +1,7 @@
 namespace OptimizedFlange.Persistence
 
+open System
+open System.Text.Json
 open OptimizedFlange.Configuration
 
 /// <summary>Provides typed persistence for application settings using explicit DTO mapping.</summary>
@@ -54,6 +56,51 @@ module ProjectFileStore =
     /// <summary>Current project file schema version.</summary>
     [<Literal>]
     let CurrentSchemaVersion = 1
+
+    /// <summary>Current technical-data schema version stored inside a project file.</summary>
+    [<Literal>]
+    let CurrentTechnicalDataSchemaVersion = 1
+
+    /// <summary>Embeds versioned technical project data in a project file envelope.</summary>
+    let withTechnicalData (technicalData: ProjectTechnicalDataDto) (projectFile: ProjectFileDto) =
+        if technicalData.SchemaVersion <> CurrentTechnicalDataSchemaVersion then
+            Error $"Unsupported technical data schema version: {technicalData.SchemaVersion}"
+        else
+            let json = JsonSerializer.Serialize(technicalData, JsonOptions.create ())
+            Ok {
+                projectFile with
+                    TechnicalDataSchemaVersion = Nullable technicalData.SchemaVersion
+                    TechnicalDataJson = json
+            }
+
+    /// <summary>Extracts and validates versioned technical project data from a project file envelope.</summary>
+    let technicalData (projectFile: ProjectFileDto) =
+        if not projectFile.TechnicalDataSchemaVersion.HasValue then
+            Error "Project file does not contain technical data."
+        elif projectFile.TechnicalDataSchemaVersion.Value <> CurrentTechnicalDataSchemaVersion then
+            Error $"Unsupported technical data schema version: {projectFile.TechnicalDataSchemaVersion.Value}"
+        else
+            match Option.ofObj projectFile.TechnicalDataJson with
+            | None -> Error "Project file technical data payload is empty."
+            | Some payload when String.IsNullOrWhiteSpace(payload) ->
+                Error "Project file technical data payload is empty."
+            | Some payload ->
+                try
+                    let dtoOrNull =
+                        JsonSerializer.Deserialize<ProjectTechnicalDataDto>(
+                            payload,
+                            JsonOptions.create ())
+
+                    match Option.ofObj dtoOrNull with
+                    | None ->
+                        Error "Unable to deserialize project technical data."
+                    | Some dto ->
+                        if dto.SchemaVersion <> projectFile.TechnicalDataSchemaVersion.Value then
+                            Error $"Technical data schema mismatch: envelope={projectFile.TechnicalDataSchemaVersion.Value}, payload={dto.SchemaVersion}"
+                        else
+                            Ok dto
+                with ex ->
+                    Error ex.Message
 
     /// <summary>Saves a project file envelope as versioned JSON.</summary>
     let save path (projectFile: ProjectFileDto) =

@@ -41,6 +41,7 @@ No engineering/normative flange formulas are implemented in this step.
 - Every normative rule requires source/edition/clause metadata and tests.
 - README.md, doc/, AI.md, .vscode and test campaign must evolve with implementation.
 - Do not write directly to protected/main workflow when a feature branch can be used.
+- Project license: PolyForm Noncommercial License 1.0.0.
 
 ## GitHub status
 
@@ -116,3 +117,18 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Added tests for acceptance-criterion DTO round-trip, signed load-case DTO round-trip, joint-side geometry DTO round-trip, bolting assembly DTO round-trip, gasket assembly DTO round-trip, material snapshot DTO round-trip, flanged-joint DTO resolution, and technical-data collection mapping.
 - Added a direct persistence reference to `OptimizedFlange.Domain` for explicit technical DTO mapping.
 - Full `FlangedJoint` persistence is now represented by explicit reference DTOs; future work should add schema migrations and project-file payload integration.
+
+## 2026-08-24 — Project Technical Payload Integration
+
+- Added `ProjectFileStore.CurrentTechnicalDataSchemaVersion`.
+- Added `ProjectFileStore.withTechnicalData` to embed `ProjectTechnicalDataDto` into the `.ofj` envelope.
+- Added `ProjectFileStore.technicalData` to extract and validate technical-data payloads.
+- Added tests for save/load/extract of a project file with technical-data payload.
+- Missing, empty, unsupported, and schema-mismatched payloads are rejected with explicit errors.
+
+## 2026-08-24 — License
+
+- Switched the repository license to PolyForm Noncommercial License 1.0.0.
+- Added root `LICENSE` with required project notice.
+- Added `registry/policies/license-policy.json`.
+- Updated `README.md` and this project memory with the active license.
