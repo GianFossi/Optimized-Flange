@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>OptimizedFlange.Configuration</RootNamespace>
+    <AssemblyName>OptimizedFlange.Configuration</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OptimizedFlange.Domain\OptimizedFlange.Domain.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationSettings.fs" />
+    <Compile Include="RecentFiles.fs" />
+    <Compile Include="DatabasePaths.fs" />
+    <Compile Include="CalculationDefaults.fs" />
+    <Compile Include="ProjectConfiguration.fs" />
+    <Compile Include="Defaults.fs" />
+  </ItemGroup>
+</Project>

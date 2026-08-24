@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "features": [
+    {
+      "featureId": "CORE.CONFIGURATION",
+      "name": "Hierarchical configuration model",
+      "module": "OptimizedFlange.Configuration",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.JSON_PERSISTENCE",
+      "name": "Versioned JSON persistence foundation",
+      "module": "OptimizedFlange.Persistence",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.ATOMIC_SAVE",
+      "name": "Atomic-style persistence",
+      "module": "OptimizedFlange.Persistence",
+      "status": "Enabled"
+    }
+  ]
+}

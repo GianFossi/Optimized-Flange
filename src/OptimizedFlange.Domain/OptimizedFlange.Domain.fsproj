@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>OptimizedFlange.Domain</RootNamespace>
+    <AssemblyName>OptimizedFlange.Domain</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Units.fs" />
+    <Compile Include="Provenance.fs" />
+    <Compile Include="EngineeringValue.fs" />
+    <Compile Include="Status.fs" />
+  </ItemGroup>
+</Project>

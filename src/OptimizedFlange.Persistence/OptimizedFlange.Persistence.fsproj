@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>OptimizedFlange.Persistence</RootNamespace>
+    <AssemblyName>OptimizedFlange.Persistence</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OptimizedFlange.Configuration\OptimizedFlange.Configuration.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dtos.fs" />
+    <Compile Include="Mappers.fs" />
+    <Compile Include="JsonOptions.fs" />
+    <Compile Include="AtomicFile.fs" />
+    <Compile Include="JsonStore.fs" />
+    <Compile Include="Stores.fs" />
+  </ItemGroup>
+</Project>
