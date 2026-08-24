@@ -42,6 +42,12 @@
       "name": "Calculation dispatcher and structural validation engine",
       "module": "OptimizedFlange.Calculations",
       "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.PROJECT_FILE_ENVELOPE",
+      "name": "Versioned project file envelope",
+      "module": "OptimizedFlange.Persistence",
+      "status": "Enabled"
     }
   ]
 }

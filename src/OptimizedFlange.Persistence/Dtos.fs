@@ -139,3 +139,57 @@ type CalculationDefaultsDto =
         /// <summary>Default solver settings.</summary>
         Solver: SolverDefaultsDto
     }
+
+/// <summary>JSON DTO for calculation settings copied into and owned by a project file.</summary>
+[<CLIMutable>]
+type ProjectCalculationConfigurationDto =
+    {
+        /// <summary>Persistence schema version.</summary>
+        SchemaVersion: int
+        /// <summary>Primary-code identifier selected by the project.</summary>
+        PrimaryCode: string
+        /// <summary>PCC-1 project activation.</summary>
+        Pcc1Enabled: bool
+        /// <summary>API 660 project activation.</summary>
+        Api660Enabled: bool
+        /// <summary>IOGP S-614 project activation.</summary>
+        IogpS614Enabled: bool
+        /// <summary>Project Wm1 multiplier.</summary>
+        Wm1FactorK: decimal
+        /// <summary>Project target utilization.</summary>
+        TargetUtilization: decimal
+        /// <summary>Project solver settings.</summary>
+        Solver: SolverDefaultsDto
+    }
+
+/// <summary>JSON DTO for project metadata that is not engineering input.</summary>
+[<CLIMutable>]
+type ProjectMetadataDto =
+    {
+        /// <summary>Stable project identifier.</summary>
+        ProjectId: string
+        /// <summary>Human-readable project name.</summary>
+        Name: string
+        /// <summary>Project creation timestamp.</summary>
+        CreatedAt: DateTimeOffset
+        /// <summary>Last project modification timestamp.</summary>
+        ModifiedAt: DateTimeOffset
+        /// <summary>Software or agent version that created the project file, when known.</summary>
+        CreatedByVersion: string | null
+    }
+
+/// <summary>Versioned JSON envelope for an OptimizedFlange project file.</summary>
+[<CLIMutable>]
+type ProjectFileDto =
+    {
+        /// <summary>Project file schema version.</summary>
+        SchemaVersion: int
+        /// <summary>Project metadata.</summary>
+        Metadata: ProjectMetadataDto
+        /// <summary>Calculation configuration owned by this project.</summary>
+        CalculationConfiguration: ProjectCalculationConfigurationDto
+        /// <summary>Future schema version for serialized technical project data.</summary>
+        TechnicalDataSchemaVersion: Nullable<int>
+        /// <summary>Reserved JSON payload for future explicit technical-data DTOs.</summary>
+        TechnicalDataJson: string | null
+    }

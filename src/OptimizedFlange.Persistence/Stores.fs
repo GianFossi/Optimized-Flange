@@ -48,3 +48,22 @@ module RecentFilesStore =
     let load path =
         JsonStore.load<RecentFileEntryDto array> path
         |> Result.map (Array.map PersistenceMappers.recentFileFromDto >> Array.toList)
+
+/// <summary>Provides typed persistence for versioned OptimizedFlange project envelopes.</summary>
+module ProjectFileStore =
+    /// <summary>Current project file schema version.</summary>
+    [<Literal>]
+    let CurrentSchemaVersion = 1
+
+    /// <summary>Saves a project file envelope as versioned JSON.</summary>
+    let save path (projectFile: ProjectFileDto) =
+        JsonStore.save path projectFile
+
+    /// <summary>Loads a project file envelope from versioned JSON and rejects unsupported schema versions.</summary>
+    let load path =
+        JsonStore.load<ProjectFileDto> path
+        |> Result.bind (fun dto ->
+            if dto.SchemaVersion = CurrentSchemaVersion then
+                Ok dto
+            else
+                Error $"Unsupported project file schema version: {dto.SchemaVersion}")

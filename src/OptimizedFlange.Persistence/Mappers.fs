@@ -229,3 +229,37 @@ module PersistenceMappers =
             }
         | Error message, _ -> Error message
         | _, Error message -> Error message
+
+    /// <summary>Maps project-owned calculation configuration to a stable persistence DTO.</summary>
+    let projectCalculationConfigurationToDto
+        (value: ProjectCalculationConfiguration)
+        : ProjectCalculationConfigurationDto =
+        {
+            SchemaVersion = value.SchemaVersion
+            PrimaryCode = primaryCodeToString value.PrimaryCode
+            Pcc1Enabled = value.Pcc1Enabled
+            Api660Enabled = value.Api660Enabled
+            IogpS614Enabled = value.IogpS614Enabled
+            Wm1FactorK = value.Wm1FactorK
+            TargetUtilization = value.TargetUtilization
+            Solver = solverToDto value.Solver
+        }
+
+    /// <summary>Maps a project-owned calculation configuration DTO to validated configuration values.</summary>
+    let projectCalculationConfigurationFromDto
+        (dto: ProjectCalculationConfigurationDto)
+        : Result<ProjectCalculationConfiguration, string> =
+        match primaryCodeFromString dto.PrimaryCode, solverFromDto dto.Solver with
+        | Ok primaryCode, Ok solver ->
+            Ok {
+                SchemaVersion = dto.SchemaVersion
+                PrimaryCode = primaryCode
+                Pcc1Enabled = dto.Pcc1Enabled
+                Api660Enabled = dto.Api660Enabled
+                IogpS614Enabled = dto.IogpS614Enabled
+                Wm1FactorK = dto.Wm1FactorK
+                TargetUtilization = dto.TargetUtilization
+                Solver = solver
+            }
+        | Error message, _ -> Error message
+        | _, Error message -> Error message

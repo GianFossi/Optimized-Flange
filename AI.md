@@ -93,3 +93,12 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Fixed `Defaults.calculation` with an explicit `CalculationDefaults` return type to avoid ambiguous record inference.
 - Fixed `AtomicFile.writeText` so the temporary file handle is closed before replacement.
 - No ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, EN 1591, or project-policy formulas are implemented.
+
+## 2026-08-24 — Project File Envelope
+
+- Added `ProjectFileDto`, `ProjectMetadataDto`, and `ProjectCalculationConfigurationDto`.
+- Added explicit mappers between `ProjectCalculationConfiguration` and its persistence DTO.
+- Added `ProjectFileStore` with schema-version checking.
+- Added persistence tests for project file envelope round-trip and project-owned calculation-configuration mapping.
+- Added `doc/persistence/project-file-envelope.md`.
+- Full `FlangedJoint` technical-data persistence remains pending and must use explicit DTOs/migrations.

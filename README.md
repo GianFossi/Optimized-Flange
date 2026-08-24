@@ -32,6 +32,7 @@ Implemented foundations:
 - persisted solver/calculation defaults;
 - `System.Text.Json` persistence;
 - atomic-style write/flush/validate/replace workflow;
+- schema-versioned project file envelope;
 - VS Code restore/build/test/run tasks;
 - automated test campaign skeleton.
 - calculation dispatcher and non-normative structural-validation engine.
@@ -73,6 +74,7 @@ See:
 - `doc/architecture/core-calculation-contracts-step3.md`
 - `doc/architecture/calculation-engine-skeleton-step4.md`
 - `doc/persistence/settings-and-project-data.md`
+- `doc/persistence/project-file-envelope.md`
 - `doc/validation/test-campaign-skeleton.md`
 - `AI.md`
 
@@ -97,6 +99,10 @@ The solution now includes F# xUnit projects for unit tests, persistence tests, a
 ### Step 4 — calculation engine skeleton
 
 The F# calculation package now includes a dispatcher and an implemented non-normative structural-validation procedure. Normative procedure kinds intentionally return a stable not-implemented error until sourced rules and validation cases are added.
+
+### Project file envelope
+
+Persistence now includes a versioned project file envelope for metadata and project-owned calculation configuration. Full technical-data persistence is still intentionally reserved for explicit future DTOs and migrations.
 
 Codex users should read the repository-root `AGENTS.md` before editing. It points to the project memory and engineering standard and records the mandatory implementation sequence: Core first, testing second, WPF/MVVM UI last.
 
