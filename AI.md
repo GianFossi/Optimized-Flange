@@ -108,6 +108,11 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Added `ProjectTechnicalDataDto` as the first explicit technical project data DTO.
 - Added `AcceptanceCriterionDto` and mappers for requirement level/source identifiers and optional limits.
 - Added `JointLoadCaseDto`, `ComponentConditionDto`, and `JointLoadVectorDto` for physical load case persistence.
-- Added tests for acceptance-criterion DTO round-trip, signed load-case DTO round-trip, and technical-data collection mapping.
+- Added `JointSideGeometryDto`, `NominalSideGeometryDto`, `PhysicalHubGeometryDto`, and `SurfaceAllowanceDto` for physical geometry persistence.
+- Added `BoltingAssemblyDto`, `BoltPatternDto`, `StudDefinitionDto`, `BoltSectionAreasDto`, and `PreloadDefinitionDto` for physical bolting persistence.
+- Added `GasketAssemblyDto`, `GasketEnvelopeDto`, `SealingZoneDto`, `PartitionLayoutDto`, and `PartitionRibDto` for physical gasket persistence.
+- Added `ComponentMaterialDto`, `MaterialSnapshotDto`, `MaterialIdentityDto`, and `ResolvedMaterialPropertiesDto` for material snapshot persistence.
+- Added `JointSideReferenceDto` and `FlangedJointDto` for reference-based two-sided joint composition.
+- Added tests for acceptance-criterion DTO round-trip, signed load-case DTO round-trip, joint-side geometry DTO round-trip, bolting assembly DTO round-trip, gasket assembly DTO round-trip, material snapshot DTO round-trip, flanged-joint DTO resolution, and technical-data collection mapping.
 - Added a direct persistence reference to `OptimizedFlange.Domain` for explicit technical DTO mapping.
-- Geometry, bolting, gaskets, materials, and full `FlangedJoint` persistence remain pending.
+- Full `FlangedJoint` persistence is now represented by explicit reference DTOs; future work should add schema migrations and project-file payload integration.

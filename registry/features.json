@@ -51,7 +51,7 @@
     },
     {
       "featureId": "CORE.TECHNICAL_DATA_DTO_FRAGMENT",
-      "name": "Technical data DTO fragment for acceptance criteria and load cases",
+      "name": "Technical data DTO fragment with reference-based flanged-joint composition",
       "module": "OptimizedFlange.Persistence",
       "status": "Enabled"
     }

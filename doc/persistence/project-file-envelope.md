@@ -23,11 +23,16 @@ The first explicit technical-data DTO fragment is:
 ProjectTechnicalDataDto
 ├── SchemaVersion
 ├── AcceptanceCriteria[]
-└── LoadCases[]
+├── LoadCases[]
+├── JointSideGeometries[]
+├── BoltingAssemblies[]
+├── GasketAssemblies[]
+├── ComponentMaterials[]
+└── FlangedJoints[]
 ```
 
 ## Boundary
 
 The envelope does not serialize F# domain internals such as `FlangedJoint` directly.
 
-Future geometry, bolting, gasket, material, and full `FlangedJoint` data must be added through explicit persistence DTOs and migrations before full project round-trip persistence is considered implemented.
+`FlangedJointDto` is reference-based: it stores side geometry IDs, assembly IDs, load-case IDs, acceptance-criterion IDs, and component-material roles that resolve against the explicit technical-data fragments above.
