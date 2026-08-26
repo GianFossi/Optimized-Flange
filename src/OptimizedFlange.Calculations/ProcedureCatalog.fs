@@ -42,3 +42,7 @@ module ProcedureCatalog =
             RequiredGeometryBasis = AsBuilt
             Qualification = Implemented
         }
+
+    /// <summary>All procedure definitions known to the calculation package.</summary>
+    let all =
+        structuralValidation :: NormativeProcedureCatalog.all

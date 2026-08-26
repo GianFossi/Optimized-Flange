@@ -42,6 +42,8 @@ Implemented foundations:
 - standards, engineering rule, qualification, and normative-interpretation registries;
 - pre-implementation formula inventory gate;
 - reference workbook guide registry for non-authoritative calculation workbooks;
+- candidate source-to-domain symbol mapping registry;
+- planned normative calculation procedure catalog;
 - automated test campaign skeleton.
 - calculation dispatcher and non-normative structural-validation engine.
 
@@ -97,6 +99,7 @@ See:
 - `registry/standards-support.json`
 - `registry/formula-inventory.json`
 - `registry/reference-guides.json`
+- `registry/symbol-map.json`
 - `registry/engineering-rules.json`
 - `registry/qualification.json`
 - `registry/normative-interpretations.json`
@@ -124,7 +127,9 @@ The solution now includes F# xUnit projects for unit tests, persistence tests, a
 
 ### Step 4 — calculation engine skeleton
 
-The F# calculation package now includes a dispatcher and an implemented non-normative structural-validation procedure. Normative procedure kinds intentionally return a stable not-implemented error until sourced rules and validation cases are added.
+The F# calculation package now includes a dispatcher, an implemented non-normative structural-validation procedure, unqualified SI-only ASME VIII Division 2 Part 4.16 basic bolt-load helper formulas, one unqualified IOGP S-614 paragraph 7.8.10 Equation (3) pure formula, and a catalog of planned normative procedures for ASME VIII Division 1, ASME VIII Division 2, ASME PCC-1 Appendix O, API 660 paragraph 7.8, and IOGP S-614 amendments to API 660 paragraph 7.8.
+
+Normative procedure kinds still intentionally return a stable not-implemented error until complete sourced rules, formula mappings, integration logic, and validation cases are added. The implemented ASME and IOGP helpers are available as focused SI-only formulas and remain `PartiallyImplemented`, not qualified.
 
 ### Standards and qualification registries
 
@@ -135,6 +140,12 @@ The selected source scope for the next formula-inventory phase is ASME VIII Divi
 `registry/formula-inventory.json` records the selected source documents and keeps each formula group at `NeedsManualClauseInventory` until exact clauses, formula/table references, SI symbol mappings, applicability limits, and validation cases are available.
 
 `registry/reference-guides.json` records calculation workbooks that can guide symbol mapping and comparison-case discovery. `doc/Calcs/Flange Design - FAST - R09.xlsm` is registered as a macro-enabled reference guide, not as a normative source. Its formulas and macros must not be copied or executed as qualification evidence; every implemented formula still needs an approved standard, edition, clause/formula reference, and validation case.
+
+The FAST R09 guide registry records worksheet metadata and defined-name clusters for bolting, gasket, flange, load, and minimum-distance concepts. These clusters are intended for later source-backed formula mapping only.
+
+`registry/symbol-map.json` records the first candidate mapping from FAST R09 defined names to domain paths and SI canonical units. Entries remain candidates until the corresponding source standard clause/formula, sign convention, and validation case are confirmed.
+
+`registry/normative-implementation-blockers.json` records why the remaining normative formula families are still blocked from implementation or qualification.
 
 ### VS Code tasks
 

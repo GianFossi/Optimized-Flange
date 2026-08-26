@@ -96,6 +96,36 @@
       "name": "Reference workbook guide registry",
       "module": "registry",
       "status": "Enabled"
+    },
+    {
+      "featureId": "GOVERNANCE.SYMBOL_MAP",
+      "name": "Candidate source-to-domain symbol mapping registry",
+      "module": "registry",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.NORMATIVE_PROCEDURE_CATALOG",
+      "name": "Planned normative calculation procedure catalog",
+      "module": "OptimizedFlange.Calculations",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "GOVERNANCE.NORMATIVE_IMPLEMENTATION_BLOCKERS",
+      "name": "Normative formula implementation blocker registry",
+      "module": "registry",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "CALC.IOGP_S614_7_8_10_EQ3",
+      "name": "IOGP S-614 paragraph 7.8.10 Equation (3) pressure-effect bolt-stress check",
+      "module": "OptimizedFlange.Calculations",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "CALC.ASME_VIII_2_4_16_BASIC_BOLT_LOADS",
+      "name": "ASME VIII Division 2 Part 4.16 basic bolt-load helpers",
+      "module": "OptimizedFlange.Calculations",
+      "status": "Enabled"
     }
   ]
 }

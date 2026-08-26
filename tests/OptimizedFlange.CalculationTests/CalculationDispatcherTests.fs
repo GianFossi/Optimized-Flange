@@ -157,3 +157,37 @@ module CalculationDispatcherTests =
         | Result.Error errors ->
             Assert.Single(errors) |> ignore
             Assert.Equal("CALCULATION.PROCEDURE.NOT_IMPLEMENTED", errors.Head.ErrorCode)
+
+    [<Fact>]
+    let ``procedure catalog exposes planned normative procedures`` () =
+        let procedures = ProcedureCatalog.all
+
+        Assert.Contains(
+            procedures,
+            fun procedure -> procedure.ProcedureId = "ASME.VIII.1.PROCEDURE.FLANGE_ASSESSMENT")
+        Assert.Contains(
+            procedures,
+            fun procedure -> procedure.ProcedureId = "ASME.VIII.2.PROCEDURE.FLANGED_JOINT_ASSESSMENT")
+        Assert.Contains(
+            procedures,
+            fun procedure -> procedure.ProcedureId = "ASME.PCC.1.2022.APPENDIX.O.PROCEDURE")
+        Assert.Contains(
+            procedures,
+            fun procedure -> procedure.ProcedureId = "API.660.2015.PARAGRAPH.7.8.PROCEDURE")
+        Assert.Contains(
+            procedures,
+            fun procedure -> procedure.ProcedureId = "IOGP.S-614.V18-12.PARAGRAPH.7.8.PROCEDURE")
+
+    [<Fact>]
+    let ``planned normative procedures remain unimplemented through dispatcher`` () =
+        for procedure in NormativeProcedureCatalog.all do
+            Assert.Equal(Planned, procedure.Qualification)
+            Assert.All(procedure.Rules, fun rule -> Assert.Equal(Planned, rule.Qualification))
+
+            let actual = CalculationDispatcher.run (request procedure)
+
+            match actual with
+            | Ok _ -> Assert.Fail($"Expected not implemented error for {procedure.ProcedureId}.")
+            | Result.Error errors ->
+                Assert.Single(errors) |> ignore
+                Assert.Equal("CALCULATION.PROCEDURE.NOT_IMPLEMENTED", errors.Head.ErrorCode)

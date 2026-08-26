@@ -14,6 +14,135 @@
       "sheetCount": 8,
       "totalFormulaCells": 8294,
       "definedNameCount": 313,
+      "uniqueDefinedNameCount": 98,
+      "worksheets": [
+        {
+          "name": "Main Girth Flange SH",
+          "dimension": "A2:DN176",
+          "formulaCells": 2569,
+          "topic": "shell-side main girth flange"
+        },
+        {
+          "name": "Main Girth Flange CH",
+          "dimension": "A2:DN176",
+          "formulaCells": 2571,
+          "topic": "channel-side main girth flange"
+        },
+        {
+          "name": "Floating Head",
+          "dimension": "A2:DC134",
+          "formulaCells": 2362,
+          "topic": "floating-head flange"
+        },
+        {
+          "name": "Tables",
+          "dimension": "B1:AE306",
+          "formulaCells": 589,
+          "topic": "lookup tables and unit data"
+        },
+        {
+          "name": "DATA Gsk",
+          "dimension": "B2:AC42",
+          "formulaCells": 63,
+          "topic": "gasket data"
+        },
+        {
+          "name": "Bolting S",
+          "dimension": "A1:BA252",
+          "formulaCells": 40,
+          "topic": "bolting summary data"
+        },
+        {
+          "name": "Bolting SY",
+          "dimension": "A1:BA2352",
+          "formulaCells": 60,
+          "topic": "bolting yield data"
+        },
+        {
+          "name": "Transposed Loads",
+          "dimension": "B14:V31",
+          "formulaCells": 40,
+          "topic": "load transformation support"
+        }
+      ],
+      "definedNameClusters": {
+        "bolting": [
+          "Bolt.PCC1.Sb.MAX",
+          "Bolt.PCC1.Sb.MIN",
+          "Bolt.PCC1.Sb.Sel",
+          "Bolt.Sm.DT",
+          "Bolt.Sm.RT",
+          "Bolt.Sm.Test",
+          "Bolt.Sy.DT",
+          "Bolt.Sy.RT"
+        ],
+        "gasket": [
+          "Gsk.b",
+          "Gsk.b0",
+          "Gsk.G",
+          "Gsk.m",
+          "Gsk.N",
+          "Gsk.Param.RelaxFact",
+          "Gsk.Param.Sg.Max",
+          "Gsk.Param.Sg.Min.Oper",
+          "Gsk.Param.Sg.Min.Seating",
+          "Gsk.PassPart.b",
+          "Gsk.PassPart.Len",
+          "Gsk.PassPart.m",
+          "Gsk.PassPart.N",
+          "Gsk.PassPart.y",
+          "Gsk.Seal.Area.Internal",
+          "Gsk.Seal.Area.Nominal",
+          "Gsk.Seal.G",
+          "Gsk.Seal.ID",
+          "Gsk.Seal.OD",
+          "Gsk.Seal.THK",
+          "Gsk.y"
+        ],
+        "flange": [
+          "CounterFlange.Calc.B",
+          "CounterFlange.Calc.T",
+          "CounterFlange.Geom.ID",
+          "CounterFlange.Geom.Thk",
+          "Flange.B",
+          "Flange.B.Calc",
+          "Flange.Calc.B",
+          "Flange.Calc.T",
+          "Flange.Facing.Diam",
+          "Flange.Geom.FacingDiam",
+          "Flange.Geom.ID",
+          "Flange.Geom.Thk",
+          "Flange.T",
+          "Flange.T.Calc"
+        ],
+        "loads": [
+          "Load.Am",
+          "Load.Am1",
+          "Load.Am2",
+          "Load.Fa",
+          "Load.H",
+          "Load.Hd",
+          "Load.Hp",
+          "Load.Hp.1",
+          "Load.Hp.2",
+          "Load.Ht",
+          "Load.Me",
+          "Load.W0",
+          "Load.W0.Tot",
+          "Load.Wgs",
+          "Load.Wgs.1",
+          "Load.Wgs.2"
+        ],
+        "minimumDistances": [
+          "Default.Flange.MinHubLen",
+          "Default.Flange.MinRadDistGskBoltHoles",
+          "Default.Flange.MinRadDistGskID",
+          "Default.Flange.MinRadDistGskOD",
+          "MIN.GasketID.FlangeID",
+          "MIN.GasketOD.Facing",
+          "MIN.TubesheetFacing.FlangeID"
+        ]
+      },
       "observedTopics": [
         "girth flange geometry",
         "floating head geometry",

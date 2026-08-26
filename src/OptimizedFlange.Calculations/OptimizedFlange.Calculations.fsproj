@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <Compile Include="NormativeProcedureCatalog.fs" />
     <Compile Include="ProcedureCatalog.fs" />
+    <Compile Include="AsmeViii2Part416BoltLoads.fs" />
+    <Compile Include="IogpS614Paragraph78.fs" />
     <Compile Include="StructuralValidationEngine.fs" />
     <Compile Include="CalculationDispatcher.fs" />
   </ItemGroup>

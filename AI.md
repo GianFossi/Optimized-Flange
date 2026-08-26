@@ -203,3 +203,13 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Kept formula records empty until exact formula references, symbol mappings, applicability, and validation cases are manually confirmed.
 - Registered `doc/Calcs/Flange Design - FAST - R09.xlsm` as a non-authoritative macro-enabled reference guide for symbol mapping and future comparison-case discovery.
 - Added validation coverage that prevents reference workbooks from being treated as normative sources or macro-executable intake artifacts.
+- Extended the FAST R09 guide registry with worksheet metadata and defined-name clusters for bolting, gasket, flange, load, and minimum-distance mapping.
+- Added `registry/symbol-map.json` with candidate FAST R09 defined-name mappings to domain paths and SI canonical units.
+- Added validation coverage that keeps symbol mappings candidate-only until source-standard references and validation cases exist.
+- Added `NormativeProcedureCatalog` with planned ASME VIII Division 1, ASME VIII Division 2, ASME PCC-1 Appendix O, API 660 paragraph 7.8, and IOGP S-614 amendment procedure contracts.
+- Preserved dispatcher `CALCULATION.PROCEDURE.NOT_IMPLEMENTED` behavior for all planned normative procedure contracts.
+- Implemented `IogpS614Paragraph78.requiredSelectedAssemblyBoltStress` for IOGP S-614 v18-12 paragraph 7.8.10 Equation (3) as an SI-only pure function.
+- Added focused calculation tests for the IOGP Eq. (3) helper and registered it as `PartiallyImplemented`, not qualified.
+- Implemented `AsmeViii2Part416BoltLoads.calculate` for ASME VIII Division 2 2025 Part 4.16 basic operating and gasket seating bolt-load helpers as SI-only pure functions.
+- Added focused calculation tests and formula inventory records for ASME equations 4.16.4, 4.16.5, 4.16.8, and 4.16.9 as `PartiallyImplemented`, not qualified.
+- Added `registry/normative-implementation-blockers.json` for remaining ASME VIII, PCC-1 Appendix O, API 660, and FAST-reference limitations.

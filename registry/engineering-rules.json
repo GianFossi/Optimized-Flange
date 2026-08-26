@@ -72,6 +72,28 @@
       "validationEvidence": []
     },
     {
+      "ruleId": "ASME.VIII.2.FLANGE.BASIC_BOLT_LOADS",
+      "name": "ASME VIII Division 2 Part 4.16 basic bolt-load helper formulas",
+      "module": "BoltingAssessment",
+      "source": {
+        "sourceKind": "Standard",
+        "name": "ASME Boiler and Pressure Vessel Code Section VIII Division 2",
+        "edition": "2025",
+        "clause": "4.16.6.1",
+        "formulaReference": "Equations (4.16.4), (4.16.5), (4.16.8), and (4.16.9)"
+      },
+      "implementationStatus": "Implemented",
+      "qualificationStatus": "PartiallyImplemented",
+      "normative": true,
+      "validationEvidence": [
+        {
+          "evidenceId": "TEST.CALC.ASME.VIII.2.4.16.BASIC_BOLT_LOADS.MANUAL",
+          "evidenceKind": "UnitTest",
+          "location": "tests/OptimizedFlange.CalculationTests/AsmeViii2Part416BoltLoadsTests.fs"
+        }
+      ]
+    },
+    {
       "ruleId": "API.660.EXCHANGER.PLACEHOLDER",
       "name": "API 660 exchanger flange requirement placeholder",
       "module": "ProjectPolicy",
@@ -102,6 +124,28 @@
       "qualificationStatus": "Planned",
       "normative": true,
       "validationEvidence": []
+    },
+    {
+      "ruleId": "IOGP.S-614.EXCHANGER.FLOATING_HEAD_PRESSURE_EFFECT",
+      "name": "IOGP S-614 floating-head pressure-effect assembly bolt stress check",
+      "module": "ProjectPolicy",
+      "source": {
+        "sourceKind": "CompanySpecification",
+        "name": "IOGP S-614 Specification for Shell-and-Tube Heat Exchangers",
+        "edition": "v18-12 / December 2018",
+        "clause": "7.8.10",
+        "formulaReference": "Equation (3)"
+      },
+      "implementationStatus": "Implemented",
+      "qualificationStatus": "PartiallyImplemented",
+      "normative": true,
+      "validationEvidence": [
+        {
+          "evidenceId": "TEST.CALC.IOGP.S614.7.8.10.EQ3.MANUAL",
+          "evidenceKind": "UnitTest",
+          "location": "tests/OptimizedFlange.CalculationTests/IogpS614Paragraph78Tests.fs"
+        }
+      ]
     },
     {
       "ruleId": "TEMA.EXCHANGER.PLACEHOLDER",

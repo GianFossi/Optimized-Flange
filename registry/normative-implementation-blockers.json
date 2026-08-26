@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "status": "PartiallyImplementedWithBlockers",
+  "summary": "Only explicitly traceable formulas may be implemented. Remaining normative formulas are blocked until exact source references, SI symbol mapping, and validation cases are complete.",
+  "blockers": [
+    {
+      "blockerId": "BLOCKER.ASME.VIII.1.VALIDATION_CASES",
+      "formulaGroupId": "ASME.VIII.1.FLANGE.INVENTORY",
+      "severity": "RequiredBeforeImplementation",
+      "reason": "Initial clause inventory exists, but exact formula/table references, complete symbol map, applicability limits, and validation cases are not yet recorded."
+    },
+    {
+      "blockerId": "BLOCKER.ASME.VIII.2.VALIDATION_CASES",
+      "formulaGroupId": "ASME.VIII.2.FLANGE.INVENTORY",
+      "severity": "RequiredBeforeImplementation",
+      "reason": "Initial clause inventory exists, but exact formula/table references, complete symbol map, applicability limits, and validation cases are not yet recorded."
+    },
+    {
+      "blockerId": "BLOCKER.PCC1.APPENDIX.O.OCR_REVIEW",
+      "formulaGroupId": "ASME.PCC.1.2022.APPENDIX.O.INVENTORY",
+      "severity": "RequiredBeforeImplementation",
+      "reason": "The Appendix O PDF extraction contains OCR artifacts and must be manually reviewed before formulas or acceptance checks can be implemented."
+    },
+    {
+      "blockerId": "BLOCKER.API.660.7.8.EXTRACTION",
+      "formulaGroupId": "API.660.2015.PARAGRAPH.7.8.INVENTORY",
+      "severity": "RequiredBeforeImplementation",
+      "reason": "The API 660 paragraph 7.8 PDF extracts as corrupt or unreliable text and cannot be used for direct implementation."
+    },
+    {
+      "blockerId": "BLOCKER.FAST.R09.NON_NORMATIVE",
+      "formulaGroupId": null,
+      "severity": "RequiredBeforeImplementation",
+      "reason": "FAST R09 is a macro-enabled reference workbook and may guide mapping only; it is not a normative source or qualification artifact."
+    }
+  ],
+  "unblockCriteria": [
+    "Each remaining formula record must include source standard, edition, clause reference, formula/table reference, symbol map, SI units, applicability, target rule ID, and validation case IDs.",
+    "OCR-corrupted source text must be manually reviewed against the visible PDF before implementation.",
+    "At least one independent validation case with expected numeric result and tolerance must exist for each qualified formula or check.",
+    "Reference workbook agreement may be used as comparison evidence only after source-standard traceability exists."
+  ]
+}

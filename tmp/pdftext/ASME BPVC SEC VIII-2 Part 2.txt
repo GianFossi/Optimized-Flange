@@ -1,0 +1,1701 @@
+                                                                                    ASM E BPVC.Vlll.2-2025                                                                 4.16 - 4 .16.3.1
+
+
+
+                          4.16           DESIGN RULES FOR FLANGED JOINTS
+                          4.16.1           SCOPE
+                            4.16.1.1 The rules in 4.16 shall be used to design circular flanges subject to internal and/or external pressure. These
+                          rules provide for hydrostatic end loads, gasket seating, and externally applied axial force and net-section bending
+                          moment.
+                            4.16.1.2 The rules in 4.16 apply to the design of bolted flange connections with gaskets that are entirely located
+                          within the circle enclosed by the bolt holes. The rules do not cover the case where the gasket extends beyond the bolt
+                          hole circle or where metal-metal contact is made outside of the bolt circle.
+                             4.16.1.3 It is recommended that bolted flange connections conforming to the standards listed in 4.1.11 be used for
+                          connections to external piping. These standards may be used for other bolted flange connections and dished covers with-
+                          in the limits of size in the standard and pressure-temperature rat ings permitted in 4.1.11. The ratings in these standards
+                          are based on the hub dimensions given or on the minimum specified thickness of flanged fittings of integral construction.
+                          Flanges fabricated from rings may be used in place of the hub flanges in these standards, provided that their strength
+                          and rigidity, calculated by the rules in this paragraph, are not less than that calculated for the corresponding size of hub
+                          flange.
+                             4.16.1.4 The rules of this paragraph should not be construed to prohibit the use of other types of flanged connec-
+                          tions, provided they are designed in accordance with Part 5.
+
+                          4.16.2            DESIGN CONSIDERATIONS
+                             4.16.2.1 The design of a flange involves the selection of the flange type, gasket material, flange facing, bolting, hub
+                          proportions, flange width, and flange thickness. The flange dimensions shall be selected such that the stresses in t he
+                          flange and the flange rigidity satisfy the acceptability criteria of this paragraph.
+                             4.16.2.2 In the design of a bolted flange connection, calculations shall be made for the following two design condi-
+                          tions, and the most severe condition shall govern the design of the flanged joint.
+                             (a) Operating Conditions. The conditions required to resist the hydrostatic end force of the design pressure and any
+                          applied external forces and moments tending to part the joint at the design temperature.
+                             (b) Gasket Seating Condition. The conditions existing when the gasket or joint-contact surface is seated by applying an
+                          initial load with the bolts during assembly of the joint, at atmospheric temperature and pressure.
+                              4 .16.2.3          Calculations shall be performed using dimensions of the flange in the corroded and uncorroded conditions.
+                            4 .16.2.4 In the design of flange pairs, each flange is designed for its particular design loads of pressure and gasket
+                          reactions. The bolt load used to design each flange, however, is that load common to the flange pair and equal to the
+                          larger of the bolt loads calculated for each flange individually. No additional rules are required for design offlange pairs.
+                          After t he loads for the most severe condition are determined, calculations shall be made for each flange following the
+                          rules of this paragraph.
+                             4.16.2.S In the design of flange pairs where pass partitions with gaskets are used, the gasket loads from the parti-
+                          tion(s) shall be included in the calculation of bolt loads. Partition gaskets may have different gasket constants than the
+                          ring gasket inside the bolt circle. In the design of flanges with noncircular gaskets or with partitions of any shape, gasket
+                          reactions from all surfaces with gaskets shall be included in calculating bolt loads.
+
+                          4.16.3            FLANGE TYPES                                                                                                                                      (25)
+                             4.16.3.1 For the purpose of computation, there are two major categories of flanges:
+                            (a) Integral Type Flanges. This type covers designs where the flange is cast or forged integrally with the nozzle neck,
+                          vessel or pipe wall, butt welded thereto, or attached by other forms of welding such that the flange and nozzle neck,
+                          vessel or pipe wall are structurally equivalent to integral construction. Integral flanges shall be designed considering
+                          structural interaction between the flange and the nozzle neck, vessel, or pipe wall, which the rules account for by con-
+                          sidering the neck or wall to act as a hub. Integral type flanges are referenced below. The design flange and bolt loads are
+                          shown in Figure 4.16.1.
+                               (1) Integral type flange without a hub - Figure 4.16.1, sketches (a) and (b) and Table 4.2.9, Details 2, 4, 9, 10, and 11
+                               (2) Integral type flanges where g 1 = g O - Figure 4.16.1, sket ch (c)
+                               (3) Integral type flanges with a hub - Figure 4.1 6.1, sketches (d), (e), and (f) and Table 4.2.9, Details 6, 7, and 8
+                               (4) Integral type flanges with nut stops - Figure 4.16.3 and Figure 4.16.4
+
+                                                                                             425
+
+Copyrlghl ASME lnlemallonal (BPVC)
+Provid&d by Ao::um undet license with ASME                                                  Llcens:ae:::BREMBANA & ROLLE GROUP - Bergamagque: Altrimbl8355778001, U.ser-,:Tosto, Natale
+No reproduction or netwof'ka,g permitted without b nse from Accorlg                         Nol for Rosal<>, 10/20/2025 03:56:38 MDT
+                  4.16.3.1 - 4.16.6.l                                       ASME BPVC.Vlll.2-2025
+
+
+
+                     {b) Welded Slip-on Type Flanges. This type covers designs where the flange consists of a cast or forged ring with a hub,
+                  which is installed over the nozzle neck, vessel, or pipe wall and attached by welding at both the hub and face ends of the
+                  flange. The design flange and bolt loads are shown in Figure 4.16.2 and Table 4.2.9, Details 1, 3, and 12.
+                     (c) Loose Type Flanges. This type covers those designs in which the flange has no integral connection to the nozzle
+                  neck, vessel, or pipe wall. The design flange and bolt loads are shown in Figure 4.16.5 and Table 4.2.9, Detail 5.
+                    4.16.3.2 The integral and loose type flanges described above can also be applied to reverse flange configurations.
+                  Integral and loose type reverse flanges are shown in Figures 4.16.6 and 4.16.7.
+
+                  4.16.4           FLANGE MATERIALS
+                    4.16.4.1 Materials used in the construction of bolted flange connections, excluding gasket materials, shall comply
+                  with the requirements given in Part 3.
+                    4.16.4.2 Flanges made from ferritic steel shall be given a normalizing or full-annealing heat treatment when the
+                  thickness of the flange, t (see Figures 4.16.1 through 4.16.6), exceeds 75 mm (3 in.).
+        (25)        4.16.4.3 Fabricated flanges with hubs shall be in accordance with the following:
+                    (a) Flanges with hubs shall not be machined from plate or bar (except as permitted in 3.2.5.2) material unless the
+                  material has been formed into a ring and the following additional conditions are met:
+                       (1) in a ring formed from plate, the original plate surfaces are parallel to the axis of the finished flange.
+                       (2) The joints in the ring are welded butt joints that conform to the requirements of Part 6. The thickness to be used
+                  to determine postweld heat treatment and radiographic requirements shall be min[t, (A - 8)/2].
+                       (3) The back of the flange and outer surface of the hub shall be examined by either the magnetic particle method or
+                  the liquid penetrant method in accordance with Part 7.
+                    4.16.4.4 Bolts, studs, nuts, and washers shall comply with the requirements of Part 3 and referenced standards. It is
+                  recommended that bolts and studs have a nominal diameter of not less than 12 mm (0.5 in.). If bolts or studs smaller
+                  than 12 mm (0.5 in.) are used, then ferrous bolting material shall be of alloy steel. Precautions shall be taken to avoid
+                  overstressing small-diameter bolts. When washers are used, they shall be through hardened to minimize the potential
+                  for galling.
+
+                  4.16.5           GASKET MATERIALS
+                    4.16.5.1 The gasket constants for the design of the bolt load (m andy), are provided in Table 4.16.1. Other values
+                  for the gasket constants may be used if based on actual testing or data in the literature, as agreed upon between designer
+                  and the user.
+                    4.16.5.2 The minimum width of sheet and composite gaskets, N, is recommended to be no less than that given in
+                  Table 4.16.2.
+                  NOTE: Gasket materials should be selected that are suitable for the design conditions. Corrosion, chemical attack, creep and thermal degrada-
+                  tion of gasket materials over time should be considered.
+
+                  4.16.6           DESIGN BOLT LOADS
+        (25)          4.16.6.1           The procedure to determine the bolt loads for the operating and gasket seating conditions is shown below.
+                      Step 1. Determine the design pressure and temperature of the flange joint.
+                      Step 2. Select a gasket and determine the gasket factors m andy from Table 4.16.1, or other sources. The selected gas-
+                  ket width should comply with the guidelines detailed in Table 4.16.2.
+                    Step 3. Determine the width of the gasket, N , basic gasket seating width, ho, the effective gasket seating width, h, and
+                  the location of the gasket reaction, G, based on the flange and gasket geometry, the information in Table 4.16.3 and
+                  Figure 4.16.8, and the equations shown below. Note that for lap joint flanges, G is equal to the midpoint of contact be-
+                  tween the flange and the lap, see Figures 4.16.5 and 4.16.8.
+                    (a) For h 0 s 6 mm (0.25 in.), G is the mean diameter of the gasket contact face and
+                                                                                                                                                                              (4.16.1)
+
+                      {b) For h 0 > 6 mm (0.25 in.)
+
+                                                                                                                                                                              (4.16.2)
+
+
+                                                                                                                                                                              (4.16.3)
+
+
+                                                                                      426
+
+Copyrlghl ASME lnlemallonal (BPVC)
+Provid&d by Ao::um undet license with ASME                                                  Llcens:ae:::BREMBANA & ROLLE GROUP - Bergamagque: Altrimbl8355778001, U.ser-,:Tosto, Natale
+No reproduction or netwof'ka,g permitted without bnse from Accorlg                          Nol for Rosal<>, 10/20/2025 03:56:38 MDT
+                                                                                      ASME BPVC.Vlll.2-2025                                                               4.16.6.l - 4.16.7.2
+
+
+
+                             Step 4. Determine the design bolt load for the operating condition.
+
+                                                                     W0   = 0.78SG2P + 2brrGmP for non-self-energized gaskets                                                            (4.16.4)
+
+
+                                                                             W0 = 0.78SG2P for self-energized gaskets                                                                    (4.16.5)
+
+                             Step 5. Determine the design bolt load for the gasket seating condition.
+
+                                                                                        Wg   =(Am ; Ab )sb9                                                                              (4.16.6)
+
+                              The parameter Ab is the actual total cross-sectional area of the bolts that is selected such that Ab ~ Am, where:
+
+
+                                                                                                                                                                                         (4.16.7)
+
+
+
+
+                                                                             w95 = 1fbGy for non-self-energized gaskets                                                                  (4.16.8)
+
+
+
+                                                                                W95 = 0.0 for self-ener gized gaskets                                                                    (4.16.9)
+
+                          NOTE: Where significant axial force is required to compress the gasket during assembly of a joint containing a self-energizing gasket, the value
+                          of W gs shall be taken as equal to that axial force. In addition, some self-energizing gaskets generate axial load due to their wedging action and
+                          this load shall be considered in setting the value of W gs,
+
+                          4.16.7           FLANGE DESIGN PROCEDURE
+                            4.16.7.1 The procedure in this paragraph can be used to design circular integral, loose or reverse flanges, subject to
+                          internal or external pressure, and external loadings. The procedure incorporates both a strength check and a rigidity
+                          check for flange rotation.
+                             4.16.7.2            The procedure to design a flange is shown below.                                                                                                   (25)
+                            Step 1. Determine the design pressure and temperature of the flange joint, and the external net-section axial force, FA ,
+                          and bending moment, M 8 . If the pressure is negative, the absolute value of the pressure should be used in this procedure.
+                            Step 2. Determine the design bolt loads for operating condition, W 0 , and the gasket seating condition, W9 , and corre-
+                          sponding actual bolt area, Ab, from 4.16.6.
+                            Step 3. Determine an initial flange geometry, in addition to the information required to determine the bolt load, the
+                          following geometric parameters are required:
+                            (a) The flange bore, B
+                            (b) The bolt circle diameter, C
+                            (c) The outside diameter of the flange, A
+                            ( d) The flange thickness, t
+                            (e) The thickness of the hub at the large end,9 1
+                            (j) The thickness of the hub at the small end, 9 0
+                            (9) The hub length, h
+                            Step 4. Determine the flange stress factors using the equations in Tables 4.16.4 and 4.16.5.
+                            Step 5. Determine the flange forces.
+
+                                                                                                                                                                                       (4.16.10)
+
+
+                                                                                           H = 0.78SG 2P                                                                               (4.16.11)
+
+
+                                                                                             Hr = H- Ho                                                                                (4.16.12)
+
+
+                                                                                                                                                                                       (4.16.13)
+
+
+                                                                                                427
+
+Copyrlghl AS ME lnlemallonal (BPVC)
+Provid&d by Ao::um undet license with ASME                                                      Llcens:ae:::BREMBANA & ROLLE GROUP - Bergamagque: Altrimbl8355778001, U.ser-,:Tosto, Natale
+No reproduction or netwof'ka,g permitted without bnse from Accorlg                              Nol for Rosal<>, 10/20/2025 03:56:38 MDT
+                  4.16.7.2 - 4.16.8                                                          ASME BPVC.Vlll.2-2025
+
+
+
+                    Step 6.Determine the flange moment for the operating condition using eq. (4.16.14) or eq. (4.16.15), as applicable.
+                  When specified by the user or the user's designated agent, the maximum bolt spacing (Bsm ax) and the bolt spacing cor-
+                  rection factor (Bsc ) shall be applied in calculating the flange moment for internal pressure using the equations in Table
+                  4.16.11. The flange moment M O for the operating condition and flange moment M O for the gasket seating condition with-
+                  out correction for bolt spacing Bsc = 1 is used for the calculation of the rigidity index in Step 10. In these equations, h v,
+                  hr, and he are determined from Table 4.16.6. For integral and loose type flanges, the moment Moe is calculated using eq.
+                  (4.16.16) where I and Ip in this equation are determined from Table 4.16.7. For reverse type flanges, the procedure to
+                  determine Mae shall be agreed upon between the Designer and the Owner.
+
+                                                                      M0 "' abs[((Hoho + Hrhr + Hchc)Bsc + Moe)Fsr] for internal pressure                                                {4.16.14)
+
+
+                                                                      M0 = ab{ (Ho(ho - he} + Hr(hr - he) + Moe) Fsr] for external pressure                                              {4.16.15)
+
+
+
+                                                                                   M - 4MJ
+                                                                                    oe -
+                                                                                                  I
+                                                                                         11_ 0.3846/p + I
+                                                                                                            I      ho ] F h
+                                                                                                               (C - 2ho) + A D
+                                                                                                                                                                                         {4.16.16)
+
+
+                    Step 7.Determine the flange moment for the gasket seating condition using eq. (4.16.17) or eq. (4.16.18), as
+                  applicable.
+
+                                                                                          W0(C - G)Bscfsr                                                                                {4.16.17)
+                                                                                   Mg =                   for internal pressure
+                                                                                                2
+
+                                                                                      Mg "' WghcFsr for external pressure                                                                (4.16.18)
+
+                       Step 8. Determine the flange stresses for the operating and gasket seating condit ions using the equations in Table
+                  4.16.8.
+                    Step 9. Check the flange stress acceptance criteria. The two criteria shown below shall be evaluated. If the stress cri-
+                  teria are satisfied, go to Step 10. If the stress criteria are not satisfied, re-proportion the flange dimensions and go to Step
+                  4.
+                     (a) Allowable Normal Stress -The criteria to evaluate t he normal stresses for the operating and gasket seating con-
+                  ditions are shown in Table 4.16.9.
+                     (b) Allowable Shear Stresses - In the case ofloose type flanges with lap, as shown in Figure 4.16.5 where the gasket is
+                  so located that the lap is subjected to shear, the shearing stress shall not exceed 0.8Sno or 0.8S ng, as applicable, for the
+                  material of the lap. In the case of welded flanges where the nozzle neck, vessel, or pipe wall extends near to the flange
+                  face and may form the gasket contact face, the shearing st ress carried by the welds shall not exceed 0.8Sno or 0.8Sng, as
+                  applicable. The shearing stress shall be calculated for both the operating and gasket seating load cases. Similar situations
+                  where flange parts are subjected to shearing stresses shall be checked using the same requirement.
+                     Step 10. Check the flange rigidity criterion in Table 4.16.10. If the flange rigidity criterion is satisfied, then the design is
+                  complete. If the flange rigidity criterion is not satisfied, then re-proportion the flange dimensions and go to Step 3. The
+                  flange moment M O for the operating condition (see Step 6) and flange moment M0 for the gasket seating condition (see
+                  Step 7) without correction for bolt spacing B sc = 1 is used for the calculation of the rigidity index.
+
+
+        (25)      4.16.8            SPLIT LOOSE TYPE FLANGES
+                     Loose flanges split across a diameter and designed under the rules given in this paragraph may be used under the
+                  following provisions.
+                    (a) When the flange consists of a single split flange or flange ring, it shall be designed as if it were a solid flange (with-
+                  out splits), using 200% of the total moment, F sr = 2.0.
+                    (b) When the flange consists of two split rings, each ring shall be designed as if it were a solid flange (without splits),
+                  using 75% of the total moment, F sr = 0.75. The pair of rings shall be assembled so that the splits in one ring are 90 deg
+                  from the splits in the other ring.
+                    (c) The flange split locations should preferably be midway between bolt holes.
+                       (d) it is not a requirement that the flange rigidity rules of 4.6.10 be applied to split loose flanges.
+
+                                                                                                       428
+
+Copyrlghl ASME lnlema llonal (BPVC)
+Provid&d by Ao::um undet license with ASME                                                                   Llcensa&==BREMBANA & ROLLE GROUP - Betgatnasque: Albt&mb/8355778001. User-Tosto, NataJe
+No reproduction or netwof'ka,g permitted without b nse from Accorlg                                          Nol lor Rasal&, 10/20/2025 03:56:38 MDT
+                                                                             ASM E BPVC.Vlll.2-2025                                                                4.16.9 - 4 .16.1 3
+
+
+
+                          4.16.9           NONCIRCULAR SHAPED FLANGES WITH A CIRCULAR BORE
+                             The outside diameter, A, for a noncircular flange with a circular bore shall be taken as the diameter of the largest cir-
+                          cle, concentric with the bore, inscribed entirely within the outside edges of the flange. The bolt loads, flange moments,
+                          and stresses shall be calculated in the same manner as for a circular flange using a bolt circle whose size is established by
+                          drawing a circle through the centers of the outermost bolts.
+
+                          4.16.10            FLANGES WITH NUT STOPS
+                            When flanges are designed per 4.16, or are fabricated to the dimensions of ASME B16.5 or other acceptable standards,
+                          except that the dimension 0.S(C - B) - g 1 is decreased to provide a nut-stop, the fillet radius shall be as shown in Figures
+                          4.16.3 and 4.16.4 except that:
+                            (a) For flanges designed to this paragraph, the minimum thickness of the hub at the large end,g 1 , shall be the smaller
+                          of 2tn or 4r u, but not less than 12 mm (0.5 in.).
+                            (b) For ASME B16.5 or other standard flanges, the thickness of the hub at the small end, g 0 , shall be increased as nec-
+                          essary to provide a nut-stop.
+
+                          4.16.11            JOINT ASSEMBLV PROCEDURES                                                                                                                   (25)
+
+                             Bolted joints should be assembled and bolted-up in accordance with a written procedure that has been demonstrated
+                          to be acceptable for similar joint configurations in similar services. Further guidance can be found in ASME PCC-1, Pres-
+                          sure Boundary Bolted Flange Joint Assembly.
+
+                          4.16.12            EVALUATION OF EXTERNAL FORCES AND MOMENTS FOR FLANGED JOINTS WITH STANDARD
+                                             FLANGES
+                            External loads (forces and bending moments) may be evaluated for flanged joints with welding neck flanges chosen in
+                          accordance with 4.1.11.l(a), 4.1.11.l(g), and 4.1.11.3, using the following requirements:
+                            (a) The vessel design pressure (corrected for the static head from liquid or bulk material acting on the flange) at the
+                          design temperature cannot exceed the pressure- temperature rating of the flange.
+                            (b) The actual assembly bolt load (see 4.16.11) shall comply with ASME PCC-1, Nonmandatory Appendix 0 .
+                            (c) The bolt material shall have an allowable stress equal to or greater than SA-193 B8 Cl. 2 at the specified bolt size
+                          and temperature.
+                            (d) The combination of vessel design pressure, P (corrected for the static head from liquid or bulk material acting on
+                          the flange), with external moment and external axial force shall satisfy eq. (4.16.19). (The units of the variables in this
+                          equation shall be consistent with the pressure rating.)
+
+                                                                                                                                                                             (4.16.19)
+
+
+                          4.16.13            NOMENCLATURE                                                                                                                                (25)
+
+                                 A = outside diameter of the flange or, where slotted holes extend to the outside of the flange, the diameter to the
+                                     bottom of the slots
+                                Ab = total cross-sectional area of all the bolts based on the smaller of
+                                       (a) the root diameter of the thread
+                                       (b) the least diameter of any unthreaded portion
+                                     ASME PCC-1, Appendix H contains root areas for common bolt sizes that may be used.
+                              Am = total minimum required cross-sectional area of the bolts
+                                a = nominal bolt diameter
+                                B = inside diameter of the flange. When B < 20g 1 , B 1 may be used for B in the equation for the longitudinal stress
+                               B 1 = B + g 1 for loose type flanges and for integral type flanges that have a value of[less than 1.0, (although a mini-
+                                     mum value off = 1.0 is permitted). B 1 is equal to B + g O for integral type flanges when f ~ 1.0.
+                               B' = inside diameter of the reverse flange
+                               B s = bolt spacing. The bolt spacing may be taken as the bolt circle circumference divided by the number of bolts or
+                                     as the chord length between adjacent bolt locations.
+                          B s max = maximum bolt spacing
+                              B sc = bolt spacing correction factor
+                                b = effective gasket contact width
+                               b 0 = basic gasket seating width
+
+                                                                                      429
+
+Copyrlghl ASME lnlemallonal (BPVC)
+Provid&d by Ao::um undet license with ASME                                            Llcens:ae:::BREMBANA & ROLLE GROUP - Bergamagque: Altrimbl8355778001, U.ser-,:Tosto, Natale
+No reproduction or netwof'ka,g permitted without bnse from Accorlg                    Nol for Rosal<>, 10/20/2025 03:56:38 MDT
+                  4.16.13                                                 ASME BPVC.Vlll.2-2025
+
+
+
+                        C = bolt circle diameter
+                       Cu, = conversion factor for length, Cu,= 1.0 for U.S. Customary Units and Cu,= 25.4 for Metric Units
+                        d = flange stress factor
+                         dr = flange stress factor d for a reverse type flange
+                      Ey9 = modulus of elasticity at the gasket seating load case temperature
+                      Eyo = modulus of elasticity at the operating load case temperature
+                        e = flange stress factor
+                       er = flange stress factor e for a reverse type flange
+                          F = flange stress factor for integral type flanges
+                        FA = value of the external tensile net-section axial force. Compressive net-section forces are to be neglected and for
+                                   that case, FA should be taken as equal to zero.
+                        FL = flange stress factor for loose type flanges
+                        FM = moment factor, in accordance with Table 4.16.12
+                         F s = flange stress factor for welded slip-on flanges
+                     Fsr = moment factor used to design split rings (see 4.16.8), Fsr =1.0 for non-split rings
+                       f = hub stress correction factor for integral flanges
+                       G = diameter at the location of the gasket load reaction (see Figure 4.16.8)
+                    Gavg = average of the hub thicknesses g 1 and Bo
+                      Gc = outside diameter of the gasket contact area (see Figure 4.16.8)
+                     g = thickness of the hub at the small end
+                           O
+                                 (a) for integral type flanges per Figure 4.16.l(a), g 0 = tn
+                                 (b) for other integral type flanges, g O =the minimum of tn or the thickness of the hub at the small end
+                       g1 = thickness of the hub at the large end
+                       Bi = thickness of the pipe in a welded slip-on flange, Bi = tn
+                        H = total hydrostatic end force
+                       H v = total hydrostatic end force on the area inside of the flange
+                       H c = gasket load for the operating condition
+                       Hr = difference between the total hydrostatic end force and hydrostatic end force on the area inside the flange
+                         h = hub length
+                       h n = the axial length of the cylinder to which the flange ring is attached. This is measured from the back face of
+                              flange to the other end of the cylinder. This is used when gO =g1 .
+                       h O = hub length parameter
+                      h0 r = hub length parameter for a reverse flange
+                       h P = effective hub length used to determine / P
+                       h v = moment arm for load H v
+                       h c = moment arm for load H c
+                       hr = moment arm for load Hr
+                          I = bending moment of inertia of the flange cross-section
+                        IP = polar moment of inertia of the flange cross-section
+                         J = flange rigidity index
+                         K = ratio of the flange outside diameter to the flange inside diameter
+                       KR = rigidity index factor
+                         L = flange stress factor
+                       Lr = flange stress factor L for a reverse type flange
+                       ME = absolute value of the external net-section bending moment
+                       M 9 = flange design moment for the gasket seating condition
+                       MO = flange design moment for the operating condition
+                      Moe = component of the flange design moment resulting from a net section bending moment and/or axial force
+                        m = factor for the gasket operating condition
+                         N = gasket contact width, N =0.0 for self-energizing gaskets
+                         P = design pressure
+                       PR = flange pressure rating at design temperature
+                       r 1 = radius to be at least 0.25g 1 but not less than 5 mm (0.1875 in.)
+                        r u = radius of the undercut on a flange with nut stops
+                      Sb9 = allowable stress from Annex 3-A for the bolt evaluated at the gasket seating temperature
+                      Sbo = allowable stress from Annex 3-A for the bolt evaluated at the design temperature
+                      Sto = allowable stress from Annex 3-A for the flange evaluated at the gasket seating temperature
+
+                                                                                     430
+
+Copyrlghl ASME lnlemallonal (BPVC)
+Provid&d by Ao::um undet license with ASME                                                 Llcens:ae:::BREMBANA & ROLLE GROUP - Bergamagque: Altrimbl8355778001, U.ser-,:Tosto, Natale
+No reproduction or netwof'ka,g permitted without bnse from Accorlg                         Nol for Rosal<>, 10/20/2025 03:56:38 MDT
+                                                                                               ASME BPVC.VHl.2•2025                                                              4.16.13 - 4.16.14
+
+
+
+                                  s10 = allowable stress from Annex 3-A for the flange evaluated at the design temperature
+                                 Sng  = allowable stress from Annex 3-A for the nozzle neck, vessel, or pipe evaluated at the gasket seating
+                                              temperature
+                                 Sno  = allowable stress from Annex 3-A for the nozzle neck, vessel, or pipe evaluated at the design temperature
+                                 SH = flange hub stress
+                                 SR = flange radial stress
+                                 Sr = flange tangential stress
+                                Sn = flange tangential stress at the outside diameter of a reverse flange
+                                S r 2 = flange tangential stress at the inside diameter of a reverse flange
+                                   T = flange stress factor
+                                  Tr = flange stress factor T for a reverse flange
+                                    t = flange thickness, including the facing thickness or the groove depth if either do not exceed 2 mm (0.0625 in.);
+                                        otherwise, the facing thickness or groove depth is not included in the overall flange thickness
+                                  t 9 = uncompressed gasket thickness
+                                  tn = nominal thickness of the shell, pipe, or nozzle to which the flange is attached
+                                  tx = is 29 0 when the design is calculated as an integral flange, or two times the minimum required thickness of the
+                                        shell or nozzle wall when the design is based on a loose flange, but not less than 6 mm (0.25 in.)
+                                   U = flange stress factor
+                                 Ur = flange stress factor U for a reverse type flange
+                                   V = flange stress factor for integral type flanges
+                                 V L = flange stress factor for loose type flanges
+                                 Vs = flange stress factor for welded slip-on flanges
+                                 W9 = design bolt load for the gasket seating condition
+                                 W O = design bolt load for the operating condition
+                                   w = width of the raised face when narrower than the gasket width
+                                   y = factor for the gasket seating condition
+                                   Y = flange stress factor
+                                 Yr = flange stress factor Y for a reverse type flange
+                                   Z = flange stress factor
+
+                            4. 16.14            TABLES
+
+
+
+                                                                                             Table 4.16.1                                                                                            (25)
+                                                                             Gasket Factors for Determining the Bolt Loads
+                                                                                                                        Gasket           Min. Design Seating            Facing Sketch In
+                                                                         Gasket Material                               Factor, m         Stress, v, MPa fosll             Table 4.16.3
+                                          Self-energizing types (0 rings, metallic, elastomer, other gasket types
+                                            considered as self-sealing)                                                    0                 0 in. O                    ...
+                                          Elastomers without fabric or high percent of mineral fiber:
+                                             below 75 A Shore Durometer                                                   0.50                     0                    (la), (lb), (le),
+                                             75 A or higher Shore Durometer                                               1.00                0 1.4 (200)                 (ld)
+                                          Mineral fiber with suitable binder for operating conditions:
+                                            3.2 mm (1/a in.) thick                                                         2.00                  11 (1,600)
+                                            1.6 mm ('li 6 in.) thick                                                       2.75                  26 (3,700)             (la), (lb), (le),
+                                            0.8 mm r1h 2 in.) thick                                                        3.50                  45 [6,500)                [ldl
+                                          Elastomers with cotton fabric insertion                                         1.25                  2.8 (400)               (la), (lb), (le),
+                                                                                                                                                                          fldl
+                                          Elastomers with mineral fiber insertion (with or without wire
+                                            reinforcement) :
+                                             3-ply                                                                         2.25                  15 (2,200)
+                                             2-ply                                                                         2.50                  20 (2,900)             (la), (lb), (le),
+                                             1-ply                                                                         2.75                  26 [3,700)               [ldl
+                                          Vegetable fiber                                                                 1.75                  7.6 (1,100)             (la), (lb), (le),
+                                                                                                                                                                          fldl
+
+
+
+
+                                                                                                          431
+
+•,t:opyrtghl ASME lnlematlonal (BPVC)
+ 'ProYided by Aoclris " ndef license wllh ASME                                                            Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 . User=ToSlo, Natale
+  No reproduction or netwotking permllted without lcense from Accurls.                                    Notror Resale, 10/20/2025 03:56:38 MDT
+                   4.16.14                                                                 ASME BPVC.Vlll.2·2025
+
+
+
+
+                                                                                             Table 4.16.l
+                                                                         Gasket Factors for Determining the Bolt Loads (Cont'd)
+                                                                                                                Gasket           Min. Design Seating            Faci ng Sketch in
+                                                                         Gasket Material                       Factor, m         Stress, y, MPa (psi)             Table 4.16.3
+                                 Spiral-wound metal, mineral fiber filler:
+                                    Carbon steel                                                                   2.50                  69 (10,000)
+                                    Stainless steel, Monei, and nickel-base alloy                                  3.00                  69 (10,0001            (la), (lb]
+                                 Corrugated metal, mineral fiber inserted, or corrugated metal, jacketed
+                                   mineral fiber filled:
+                                   Soft aluminum                                                                   2.50                  20 (2,900)
+                                   Soft copper or brass                                                            2.75                  26 (3,700)
+                                   iron or soft steel                                                              3.00                  31 (4,500)
+                                   Mone! or 4%- 6% chrome                                                          3.25                  38 (5,500)
+                                   Stainless steels and nickel-base alloys                                         3.50                  45 (6,500)             (la), (lb)
+                                 Corrugated metal:
+                                   Soft aluminum                                                                   2.75                  26 (3,700)
+                                   Soft copper or brass                                                            3.00                  31 (4,500)
+                                   iron or soft steel                                                              3.25                  38 (5,500)
+                                   Mone! or 4%- 6% chrome                                                          3.50                  45 (6,500)             (la), (1 b ), (le),
+                                   Stainless steels and nickel-base alloys                                         3.75                  52 (7,600)               (ld)
+                                 Flat metal, jacketed mineral fiber filled:
+                                    Soft aluminum                                                                  3.25                  38 (5,500)
+                                    Soft copper or brass                                                           3.50                  45 (6,500)
+                                    Iron or soft steel                                                             3.75                  52 (7,600)
+                                    Monei                                                                          3.50                  55 (8,000)
+                                    4%-6% chrome                                                                   3.75                  62 (9,000)             (la), (lb), (le),
+                                    Stainless steels and nickel-base allovs                                        3.75                  62 r9,0001               rtdl
+                                 Grooved metal:
+                                    Soft aluminum                                                                  3.25                  38 (5,500)
+                                    Soft copper or brass                                                           3.50                  45 (6,500)
+                                    Iron or soft steel                                                             3.75                  52 (7,600)
+                                    Mon e! or 4%- 6% chrome                                                        3.75                  62 (9,000)             (la), (lb), (le),
+                                    Stainless steels and nickel-base allovs                                        4.25                  70 r10,1001              r1dl
+                                 Sold flat metal:
+                                    Soft aluminum                                                                  4.00                 61 (8,800)
+                                    Soft copper or brass                                                           4.75                 90 (13,000)
+                                    Iron or soft steel                                                             5.50                124 (18,000)
+                                    Mon e! or 4%- 6% chrome                                                        6.00                150 (21,800)             (la), (lb), (le),
+                                    Stainless steels and nickel-base alloys                                        6.50                180 (26,000)               (ld)
+                                 Ring joint:
+                                    iron or soft steel                                                             5.50                124 (18,000)
+                                    Monei or 4%- 6% chrome                                                         6.00                150 (21,800)
+                                    Stainless steel and nickel -base alloys                                        6.50                180 (26,000)             (2)
+
+                                 GENERAL NOTE: This table gives a list of commonly used gasket materials and contact faci ngs w ith suggested values of m
+                                 and y that have generally proved satisfactory in actual service when using effective gasket seating width b. The design values
+                                 and other details ·ven in th is table are su ested onl and are not mandato .
+
+
+
+
+                                                                                                   432
+
+
+Copyrtghl ASME lnlJ>mallonal (BP,,,C)
+Pn>,ided by AocLris under license wllh ASME                                                              Lloansee=BR.EMBANA & ROLLE GROUP - Bergamasque: Altrimb/8355718001, User=Toslo, Nalala
+No l'eproduc:tlon or networking permitted without Ucense from Accur1s.                                   Nollor Resale, 10/2012025 03:56:31! MDT
+                                                                                                 ASME BPVC.VHl.2•2025                                                                                    4.16.14
+
+
+
+
+                                                                                                     Table 4.16.2
+                                                                             Recommended Minimum Gasket Contact Width
+                                                                                                 Gasket Contact Width, N
+                                                                                                                                  Gasket Outside Diameter
+                                                                                            <150 mm                <300 mm            <600 mm                  <900 mm                    900 mm (36 In.)
+                                                         Gasket T2'.(!e                       {6 In.)               {12 in.)           (24 In.)                 (36 In.)                     and Over
+                              Sheet gaskets including laminated sheets gaskets                 9mm                  12mm                 16 mm                   16mm                           19 mm
+                                with or without a metal core                                  (0.375 in.)           (0.5 in.)           (0.625 in.)             (0.625 in.)                     (0.75 in.)
+
+                              Preformed composite gaskets including spiral                     6mm                   9mm                12 mm                    16mm                            16mm
+                                wound, jacketed, and soUd flat metal saskets                  (0.25 in.)            (0.375 in.)          (0.5 in.)              (0.625 in.)                     (0.625 in.)
+
+
+
+
+                                                                                              Table 4.16.3                                                                                                            (25)
+                                                                          Effective Gasket Width for Determining the Bolt Loads
+                                                       Faclnl! Sketch              Facln2 Sketch DetaU (Exal!l!erated)                      Basic Gasket Seatin2 Width, b 0
+                                                                la               '''''''''''''"iC           ~                                                   -N2
+                                                                                      ~
+                                                                                ,,,,,,,,,,,,,,,               ~                                                       .. ... .. .. ..........   ..... ... ...............
+                                                                                                                                                                                                           .. .           .
+                                                                                     r-N,                   ~
+                                                                lb
+                                                                                               ~N~                 1:1
+                                                                                       ''''""""
+                                                                              Note (1) ~~
+                                                                                      ,.., ,,, ,.,,,,,,,,            ~
+                                                                                                                   ~
+
+
+                                                                le                                                                                         w     t      w +N~
+                                                                                      ~ i
+                                                                                                                                                           9
+                                                                                                                                                      mi _2_'_4___
+                                                                                                                                                                                 ~
+
+
+
+                                                                                Note (1) ~                              w5,N
+                                                                                      >>»>>>>>>>>>>>        t lg
+                                                                                           ~I
+                                                                ld
+
+                                                                                    ~
+                                                                              Note (1) ~                      tg          w~ N
+                                                                                        t
+                                                                                    mmm,,,mwm,,
+
+                                                                                    IAI
+                                                                2                                                                                               w
+
+                                                                                                    ~                                                           8
+
+
+
+                                                                                             ~
+                                                      GENERAL NOTE: The gasket factors listed in this table apply only to flanged joints in which the gasket is
+                                                      contained entirely within the inner edges of the bolt holes.
+                                                       NOTE:
+                                                       (1) Raised face on one side or the combination ofraised faces on both sides is sufficiently high that the
+                                                           gasket will not be compressed outside of the raised face region. If the gasket is compressed, then fa.
+                                                           cin 1 a or 1      should be used, as a ro riate.
+
+
+
+
+                                                                                                              433
+
+Copyrtghl A SME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef llcer1se wllh ASME                                                                Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001, User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                         Notror Resale, 10/20/2025 03:56:38 MDT
+                  4.16.14                                                              ASME BPVC.Vlll.2·2025
+
+
+
+
+        (25)                                                                              Table 4.16.4
+                                                                       Flange Stress Factors Equations Involving Diameter
+                                      Flan2e Type                                                 Stress Factors lnvolvin2 Diameter
+                     Integral-type flange, welded slip-
+                       on-type flange, and loose-type
+                       flange with a hub
+
+
+                                                                                                 Y=    ....!..l
+                                                                                                        ~11
+                                                                                                                                   2
+                                                                                                               0.66845 + 5.7 1690[K l;g19K)-
+                                                                                                                                   K        - 'l
+
+
+
+
+                                                                                                             = f... for intcgral-typ flanges
+                                                                                                               ho
+
+
+
+                                                                                                  e    t'" for loose-typ fla nges with a hub
+                                                                                                         0
+
+
+
+
+                                                                                                       e = F, for welded slip-on nanges
+                                                                                                              ho
+
+
+                                                                                                             u 21,
+                                                                                                      d~       g~ 0 for Integral-type fl anges
+
+
+
+                                                                                                      U~ 2h
+                                                                                                d ~ ~ fo r loose-type flanges with a hub
+                                                                                                        VL
+
+
+
+                                                                                                           ugJ110
+                                                                                                   d=                for welded slip-on flanges
+                                                                                                               Vs
+
+
+
+
+                                                                                                                       Xgz = f}J:,
+                                                                                                                             Dr,
+
+
+                                                                                                Xh = 2.0 for inicgral type flanges with g 1 = Do
+
+
+
+                                                                                                                Xh =   hoh for all others
+
+
+
+
+                                                                                               434
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef llcer1se wllh ASME                                                         Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 . User-Tosto, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                  Notror Resale, 10/20/2025 03:56:38 MDT
+                                                                                                  ASME BPVC.VHl.2•2025                                                                           4 .16.14
+
+
+
+
+                                                                                              Table 4.16.4
+                                                                       Flange Stress Factors Equations Involving Diameter (Cont'd)
+                                              Flan2e Type                                                       Stress Factors lnvolvln2 Diameter
+                             Reverse integral-type flange and               The parameters K, T, U, Y, and Z are determined using the equations for integral- and loose-type flanges with:
+                               reverse loose-type flanges with a
+                               hub
+
+
+                                                                            Then, the reverse flange parameters are computed as follows:
+
+
+
+
+                                                                                                                                _ I (I              0.668(K + I)'
+                                                                                                                             a, --;;z           +        Y
+                                                                                                                                    K                          ~
+
+
+
+
+                                                                                                                      e, : -   " for integral-type flanges
+                                                                                                                              hor
+
+
+
+
+                                                                                                               e : FL for loose-type flanges with a hub
+                                                                                                                r     l,OI'
+
+
+
+
+                                                                                                                               2
+                                                                                                                    d, ,. U11;ho, for Integral-type flanges
+
+
+
+
+                                                                                                                  U 2h
+                                                                                                             d, : ~ for loo e-type flanges with a hub
+                                                                                                                       Vi,
+
+
+
+
+                                                                                                                                        Xg • ~
+                                                                                                                                            '        Yo
+
+
+
+
+                                                                                                              Xh = 2.0 fo r integral type flanges "ith g 1 = Bo
+
+
+                                                                                                                                        h
+                                                                                                                               Xh • h For nil others
+                                                                                                                                        or
+
+
+
+
+                                                                                                             43 5
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef llcer1se wllh ASME                                                               Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 . User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                        Notror Resale, 10/20/2025 03:56:38 MDT
+                   4.16.14                                                                     ASME BPVC.Vlll.2·2025
+
+
+
+
+        (25)                                                                                Table 4.16.5
+                                                                                    Flange Stress Factor Equations
+                                         Flan2e Type                                                                       Stress Factors
+                       Integral-type flange, reverse
+                          integral-type fl ange                                                            0.897697 - 0.2970 L21nXg + 9.5257(10-3)1nXh +
+
+                                                                                                    0.123586(1nXi + 0.03585BO(l nXh)2 - 0.194422(1nX9 )(lnXh) -
+                                                                                               F=
+                                                                                                               O.ot81259[1nX,l           O.Ol29360(1 nX,,J3 -
+
+                                                                                                          0.0377693(1nXg) (1nXh)2 + 0 0273791 (1nXo)2{1nXh)
+
+
+
+
+                                                                         For 0.1 s X11 s 0.5
+
+
+
+                                                                                                    0.500244 + ~ - l.87071Xh - ~                            2.49189Xt
+                                                                                                                    X8                            X8
+
+
+
+                                                                                               V=    0.873446[~ )         O.t
+                                                                                                                                4
+                                                                                                                                9s3 - 1.06082Xg - 1.4997 ~ )
+
+
+
+                                                                                                                                0.719413(~ )
+
+
+
+
+                                                                         For 0.5 < X11 s 2.0
+
+
+                                                                                                    0.0144868 _ ~ _ 0.0461919 + ~ + 0.0529829
+                                                                                                                     Xg             Xh            Xg        -r-            •
+
+
+
+                                                                                                    x;;;;:- + xr - x1
+                                                                                                    0.244313    0.113929        0.00928265      0.0266293       0.217008
+                                                                                                                                             - ---;;;xr- - xrx;,- )
+
+
+                                                                                                                     0.0927779 - 0.0336633Xy + 0.964176XJ +         l-
+                                                                                                                      0.0S66286Xh 0.347074Xj - 4.l8699Xj
+
+                                                                                                                          I - 5.96093(   ,o-3)xa • l.62904Xh
+                                                                                                                                 3.49329XI + l.39052Xj
+
+
+
+
+                                                                                                         436
+
+Copyrtghl ASME lnlJ>mallonal (BP,,,C)
+Pn>,ided by AocLris under license wllh ASME                                                                    Lloansee=BREMBANA & ROLLE GROUP · Bergamasque: Altrimb/8355718001 , User=Toslo, Nalala
+No l'eproduc:tlon or networking permitted without Ucense from Accur1s.                                         Nollor Resale, 10/2012025 03:56:31! MDT
+                                                                                   ASME BPVC.VHl.2•2025                                                                        4 .16.14
+
+
+
+
+                                                                                      Table 4.16.5
+                                                                         Flange Stress Factor Equations (Cont'd)
+                                                 Flan2e Type                                               Stress Factors
+                                Welded slip-on flange
+                                                                                                                                   I
+                                                                                                           As - r.,,lM1.t_!J.2
+                                                                                                              -                    l
+                                                                                                                                       x/
+                                                                                                                   - 1.1N1,,jXg2       x/
+                                                                                                                  - 1l;,;Xg2'xt
+                                                                                                          Vs =                I
+                                                                                                                  ~1JP;,;Xg2 xl
+
+
+                                                                                                                   M=
+                                                                                                 j =0                                       j =1                   J=2
+                                                                            i =0           - 0.33289917                          1.89824507                    0.51289982
+                                                                            i =1             5.33592441                       - 17.32691994                  17.31106722
+                                                                            i =2             4.92214647                          3.21485121                  - 1. 76102532
+                                                                                                                   N=
+                                                                                                 j =0                                       j =1                   J=2
+                                                                            i =0           - 0.0709392                               0.30338397               1.74097066
+                                                                            i =1             0.54117473                            - 6.48801256              12.82177228
+                                                                            i =2           10.36447138                             - 6.9101355 7              2.9795664
+                                                                                                                   O=
+                                                                                                 j =0                                       j =1                   J=2
+                                                                            i =0             0.39926596                            - 1.09329423                0.79382644
+                                                                            i =1           - 0.45359452                              2.79772392              - 2.02963598
+                                                                            i =2             0.26069646                            - 1.46342431                4.17498559
+                                                                                                                   P=
+                                                                                                 j =0                                       j =1                   J=2
+                                                                            I =0             0.000733115                           - 0.016647943               0.342479503
+                                                                            i =1           - 0.02136683                              0.173868541             - 0.199696025
+                                                                            i =2             0.349898055                             0.794317086               4.88408141
+
+
+
+
+                                                                                           437
+
+Copyrtghl ASME lnlJ>mallonal (BP,,,C)
+Pn>,ided by AocLris under license wllh ASME                                               Lloansee=BR.EMBANA & ROLLE GROUP - Bergamasque: Altrimb/8355718001, User=Toslo, Nalala
+No l'eproduc:tlon or networking permitted without Ucense from Accur1s.                    Nollor Resale, 10/2012025 03:56:31! MDT
+                  4.16.14                                                                      ASME BPVC.Vlll.2·2025
+
+
+
+
+                                                                                         Table 4.16.5
+                                                                            Flange Stress Factor Equations (Cont'd)
+                                        Flan e           e                                                                        Stress Factors
+                       Loose-type flange with a hub, reverse
+                         loose-type flange with a hub
+                                                                                                           0.941074      0.17613 lnx9]- 0.18855          lnxh)         0.0689B47{11.x9J2      '
+                                                                                                                          0.523798{1nXh)2 - 05 l 3894[1nXg)(lnXh)
+
+                                                                                                              I + 0.37939, lriXg)         0.18452{hlXh)- 0.00605208(1nXl -
+
+                                                                                                                         0.00358934(lnXh)2 + O.l10179(1nX9 )(1nXh)
+
+
+
+                                                                       For 0.1 s xh s 0.25
+
+
+
+                                                                                                                       6.57683 - 0.11 5516\1 + 1.39499Jxi;[lnX9)+
+
+
+                                                                                                1 vi]=
+                                                                                                                                      2
+                                                                                                                 0.307340(1nx9] - 8.30849             p; 2.62307( tnX9) +
+                                                                                                                0.239498x{ 1nX11) - 2.%12s(1nX11) + 1 •0350~:( 10                        l
+
+                                                                       For 0.25 < Xh s 0.50
+
+
+
+                                                                                                                                       1.33458           (
+                                                                                                            l.56323 - 1.80696( lnXg) - ---;;;- + 0.276415 lnXg +
+                                                                                                                                                                                     )2
+
+                                                                                                            0.4171 35        l.39511 [lnXo)         0.0 137129(1 nXg)3 +
+                                                                                                            ~+                       Xh
+                                                                                                                                                                              2
+                                                                                                            0.0943597 _ 0.402096(1nX9] . O.l01619[1flA'.q]
+                                                                                                                XI,                   Xt                         XJ,
+
+
+                                                                       For o.so < Xh s 1.0
+
+
+
+                                                                                                         - 0.0213643 - ~ + ~ + 0•725776 - ~                                                  - ~
+                                                                                                                       ~   ~       9                                                 ¾
+                                                                                                     [
+                                                                                              VJ,=         0.0918061
+                                                                                                             Xg xh
+                                                                                                                         +   -xr- + ---;r- +
+                                                                                                                             0.472277
+                                                                                                                                 g
+                                                                                                                                            0.0873530
+                                                                                                                                                xh
+                                                                                                                                                           0.527487
+                                                                                                                                                           ~ - ----;;r:-
+                                                                                                                                                             Xo • xh
+                                                                                                                                                                                  0.980209
+                                                                                                                                                                                   Xg • xh     )
+
+
+
+                                                                       For 1.0 < xh ::. 2.0
+
+
+                                                                                                         7.96687(10-3) - 0.220518 + 0.0602652 + ~ _ 0.2232212 +
+                                                                                                                                Xo              X1,               Xo                 xh
+                                                                                                            0.421920      0.0950195         0.209813      0.158821            0.242056
+                                                                                                             x9 • xh    +~+~-                               x0 • Xl       -       xJ- xh
+
+
+
+
+                                                                                                                                          J = 1.0
+
+
+
+
+                                                                                                               438
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef license wllh ASME                                                                           Lloansee=BREMBANA & ROLLE GROUP · Bergamasque: Altrimb/8355718001 . User=Toslo, Natala
+No reproduction or netwotking permllted without lcense from Accurls.                                                   Nollor Resale, 10/2012025 03:56:31! MDT
+                                                                                                  ASME BPVC.VHl.2•2025                                                                            4 .16.14
+
+
+
+
+                                                                                            Table 4.16.6                                                                                                      (25)
+                                                                       Moment Arms for Flange Loads for the Operating Condition
+                                                       Flange Type                                    hn                                      hr                                      he
+                                                                                                                                                                                                          :
+                                                                                                                                                                                                      :
+                            Integral and welded slip-on-type flanges                                C- 8 - 91
+                                                                                                        2
+                                                                                                                                         ½(C; B he]                                    C-G
+                                                                                                                                                                                        2
+                                                                                                                                                                                                          :
+                                                                                                                                                                                                      :
+                                                                                                      C- 8                                    C- G                                     C- G           :
+                            Loose-type lap joint flanges                                                                                      ~2-
+                                                                                                       2                                                                                2
+
+
+
+                            Reverse integral-type flanges
+                                                                                                  C+g1 - 2g0 - B
+                                                                                                        2
+                                                                                                                                          ½(c - s;c]                                   C-G
+                                                                                                                                                                                        2
+
+                                                                                                                                                                                                          :
+                                                                                                                                                                                                      :
+                            Reverse loose-type flanges
+                                                                                                      C- 8
+                                                                                                       2
+                                                                                                                                          f(c - s;c]                                   C-G
+                                                                                                                                                                                        2             :
+
+
+
+
+                                                                                                   Table 4.16.7                                                                                               (25)
+                                                                                             Flange Moments of Inertia
+                                                                                    I
+                            Integral-type flange
+                                                                             I " 0.0874L0:hoB
+                                                                                        V
+
+                            Loose-type flange with a hub
+                                                                             ,/ = 0.0814l0:hoB
+                                                                                        VL
+
+                            Welded slip-on-type flange
+                                                                             I = 0.087 4l~ hoB'
+                                                                                        Vs
+
+
+
+
+                                                                                                      For integra.1 -type flanges with B1 = Bo
+
+
+
+
+                                                                                                      For all others
+
+
+
+
+                                                                                                      If t < Gavg
+
+
+
+
+                                                                                                             439
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef license wllh ASME                                                                 Lloensee=BREMBANA & ROLLE GROUP · Bergamasque: Altrimb/8555718001 , User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                         Notror Resale, 10/20/2025 03:56:38 MOT
+                  4 .16.14                                                                       ASME BPVC.Vlll.2·2025
+
+
+
+
+                                                                                             Table 4. 16.7
+                                                                                    Flange Moments of Inertia (Cont'd)
+                               Flan2e Type
+                    Loose-type flange without a
+                      hub
+
+
+
+
+        (25)                                                                                      Table 4.16.8
+                                                                                             Flange Stress Equations
+                                                                                                                           Stress Equations
+                                     Flange Type                                            Operating Cond1tlon                                               Gasket Seating Cond1tions
+                    Integral-type flange, welded slip-                                                                                          JM
+                                                           Sn = !19                                                                    S11 = ~
+                      on-type flange, or loose-type flange      l91 B'                                                                       l91 IJ'
+                      with a hub
+                                                                       S _ (t .331C + t)M0                                                      [1.33te + l )M,I!
+                                                                        R-       u28                                                   SR =
+                                                                                                                                               l 8
+                                                                                                                                                         t2
+                                                                                                                                           YM
+                                                                       Sr= ~   - ZSR                                                   Sr = ~ - ZSR
+                                                                           t 8                                                             t 8
+                    Loose-type fl ange without a hub                                                                                            YM
+                                                                       sr = Tnl'M                                                      Sr=         ,q
+                                                                             t 8                                                                Ts
+                    Reverse integral -type flange or                   S -~JM                                                                    JM
+                      reverse loose-type flange with a                  H - l,g'l B*                                                   s,., = /,,gt's•
+                      hub
+                                                                       S = [ t .33ce, + l )M2                                                   ( t.33ter + 1)M,I!
+                                                                        R         l,le28•                                              SR "'          L,-l28•
+
+                                                                       S      - Y,Mo    ZSii(0.67ter + t)                                    Y,Mg    zsR(0.67te, + 1)1
+                                                                           r1 - 128 , -  (t.33ce,. l)                                  Sr, = :r,;; -
+                                                                                                                                          I  I 8°      (t .33te, t)
+
+                                                                       S =        (r_ 2K 2 [0,67m, 1] )¼-o                             s   -(Y- 2K2 (o.67re, + 1) ) .!!JL
+                                                                        TZ               (K2 - 1)L,    t 8'                             T2 -      ( K2 - I )Lr       r28'
+
+                    Reverse loose-type flange without a                S - YMa                                                              YM
+                      hub                                               r- r2s•                                                        Sr = f : :
+
+
+
+
+        (25)                                                                                   Table 4.16.9
+                                                                                     Flange Stress Acceptance Criteria
+                                                                                                                     Stress Acceptance Criteria
+                                      Flan2e Type                                           Operatin2 Cond1tion                                               Gasket Seatin2 Cond1tions
+                     Integral-type flange, welded slip-     S11 S mi{1 .SSJ0 ,2.5Sno] [Note (1)]                                       Sn s mi{ 1.SSJg, 2.SSng: [Note (1)]
+                       on-type flange, or loose-type flange
+                       with a hub                           Sn s l .SSJo [Note (2)]                                                    S11 s 1.5S[g [Note (2)]
+                                                                       SR :$ Sfo                                                       Sn :S SJg
+                                                                       Srs Sto                                                         srs s19
+
+                                                                       (Su +Sn) S                                                      (s11 + Sn)
+                                                                           2   S 'fo                                                        2           s 'lo
+                                                                       (s,, +Sr)      s                                                (S11 + Sr) S S
+                                                                              2     s '/o                                                   2        'Jo
+
+
+                                                                                                            440
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef license wllh ASME                                                                      Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 . User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                              Notror Resale, 10/20/2025 03:56:38 MDT
+                                                                                                  ASME BPVC.VHl.2•2025                                                                          4.16.14
+
+
+
+
+                                                                                             Table 4.16.9
+                                                                               Flange Stress Acceptance Criteria (Cont'd)
+                                                                                                                    Stress Acceptance Criteria
+                                               Flan2e Type                                   Operatin2 Condition                                       Gasket Seatin2 Conditions
+                            Loose-type flange without a hub            Sr s SJo                                                        srs 9 sr
+                            Reverse integral-type flange or            s11 s   1.ss10                                                  SH s I.SS19
+                              reverse loose-type flange with a
+                                                                       SR ,,; Sta                                                      SR S SJg
+                              bub
+                                                                       Sn,.; SJo                                                       Sn SSJg
+                                                                       (S11 + SR} S                                                    (S11 + Sn) s; S
+                                                                            2    s; 'fo                                                     2         'jg
+                                                                       (S11 + Sn)       S                                              (s11 + sn) s;s
+                                                                               2    s; 'fo                                                  2           'Jo
+                                                                       ST2 S SJo                                                       Sr2 s S/g
+                            Reverse loose-type flanges                 Sr s SJo                                                        Srs 9 sr
+                            NOTES:
+                            (1) For integral flanges with hubs welded to a nozzle neck, pipe, or vessel shell.
+                            (2) For loose type flanges with a hub.
+                             3 Flan es made of non-ductile material, such as cast iron, are not addressed b this section.
+
+
+
+
+                                                                                                   Table 4.16.10                                                                                          (25)
+                                                                                              Flange Rigidity Criterion
+                                                                                                                          Rlgldily Criterion
+                                               Flange Type                                   Operating Condition                                       Gasket Seating Conditions
+
+
+                            Integral-type flange
+
+
+
+                            Welded slip-on-type flange
+
+
+
+                            Loose-type flange with a hub
+
+
+
+                            Reverse integral-type flange
+
+
+
+                            Reverse loose-type flange with a hub
+
+
+                            Loose-type and reverse loose-type
+                              flange without a hub
+
+
+                            GENERAL NOTES:
+                            (a) For an integral type flange, KR = 0.3 unless other values are specified by the user.
+                                For a loose    e flan e with or without a hub, KR = 0.2 unless other values are s ecified b the user.
+
+
+
+
+                                                                                                           441
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris "ndef llcer1se wllh ASME                                                               Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 , User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                       Notror Resale, 10/20/2025 03:56:38 MDT
+                  4.16.14                                                                    ASME BPVC.Vlll.2·2025
+
+
+
+
+                                                                                            Table 4.16.11
+                                                                                       Bolt Spacing Equations
+                                                                Flan e         e                                                         Bolt S acin Factors
+
+                                                                                                                                            Bsmax = 2a + _6_1-
+                                                                                                                                                         m  0.5
+
+                                                                         All
+
+
+
+
+                                                                                            Table 4.16.12
+                                                                                          Moment Factor, FM
+                                                                                                                     Flange Pressure Rating Class
+                                 Standard                              Size Range      150            300                   600                900                 1500               2500
+                      ASME B16.5                            sNPS 12                    1.2             0.5                 0.5                 0.5                  0.5                 0.5
+                                                            >NPS 12 and sNPS 24        1.2             0.5                 0.5                 0.3                  0.3
+                      ASME B16.47
+                        Series A                            All                        0.6             0.1                 0.1                 0.1
+                        Seri es B                           <NPS 48                 [Note (1) ]     [Note (1)]             0.13                0.13
+                                                            ~NPS 48                    0.1          (Note (2))
+
+                      GENERAL NOTES:
+                      (a) The combinations of size ranges and flange pressure classes for which this Table gives no moment facto r value are outside the scope of
+                          this table.
+                      (b) The designer should consider reducing the moment factor if the loading is primarily sustained in nature and the bolted flange joint
+                          operates at a temperature where gasket creep/relaxation will be significant.
+                      NOTES:
+                      (1) FM = 0.1 + (48 - NPS)/56.
+                       2 f M = 0.1 exce t NPS 60, Class 300, in which case FM = 0.03.
+
+
+
+
+                                                                                                     442
+
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef license wllh ASME                                                                 Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 . User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                         NOi lor Resale, 10/20/2025 03:56:38 MDT
+                                                                                                   ASME BPVC.VHl.2•2025                                                                            4 .16.15
+
+
+
+                           4.16.15              FIGURES
+
+                                                                                                     Figure 4.16.l                                                                                            (25)
+                                                                                                 Integral Type Flanges
+
+
+
+
+                                                                   t
+                                                                   A
+                                                                                Gasket
+
+
+
+                                                                                                                                              w
+
+
+                                                                         T
+                                                                    HT ___l_T__G_ _ _ _ ....._ _ _ _ _ _ _ _ __
+
+
+                                                                                                                                 9o
+
+
+                                                                                                                                      B
+                                                                                           (a) Integral Flange With Full-Penetration Weld
+
+
+
+
+                                                                                                 ~t
+
+
+                                                                                 t
+                                                                                Gasket
+                                                                                                                                 w
+
+                                                                                                                                                                r
+                                                                                                                                                                C
+                                                                           hT
+
+
+                                                                         bj
+                                                                                                                             h
+
+
+
+                                                                                                 ..,._...,._ _ _ ___..__,.... _ _ _ _ _ _ _                 ►   Ho
+
+
+
+
+                                                                                                                              9o
+
+
+                                                                                                                                          B
+                                                                                         (b) Integral Flange With Partial-Penetration Weld
+
+
+
+
+                                                                                                             443
+
+Copyrtghl ASME lnlJ>mallonal (BP,,,C)
+Pn>,ided by AocLris under license wllh ASME                                                                  Lloansee=BR.EMBANA & ROLLE GROUP - Bergamasque: Altrimb/8355718001 , User=Toslo, Nalala
+No l'eproduc:tlon or networking permitted without Ucense from Accur1s.                                       Nollor Resale, 10/2012025 03:56:31! MDT
+                  4.16.15                                                                 ASME BPVC.Vlll.2·2025
+
+
+
+
+                                                                                            Figure 4.16.l
+                                                                                   Integral Type Flanges (Cont'd)
+
+
+                                                         A
+
+                                                        i
+                                                       Gasket
+                                                                                                           w
+
+                                                                                                                                 r                     I
+                                                                                                                                                       C
+
+
+
+
+                                     Hr-------►
+                                                             G
+
+                                                                                                              1
+                                                                                                              B
+
+                                                                             (c) Integral Flange With 9 0 = 9 1
+
+
+
+
+                                            A                      ~ t - - - 1 - - - h '2:. 1.5go
+                                            t
+                                         Gasket
+                                                                                           w                                C
+                                                                                                                                    Where hub slope adjacent to flange
+                                                                                                                                     exceeds 1:3, use hub type 2 or type 3
+
+
+
+                                                                         T--- --                                       Slope 1:3 (max.)
+
+
+
+
+                              tt               Hr
+                                                                           g1       H0 - - - • : , , . . , ~ ~ - - - - -
+
+
+
+
+                                                                                             B
+
+
+                                                                                     (d) Hub Type 1
+
+
+
+
+                                                                                                     444
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris "ndef llcer1se wllh ASME                                                               Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 . User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                       Notror Resale, 10/20/2025 03:56:38 MDT
+                                                                                               ASME BPVC.VHl.2•2025                                                                         4 .16.15
+
+
+
+
+                                                                                                 Figure 4.16.1
+                                                                                        Integral Type Flanges (Cont'd)
+
+                                                                                Slope exceeds 1:3
+
+                                                                                                                                                              Slope exceeds 1:3
+
+                                                                                    1.5g0 (min.)                                                                   Slope 1:3 (max.)
+
+
+
+                                                       T  g,
+
+
+
+
+                                                                                I
+
+                                                                                '--~weld
+
+
+                                                          (e) Hub Type 2                                                               (f) Hub Type 3
+
+
+
+
+                                                                                               Figure 4.16.2
+                                                                                        Welded Slip-on-Type Flanges
+
+
+
+                                                                            t
+                                                                           Gasket
+                                                                                                                       w
+
+                                                                                                                                               r 1
+                                                                                                                                               ho            C
+
+
+                                                                                                                                   ----.--
+                                                                                                                                      90
+
+
+
+
+                                                                                                       445
+
+Copyrtghl ASME lnlJ>mallonal (BP,,,C)
+Pn>,ided by AocLris under license wllh ASME                                                           Lloansee=BR.EMBANA & ROLLE GROUP · Bergamasque: Altrimb/8355718001 , User=Toslo, Nalala
+No l'eproduc:tlon or networking permitted without Ucense from Accur1s.                                Nollor Resale, 10/2012025 03:56:31! MDT
+                   4.16.15                                                                     ASME BPVC.Vlll.2·2025
+
+
+
+
+                                                                           Figure 4.16.3
+                                       Integral Type Flanges With Nut Stops - Diameter Less Than or Equal to 450 mm (18 in.)
+
+
+                                                                                       Inside                                                                                Inside
+                                                                                        diameter                                                                              diameter
+
+                                                         I,                                                                                !
+                              ru = 6 mm (0.25 in.                                                                   fu = 6 mm (0.25 in.)
+                                                                           5 mm (0.1875 in.)                                                                5 mm (0.1875 in.)
+
+
+
+
+                                                                          ,------go
+                                                                                                                                                       ------90
+                                                                   -     Nut stop diameter                                                         -Nut stop diameter
+
+
+                                                                       (a) Detail A                                                             lb) Detail B
+
+
+
+
+                                                                                      Inside                                                                                  Inside
+                                                                  i-g, =9o             diameter
+
+                                          ---,--·
+                           ru = 6 mm (0.25 in.)
+                                                                                                               For integrally
+                                                                                                                                                          ru = 6 mm (0.25 in.)
+                                                                  l--5 mm (0.1875 in.)
+                                                                                                            reinforced noules,                      L 5 mm (0.1875 in.)
+                                                                                                   min . = nut height + 6 mm (0.25 in.)
+
+
+                                                                                                                                  *
+                                                                I-N ut stop diameter
+
+
+
+                                                         (cl Detail C                                                                          (di Detail D
+
+
+
+
+                                                                                                         446
+
+Copyrtghl ASME lnlJ>mallonal (BP,,,C)
+Pn>,ided by AocLris under license wllh ASME                                                                    Lloansee=BR.EMBANA & ROLLE GROUP · Bergamasque: Altrimb/8355718001 , User=Toslo, Nalala
+No l'eproduc:tlon or networking permitted without Ucense from Accur1s.                                         Nollor Resale, 10/2012025 03:56:31! MDT
+                                                                                                  ASME BPVC.VHl.2•2025                                                                           4 .16.15
+
+
+
+
+                                                                                      Figure 4.16.4
+                                                      Integral Type Flanges With Nut Stops - Diameter Greater Than 450 mm (18 in.)
+
+
+
+                                                                                                                                      Inside
+                                                                                                                                       diameter
+
+
+
+
+                                                                       ru   = 10 mm (0.375 in.)
+                                                                       8 mm (0.3125 in .)            ~            g, ------
+
+
+
+
+                             GENERAL NOTE: All other details per Figur e 4.16.3.
+
+
+
+
+                                                                                                Figure 4.16.5                                                                                               (25)
+                                                                                      Loose-Type Lap Joint Type Flanges
+
+
+                                                                                                                                                             Optional hub
+
+
+
+
+                                                                                                                                                          C
+
+
+
+
+                                                                                        --· .. ·.... •....... •.. ·'fci'be•fafen·iit mi dfioint of contact
+                                                                                                             between flange and lap, independent
+                                                                                                             of gasket location
+
+                             GENERAL NOTE: For hub tapers 6 deg or l ess, use Bo = Bi (loose-type flanges) .
+
+
+
+
+                                                                                                              447
+
+Copyrtghl A SME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef license wllh ASME                                                                 Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001. User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                         Notror Resale, 10/20/2025 03:56:38 MDT
+                  4.16.15                                                                ASME BPVC.Vlll.2·2025
+
+
+
+
+        (25)                                                                            Figure 4.16.6
+                                                                               Integral-Type Reverse Flanges
+                                                                                                                 , -- , --------
+                                                                                                                /             I
+                                                                                                            /                 I
+                                                                                                         I                    I
+                                                                                                     /                        I
+                                                                                                    I                         I
+                                                                           1 7 1T _ ____ /                                    I
+                                                                           I    I I I                                         I
+                                                                           I
+                                                                           I I
+                                                                                I
+                                                                                 I
+                                                                                    II                              I :   I
+                                                                           I_ L 1---I------,                        I     L
+                                                                                     w                                  -- -----
+
+
+                                                                                                                                          B'
+
+
+
+
+                                                                       h
+                                                                                                                     ------G
+
+                                                                                    -------c
+
+                                                                           --------8
+                                                                                             A
+
+                                                                           Shell
+                                                                                          (a) Reverse Flange With a Hub
+
+
+
+                                                                                                                , -- ,- ---- -- -
+                                                                                                            I
+                                                                                                             /        '   I
+                                                                                                        I                 I
+                                                                                                       I                  I
+                                                                                                   I                      I
+                                                                           1-,17 _____ _,                                 I
+                                                                           I    I    I                                    I
+                                                                           I    I    I             I I
+                                                                           I    I    I               I
+                                                                           l _1_ ..J _ _ _ _ __
+                                                                                    w              i
+                                                                                                \ __ I
+                                                                                                                         _L _ _ _ _ _
+
+
+
+
+                                                                       T                                                                 B'
+
+
+
+
+                                                                                                                    ------G
+
+                                                                                    -------c
+
+
+
+                                                                                         (b) Reverse Flange Without a Hub
+
+
+
+
+                                                                                                   448
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris "ndef license wllh ASME                                                                         Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 , User=Tosto, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                                Notror Resale, 10/20/2025 03:56:38 MDT
+                                                                                        ASME BPVC.VHl.2•2025                                                                         4 .16.15
+
+
+
+
+                                                                                           Figure 4.16.7
+                                                                                    Loose-Type Reverse Flange
+
+                                                                                                    ,- - -i- - - - - - - - -
+                                                                                                    I     I
+                                                                                                I         I
+                                                                                               I          I
+
+
+
+                                                                                  !Tri ___ ,              i
+
+
+                                                                                  --1;----,_ -~-----
+                                                                                    1
+
+
+
+
+                                                                                                                -----B'
+
+
+
+
+                                                                                            ----------G---
+                                                                                    --------------c-------
+                                                                         Shell   -----------A            B--------
+
+
+
+
+                                                                                                449
+
+Copyrtghl ASME lnlJ>mallonal (BP,,,C)
+Pn>,ided by AocLris under license wllh ASME                                                    Lloansee=BR.EMBANA & ROLLE GROUP - Bergamasque: Altrimb/8355718001 , User=Toslo, Nalala
+No l'eproduc:tlon or networking permitted without Ucense from Accur1s.                         Nollor Resale, 10/2012025 03:56:31! MDT
+                  4.16.15                                                                    ASME BPVC.Vlll.2·2025
+
+
+
+
+                                                                                             Figure 4.16.8
+                                                                               Location of Gasket Reaction Load Diameter
+                                                                       HG                                                                    HG
+                                                                                 hG                                                                         hG            _I
+                              Ge= O.D. contact face
+                                                          G                                                                        G
+                                                                                                                                           --1--                              I
+
+                                                                                                                                              ~                               I
+                                                                                                                                                                              I
+
+                                                                                                                                                    Gasket Face               I
+
+
+
+
+                                                                                                                                                                                               .. .. . .. .......
+                                                                                                                                                                                       .. ... ........
+
+                                                                       For b0 > 6 mm (0.25 in.)                                                 For b 0 ~ 6 mm (0.25 in.)
+
+
+
+
+                                                                                            To be taken at midpoint of contact
+                                                                                             between flange and lap,
+                                                                                             independent of gasket location
+
+                                                            G
+
+
+                               O.D. of gasket
+
+
+
+
+                                                                       Self-Energizing Gaskets                                                        Lap-Type Joints
+
+
+
+
+                                                                                                      450
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris "ndef llcer1se wllh ASME                                                                Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001 . User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                        Notror Resale, 10/20/2025 03:56:38 MDT
+

@@ -1,0 +1,221 @@
+                  2·1 - z.z                                           ASME BPVC.Vlll.1· 2025
+
+
+
+
+        (2s)                       MANDATORY APPENDIX 2
+                     RULES FOR BOLTED FLANGE CONNECTIONS WITH RING TYPE
+                                          GASKETS
+
+                  2-1         GENERAL                                                   covers within the limits of size in the standards and the
+                                                                                        pressure-temperature ratings permitted in UG-44(a).
+                      (a) The rules in this Appendix cover the minimum re-              The ratings in these standards are based on the hub di-
+                  quirements for design of bolted flange connections with               mensions given or on the minimum specified thickness
+                  gaskets t hat are entirely within the circle enclosed by              of flanged fittings of integral construction. Flanges fabri-
+                  the bolt holes and with no contact outside this circle                cated from rings may be used in place of the hub flanges
+                  and are to be used in conjunction with the applicable re-             in these standards provided that their strength, calculated
+                  quirements in Subsections A, B, C, and D of this Division.            by the rules in this Appendix, is not less than that calcu-
+                        (1) The hub thickness of weld neck flanges and the              lat ed for the corresponding size of hub flange.
+                  design of components in the bolted flange connection,                    (c) Except as otherwise provided in (b), bolted flange
+                  other than the flange, shall be in accordance with the ap-            connections for unfired pressure vessels shall satisfy the
+                  plicable rules of Subsection A and the Mandatory                      requirements in this Appendix.
+                  Appendices.
+                                                                                           ( d) The rules of this Appendix should not be construed
+                        (2) These rules are not to be used for the determina-
+                                                                                        to prohibit the use of other types of flanged connections,
+                  tion of the thickness of tubesheets integral with a bolting           provided they are designed in accordance with good engi-
+                  flange as illustrated in Figure UW-13.2, sketches (h)                 neering practice and the method of design is acceptable to
+                  through (I) or Figure UW-13.3, sketch (c).                            the Inspector. Some examples of flanged connections that
+                        (3) Nonmandatory Appendix S provides discussion
+                                                                                        might fall in this category are as follows:
+                  on design considerations for bolted flange connections.
+                                                                                              (1) flanged covers as shown in Mandatory Appendix
+                        (4) Design requirement s for bolted flange connec-
+                                                                                        1, Figure 1-6
+                  t ions in 2-4 and Section VIII, Division 2, Part 4.16 shall
+                                                                                              (2) bolted flanges using full-face gaskets
+                  be used in lieu of those previously listed in this Appendix.
+                                                                                              (3) flanges using means other than bolting to restrain
+                  Tables 2-1-1 and 2-1-2 list the new locations for require-
+                  ments formerly located in this Division.                              the flange assembly against pressure and other applied
+                                                                                        loads
+                        (5) The Section VIII, Division 1 design requirements
+                  listed in Table 2-1-3 shall be used in lieu of the corre-
+                  sponding Section VIII, Division 2 requirements referenced             2-2         MATERIALS
+                  in Part 4.16.
+                        (6) When this Appendix is applied for design, the ap-              (a) Materials used in the construction of bolted flange
+                  plicable section of Section VIII, Division 2, Part 4.16 shall         connections shall comply with the requirements given
+                  be used in accordance with UG-16(a) and Mandat ory                    in UG-4 through UG-14.
+                  Appendix 46.                                                             (b) Flanges made from ferritic steel and designed in ac-
+                        (7) For vessels in lethal service or when specified by          cordance with this Appendix shall be full-annealed, nor-
+                  t he user or the user's designated agent, the maximum bolt            malized, normalized and tempered, or quenched and
+                  spacing, Bsmax, and the bolt spacing correction factor,               tempered when the thickness of the flange, t (see Section
+                  B sc, shall be applied in calculating the flange moment               VIII, Division 2, Figure 4.16.1), exceeds 3 in. (75 mm).
+                  for internal pressure.                                                   (c) Mat erial on which welding is to be performed shall
+                        (8) Successful service experience may be used as an             be proved of good weldable quality. Satisfactory qualifica-
+                  alternative t o t he flange rigidity rules for fluid services         tion of the welding procedure under Section IX is consid-
+                  t hat are nonlethal and nonflammable and designed within              ered as proof. Welding shall not be performed on steel
+                  t he temperature range of -20°F to 366°F (-29°C to                    that has a carbon content greater than 0.35%. All welding
+                  186°C) without exceeding design pressures of 150 psi                  on flange connections shall comply with the requirements
+                  (1035 kPa).                                                           for postweld heat treatment given in this Division.
+                      (b) It is recommended that bolted flange connections                 (d) Hubbed flanges shall not be machined from plate .or
+                  conforming to the standards listed in UG-44(a) be used                bar material [except as permitted in UG-14(c)] unless the
+                  for connections to external piping. These standards may               material has been formed into a ring and the following ad-
+                  be used for other bolted flange connections and dished                ditional conditions are met:
+
+                                                                                  418
+
+Copyrlghl ASME lnlema llonal (BPVC)
+Provid&d by Ao::um undet license with ASME                                              Llcens:ae:::BREMBANA & ROLLE GROUP - Bergamagque: Altrimbl8355778001, U.ser-,:Tosto, Natale
+No reproduction or netwof'ka,g permitted without bnse from Accorlg                      Nol for Rosal<>, 10/20/2025 03:55:57 MDT
+                                                                                                     ASME BPVC.VHl.1•2025                                                                    2-2 - 2-15
+
+
+
+
+                                                                                                   Table 2-1-1
+                                                                                          Paragraph Cross-Reference List
+                                                                                      Division 1 Paragraph                               Division 2 Paragraph
+                                                                   2-3, Notation - deleted                                                         4.16.13
+                                                                   2-4, Circular Flange Types                                                      4.16.3
+                                                                   2-5, Bolts Loads - deleted                                                      4.16.2 and 4.16.6
+                                                                   2-6, Flange Moment - deleted                                                    4.16.7
+                                                                   2-7, Calculation of Flange Stresses - deleted                                   4.16.7
+                                                                   2-8, Allowable Flange Design Stress - deleted                                   4.16.7
+                                                                   2-9, Split Loose Flanges - deleted                                              4.16.8
+                                                                   2-10, Noncircular Shaped Flanges with Circular Bore - deleted                   4.16.9
+                                                                   2-11, Flanges Subject to External Pressure - deleted                            4.16.7
+                                                                   2-12, Flanges With Nut Stops - deleted                                          4.16.10
+                                                                   2-13, Reverse Flanges - deleted                                                 4.16.3.2 and
+                                                                                                                                                     4.16.7
+                                                                   2-14, Flange Rigidity - deleted                                                 4.16.7
+
+
+
+
+                               (1) In a ring formed from plate, the original plate sur·                                (b) Welded Slip-on-Type Flanges. Welded slip-on-type
+                          faces are parallel to the axis of the finished flange. (This is                           flanges are addressed in Section VIII, Division 2,
+                          not intended to imply that the original plate surface                                     4.16.3.l(b).
+                          should be present in the finished flange.)                                                   (c) Loose-Type Flanges. Loose-type flanges are ad-
+                               (2) The joints in the ring are welded butt joints that                               dressed in Section VIII, Division 2, 4.16.3.l(c).
+                          conform to the requirements of this Division. Thickness                                      (d) Reverse-Type Flanges
+                          to be used to determine postweld heat treatment and                                             (1) Integral-Type Reverse Flange. The shell-to-flange
+                          radiography requirements shall be the lesser of                                           attachment of integral-type reverse flanges may be at-
+                                                                                                                    tached as shown in Section VIII, Division 2, Table 4.2.9,
+                                                                         [A- 8)                                     details (6) through (10), or Figure 2-4, as well as Figure
+                                                                       tor - -
+                                                                            2                                       UW-13.2, sketches (a) and (b). The requirements of
+                           where these symbols are as defined in 2-3.                                               2-4(c) apply to Figure 2-4, as well as Figure UW-13.2,
+                                                                                                                    sketches (a) and (b ).
+                                (3) The back of the flange and the outer surface of the
+                                                                                                                          (2) Welded Slip-on-Type Reverse Flange. The shell-to-
+                          hub are examined by either the magnetic particle method
+                                                                                                                    flange attachment of welded slip-on-type reverse flanges
+                          as per Mandatory Appendix 6 or the liquid penetrant
+                                                                                                                    may be attached as shown in Section VIII, Division 2,
+                          method as per Mandatory Appendix 8.
+                                                                                                                    Table 4.2.9, details (2) and (4), or Figure 2-4, as well as
+                             (e) Bolts, studs, nuts, and washers shall comply with
+                                                                                                                    Figure UW-13.2, sketches (c) and (d). When Figure
+                          the requirements in this Division. It is recommended that                                 UW-13.2, sketches (c) and (d) are used, the maximum
+                          bolts and studs have a nominal diameter of not less than                                  wall thickness of the shell shall not exceed % in. (10
+                          1h in. (13 mm). If bolts or studs smaller than 1/z in.
+                                                                                                                    mm), and the maximum design metal temperature shall
+                          (13 mm) are used, ferrous bolting material shall be of al-
+                                                                                                                    not exceed 650°F (340°C).
+                          loy steel. Precautions shall be taken to avoid over-
+                          stressing small-diameter bolts.
+                                                                                                                    2-15         QUALIFICATION OF ASSEMBLY
+                                                                                                                                 PROCEDURES AND ASSEMBLERS
+                          2-4           CIRCULAR FLANGE TYPES
+                                                                                                                      It is recommended that flange joints designed to this
+                            (a) Integral-Type Flanges. Integral-type flanges are ad-                                Appendix be assembled by qualified procedures and by
+                          dressed in Section VIII, Division 2, 4.16.3.l(a).                                         qualified assemblers. ASME PCC-1 may be used as a guide.
+
+
+
+
+                                                                                                              419
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef license wllh ASME                                                                 Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001. User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                         Notror Resale, 10/20/2025 03:55:57 MDT
+                  2•1 5                                                                            ASME BPVC.Vlll.1•2025
+
+
+
+
+                                                                                                   Table 2-1-2
+                                                                                       Figure and Table Cross-Reference List
+                                        Topic                                                Division 1                                                        Division 2
+                       Loose-type flange                               Figure 2-4, sketch (1) - deleted                             Figure 4.16.5
+                                                                       Figure 2-4, sketch (la) - deleted                            Table 4.2.9, detail 5
+                                                                       Figure 2-4, sketches (2) and f2a) - deleted                  Screwed Type Flanges - deleted
+                                                                       Figure 2-4, sketch (3) - deleted                             Figure 4.16.2; Table 4.2.9, detail 1 (welded slip-on
+                                                                                                                                      flange)
+                                                                       Figure 2-4, sketch f3a) - deleted                            Figure 4.16.Hbl; Table 4.2.9, detail 2 (integral flange)
+                                                                       Figure 2-4, sketch (4) - deleted                             Figure 4.16.2; Table 4.2.9, detail 3 (welded slip-on
+                                                                                                                                      flange)
+                                                                       Figure 2-4, sketch (4a) - deleted                            Figure 4.16.l(bl; Table 4.2.9, detail 4 (integral flange)
+                                                                       Figure 2-4, sketch (4b) - deleted                            Figure 4.16.l(bl; Table 4.2.9, detail 11 (integral flange)
+                                                                       Figure 2-4, sketch (4c) - deleted                            Figure 4.16.2; Table 4.2.9, detail 12 (welded slip-on
+                                                                                                                                      flange)
+                       Integral-type flange                            Figure 2-4, sketch (5) - deleted                             Figure 4.16.l(c)
+                                                                       Figure 2-4, sketch (6) - deleted                             Figure 4.16.l(dl; Table 4.2.9, detail 6
+                                                                       Figure 2-4, sketch f6a) - deleted                            Figure 4.16.l(el; Table 4.2.9, detail 7
+                                                                       Figure 2-4, sketch f6b l - deleted                           Figure 4.16.l(fl; Table 4.2.9, detall 8
+                                                                       Figure 2-4, sketch (7) - deleted                             Figure 4.16.l(a); Table 4.2.9, detail 9
+                       Optional type flange                            Figure 2-4, sketches (8), (BA), (9), (9a), (10), (10a), and Optional type flange - deleted
+                                                                         (11) - deleted
+                       Flange with nut stop                            Figure 2-4, sketch (12)                                      Figure 4.16.3
+                                                                       Figure 2-4, sketch (12a)                                     Figure 4.16.4
+                       Minimum contact width                           Table 2-4                                                    Table 4.16.2
+                       Gasket factors                                  Table 2-5.1                                                  Table 4.16.1
+                       Effective gasket width                          Table 2-5.2                                                  Table 4.16.3
+                       Location of gasket reaction                     Table 2-5.2                                                  Figure 4.16.8
+                       Moment arms for flange loads Table 2-6                                                                       Table 4-16.6
+                       Terms involving K                               Figure 2-7 .1                                                Table 4.16.4
+                       Flange factors in formula                       Table 2-7.1                                                  Table 4.16.5
+                         form
+                       Values of F for integral flanee Figure 2-7.2 - deleted                                                       Table 4.16.5
+                       Values of V for inteeral flanee Figure 2-7.3 - deleted                                                       Table 4.16.5
+                       Values of FL for loose flanee                   Fieure 2-7.4 - deleted                                       Table 4.16.5
+                       Values of VL for loose flanee                   Fieure 2-7.5 - deleted                                       Table 4.16.5
+                       Values off                                      Figure 2-7.6 - deleted                                       Table 4.16.5
+                       lnteeral-tvoe reverse flanees                   Figure 2-13.1                                                Fieure 4.16.6(a1
+                       Loose-ring reverse flange                       Figure 2-13.2                                                Figure 4.16.7
+                       Flange rigidity                                 Table 2-14                                                   Table 4.16.10
+
+
+
+
+                                                                                                              420
+
+Copyrtghl ASME lnlematlonal (BPVC)
+PtoYided by Aoclris " ndef license wllh ASME                                                                        Lloensee=BREMBANA & ROLLE GROUP - Bergamasque: Altrimb/8555718001. User=ToSlo, Natale
+No reproduction or netwotking permllted without lcense from Accurls.                                                Notror Resale, 10/20/2025 03:55:57 MDT
+                                                                                             ASME BPVC.VHl.1•2025                                                                               2-15
+
+
+
+
+                                                                                                Table 2-1-3
+                                                                         Division 2 Cross-Reference List to Division 1 Requirements
+                                                                                                                   Division 2
+                                                                 Topic                          Paragraph                             Reference                              Division 1
+                            Flange and pipe fittings                                           4.16.1.3                            4.1.1 1                                UG-44(a)
+                            Design rules for flange joints                                     4.16.1.4                            Part S                                 2-1(d), U-2(g)
+                            Flange materials                                                   4.16.4                              Part 3                                 2-2
+                            Joint assembly procedure                                           4.16.11                                                                    2- 15
+                            Evaluation of external forces and moments for flanged              4.16.12                             4.1.11                                 UG-44(b)
+                               joints with standard flanges
+
+
+
+
+                                                                                                      421
+
+Copyrtghl ASME lnlJ>mallonal (BP,,,C)
+Pn>,ided by AocLris under license wllh ASME                                                           Lloansee=BR.EMBANA & ROLLE GROUP - Bergamasque: Altrimb/8355718001 . User=Toslo, Nalala
+No l'eproduc:tlon or networking permitted without Ucense from Accur1s.                                Nollor Resale, 10/2012025 03:55:57 MDT
+

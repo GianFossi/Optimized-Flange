@@ -1,0 +1,1438 @@
+                  4.5.20 - 4.6.2.2                                              ASME BPVC.VIll.2-2025
+
+
+
+
+                                                                                    Figure 4.5.14
+                                                       Metal Area Definition for A2 With Variable Thickness of Set-on Nozzles
+
+
+
+
+                                                                       1
+
+                  4 .6         DESIGN RULES FOR FLAT HEADS
+                  4.6.1 SCOPE
+                    4.6.1.l The minimum thickness of unstayed flat heads, cover plates and blind flanges shall conform to the require-
+                  ments given in 4.6. These requirements apply to both circular and noncircular heads and covers. Some acceptable types
+                  of flat heads and covers are shown in Table 4.6.1. In this table, the dimensions of the component parts and the dimen-
+                  sions of the welds are exclusive of extra metal required for corrosion allowance.
+                    4.6.1.2 The design methods in this paragraph provide adequate strength for the design pressure. A greater thick-
+                  ness may be necessary if a deflection criterion is required for operation (e.g., leakage at threaded or gasketed joints).
+                      4.6.1.3 For flat head types with a b_ol~~~ ~~~ge ~?.~~~~i_on ~ ~ere the gasket is located inside the bolt circle, calcula-
+                  t ions shall be made for two design conaitio·ns, gaske't seatirig'aiid'operating conditions. Details regarding computation of
+                  design bolt loads for these two conditions are provided in 4.16.
+
+                  4.6.2 FLAT UNSTAVED CIRCULAR HEADS
+                     4.6.2.l Circular blind flanges conforming to any of the flange standards listed in Part 1 and the requirements of
+                  4.1.11 are acceptable for the diamet ers and pressure-temperature ratings in the respective standard when the blind
+                  flange is of the types shown in Table 4.6.1, Detail 7.
+                     4.6.2.2 The minimum required thickness of a flat unstayed circular head or cover that is not attached with bolt ing
+                  that results in an edge moment shall be calculat ed by the following equation.
+
+                                                                                     t =d   I CP
+                                                                                            ~ S1wE
+                                                                                                                                                                              (4.6.1)
+
+
+
+                                                                                        298
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                     Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                           Nol for Resale, 10/20/2025 03:56:38 MDT
+                                                                            ASME BPVC.VJII.2·2025                                                             4.6.2.3 - 4.6.3.2
+
+
+
+                            4.6.2.3 The minimum required thickness of a flat unstayed circular head, cover, or blind flange that is attached with
+                          bolting that results in an edge moment (see Table 4.6.1, Detail 7) shall be calculated by the equations shown below. The
+                          operating and gasket seating bolt loads, W 0 and W0 , and the moment arm of this load, hG, in these equations shall be
+                          computed based on the flange geometry and gasket material as described in 4.16.
+
+                                                                                                                                                                             (4.6.2)
+
+
+
+
+                          where
+
+
+
+                                                                                                                                                                             (4.6.3)
+                                                                                                                                                                                   .. ., ............
+                                                                                                                                                                                            ...
+
+
+                                                                                                                                                                             (4.6.4)
+
+
+
+
+                          4.6.3           FLAT UNSTAYED NONCIRCULAR HEADS
+                            4.6.3.l The minimum required thickness of a flat unstayed noncircular head or cover that is not attached with bolt-
+                          ing that results in an edge moment shall be calculated by the following equation.
+
+                                                                                                                                                                             (4.6.5)
+
+
+
+
+                          where
+
+
+                                                                                                                                                                             (4.6.6)
+
+
+
+                            4.6.3.2 The minimum required thickness of a flat unstayed noncircular head, cover, or blind flange that is attached
+                          with bolting that results in an edge moment (see Table 4.6.1, Detail 7) shall be calculated by the equations shown below.
+                          The operating and gasket seating bolt loads, W 0 and W0 , and the moment arm of this load, hG, in these equations shall be
+                          computed based on the flange geometry and gasket material as described in 4.16.
+
+                                                                                                                                                                             (4.6.7)
+
+
+
+
+                          where
+
+
+
+                                                                                                                                                                             (4.6.8)
+
+
+
+
+                                                                                                                                                                             (4.6.9)
+
+
+                            The parameter Z is given by eq. (4.6.6).
+
+                                                                                     299
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                          Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                Nol lor Resale. 10/20/2025 03:56:38 MDT
+                  4.6.4 - 4.6.4.3                                                    ASME BPVC.VIll.2-2025
+
+
+
+                  4.6.4           INTEGRAL FLAT HEAD WITH A CENTRALLY LOCATED OPENING
+                    4.6.4.1 Flat heads which have a single, circular, centrally located opening that exceeds one-half of the head diameter
+                  shall be designed in accordance with the rules which follow. A general arrangement of an integral flat head with or with-
+                  out a nozzle attached at the central opening is shown in Figure 4.6.1.
+                    (a) The shell-to-flat head juncture shall be integral, as shown in Table 4.6.1, Details 1, 2, 3, and 4. Alternatively, a butt
+                  weld, or a full penetration corner weld similar to the joints shown in Table 4.6.1 Details 5 and 6 may be used.
+                    (b) The central opening in the flat head may have a nozzle that is integral or integrally attached by a full penetration
+                  weld, or a nozzle attached by nonintegral welds (i.e.,: a double fillet or partial penetration weld, or may have an opening
+                  without an attached nozzle or hub. In the case of a nozzle attached by nonintegral welds, the head is designed as a head
+                  without an attached nozzle or hub.
+                   4.6.4.2 The head thickness does not have to meet the rules in 4.6.2 or 4.6.3. The flat head thickness and other geo-
+                  metry parameters need only satisfy the allowable stress limits in Table 4.6.3.
+                     4.6.4.3 A procedure that can be used to design an integral flat head with a single, circular centrally located opening
+                  is shown below.
+                     Step 1. Deter mine the design pressure and temperature of the flat head opening.
+                     Step 2. Determine the geometry of the flat head opening (see Figure 4.6.1).
+                     Step 3. Calculate the operating moment, M 0 , using the following equation.
+
+                                                                       M0 = 0.785B; P(R + ~ ) + 0.785( B; - B;)P( R + 91
+                                                                                                                     2
+                                                                                                                                             n)                                         (4.6.10)
+
+
+
+
+                  where
+
+
+                                                                                                                                                                                        (4.6.11)
+
+                    Step 4. Calculate F, V, and/ based on Bn, B i n, Bon and hn using the equations in. .'J:able-4.-1.6,4 -and-Ta.ble-4,l6.5, des-
+                  ignate the resulting values as Fn , Vn , andfn •
+                    Step 5. Calculate F, V, and/ based on Bs, Bis , Bos and h s using the equations in Table 4.16.4 and Table 4.16.5, desig-
+                  nate the resulting values as Fs, Vs, and l s-
+                    Step 6. Calculate Y, T, U, Z, L, e, and d based on K = AfBn using the equations in Table 4.16.4.
+                    Step 7.Calculate the quantity [E0)* using one of the following equations:
+                    For an opening with an integrally attached nozzle:
+                                                                                                       2
+
+                                                                                (E0)* =
+                                                                                          0.91   (fu.) (
+                                                                                                 Bon
+                                                                                                            Bn + Bon) Vn
+                                                                                                                             SH
+                                                                                                                                                                                        (4.6.12)
+                                                                                                  fnJ 8 n9on
+
+                      Where SH is evaluated using the equation in Table 4.6.2.
+                      For an opening without an attached nozzle or with a nozzle or hub attached with nonintegral welds:
+
+                                                                                                                                                                                        (4.6.13)
+
+                      Where ST is evaluated using the equation in Table 4.6.2.
+                      Step 8. Calculate the quantity M H using the following equation:
+
+                                                                                                       (E8)*
+                                                                                     l.74Vs.Jii;so; + (EB)'      (l ...!L_)
+                                                                              MH = - - ~ = _ , _ _ - ' - ~ - - - ~
+
+                                                                                     06s( Bs + Bos)        Mo
+                                                                                                                     +
+                                                                                                                     J    8sflos
+                                                                                                                                                                                        (4.6.14)
+
+
+                      Step 9. Calculate the quantity X 1 using the following equation:
+
+
+                                                                                                                                                                                        (4.6.15)
+
+
+
+
+                                                                                                  300
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                                 Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                                       Nol for Resale. 10/20/2025 03:56:38 MDT
+                                                                               ASME BPVC.VJII.2·20 25                                                               4.6.4.3 - 4.6.5
+
+
+
+                            Step 10. Calculate the stresses at the shell-to-flat head junction and opening-to-flat-head junction using Table 4.6.2.
+                            Step 11. Check the flange stress acceptance criteria in Table 4.6.3. If the stress criteria are satisfied, then the design is
+                          complete. If the stress criteria are not satisfied, then re-proportion the flat head and/or opening dimensions and go to
+                          Step 3.
+
+                          4.6.5           NOMENCLATURE
+
+                                  A = shell outside diameter.
+                                 Bs     =
+                                       inside diameter of the shell.
+                                 B n = inside diameter of the opening.
+                                   C = factor depending upon the method of attachment of head, shell dimensions, and other items as described in
+                                       Table 4.6.1.
+                                  D = is the long span of noncircular heads or covers measured perpendicular to short span.
+                                   d = diameter, or short span, measured as indicated in figure shown in Table 4.6.1.
+                                  E = joint factor.
+                                   e = flange stress factor.
+                                 f n = hub stress correction factor for the nozzle opening-to-flat head junction.
+                                  fs = hub stress correction factor t he shell-to-flat head junction
+                                  E = weld joint factor (see 4.2).
+                                F n = flange stress factor for the nozzle opening-to-flat head junction.
+                                 Fs = flange stress factor for the shell-to-flat head junction
+                               9 i s = hub thickness at the large end of the shell-to-flat head junction.
+                               g on = hub thickness at the small end of the nozzle opening-to-flat head junction.
+                               gos = hub thickness at the small end of the shell-to-flat head junction.
+                               9 in = hub thickness at the large end of the nozzle opening-to-flat head junction.
+                               9 is = hub thickness at the large end of the shell-to-flat head junction.
+                                hG = gasket moment arm (see Table 4.16.6).
+                                h n = hub length at the large end of the nozzle opening-to-flat head junction.
+                                 h s = hub length at the large end of the shell-to-flat head junction.
+                                   L = perimeter of a noncircular bolt ed head measured along the centers ofthe bolt holes, or the flange stress factor,
+                                       as applicable.
+                                M O = operating moment
+                               M H = moment acting at the shell-to-flat head junction.
+                                  m = thickness ratio tr/ts.
+                                  P = internal design pressure.
+                                   r = inside corner radius on a head formed by flanging or forging.
+                               Sho = allowable stress from Annex 3-A for the head evaluated at the design temperature.
+                               Sh 9 = allowable stress from Annex 3-A for the hea,d_e:,ralua~e_d .aqh~.ga,~.l<e.t _~~~ting condition.
+                                   T = flange stress factor.
+                                   t = minimum required thickness of the flat head or cover.
+                                 t 9 = required thickness of the flat head or cover for the gasket seating condition.
+                                 t 0 = required thickness of the flat head or cover for the design operating condition.
+                                  t1 = nominal thickness of t he flange on a forged head at the large end.
+                                 th = nominal thickness of the flat head or cover.
+                                  tr = required thickness of a seamless shell.
+                                  ts = nominal thickness of the shell.
+                                 t 1 = throat dimension of the closure weld
+                                  U = flange stress factor.
+                                V n = flange stress factor for the nozzle opening-to-flat head junction.
+                                 Vs = flange stress factor for the shell-to-flat head junction
+                                W O = operating bolt load at the design operating condition.
+                                W 9 = gasket seating bolt load at the design gasket seating condition.
+                                   Y = length of the flange of a flanged head, measured from the tangent line of knuckle, or the flange stress factor, as
+                                       applicable.
+                                  Z = factor for noncircular heads and covers that depends on the ratio of short span to long span, or the flange
+                                       stress factor, as applicable.
+                                Z 1 = integral flat head stress parameter.
+
+                                                                                        301
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                              Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                    Nol lor Resale, 10/20/2025 03:56:38 MDT
+                  4 .6 .5 - 4 .6.6                                                                     ASME BPVC.VIll.2 -2025
+
+
+
+                  (Ee)* = slope of head with central opening or nozzle times the modulus of elast icity, disregarding the interaction of the
+                          integral shell at t he outside diameter of the head.
+                  4.6.6           TABLES
+
+
+
+        (25)                                                                                                Table 4.6.1
+                                                                                       C Parameter for Flat Head Designs
+                        Detail                                                  Re uire me nts                                                                        Fi   re
+                            1              • C = 0.17 for flanged circular and noncircular heads forged integral with
+                                             or butt welded to the vessel with an inside corner radius not less than                                             i• YCenternf weld
+                                             three times the required head thickness, with no special requirement
+                                             with regard to length of flange.                                                                                                   ...--Tangent line
+                                           • C = 0.10 for circular heads, when the flange length for heads of the above
+                                                                                                                                                             t
+                                                                                                                                                                 i
+                                             design is not less than:                                                                                            i
+
+
+                                                                                                                                                                           r
+
+                                           • C = 0.10 for circular heads, when the flange le ngth Y less than the
+                                             requirements in the above equation but the shell thickness is not less
+                                                                                                                                        Taper
+                                                                                                                                                            1
+                                                                                                                                                            d                        t
+                                             than: t 5 = l.l 2thJi.1 - Y/ .Jdt/, for a length of at least 2 [<it;. When C =
+                                              0.10 is used, the taper shall be at least 1:3.
+                                           • r = 3t minimum shall be used
+                            2              • C = 0.17 for forged circular and noncircular heads integral with or butt
+                                             welded to the vessel, where the flange thickness is not less than two
+                                             times the shell thickness, the corner radius on the inside is not less than
+                                             three times the flange thickness.
+                                           • r = 3tr minimum shall be used
+
+
+
+
+                            3              • C =max[0.33m, 0.20] for forged circular and noncircular heads integral
+                                             with or butt welded to the vessel, where the flange thickness is not less
+                                             than the shell thickness, the corner radius on the inside is not less than
+                                             the following:
+
+
+                                                                          r = 10 mm (0.375 in.)
+
+                                                                               for 1, :S 38 mm ( 1.5 in.)
+
+
+
+
+                                                                       r= ,ir.i{O.l5r,. l9 n)lQ (0.1.s m)]
+
+                                                                           fo,: Is > ;18 ll•"\\   Q~
+
+
+
+
+                                                                                                                302
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                                            Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                                                  Nol for Resale. 10/20/2025 03:56:38 MDT
+                                                                                                ASME BPVC.VJII.2· 2025                                                                              4.6.6
+
+
+
+
+                                                                                                    Table 4.6.1
+                                                                             C Parameter for Flat Head Designs (Cont'd)
+                                Detail                                         Requirements                                                                          Fle:ure
+                                    4                    =
+                                                   • C 0.13 for integral flat circular heads when:                                                                    t
+                                                     - the dimension d does not exceed 610 mm (24 in.)
+                                                     - the ratio of thickness of the head to the dimension d is not less than
+                                                       0.05 or greater than 0.25
+                                                                                                                                                                      t
+                                                     - the head thickness th is not less than the shell thickness ts                                           I
+                                                     - the inside corner radius is not less than 0.25t                                                           I             ,l
+                                                     - the construction is obtained by special techniques of upsetting and
+                                                       spinning the end of the shell, such as employed in closing header
+                                                       ends.
+                                                                                                                                                               I
+                                                                                                                                                                      d
+                                                        =
+                                                   • r 3t minimu m shall be used
+                                                                                                                                                                     --------       e,.,.   -----
+
+                                    5          C =0.33 for circular plates welded to the end of the shell when ts is at least
+                                                 1.25tr and the weld details conform to the requirements of 4.2.                                      See 4.2 for detail of ]
+                                                                                                                                                       weld joint, t5 not
+                                                                                                                                                       less than 1.25 t,
+
+
+                                                                                                                                         _t 1--------
+                                                                                                                                                   I
+                                                                                                                                         -t'
+                                                                                                                                             ts       I
+                                                                                                                                                               d                    ~ t->-
+
+                                                                                                                                                  --       ------------- 1--------
+
+
+
+
+                                    6          C = max[0.33m, 0.20) for circular plates if an inside fillet weld with minimum
+                                                 throat thickness of0.7ts is used and the details of the outside weld
+                                                                                                                                                           See 4.2 for details ]
+                                                 conform to the requirements of 4.2.
+                                                                                                                                                            of weld joint
+
+                                                                                                                                         _t _ __
+                                                                                                                                                     I I
+                                                                                                                                         Tts ....
+                                                                                                                                             , --"'--
+                                                                                                                                                           ) d                      +- t ___..
+                                                                                                                                                  -    J ------------- --------
+
+
+
+
+                                                                                                           303
+
+Copy,tghl ASME ln18mallonal (BPVC)
+Provided by Ao::uk under licanse with ASME                                                                Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 0t netwotkr,g pemlitled without license frcm Accurls                                      Nol lor Resale. 10/20/2025 03:56:38 MDT
+                  4 .6 .6                                                                ASME BPVC.VIll.2-2025
+
+
+
+
+                                                                                      Table 4.6.1
+                                                                       C Parameter for Flat Head Designs (Cont'd)
+                        Detail                                         Re ulrements
+                            7              • C = 0.3 for circular and noncircular heads and covers bolted to the vessel
+                                             as indicated in the figures.                                                                                       --- --- --- t
+                                           • When the cover plate is grooved for a peripheral gasket, the net cover
+                                             plate thickness under the groove or between the groove and the outer
+                                             edge of the cover plate shall be not less than the following thickness.
+                                           For circular heads and covers:
+
+
+                                                                                                                                                                                      d
+                                           For noncircular heads and covers:
+
+
+
+
+                                                                                                                                 t - - - - - - - - - - - 1 ~~                         1
+                                                                                                                                                                                      d
+
+                            8          C = 0.25 for circular covers bolted with a full-face gasket to shells and
+                                         flanges.
+
+
+
+
+                                                                                                                                                                                          d
+
+
+
+
+                                                                                                    304
+
+Copy,tghl ASME ln18mallonal (BPVC)
+Provided by Ao::uk under licanse with ASME                                                                Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 0t netwotkr,g pemlitled without license frcm Accurls                                      Nol lor Resale. 10/20/2025 03:56:38 MDT
+                                                                                                 ASME BPVC.VJII.2·2025                                                                              4.6.6
+
+
+
+
+                                                                                                     Table 4.6.1
+                                                                             C Parameter for Flat Head Designs (Cont'd)
+                                Detail                                         Re ulrements                                                                      Fl ure
+                                    9          C = 0.3 for a circular plate inserted into the end of a vessel and held in place                     Reta ining ring
+                                                 by a positive mechanical locking arrangement when all possible means of
+                                                 failure (either by shear, tension, compression, or radial deformation,
+                                                 including flaring. resulting from pressure and differential thermal
+                                                 expansion) are designed using allowable stresses in 4.1.6. Seal welding
+                                                 may be used, if desired.
+
+
+                                                                                                                                                          d
+
+
+
+
+                                                                                                                                                          d
+
+
+                                                                                                                                                 - + - - - - - · - ___    l
+
+
+
+
+                                                                                                                                                      d
+
+
+
+
+                                                                                                            305
+
+Copy,tghl ASME ln18mallonal (BPVC)
+Provided by Ao::uk under licanse with ASME                                                                 Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 0t netwotkr,g pemlitled without license frcm Accurls                                       Nol lor Resale. 10/20/2025 03:56:38 MDT
+                  4.6.6                                                          ASME BPVC.VIll.2-2025
+
+
+
+
+                                                                                     Table 4.6.2
+                                                          Junction Stress Equations for an Integral Flat Head With Opening
+                                                 Head She ll unction Stresses                                      0 enln Head unction Stresses
+                                                                                          SHO = X1SH
+                                                                                          SRO= X1SR
+                                                                                          S _ XS + 0.64Z1F.,MH
+                                                                                           TO - I T B,JB,go,t
+                                                                                          where
+                                                                                          SH= faro
+                                                                                              lU1nBn
+                                                                                          S = (t.331e + t)M0
+                                                                                           R          u2Bn
+
+                                                                                          Sr= ~-ZSR
+                                                                                                 t Bn
+                                                                                                    2K2
+                                                                                          Z1 =   ?"-=-i"
+                                                                                          Note: SR = SH = 0.0 for the case of an opening without a nozzle
+
+
+
+
+                                                                                    Table 4.6.3
+                                                         Stress Acceptance Criteria for an Integral Flat Head With Opening
+                                               Head/Shell !unction Stresses                                      Openlne/ Head !unction Stresses
+                    Sns $ 1.SSho                                                        Sno $ 1.SSho
+                    SRs $ Sho                                                           SRO S Sho
+                    Srs s Sho                                                           Sro s Sho
+                    (sHs + sRS) s                                                       (sHo + sRo)
+                               s ho                                                                 s 5ho
+                         2                                                                   2
+                    (SHs + S7:5) S                                                      (SHo + Sro) s
+                         2
+                                s ho
+                                                                                             2
+                                                                                                   s ho
+
+
+
+
+                                                                                         306
+
+Copy,tghl ASME ln18mallonal (BPVC)
+Provided by Ao::uk under licanse with ASME                                                     Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 0t netwotkr,g pemlitled without license frcm Accurls                           Nol lor Resale, 10/20/2025 03:56:38 MDT
+                                                                                                    ASME BPVC.VJII.2·2025                                                                    4.6.7 - 4.7.1.3
+
+
+
+                          4.6.7           FIGURES
+
+
+                                                                                               Figure 4 .6.1
+                                                                             Integral Flat Head With a Large Central Opening
+                                                                                                                              (f
+
+
+
+
+                                            This Half Depicts                                                                                                       This Half Depicts
+                                           Opening W ith Nozzle                         ,..____,...1 - -   g0 (nozzle)                                           Opening W ithout Nozzle
+
+
+                                                                            t
+                                                                        h (nozzle)
+
+
+
+
+                                             -1                                      ------+-1-- g
+                                                                                                            1 (nozzle)
+
+
+
+
+                                                  t
+
+
+
+                                                 j     --------..,~ g 1 (nozzle)
+
+
+
+                                        h (shell)
+                                                 t                                                I• Bn for nozzle
+                                                                       ~ u n c tu re may or                                    B n w ithout nozzle
+
+                                                 ~                           may not have t aper
+
+
+
+
+                                                                   - - - - - - - - - - - - - - - - - - 8s                                                                                      ~
+
+
+
+
+                                                       i-+----+---------------- A
+
+                                 g0 (sh ell)
+                                                                                                                                                                                                   ---..
+                          4.7          DESIGN RULES FOR SPHERICALLY DISHED BOLTED COVERS
+                          4.7.1          SCOPE
+                            4.7.1.1 Design rules for four configurations of circular spherically dished heads with bolting flanges are provided in
+                          4.7. The four head types are shown in Figures 4.7.1, 4.7.2, 4.7.3, and 4.7.4. The design rules cover both internal and ex-
+                          ternal pressure, pressure that is concave and convex to the spherical head, respectively. The maximum value of the pres-
+                          sure differential shall be used in all of the equations.
+                             4.7.1.2 For head types with a bolted flange connection where the gasket is located inside the bolt circle, calculations
+                          shall be made for two design conditions, gasket seating and operating conditions. Details regarding computation of de-
+                          sign bolt loads and flange moments for these two conditions are provided in 4.16. If a flange moment is computed as a
+                          negative number, the absolute value of this moment shall be used in all of the equations.
+                            4.7.1.3 Calculations shall be performed using dimensions in the corroded condition and the uncorroded condition,
+                          and the more severe case shall control.
+
+                                                                                                                 307
+
+Copylighl ASME ln18ma tional (BPVC)
+Provided by AocU'k under license with ASME                                                                       Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                                             Nol for Resale, 10/20/2025 03:56:38 MDT
+                  4 .7.1 .4 - 4.7.3.3                                         ASME BPVC.VIll.2-2025
+
+
+
+                    4.7.1.4 Flanges designed t o Figures 4.7.2 through 4.7.5 do not need to comply with the flange rigidity criterion in
+                  Table 4.16.10.
+
+
+                  4.7.2           TYPE A HEAD THICKNESS REQUIREMENTS
+                    4.7.2.1 The thickness of the head and skirt for a Type A Head Configuration (see Figure 4.7.1) shall be determined in
+                  accordance with the rules in 4.3 for internal pressure (pressure on the concave s ide), and 4.4 for external pressure (for
+                  pressure on the convex side). The skirt thickness shall be determined using the appropriate equation for cylindrical
+                  shells. The head radius, L, and knuckle radius, r, shall comply with the limitations given in these paragraphs.
+                    4.7.2.2 The flange thickness of the head for a Type A Head Configuration shall be determined in accordance with the
+                  rules of 4.16. When a slip-on flange conforming t o the standards listed in Table 1.1 is used, design calculations per 4.16
+                  need not be done, provided t he design pressure-temperature is within the pressure-temperature rating permitted in
+                  the flange standard.
+                      4.7.2.3            Detail (a) in Figure 4.7.1 is permitted if both of the following requirements are satisfied.
+                      (a] The material of construction satisfies the following equation.
+
+                                                                                      ~ ~ 0.625                                                                                  (4.7.1)
+                                                                                      Su
+
+                      (b) The component is not in cyclic service, i.e., a fatigue analysis is not required in accordance with 4.1.1.4.
+
+
+                  4.7.3          TYPE B HEAD THICKNESS REQUIREMENTS
+                    4.7.3.1 The thickness of the head for a Type B Head Configuration (see Figure 4.7.2) shall be determined by the
+                  following equations.
+                    (a] Internal pressure (pressure on the concave side)
+
+                                                                                       t = SPL                                                                                   (4.7.2)
+                                                                                           6S
+
+                    (b) External pressure (pressure on the convex side) - the head thickness shall be determined in accordance with the
+                  rules in 4.4.
+                     4.7.3.2 The flange thickness of the head for a Type B Head Configuration shall be determined by the following equa-
+                  tions where the flange moments M O and M 9 for the operating and gasket seating condit ions, respectively, are deter-
+                  mined from 4.16.
+                     (a) Flange thickness for a ring gasket
+
+                                                                                                                                                                                 (4.7.3)
+
+
+
+
+                  where
+
+
+                                                                                                                                                                                 (4.7.4)
+
+
+
+                                                                                                                                                                                 (4.7.5)
+
+
+                      (b) Flange thickness for a full face gasket
+
+                                                                           T = 0. 6   lfl(B(A+B)(C - 8))                                                                         (4.7.6)
+                                                                                      Sfo          A- B
+
+
+                      4.7.3.3           A Type B head may only be used if both of the requirements in 4.7.2.3 are satisfied.
+
+                                                                                            308
+
+Copy,tghl ASME ln18mallonal (BPVC)
+Provided by Ao::uk under licanse with ASME                                                        Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 0t netwotkr,g pemlitled without license frcm Accurls                              Nol for Resale. 10/20/2025 03:56:38 MDT
+                                                                             ASME BPVC.VJII.2·2025                                                                      4.7.4 - 4.7.4.2
+
+
+
+                          4.7.4           TYPE C HEAD THICKNESS REQUIREMENTS
+                            4 .7.4.1 The thickness of the head for a Type C Head Configuration (see Figure 4.7.3) shall be determined by the
+                          following equations.
+                            (a) Internal pressure (pressure on the concave side)• the head thickness shall be determined using eq. (4.7.2).
+                            (b) External pressure (pressure on the convex side) • the head thickness shall be determined in accordance with the
+                          rules in 4.4.
+                             4.7.4.2 The flange thickness of the head for a Type C Head Configuration shall be determined by the following equa-
+                          tions where t he flange moments M O and M 9 for t he operating and gasket seating conditions, respectively, a re deter-
+                          mined from 4.16.
+                             (a) Flange thickness for a ring gasket for heads with round bolting holes
+
+                                                                                                                                                                                     (4.7.7)
+
+
+
+
+                          where
+
+
+                                                                            T. =       I1.875Mg (...£!:..!!....)                                                                     (4.7.8)
+                                                                             g     \      SJgB        7C - 58
+
+
+
+                                                                          T,o -_ Q +      l.875M0 ( C + B )
+                                                                                          -  -- ---                                                                                  (4.7.9)
+                                                                                             5Jo8       7C - 58
+
+
+
+                                                                                 Q=     ~4SJo (...£!:..!!....)
+                                                                                                7C- SB
+                                                                                                                                                                                (4.7.10)
+
+                              {b) Flange thickness for ring gasket for heads with bolting holes slotted through the edge of the head
+
+                                                                                                                                                                                (4.7.11)
+
+
+
+
+                          where
+
+
+                                                                                                                                                                                (4.7.12)
+
+
+
+                                                                           To = Q +        1.875M0 ( C + B )                                                                    (4.7.13)
+                                                                                              SJ0 B      3C - 8
+
+
+
+                                                                                 Q=~             ( C+ B )                                                                       (4.7.14)
+                                                                                          4S/o 3C - 8
+
+                              (c) Flange thickness for full-face gasket for heads with round bolting holes
+
+                                                                                                                                                                                (4.7.15)
+
+
+                              The parameter Q is given by eq. (4.7.10).
+                              ( d) Flange thickness for full-face gasket for heads with bolting holes slotted through the edge of the head
+
+                                                                                                                                                                                (4.7.16)
+
+
+                              The parameter Q is given by eq. (4.7.14).
+
+                                                                                            309
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                  Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                        Nol for Resale, 10/20/2025 03:56:38 MDT
+                  4.7.5 - 4.7.5.3                                            ASME BPVC.VIll.2-2025
+
+
+
+                  4.7.5           TYPE D HEAD THICKNESS REQUIREMENTS
+                    4.7.5.1 The thickness of the head for a Type D Head Configuration (see Figure 4.7.4) shall be determined by the
+                  following equations.
+                    (a) Internal pressure (pressure on the concave side) - the head thickness shall be determined using eq. (4.7.2).
+                    (b) External pressure (pressure on the convex side) - the head thickness shall be determined in accordance with the
+                  rules in 4.4.
+                    4.7.5.2 The flange thickness of the head for a Type D Head Configuration shall be determined by the following
+                  equations.
+
+                                                                                                                                                                           (4.7.17)
+
+
+
+
+                  where
+
+
+                                                                                                                                                                           (4.7.18)
+
+
+
+
+                                                                         T,o= Q +         M0+ (A
+                                                                                     Q2 + -      8)
+                                                                                               -+-                                                                         (4.7.19)
+                                                                                           St0 B        A- B
+
+
+
+
+                                                                                 Q =IPI B ~                                                                                (4.7.20)
+                                                                                      8S10 (A - 8)
+
+                   When determining the flange design moment for the design condition, M 0 , using 4.16, the following modifications shall
+                  be made. The moment arm, h 0 , shall be computed using eq. (4.7.21). An additional moment term, M n computed using
+                  eq. (4.7.22) shall be added to M 0 as defined 4.16. The term Moe in the equation for M 0 as defined 4.16 shall be set to
+                  zero in this calculation. Note that this term may be positive or negative depending on the orientation of t v, R, A R.
+
+                                                                                  ho = o.s(c - B]                                                                          (4.7.21)
+
+
+
+                                                                                                                                                                           (4.7.22)
+
+
+
+
+                  where
+
+
+                                                                                 p = arcsin[-2L8+--
+                                                                                                  t_
+                                                                                                                                                                           (4.7.23)
+
+
+
+                    4.7.5.3 As an alternative to the rules in 4.7.5.1 and 4.7.5.2, the following procedure can be used to determine the
+                  required head and flange thickness of a Type D head. This procedure accounts for the continuity between the flange ring
+                  and the head, and represents a more accurate method of analysis.
+                    Step 1. Determine the design pressure and temperature of the flange joint. If the pressure is negative, a negative value
+                  must be used for P in all of the equations of this procedure, and
+                                                                       Pe= 0.0          for internal pressure                                                              (4.7.24)
+
+
+                                                                                       for external pressure                                                               (4.7.25)
+
+
+                                                                                        310
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                    Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                          Nol lor Resale, 10/20/2025 03:56:38 MDT
+                                                                                                                  ASME BPVC.VJII.2·2025                                                                                  4.7.5.3
+
+
+
+                            Step 2. Determine an initial Type D head configuration geometry (see Figure 4.7.5). The following geometry para-
+                          meters are required:
+                            (a) The flange bore, B
+                            (b) The bolt circle diameter, C
+                            (c) The outside diameter of the flange, A
+                            (d) Flange thickness, T
+                            (e) Mean head radius, R
+                            (j) Head thickness, t
+                            (g) Inside depth of flange to the base of the head, q
+                            Step 3. Select a gasket configuration and determine the location of the gasket reaction, G, and the design bolt loads for
+                          the gasket seating, W 9 , and operat ing conditions, W 0 , using the rules of 4.16.
+                            Step 4. Determine t he geometry parameters.
+
+                                                                                                                          h1 = (C - G)                                                                              (4.7.26)
+                                                                                                                                        2
+
+
+                                                                                                                                  ( r. - R)
+                                                                                                                          hz =.I.:'..........                                                                       (4.7.27)
+                                                                                                                                         2
+
+
+                                                                                                                                                                                                                    (4.7.28)
+
+
+                                                                                                                                      T
+                                                                                                                               11 = -                                                                               (4.7.29)
+                                                                                                                                      t
+
+
+                                                                                                                                                                                                                    (4.7.30)
+
+
+
+                                                                                                                                                                                                                    (4.7.31)
+
+
+
+                                                                                                                                                                                                                    (4.7.32)
+
+
+
+                                                                                                                  k1    =1 - ( 1 ; t)cot(cf>]                                                                       (4.7.33)
+
+
+
+                                                                                                                                                                                                                    (4.7.34)
+
+
+
+                                                                                                                                                                                                                    (4.7.35)
+
+
+                              Step 5. Determine t he shell discontinuity geometry factors.
+
+                                                                                                         - _.. .. •.... _..c •·;,;·0·275n3t . ln(K]
+                                                                       --·... .. .. •......... .... .. .....                                   - - - e                                                              (4.7.36)
+                                                                                                                   1               k1
+
+
+
+                                                                                                                                                                                                                    (4.7.37)
+
+
+
+                                                                                                        C4 = .l.sin(<l>](k2+ -1 ) +B- + -
+                                                                                                                                        1.65e
+                                                                                                                                           -                                                                        (4.7.38)
+                                                                                                                    2               k1          4nd       tk1
+
+
+
+                                                                                                                                 311
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                                                      Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                                                            Nol for Resale, 10/20/2025 03:56:38 MDT
+                  4.7.5.3 - 4.7.6                                                    ASME BPVC.VIll.2-2025
+
+
+
+
+                                                                                                                                                                                  (4.7.39)
+
+
+                      Step 6. Determine the shell discontinuity load factors for the operating and gasket conditions.
+
+                                                                                 2
+                                                                       C30 = -rrB -P ( e • co{ <I>] + 2q(T- q) - hz) - W0 h 1                                                     (4.7.40)
+                                                                                4                        8
+
+
+                                                                              C     = rrB2P( 4q - 8-cot(¢] _ ~ )                                                                  (4.7.41)
+                                                                               6o      4         4nd            sin[¢]
+
+
+                                                                                                                                                                                  (4.7.42)
+
+
+                                                                                                                                                                                  (4.7.43)
+
+                      Step 7. Determine the shell discontinuity force and moment for the operating and gasket conditions.
+
+                                                                                                                                                                                  (4.7.44)
+
+
+
+                                                                                                                                                                                  (4.7.45)
+
+
+
+                                                                                                                                                                                  (4.7.46)
+
+
+                                                                                       M - C1C6g - C39C4
+                                                                                                                                                                                  (4.7.47)
+                                                                                        dg - CzC4 - C1 C5
+
+                    Step 8. Calculate the stresses in the head and at the head-to-flange junction using Table 4.7.1 and check the stress ac-
+                  ceptance criteria. If the stress crit eria are satisfied, then the design is complete. If t he stress criteria a re not satisfied,
+                  then re-proportion the bolted head dimensions and go to Step 3.
+
+                  4.7.6           NOMENCLATURE
+
+                          A = flange outside diameter
+                          B = flange inside diameter
+                        C = bolt circle diameter
+                       C1 = shell discontinuity geometry parameter for t he Type D head alternative design procedure
+                       C2 = shell discontinuity geometry parameter for the Type D head alternative design procedure
+                      C39 = shell discontinuity load factor for the gasket seating condition for the Type D head alternat ive design
+                             procedure
+                      C30 = shell discontinuity load factor for the design operating condition for the Type D head alt ernative design
+                             procedure
+                       C4 = shell discontinuity geometry parameter for the Type D head alternative design procedure
+                       C5 = shell discontinuity geometry parameter for t he Type D head alternative design procedure
+                      C69 = shell discont inuity load factor for the gasket seating condition for t he Type D head alternat ive design
+                             procedure
+                      C60 = shell discontinuity load factor for the design operat ing condition for the Type D head alt ernative design
+                             procedure
+                         e = geometry parameter for the Type D head alternative design procedure
+                       h 1 = geometry parameter for the Type D head alternative design procedure
+                       h 2 = g~p~f:~ry..pai:~~et_e1J9i:_~_l_le__J)P..~ D head alternative design procedure
+                       hr = moment arm of the head reaction force
+                        K = geometry parameter for the Type D head alternative design procedure
+                       k 1 = geometry parameter for the Type D head alternative design procedure
+
+                                                                                               312
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                           Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                                 Nol for Resale, 10/20/2025 03:56:38 MDT
+                                                                             ASME BPVC.VJII.2·2025                                                                             4.7.6
+
+
+
+                              k 2 = geometry parameter for the Type D head alternative design procedure
+                                L = inside crown radius
+                            Mdg = shell discontinuity moment for the gasket seating condition
+                            Mdo = shell discontinuity moment for design operating condition
+                             M9 = flange design moment for the gasket seating condition determined using 4.16
+                             M0 = flange design moment for the design condition determined using 4.16 (see 4.7.5.2 for exception)
+                             Mr = moment from the head reaction force
+                                n = geometry parameter for the Type D head alternative design procedure
+                                P = design pressure
+                              Pe = pressure factor to adjust the design rules for external pressure
+                                q = inside depth of the flange to the base of the head
+                               R = mean radius of a Type D head
+                                 r = inside knuckle radius. S19 allowable stress from Annex 3-A for the flange evaluated at the gasket seating
+                                     condition
+                            S1m= membrane stress in the flange
+                          Sfmbi = membrane plus bending stress on the inside surface of the flange
+                          Sfmbo = membrane plus bending stress on the outside surface of the flange
+                             s10 = allowable stress from Annex 3-A for the flange evaluated at the design temperature
+                            Sh b = bending stress at the head-to-flange junction
+                            Shg = allowable stress from Annex 3-A for the head evaluated at the gasket seating condition
+                             Sht = local membrane stress at the head-to-flange junction
+                           Shibi = local membrane plus bending stress at the head-to-flange junction on the inside surface of the head
+                          Shtbo = local membrane plus bending stress at the head-to-flange junction on the outside surface of the head
+                            Sh m = head membrane stress
+                            Sho = allowable stress from Annex 3-A for the head evaluated at the design temperature
+                              Su = minimum specified ultimate tensile strength from Annex 3-D
+                            SyT = yield strength from Annex 3-D evaluated at the design temperature
+                               T = flange thickness
+                                 t = required head thickness
+                              T9 = required flange thickness for the gasket seating condition                         .........--., ..,.. . .. .. .,
+                              TO = required flange thickness for design operating condition
+                              T* = flange thickness for a Type C head
+                            Vdg = shell discontinuity shear force for the gasket seating condition
+                            Vdo = shell discontinuity shear force for design operating condition
+                             W9 = bolt load for the gasket seating condition
+                             W O = bolt load for design operating condition
+                                f3 = angle formed by the tangent to the center line of the dished cover thickness at its point of intersection with the
+                                     flange ring, and a line perpendicular to the axis of the dished cover
+                                A = geometry parameter for the Type D head alternative design procedure
+                                v = Poisson's ratio
+                               </> = one-half central angle of the head for the Type D head alternative design procedure
+
+
+
+
+                                                                                      313
+
+Copy,tghl ASME ln18mallonal (BPVC)
+Provided by Ao::uk under licanse with ASME                                            Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 0t netwotkr,g pemlitled without license frcm Accurls                  Nol lor Resale, 10/20/2025 03:56:38 MDT
+                  4.7.7 - 4.7.8                                                                 ASME BPVC.VIll.2-2025
+
+
+
+                  4.7.7                TABLES
+
+
+
+                                                                                       Table 4.7.1
+                                                           Junction Stress Equations and Acceptance Criteria for a Type D Head
+                                                                Operatine: Conditions                                                          Gaske t Seatine: Conditions
+                                                                                                                      Shm = 0.0
+                     Shm " PR + Pe
+                           2t                                                                                                 Vc1pco,{<1>]
+                              _   PR       Vd0cos(4>]      P.                                                         Shi =      tr8t
+                     S
+                         hi - 2L +              xBt       + e
+                                                                                                                              6Md~
+                                   6Mg                                                                                Shb =
+                     Shb =                                                                                                    tr8t
+                                   irBt2                                                                              shlbi = sh1 - shb
+                     shlbi = sh1 - shb
+                                                                                                                      Shiba= Shi + shb
+                     Shiba= Shi + shb
+
+
+                     S1m = 1-( - --
+                               "82P(       { ]~ - VdoX -;;z-:-
+                                     4q- cot/>
+                                   ..er     4         e
+                                                       K + 1) +Pe
+                                                                        K
+                                                                            2
+                                                                                - 1
+                                                                                                                      S     _ _ 1_
+                                                                                                                          1m- xBT    ( X- V.    K2+ l '
+                                                                                                                                             dg ~ )
+
+
+                                            [v.do _~8 1
+                                                                                                                              0.52511 (          4MdgA '
+                     S • 0.525n                                                                                       Sfb= - - Vdg -
+                                                                                                                               Btk1                B    )
+                         1b        Btk1
+                                                                                                                      Sfmba = s,m - s,b
+                     Sfmba = s,m - s,b
+                                                                                                                      Sfmbi = S fm + S fb
+                     Stmbi = s,m + s,b
+
+                                                                                                 Acceptance Criteria
+                     shm ,;; Sha                                                                                      Shm S Shg
+                     Shi S l.SSho                                                                                     sh1 s 1 . s sh9
+                     Shibi S l.SSha                                                                                   Shibi s 1 .SS hg
+                     Shiba S l.SSho                                                                                   Shiba S l.SShg
+                     Sfm S S f a                                                                                      Stm s St9
+                     Sfmba S 1.SSfa                                                                                   Sfmba S 1.SS/g
+                     S1mbi S l .SS1o                                                                                  Slmbi S l .SS,0
+
+
+
+
+                  4.7.8                FIGURES
+
+                                                                                               Figure 4.7.1
+                                                                                 Type A Dished Cover With a Bolting Flange
+                                                                                                                     Hemispherical
+                                                                                                                      head
+
+                                                      Hemispherical
+                                                       head                                                                                                            Toriconical head
+
+
+
+                                  Edge of weld shall
+                                   not overlap knuckle                                      !
+                                                                                                        Not less than
+                                                                                                         2tand in no
+                                                                                                         case less than
+                                                                                                                            J
+                                                                                                         13 mm(½ in.)
+                                                                                                                                                                  Ellipsoidal or
+                                                                                            Ellipsoidal or                  • --
+                                                                                                                                                                   torispherical head
+                                                                                             torispherical head
+
+
+
+                                       Flange
+                                                                                        \
+                                                                                                                                               radius
+
+                                                                                                                                     Gasket Skirt
+                                                                                                                                                             \
+                                                                (al Loose Flange Type                                                (bl Int egral Flange Type
+
+                    GENERAL NOTE: See Table 4.2.5, Details 2 and 3 for transition requirements for a head and skirt with different thicknesses.
+
+
+
+
+                                                                                                        314
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                                    Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                                          Nol for Resale. 10/20/2025 03:56:38 MDT
+                                                                                          ASME BPVC.VJII.2· 2025                                                                                 4.7.8
+
+
+
+
+                                                                                            Figure 4.7.2
+                                                                       Type B Spherically Dished Cover With a Bolting Flange
+
+
+
+
+                                                                                Ring tgasket
+                                                                                  shown   j
+                                                                                               f
+
+                                                                                            Figure 4.7.3
+                                                                       Type C Spherically Dished Cover With a Bolting Flange
+
+
+
+                                                                                                    r
+                                                                                                   \.
+                                                                                                   1,,
+                                                                                                             Preferably
+                                                                                                               2tmin.
+
+                                                                                                   l \\,
+                                                                                                   I    I
+
+
+
+
+                                                                                        T"
+
+
+
+                                                                                Ring gasket
+                                                                                  shown
+
+                                                                                                        T"=T'2t
+
+
+
+
+                                                                                                            315
+
+Copy,tghl ASME ln18mallonal (BPVC)
+Provided by Ao::uk under licanse with ASME                                                              Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 0t netwotkr,g pemlitled without license frcm Accurls                                    Nol lor Resale, 10/20/2025 03:56:38 MDT
+                  4.7.8 - 4.8.2.1                                                            ASME BPVC.VIll.2-202 5
+
+
+
+
+                                                                                           Figure 4.7.4
+                                                                       Type D Spherically Dished Cover With a Bolting Flange
+
+                                                                                      - - -- - - - ½ A - - - - -------
+
+                                                             Full penetration ------a-~                         ~ - - - - . . . . , _ _ . _ Point of H 0
+                                                               weld                                                                          action
+
+
+
+                                                                              r   T
+
+
+                                                                              L. I t  ~
+                                                                                             Centroid
+
+
+
+                                                                                                    1--------·- ½8
+                                                                                                                             Smooth as welded
+                                                                                                                        Smoot h weld both sides
+
+
+                                                                       Use any suitable JJ-+-+- - - - - ½C - - - -- -
+                                                                        type of gasket
+
+
+
+
+                                                                                          Figure 4.7.5
+                                                                       Type D Head Geometry for Alternative Design Procedure
+
+
+
+
+                                                                             rT
+
+
+                                                                             L                          q
+                                                                                                        ,}\ ,
+                                                                                                                                R
+
+
+                                                                                                 I·               ',   8/2
+
+                                                                                        I·     A/2
+                                                                                                        C/2
+                                                                                                                        ''
+
+
+
+
+        (25)      4.8          DESIGN RULES FOR QUICK-OPENING AND QUICK-ACTUATING CLOSURES
+                  4.8.l   SCOPE
+                    4.8.1.1 Design requirements for quick-opening and quick-actuating closures are provided in 4.8. Specific calculation
+                  methods are not provided in Pa rt 4. The rules of Part 5 shall be used t o qualify the design requirements specific to
+                  quick-opening and quick-actuating closures that are not covered in Part 4.
+
+                  4.8.2           DEFINITIONS
+                      4.8.2.1 Quick-opening closures are closures other than
+                      (a) bolted flange joints as described in 4.1.11
+                      (b) bolted flange joints meeting the requirements of 4.16
+                      (c) dished covers with a bolting flange meeting the requirements of 4.7
+                      (d) clamped connections meeting the requirements of 4.17
+
+                                                                                                        316
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                                      Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                                            Nol lor Resale, 10/20/2025 03:56:38 MDT
+                                                                                      ASME BPVC.VJII.2·2025                                                               4.8.2.1 - 4.8.5
+
+
+
+                               (e) closures with multiple, manually operated swing bolts
+                               (j) quick-actuat ing closures as described in 4.8.2.2
+                              4.8.2.2            Quick-actuating closures are closures that are operat ed by an action that releases all holding elements.
+                            4.8.2.3 Holding elements are parts of the closure used to hold the cover to the vessel or to provide the load required
+                          to seal the closure.                                                                                               :,
+                            4.8.2.4 Locking elements are parts of the closure that prevent a reduction in the load on a holding element of pre-
+                          vent the release of a holding element Locking elements may also be used as holding elements.                   '
+                              4.8.2.5            The locking mechanism or locking device may consist of a combination of locking elements.
+
+                          4.8.3           GENERAL REQUIREMENTS
+                             (a) Closures shall be designed and installed such t hat it may be determined by visual external observation th~t t he
+                          holding elements are in satisfactory condition.                                                                       i
+                             (b) if clamps used in the design of quick-actuating closures meet the scope of 4.17, then the requirements of 4.1 i shall
+                          also be met.                                                                                                          •
+                             (c) When a closure is provided as a part, it shall be provided with a Partial Data Report as meeting the applfrable
+                          requirements.
+                             (d) Annex 4-B provides supplementary information for the Manufacturer of the closure and provides guidance on in-
+                          stallation, operation, and maintenance for the owner and user.
+                             (e) The design rules of 4.16 of this Division may not be applicable t o the design of closures; see 4.16.1.4.
+                             (j) The design shall consider the effects of cyclic and other loadings [see 2.2.3.l(f)] and mechanical wear on the hold-
+                          ing and locking elements and sealing surfaces.
+                             (g) The Manufacturer of a pressure vessel with a quick-actuating or quick-opening closure shall supply the user with
+                          an installation, operation, and maintenance manual that shall address the maintenance and operation of the closure. The
+                          manual should address t he topics discussed in Annex 4-B. The intent is for this manual to stay with the owner or op-
+                          erator of the pressure vessel.
+                             (h) The use of a multilink component, such as a chain, as a holding or locking element is not permitted.
+                             (i) Hinge pins or bolts may be used as holding elements.
+
+                          4.8.4           QUICK-OPENING CLOSURES
+                             (a) Quick-opening closures shall be designed such t hat the failure of a single holding element while the vessel is pres-
+                          surized (or contains a static head of liquid acting at the closure) will not
+                               (1) cause or allow the closure to be opened or leak
+                               (2) increase the stress in any other holding element by more than 50% above the allowable stress of the element
+                             (b) All vessels having quick-opening closures shall have a pressure release device (e.g., vent valve, threaded plug) in-
+                          stalled on the vessel that will relieve the pressure inside the vessel prior to opening the closure. Alternatively, if release
+                          of the product in the vessel could be dangerous to personnel or the environment or could cause other safety issues, the
+                          provisions for pressure release need not be furnished when operating procedures are such that they can ensure t here is
+                          no pressure in the vessel prior to opening the closure.
+
+                          4.8.5           QUICK-ACTUATING CLOSURES
+                             (a) Quick-actuating closures shall be designed such that the failure of a single locking element while the vessel is pres-
+                          surized (or contains a static head of liquid acting at the closure) will not
+                                (1) cause or allow the closure to be opened or leak
+                                (2) result in the failure of any other locking element or holding element
+                                (3) increase the stress in any other locking element or holding element by more than 50% above the allowable
+                          stress of the element
+                             (b) Quick-actuating closures shall be designed such that the locking elements are engaged prior to or upon application
+                          of pressure and remain engaged until t he pressure is released.
+                             (c) Quick-actuating closures shall be designed so that all locking elements can be verified to be fully engaged by visual
+                          observation or other means prior to the application of pressure to the vessel.
+                             (d) When installed, all vessels having quick-actuat ing closures shall be provided with a pressure-indicating device visi-
+                          ble from the operating area and suitable for detecting pressure at the closure.
+                             (e) Quick-actuating closures that are held in position by positive locking devices and that are fully released by partial
+                          rotation or limited movement of the closure itself or the locking mechanism, and any closure that is other than manually
+                          operated, shall be so designed that when the vessel is installed the following conditions are met (see also Annex 4-8):
+
+                                                                                              317
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                                    Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                          Nol for Resale, 10/20/2025 03:56:38 MDT
+                  4 .8.5 - 4.9.4 .1                                    ASME BPVC.VIll.2-2025
+
+
+
+                        (1) The closure and its holding elements are fully engaged in their intended operating position before pressure can
+                  be applied in the vessel.
+                        (2) Pressure tending to force the closure open or discharge the vessel contents clear of the vessel shall be released
+                  before the closure can be fully opened for access.
+                        (3) In the event that compliance with (1) and (2) is not inherent in the design of the closure and its holding ele-
+                  ments, provisions shall be made so that devices to accomplish this can be added when the vessel is installed.
+                     (jJ It is recognized that it is impractical to write requirements to cover the multiplicity of quick-actuating closures or
+                  t o prevent negligent operation or the circumventing of safety devices. Any device or devices that will provide the safe-
+                  guards described in (e) will meet the intent of these rules.
+                     (9) Quick-actuating closures that are held in position by a locking mechanism designed for manual operation shall be
+                  designed such that if an attempt is made to open the closure when the vessel is under pressure, the closure will leak
+                  prior to full disengagement of the locking elements and release of the closure. The design of the closure and vessel shall
+                  be such that any leakage shall be directed away from the normal position of the operator.
+                     {h) Manually operated closures need not satisfy (e), but pressure vessels equipped with such closures shall be
+                  equipped with an audible or visible warning device that will warn the operator if pressure is applied to the vessel before
+                  the holding elements and locking elements are fully engaged in their intended position or if an attempt is made to dis-
+                  engage t he locking mechanism before the pressure within the vessel is released.
+
+
+                  4.9          DESIGN RULES FOR BRACED AND STAYED SURFACES
+                  4.9.1           SCOPE
+                    4.9.1.l Design requirements for braced and stayed surfaces are provided in this paragraph. Requirements for the
+                  plate thickness and requirements for the staybolt or stay geometry including size, pitch, and attachment details are
+                  provided.
+
+                  4.9.2           REQUIRED THICKNESS OF BRACED AND STAYED SURFACES
+                    4.9.2.l The minimum thickness for braced and stayed flat plates and those parts that, by these rules, require staying
+                  as flat plates with braces or staybolts of uniform diameter symmetrically spaced, shall be calculated by the following
+                  equation.
+
+                                                                                                                                                                    (4.9.1)
+
+
+                    4.9.2.2 When stays are used to connect two plates, and only one of these plates requires staying, the value of C shall
+                  be governed by the thickness of the plate requiring staying.
+
+                  4.9.3           REQUIRED DIMENSIONS AND LAYOUT OF STAYBOLTS AND STAYS
+                    4.9.3.l The required area of a staybolt or stay at its minimum cross section, usually located at t he root of the thread,
+                  exclusive of any corrosion allowance, shall be obtained by dividing the load on the staybolt computed in accordance with
+                  4.9.3.2 by the allowable tensile stress value for the staybolt material, multiplying the result by 1.10.
+                    4.9.3.2 The area supported by a staybolt or stay shall be computed on the basis of the full pitch dimensions, with a
+                  deduction for the area occupied by the stay. The load carried by a stay is the product of the area supported by the stay
+                  and the maximum a llowable working pressure. When a staybolt or stay for a shell is unsymmetrical because of inter-
+                  ference with other construction details, the area supported by the staybolt or stay shall be computed by taking the dis-
+                  tance from the center of the spacing on one side of the staybolt or stay to the center of the spacing on the other side.
+                    4.9.3.3 When the edge of a flat stayed plate is flanged, the distance from the center of the outermost stays to the
+                  inside of the supporting flange shall not be greater than the pitch of the stays plus the inside radius of the flange.
+
+                  4.9.4           REQUIREMENTS FOR WELDED-IN STAYBOLTS AND WELDED STAYS
+                     4.9.4.l Welded-in staybolts may be used, provided the following requirements are satisfied.
+                     (a] The configuration is in accordance with t he typical arrangements shown in Figure 4.9.1.
+                     (b] The required thickness of the plate shall not exceed 38 mm (1.5 in.).
+                     (c] The maximum pitch shall not exceed 15 times the diameter of the staybolt; however, if the required plate t hickness
+                  is greater than 19 mm (0.75 in.), the staybolt pitch shall not exceed 508 mm (20 in.).
+                     (d) The size of the attachment welds is not less than that shown in Figure 4.9.1.
+
+                                                                               318
+
+Copyoighl ASME ln18mational (BPVC)
+Provided by AocU'k under license with ASME                                           Licensoo:::BREMBANA & ROLLE GROUP - Betgamasque: Alrimb/8355778001, User:Tosto, Natale
+No reproduction 01 netwotkr,g permitted without license from Accurls                 Nol for Resale, 10/20/2025 03:56:38 MDT
+                                                                                           ASME BPVC.VJII.2·2025                                                                4.9.4.1 - 4.9.6
+
+
+
+                             (e) The allowable load on the welds shall not exceed the product of the weld area (based on the weld dimension par-
+                          allel to the staybolt), the allowable tensile stress of the material being welded, and a weld joint factor of 60%.
+                            4.9.4.2 Welded stays may be used, provided the following requirements are satisfied.
+                            (a) The configuration is in accordance with the typical arrangements shown in Figure 4.9.1.
+                            (b) The pressure does not exceed 2 MPa (300 psi).
+                            (c) The required thickness of the plate does not exceed 13 mm (0.5 in.).
+                            (d) The size of the fillet welds is not less than the plate thickness requiring stay.
+                            (e) The inside welds are visually examined before the closing plates are attached.
+                            (f) The allowable load on the fillet welds shall not exceed the product of the weld area (based on the minimum leg
+                          dimension), the allowable tensile stress of the material being welded, and a weld joint factor of 55%.
+                            (g) The maximum diameter or width of the hole in t he plate shall not exceed 32 mm (1.25 in.).
+                            (h) The maximum pitch, Ps, is determined by eq. (4.9.1) with C= 2.1 if either plate thickness is less than or equal to
+                          11 mm (0.4375 in.) thick, and C= 2.2 for all other plate thicknesses.
+
+                          4.9.5           NOMENCLATURE
+
+                           C = stress factor for braced and stayed surfaces (see Table 4.9.1)
+                           P = design pressure
+                          Ps = maximum pitch. The maximum pitch is the greatest distance between any set of parallel straight lines passing
+                                through the centers of staybolts in adjacent rows. Each of the three parallel sets running in the horizontal, the ver-
+                                tical, and t he inclined planes shall be considered.
+                           S = allowable stress from Annex 3-A evaluated at the design temperature
+                            t = minimum required plate thickness
+                          t s = nominal thickness of the thinner stayed plate (see Figure 4.9.1)
+                          4.9.6           TABLES
+
+
+
+                                                                                           Table 4.9.1
+                                                                          Stress Factor for Braced and Stayed Surfaces
+                                                                       Braced and Stayed Surface Construction                                                                  C
+                            Welded stays through plates not over 11 mm (0.4375 in.) in thickness                                                                              2.1
+                            Welded stays through plates over 11 mm (0.4375 in.) in thickness                                                                                  2.2
+
+
+
+
+                                                                                                     319
+
+Copy,tghl ASME ln18mallonal (BPVC)
+Provided by Ao::uk under licanse with ASME                                                          Llcensee:::BREMBANA & ROLLE GROUP - BergamasqUB: Alrimbf8355778001, User:Tosto, Natale
+No reproduction 0t netwotkr,g pemlitled without license frcm Accurls                                Nol lor Resale, 10/20/2025 03:56:38 MDT
+

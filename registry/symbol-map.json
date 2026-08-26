@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "symbolMaps": [
+    {
+      "symbolMapId": "SYMBOLMAP.FAST.R09.CANDIDATES",
+      "sourceKind": "ReferenceGuide",
+      "referenceGuideId": "GUIDE.FAST.FLANGE.DESIGN.R09",
+      "status": "CandidateMapping",
+      "normativeAuthority": false,
+      "macroExecutionRequired": false,
+      "entries": [
+        {
+          "externalSymbol": "Flange.Geom.ID",
+          "domainPath": "JointSideGeometry.Nominal.BoreDiameterM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Flange.Geom.Thk",
+          "domainPath": "JointSideGeometry.Nominal.ThicknessM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Flange.Geom.FacingDiam",
+          "domainPath": "JointSideGeometry.Nominal.SeatOutsideDiameterM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "CounterFlange.Geom.ID",
+          "domainPath": "JointSideGeometry.Nominal.BoreDiameterM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "CounterFlange.Geom.Thk",
+          "domainPath": "JointSideGeometry.Nominal.ThicknessM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Gsk.Seal.ID",
+          "domainPath": "GasketAssembly.Envelope.InsideDiameterM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Gsk.Seal.OD",
+          "domainPath": "GasketAssembly.Envelope.OutsideDiameterM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Gsk.Seal.THK",
+          "domainPath": "GasketAssembly.Envelope.ThicknessM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Gsk.Seal.Area.Nominal",
+          "domainPath": "SealingZone.NominalAreaM2",
+          "quantityKind": "Area",
+          "canonicalUnit": "m^2",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Gsk.PassPart.Len",
+          "domainPath": "PartitionRib.EffectiveLengthM",
+          "quantityKind": "Length",
+          "canonicalUnit": "m",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Gsk.Param.Sg.Min.Oper",
+          "domainPath": "SealingZone.MinimumAverageContactPressurePa",
+          "quantityKind": "Pressure",
+          "canonicalUnit": "Pa",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Gsk.Param.Sg.Max",
+          "domainPath": "SealingZone.MaximumAverageContactPressurePa",
+          "quantityKind": "Pressure",
+          "canonicalUnit": "Pa",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Bolt.PCC1.Sb.MIN",
+          "domainPath": "BoltingAssembly.Preload.MinimumPreloadN",
+          "quantityKind": "Force",
+          "canonicalUnit": "N",
+          "mappingStatus": "NeedsReview",
+          "reviewReason": "Workbook name indicates PCC-1 bolt stress; domain currently stores preload bounds, not a direct selected bolt-stress quantity."
+        },
+        {
+          "externalSymbol": "Bolt.PCC1.Sb.Sel",
+          "domainPath": "BoltingAssembly.Preload.TargetPreloadN",
+          "quantityKind": "Force",
+          "canonicalUnit": "N",
+          "mappingStatus": "NeedsReview",
+          "reviewReason": "Workbook name indicates PCC-1 bolt stress; domain currently stores preload bounds, not a direct selected bolt-stress quantity."
+        },
+        {
+          "externalSymbol": "Bolt.PCC1.Sb.MAX",
+          "domainPath": "BoltingAssembly.Preload.MaximumPreloadN",
+          "quantityKind": "Force",
+          "canonicalUnit": "N",
+          "mappingStatus": "NeedsReview",
+          "reviewReason": "Workbook name indicates PCC-1 bolt stress; domain currently stores preload bounds, not a direct selected bolt-stress quantity."
+        },
+        {
+          "externalSymbol": "Load.Fa",
+          "domainPath": "JointLoadCase.ExternalLoads.FzN",
+          "quantityKind": "Force",
+          "canonicalUnit": "N",
+          "mappingStatus": "Candidate"
+        },
+        {
+          "externalSymbol": "Load.Me",
+          "domainPath": "JointLoadCase.ExternalLoads.MxNm or JointLoadCase.ExternalLoads.MyNm",
+          "quantityKind": "Moment",
+          "canonicalUnit": "N m",
+          "mappingStatus": "NeedsReview",
+          "reviewReason": "Workbook equivalent moment must be reconciled with signed six-component moment handling."
+        },
+        {
+          "externalSymbol": "Load.W0",
+          "domainPath": "ResultTraceQuantity",
+          "quantityKind": "Force",
+          "canonicalUnit": "N",
+          "mappingStatus": "NeedsSourceFormula",
+          "reviewReason": "Derived assembly load must be traced to a source clause/formula before implementation."
+        },
+        {
+          "externalSymbol": "Load.Wgs",
+          "domainPath": "ResultTraceQuantity",
+          "quantityKind": "Force",
+          "canonicalUnit": "N",
+          "mappingStatus": "NeedsSourceFormula",
+          "reviewReason": "Derived gasket seating or service load must be traced to a source clause/formula before implementation."
+        }
+      ],
+      "promotionGate": [
+        "Confirm exact workbook cell/range and displayed units.",
+        "Confirm source standard, edition, clause, and formula/table reference.",
+        "Confirm SI conversion and sign convention.",
+        "Confirm whether the value is an input, option, intermediate trace quantity, or check result.",
+        "Add at least one validation case before formula implementation."
+      ]
+    }
+  ]
+}

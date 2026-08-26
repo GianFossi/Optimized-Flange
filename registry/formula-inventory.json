@@ -124,7 +124,153 @@
         "Record applicability limits.",
         "Add validation cases with expected results and tolerances."
       ],
-      "formulas": []
+      "formulas": [
+        {
+          "formulaId": "ASME.VIII.2.2025.4.16.4",
+          "status": "Implemented",
+          "standardId": "ASME.VIII.2",
+          "edition": "2025",
+          "clauseReference": "4.16.6.1",
+          "formulaReference": "Equation (4.16.4)",
+          "targetRuleId": "ASME.VIII.2.FLANGE.BASIC_BOLT_LOADS",
+          "implementation": "src/OptimizedFlange.Calculations/AsmeViii2Part416BoltLoads.fs",
+          "qualificationStatus": "PartiallyImplemented",
+          "symbolMap": [
+            {
+              "symbol": "Wo",
+              "quantity": "operating-condition design bolt load",
+              "canonicalUnit": "N"
+            },
+            {
+              "symbol": "G",
+              "quantity": "diameter at gasket load reaction",
+              "canonicalUnit": "m"
+            },
+            {
+              "symbol": "P",
+              "quantity": "design pressure",
+              "canonicalUnit": "Pa"
+            },
+            {
+              "symbol": "b",
+              "quantity": "effective gasket contact width",
+              "canonicalUnit": "m"
+            },
+            {
+              "symbol": "m",
+              "quantity": "gasket operating factor",
+              "canonicalUnit": "dimensionless"
+            }
+          ],
+          "validationCaseIds": [
+            "TEST.CALC.ASME.VIII.2.4.16.BASIC_BOLT_LOADS.MANUAL"
+          ],
+          "limitations": [
+            "Implemented as SI-only pure helper.",
+            "Not yet qualified against an independent published worked example."
+          ]
+        },
+        {
+          "formulaId": "ASME.VIII.2.2025.4.16.5",
+          "status": "Implemented",
+          "standardId": "ASME.VIII.2",
+          "edition": "2025",
+          "clauseReference": "4.16.6.1",
+          "formulaReference": "Equation (4.16.5)",
+          "targetRuleId": "ASME.VIII.2.FLANGE.BASIC_BOLT_LOADS",
+          "implementation": "src/OptimizedFlange.Calculations/AsmeViii2Part416BoltLoads.fs",
+          "qualificationStatus": "PartiallyImplemented",
+          "symbolMap": [
+            {
+              "symbol": "Wo",
+              "quantity": "operating-condition design bolt load for self-energizing gasket",
+              "canonicalUnit": "N"
+            },
+            {
+              "symbol": "G",
+              "quantity": "diameter at gasket load reaction",
+              "canonicalUnit": "m"
+            },
+            {
+              "symbol": "P",
+              "quantity": "design pressure",
+              "canonicalUnit": "Pa"
+            }
+          ],
+          "validationCaseIds": [
+            "TEST.CALC.ASME.VIII.2.4.16.BASIC_BOLT_LOADS.MANUAL"
+          ],
+          "limitations": [
+            "Implemented as SI-only pure helper.",
+            "Not yet qualified against an independent published worked example."
+          ]
+        },
+        {
+          "formulaId": "ASME.VIII.2.2025.4.16.8",
+          "status": "Implemented",
+          "standardId": "ASME.VIII.2",
+          "edition": "2025",
+          "clauseReference": "4.16.6.1",
+          "formulaReference": "Equation (4.16.8)",
+          "targetRuleId": "ASME.VIII.2.FLANGE.BASIC_BOLT_LOADS",
+          "implementation": "src/OptimizedFlange.Calculations/AsmeViii2Part416BoltLoads.fs",
+          "qualificationStatus": "PartiallyImplemented",
+          "symbolMap": [
+            {
+              "symbol": "Wgs",
+              "quantity": "required gasket seating load for non-self-energizing gasket",
+              "canonicalUnit": "N"
+            },
+            {
+              "symbol": "b",
+              "quantity": "effective gasket contact width",
+              "canonicalUnit": "m"
+            },
+            {
+              "symbol": "G",
+              "quantity": "diameter at gasket load reaction",
+              "canonicalUnit": "m"
+            },
+            {
+              "symbol": "y",
+              "quantity": "gasket seating stress",
+              "canonicalUnit": "Pa"
+            }
+          ],
+          "validationCaseIds": [
+            "TEST.CALC.ASME.VIII.2.4.16.BASIC_BOLT_LOADS.MANUAL"
+          ],
+          "limitations": [
+            "Implemented as SI-only pure helper.",
+            "Does not implement final selected gasket seating design bolt load."
+          ]
+        },
+        {
+          "formulaId": "ASME.VIII.2.2025.4.16.9",
+          "status": "Implemented",
+          "standardId": "ASME.VIII.2",
+          "edition": "2025",
+          "clauseReference": "4.16.6.1",
+          "formulaReference": "Equation (4.16.9)",
+          "targetRuleId": "ASME.VIII.2.FLANGE.BASIC_BOLT_LOADS",
+          "implementation": "src/OptimizedFlange.Calculations/AsmeViii2Part416BoltLoads.fs",
+          "qualificationStatus": "PartiallyImplemented",
+          "symbolMap": [
+            {
+              "symbol": "Wgs",
+              "quantity": "required gasket seating load for self-energizing gasket",
+              "canonicalUnit": "N"
+            }
+          ],
+          "validationCaseIds": [
+            "TEST.CALC.ASME.VIII.2.4.16.BASIC_BOLT_LOADS.MANUAL"
+          ],
+          "limitations": [
+            "Allows optional externally determined seating force where significant axial compression force is required.",
+            "Not yet qualified against an independent published worked example."
+          ]
+        }
+      ]
     },
     {
       "formulaGroupId": "ASME.PCC.1.2022.APPENDIX.O.INVENTORY",
@@ -191,7 +337,79 @@
         "Record precedence between API 660 base requirements and IOGP amendments.",
         "Add validation cases with expected pass/fail outcomes."
       ],
-      "formulas": []
+      "formulas": [
+        {
+          "formulaId": "IOGP.S-614.V18-12.7.8.10.EQ3",
+          "status": "Implemented",
+          "standardId": "IOGP.S-614",
+          "edition": "v18-12 / December 2018",
+          "clauseReference": "7.8.10",
+          "formulaReference": "Equation (3)",
+          "targetRuleId": "IOGP.S-614.EXCHANGER.FLOATING_HEAD_PRESSURE_EFFECT",
+          "implementation": "src/OptimizedFlange.Calculations/IogpS614Paragraph78.fs",
+          "qualificationStatus": "PartiallyImplemented",
+          "symbolMap": [
+            {
+              "symbol": "Sbsel",
+              "quantity": "selected assembly bolt stress",
+              "canonicalUnit": "Pa"
+            },
+            {
+              "symbol": "Sgmin",
+              "quantity": "minimum gasket stress",
+              "canonicalUnit": "Pa"
+            },
+            {
+              "symbol": "Ag,FH",
+              "quantity": "floating-head gasket area",
+              "canonicalUnit": "m^2"
+            },
+            {
+              "symbol": "DIG,FH",
+              "quantity": "floating-head gasket inside diameter",
+              "canonicalUnit": "m"
+            },
+            {
+              "symbol": "DOFH",
+              "quantity": "floating-head outside diameter",
+              "canonicalUnit": "m"
+            },
+            {
+              "symbol": "PT",
+              "quantity": "tube-side pressure",
+              "canonicalUnit": "Pa"
+            },
+            {
+              "symbol": "PS",
+              "quantity": "shell-side pressure",
+              "canonicalUnit": "Pa"
+            },
+            {
+              "symbol": "phig",
+              "quantity": "gasket factor",
+              "canonicalUnit": "dimensionless"
+            },
+            {
+              "symbol": "nb",
+              "quantity": "bolt count",
+              "canonicalUnit": "count"
+            },
+            {
+              "symbol": "Ab",
+              "quantity": "single-bolt root area",
+              "canonicalUnit": "m^2"
+            }
+          ],
+          "validationCaseIds": [
+            "TEST.CALC.IOGP.S614.7.8.10.EQ3.MANUAL"
+          ],
+          "limitations": [
+            "Implemented as SI-only pure function.",
+            "Not yet qualified against an independent published worked example.",
+            "Does not select the applicable load case automatically."
+          ]
+        }
+      ]
     }
   ],
   "implementationGate": {
@@ -201,7 +419,7 @@
     "requirements": [
       "Each formula record must include standardId, edition, clauseReference, formulaReference, symbol map, SI units, applicability, validationCaseIds, and target ruleId.",
       "No formula source may be implemented from unreliable OCR text.",
-      "No formula may be marked ReadyForImplementation while validationCaseIds is empty.",
+      "No formula may be marked ReadyForImplementation or Implemented while validationCaseIds is empty.",
       "Reference workbooks may guide symbol mapping and comparison-case discovery, but cannot be treated as normative sources."
     ]
   }

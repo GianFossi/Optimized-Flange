@@ -18,6 +18,7 @@ type AssessmentStatus =
 
 /// <summary>Describes implementation and qualification maturity.</summary>
 type CalculationQualification =
+    | Planned
     | Implemented
     | PartiallyImplemented
     | Validated

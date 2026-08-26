@@ -14,8 +14,8 @@
     },
     {
       "moduleId": "OptimizedFlange.Calculations",
-      "qualificationStatus": "Implemented",
-      "notes": "Dispatcher and non-normative structural validation engine only."
+      "qualificationStatus": "PartiallyImplemented",
+      "notes": "Dispatcher, non-normative structural validation engine, planned normative procedures, unqualified ASME VIII Division 2 Part 4.16 basic bolt-load helpers, and one unqualified IOGP S-614 paragraph 7.8.10 Equation (3) pure formula."
     },
     {
       "moduleId": "OptimizedFlange.Persistence",
@@ -24,6 +24,7 @@
     }
   ],
   "gatesBeforeNormativeImplementation": [
+    "Resolve open blockers in registry/normative-implementation-blockers.json.",
     "Confirm source standard edition and source document.",
     "Record clause and formula references.",
     "Create formula inventory records from the selected source documents.",

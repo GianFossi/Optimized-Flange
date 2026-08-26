@@ -22,6 +22,8 @@ tests/
 - Registry checks for planned standards support, rule placeholders, qualification status, and empty normative interpretations.
 - Formula-inventory checks that block implementation-ready formulas unless references and validation cases are recorded.
 - Reference-guide checks that keep calculation workbooks non-normative and block macro execution during intake.
+- Symbol-map checks that keep workbook-to-domain mappings candidate-only and linked to registered guides.
+- Formula implementation checks that allow only registered implemented formulas with source references and validation evidence.
 
 ## Boundaries
 
@@ -34,3 +36,7 @@ The registry tests intentionally fail if planned normative placeholders are mark
 Formula-inventory tests intentionally keep selected source groups in manual or started inventory status until reliable clause/formula extraction and validation cases exist.
 
 Reference-guide tests intentionally fail if a workbook guide is marked as a normative source or macro-executable intake artifact.
+
+Symbol-map tests intentionally fail if mappings are treated as normative authority, require macro execution, or point to an unregistered reference guide.
+
+The first implemented formula test covers IOGP S-614 paragraph 7.8.10 Equation (3) as a focused SI-only helper. It is not a qualification claim because no independent worked example has been recorded yet.

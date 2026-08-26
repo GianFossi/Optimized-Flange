@@ -1,0 +1,72 @@
+ Supplementary Specification to API Standard 660 Shell-and-Tube Heat Exchangers                           International
+                                                                                                          Association
+                                                                                                          ofOil&Gas
+                                                                                                          Producers
+
+
+
+
+7.7.15
+
+Replace section with
+
+External custom-designed girth flanges shall be provided with 3 mm (1/8 in.) future machining allowance on
+the gasket contact seating surface (including pass-partition surfaces). The additional thickness shall not be
+used in the calculation of maximum allowable working pressure.
+
+This requirement does not apply to clad or weld overlay construction.
+
+Add new section
+
+7.7.17
+
+Maximum spacing between bolt centres shall be as calculated by TEMA RCB-11.22.
+
+7.8      Girth Flange Joint Supplementary Design Requirements
+
+7.8.1
+
+Replace first sentence with
+
+The joint component approach, as defined in ASME PCC-1, Appendix O, and the requirements contained
+within this section, shall be applied to both sides of the heat exchanger for girth flange and floating head flange
+joints.
+
+Add new section
+
+7.8.10
+
+For floating head covers, in Step 6 of ASME PCC-1, the following additional check, as calculated by
+Equation (3), shall be undertaken to verify that the selected assembly bolt stress include the effects of pressure
+acting from the opposing side of the floating head cover.
+
+                                ߨ            2         ߨ
+             ܵ݃݉݅݊െ‫݃ܣ × ݋‬,‫ ܪܨ‬+൤ቂ × ൫‫ܦܫܩ‬,‫ ܪܨ‬൯ × ܲܶ ቃെቂ × (‫) ܦܱܪܨ‬2 × ܲܵ ቃ൨
+                                4                      4
+ܾܵ‫ ݈݁ݏ‬൒                                                                                                          (3)
+                                    ߮݃ × ܾ݊ × ‫ܾܣ‬
+
+
+where
+
+        ‫ܣ‬௕                 is the bolt root area, expressed in mm2 (in.2);
+        ‫݃ܣ‬,‫ܪܨ‬              is the floating head gasket area, expressed in mm2 (in.2);
+
+        ‫ܦܱܪܨ‬               is the outside diameter of the floating head flange, expressed in mm (in.);
+        ‫ܦܫܩ‬,‫ܪܨ‬             is the floating head gasket inner diameter, expressed in mm (in.).
+
+
+
+7.9      Expansion Joints
+
+7.9.1
+
+Replace first sentence with
+
+Expansion joints in shells shall be thick walled flanged and flued unless otherwise approved by the purchaser.
+
+
+
+
+ Page 21 of 63                                             S-614                                   December 2018
+

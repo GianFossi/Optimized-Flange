@@ -68,7 +68,7 @@ module CampaignPlaceholderTests =
 
     [<Trait("Campaign", "Registry")>]
     [<Fact>]
-    let ``engineering rule registry has no implemented normative placeholder rules`` () =
+    let ``engineering rule registry has no implemented normative placeholder rules without evidence`` () =
         use document = readJsonDocument "engineering-rules.json"
         let rules = document.RootElement.GetProperty("rules")
         Assert.True(rules.GetArrayLength() > 0)
@@ -77,7 +77,13 @@ module CampaignPlaceholderTests =
             let normative = rule.GetProperty("normative").GetBoolean()
             let implementationStatus = rule.GetProperty("implementationStatus").GetString()
             if normative then
-                Assert.Equal("Planned", implementationStatus)
+                match rule.GetProperty("ruleId").GetString() with
+                | null -> Assert.Fail("Rule identifier is missing.")
+                | ruleId ->
+                    if ruleId.EndsWith(".PLACEHOLDER") then
+                        Assert.Equal("Planned", implementationStatus)
+                    elif implementationStatus = "Implemented" then
+                        Assert.True(rule.GetProperty("validationEvidence").GetArrayLength() > 0)
 
     [<Trait("Campaign", "Registry")>]
     [<Fact>]
@@ -122,7 +128,12 @@ module CampaignPlaceholderTests =
         for formulaGroup in formulaGroups.EnumerateArray() do
             let status = formulaGroup.GetProperty("status").GetString()
             Assert.Contains(status, [| "NeedsManualClauseInventory"; "ClauseInventoryStarted" |])
-            Assert.Equal(0, formulaGroup.GetProperty("formulas").GetArrayLength())
+
+            for formula in formulaGroup.GetProperty("formulas").EnumerateArray() do
+                Assert.Equal("Implemented", formula.GetProperty("status").GetString())
+                Assert.False(System.String.IsNullOrWhiteSpace(formula.GetProperty("clauseReference").GetString()))
+                Assert.False(System.String.IsNullOrWhiteSpace(formula.GetProperty("formulaReference").GetString()))
+                Assert.True(formula.GetProperty("validationCaseIds").GetArrayLength() > 0)
 
     [<Trait("Campaign", "Registry")>]
     [<Fact>]
@@ -133,10 +144,31 @@ module CampaignPlaceholderTests =
         for formulaGroup in formulaGroups.EnumerateArray() do
             for formula in formulaGroup.GetProperty("formulas").EnumerateArray() do
                 let status = formula.GetProperty("status").GetString()
-                if status = "ReadyForImplementation" then
+                if status = "ReadyForImplementation" || status = "Implemented" then
                     Assert.False(System.String.IsNullOrWhiteSpace(formula.GetProperty("clauseReference").GetString()))
                     Assert.False(System.String.IsNullOrWhiteSpace(formula.GetProperty("formulaReference").GetString()))
                     Assert.True(formula.GetProperty("validationCaseIds").GetArrayLength() > 0)
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``IOGP S-614 equation 3 implementation is registered in the amendment inventory`` () =
+        use document = readJsonDocument "formula-inventory.json"
+        let formulaGroups = document.RootElement.GetProperty("formulaGroups").EnumerateArray() |> Seq.toList
+
+        let iogpGroup =
+            formulaGroups
+            |> List.find (fun group ->
+                group.GetProperty("formulaGroupId").GetString() = "IOGP.S-614.V18-12.PARAGRAPH.7.8.AMENDMENTS.INVENTORY")
+
+        let formulas = iogpGroup.GetProperty("formulas").EnumerateArray() |> Seq.toList
+        let equation3 =
+            formulas
+            |> List.find (fun formula -> formula.GetProperty("formulaId").GetString() = "IOGP.S-614.V18-12.7.8.10.EQ3")
+
+        Assert.Equal("Implemented", equation3.GetProperty("status").GetString())
+        Assert.Equal("7.8.10", equation3.GetProperty("clauseReference").GetString())
+        Assert.Equal("Equation (3)", equation3.GetProperty("formulaReference").GetString())
+        Assert.True(equation3.GetProperty("validationCaseIds").GetArrayLength() > 0)
 
     [<Trait("Campaign", "Registry")>]
     [<Fact>]
@@ -184,4 +216,75 @@ module CampaignPlaceholderTests =
             if guide.GetProperty("format").GetString() = "ExcelMacroEnabledWorkbook" then
                 Assert.True(guide.GetProperty("containsMacros").GetBoolean())
 
+            Assert.True(guide.GetProperty("sheetCount").GetInt32() > 0)
+            Assert.True(guide.GetProperty("totalFormulaCells").GetInt32() > 0)
+            Assert.True(guide.GetProperty("definedNameCount").GetInt32() > 0)
+            Assert.True(guide.GetProperty("uniqueDefinedNameCount").GetInt32() > 0)
+            Assert.True(guide.GetProperty("worksheets").GetArrayLength() > 0)
+
+            let clusters = guide.GetProperty("definedNameClusters")
+            Assert.True(clusters.GetProperty("bolting").GetArrayLength() > 0)
+            Assert.True(clusters.GetProperty("gasket").GetArrayLength() > 0)
+            Assert.True(clusters.GetProperty("flange").GetArrayLength() > 0)
+            Assert.True(clusters.GetProperty("loads").GetArrayLength() > 0)
+
             Assert.True(guide.GetProperty("linkedFormulaGroupIds").GetArrayLength() > 0)
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``reference guide linked formula groups exist in formula inventory`` () =
+        use guidesDocument = readJsonDocument "reference-guides.json"
+        use inventoryDocument = readJsonDocument "formula-inventory.json"
+
+        let formulaGroupIds =
+            inventoryDocument.RootElement.GetProperty("formulaGroups").EnumerateArray()
+            |> Seq.choose (fun formulaGroup ->
+                match formulaGroup.GetProperty("formulaGroupId").GetString() with
+                | null -> None
+                | formulaGroupId -> Some formulaGroupId)
+            |> Set.ofSeq
+
+        for guide in guidesDocument.RootElement.GetProperty("referenceGuides").EnumerateArray() do
+            for linkedFormulaGroupId in guide.GetProperty("linkedFormulaGroupIds").EnumerateArray() do
+                match linkedFormulaGroupId.GetString() with
+                | null -> Assert.Fail("Linked formula group identifier is missing.")
+                | groupId -> Assert.Contains(groupId, formulaGroupIds)
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``symbol maps are candidate mappings and reference registered guides`` () =
+        use symbolDocument = readJsonDocument "symbol-map.json"
+        use guideDocument = readJsonDocument "reference-guides.json"
+
+        let guideIds =
+            guideDocument.RootElement.GetProperty("referenceGuides").EnumerateArray()
+            |> Seq.choose (fun guide ->
+                match guide.GetProperty("referenceGuideId").GetString() with
+                | null -> None
+                | guideId -> Some guideId)
+            |> Set.ofSeq
+
+        let maps = symbolDocument.RootElement.GetProperty("symbolMaps")
+        Assert.True(maps.GetArrayLength() > 0)
+
+        for symbolMap in maps.EnumerateArray() do
+            Assert.Equal("ReferenceGuide", symbolMap.GetProperty("sourceKind").GetString())
+            Assert.False(symbolMap.GetProperty("normativeAuthority").GetBoolean())
+            Assert.False(symbolMap.GetProperty("macroExecutionRequired").GetBoolean())
+            Assert.Equal("CandidateMapping", symbolMap.GetProperty("status").GetString())
+
+            match symbolMap.GetProperty("referenceGuideId").GetString() with
+            | null -> Assert.Fail("Symbol map reference guide identifier is missing.")
+            | guideId -> Assert.Contains(guideId, guideIds)
+
+            let entries = symbolMap.GetProperty("entries")
+            Assert.True(entries.GetArrayLength() > 0)
+
+            for entry in entries.EnumerateArray() do
+                Assert.False(System.String.IsNullOrWhiteSpace(entry.GetProperty("externalSymbol").GetString()))
+                Assert.False(System.String.IsNullOrWhiteSpace(entry.GetProperty("domainPath").GetString()))
+                Assert.False(System.String.IsNullOrWhiteSpace(entry.GetProperty("quantityKind").GetString()))
+                Assert.False(System.String.IsNullOrWhiteSpace(entry.GetProperty("canonicalUnit").GetString()))
+                Assert.Contains(
+                    entry.GetProperty("mappingStatus").GetString(),
+                    [| "Candidate"; "NeedsReview"; "NeedsSourceFormula" |])
