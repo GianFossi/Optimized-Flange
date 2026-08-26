@@ -148,14 +148,14 @@ NUGET_USER
 
 Create it in GitHub under `Settings` -> `Secrets and variables` -> `Actions` -> `New repository secret`.
 
-For the current NuGet.org account, set:
+Set the value to the exact NuGet.org username of the account that created the Trusted Publishing policy. To find it, open `View Profile` from the NuGet.org account menu and copy the last part of the profile URL:
 
 ```text
 Name: NUGET_USER
-Value: Ganfoss
+Value: value-from-https://www.nuget.org/profiles/<username>
 ```
 
-This is not a NuGet API key. It is only the NuGet.org username used by `NuGet/login@v1` to find the Trusted Publishing policy. If GitHub Actions fails with `No matching trust policy owned by user ... was found`, make sure `NUGET_USER` matches the NuGet.org username that created the policy.
+This is not a NuGet API key. It is only the NuGet.org username used by `NuGet/login@v1` to find the Trusted Publishing policy. If GitHub Actions fails with `No matching trust policy owned by user 'Ganfoss' was found`, then `Ganfoss` is the package owner/display name but not the policy creator username. Update the `NUGET_USER` secret to the exact profile username and re-run the workflow.
 
 `Glob Patterns and Packages` controls which package IDs the policy may publish. `OptimizedFlange.*` covers:
 

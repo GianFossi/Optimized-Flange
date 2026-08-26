@@ -163,3 +163,4 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Expanded `README.md` with Trusted Publishing policy values, glob pattern guidance, and the 7-day activation workflow.
 - Updated Trusted Publishing documentation and workflow to use the NuGet.org policy creator username for `NuGet/login@v1`.
 - Changed the Trusted Publishing workflow to read the NuGet.org policy creator username from the `NUGET_USER` GitHub Actions secret.
+- Clarified Trusted Publishing troubleshooting: `NUGET_USER` must match the NuGet.org profile username from `https://www.nuget.org/profiles/<username>`, not necessarily the package owner/display name.

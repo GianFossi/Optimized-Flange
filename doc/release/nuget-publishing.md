@@ -98,14 +98,24 @@ Create it in GitHub:
 Repository -> Settings -> Secrets and variables -> Actions -> New repository secret
 ```
 
-For the current NuGet.org account:
+Set the secret value to the exact NuGet.org username of the account that created the Trusted Publishing policy. To find it:
+
+1. Open the NuGet.org account menu.
+2. Select `View Profile`.
+3. Copy the last part of the profile URL:
+
+```text
+https://www.nuget.org/profiles/<username>
+```
+
+Set the secret as:
 
 ```text
 Name: NUGET_USER
-Value: Ganfoss
+Value: <username>
 ```
 
-This secret is not a NuGet API key. It is only the NuGet.org username used to locate the Trusted Publishing policy. This value is not necessarily the same as `Package owner`. If NuGet.org reports `No matching trust policy owned by user ... was found`, verify that `NUGET_USER` is the NuGet.org username that created the policy.
+This secret is not a NuGet API key. It is only the NuGet.org username used to locate the Trusted Publishing policy. This value is not necessarily the same as `Package owner` or the visible display name. If NuGet.org reports `No matching trust policy owned by user 'Ganfoss' was found`, then `Ganfoss` is not the policy creator username for this policy. Update `NUGET_USER` to the exact profile username and re-run the workflow.
 
 After the policy is created, run the GitHub workflow manually:
 
