@@ -99,6 +99,10 @@ type GasketAssembly =
         HasInnerRing: bool
         /// <summary>Whether an outer centering ring is physically present.</summary>
         HasOuterRing: bool
+        /// <summary>Optional selected gasket operating factor for code/helper calculations.</summary>
+        SelectedGasketM: float option
+        /// <summary>Optional selected gasket seating stress in pascals for code/helper calculations.</summary>
+        SelectedGasketYPa: float<Pa> option
         /// <summary>Area basis used by the project gasket/bolting ratio policy.</summary>
         ProjectAreaBasis: GasketAreaBasis
     }

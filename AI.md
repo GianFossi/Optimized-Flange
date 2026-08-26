@@ -218,3 +218,26 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Added `NormativeAssessmentEngine` and dispatcher routing for partially implemented ASME VIII Division 2 and IOGP S-614 procedure endpoints.
 - Added `registry/validation-cases.json` to record independent expected-result cases required before validation or qualification.
 - Searched public sources for independent worked examples; no authoritative complete input/output case was suitable for qualification at this stage.
+
+## 2026-08-26 — Local Technical Database Sources
+
+- Registered the local technical database root in `registry/database-sources.json`: `C:\Users\ganfossi\Documents\DataBase\data`.
+- Added database source records for `MyLib.json`, gasket geometry, gasket design parameters, gasket moment factors, bolting, facings, standard flanges, ASME B16 ratings, pipe dimensions, and tube BWG data.
+- Recorded `NozzleLoads` as a future/missing source category until a source file is available.
+- Kept `Defaults.databasePaths` portable and path-free; local paths are created through `Defaults.databasePathsFromRootFolder` after the root folder is resolved from settings/defaults/registry.
+- Added persistence tests for versioned database-path settings and validation tests that check registered XML/JSON source files are present and parseable.
+- Added `OptimizedFlange.DataSources` for local XML/JSON database loading, searchable imported records, source/SI scalar values, and provenance.
+- Added deterministic search filters for category, source id, free text, family/type, standard/specification, grade/class, and scalar presence.
+- Added `ProcedureDataResolver` to connect calculation procedure contracts to candidate source records without making formula modules open database files.
+- Added read-only `Microsoft.Data.Sqlite` loading for ASME material SQLite databases, including normalized and PascalCase/working schemas.
+- Added initial `DomainMapping` helpers for material snapshots, bolting assemblies, ring-gasket assemblies, and conservative standard-flange geometry mapping.
+- Added data-source tests covering XML/JSON/SQLite loading, filtering, procedure data resolution, SI conversion, provenance, and domain mapping.
+- Completed `Flanges.xml` record loading for ASME B16 flange fields and mapped selected records into `JointSideGeometry`.
+- Added `JointSelectionBuilder` to compose `FlangedJoint` values from selected flange/gasket/bolting/material records plus explicit project pressure, temperature, bolt-count, and bolt-circle inputs.
+- Added an end-to-end data-selection-to-dispatcher structural-validation test.
+- Added `examples/OptimizedFlange.TextDemo`, a no-UI console client that loads local database records, assembles a test flanged joint, and runs structural validation through the dispatcher.
+- Added the VS Code `run-text-demo` task.
+- Added optional selected gasket `m/y` fields to `GasketAssembly` and the technical-data DTO.
+- Updated ASME VIII-2 and IOGP dispatcher endpoints to resolve available helper inputs from `FlangedJoint` and return numeric trace results when the required data is present.
+- Added trace-only material allowable-stress resolution from selected `MaterialSnapshot` records at load-case temperature where available; no allowable table interpolation or invented stress values are introduced.
+- Updated the text demo to run structural validation plus ASME VIII-2 and IOGP helper endpoints.

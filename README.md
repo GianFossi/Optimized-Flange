@@ -45,10 +45,11 @@ Implemented foundations:
 - candidate source-to-domain symbol mapping registry;
 - reference workbook comparison cases for FAST R09;
 - planned normative calculation procedure catalog;
-- automated test campaign skeleton.
-- calculation dispatcher and non-normative structural-validation engine.
+- automated test campaign skeleton;
+- calculation dispatcher and non-normative structural-validation engine;
+- local technical database source registry for materials, gaskets, bolting, facings, standard flanges, ratings, pipes, and tube data.
 
-The F# domain also contains the Step 2 technical skeleton for `FlangedJoint` and the Step 3 calculation/check contracts. No ASME/PCC/API engineering formula has been implemented yet. Normative calculations will be introduced only together with source traceability and their corresponding validation plan.
+The F# domain also contains the Step 2 technical skeleton for `FlangedJoint` and the Step 3 calculation/check contracts. A small number of traceable ASME VIII-2 and IOGP S-614 SI-only helper formulas are implemented as `PartiallyImplemented`; they are not validated, qualified, or full end-to-end procedures yet.
 
 ## Architecture
 
@@ -57,7 +58,11 @@ src/
 ├── OptimizedFlange.Domain/
 ├── OptimizedFlange.Calculations/
 ├── OptimizedFlange.Configuration/
+├── OptimizedFlange.DataSources/
 └── OptimizedFlange.Persistence/
+
+examples/
+└── OptimizedFlange.TextDemo/
 ```
 
 Future modules will follow the frozen modular architecture documented under `doc/architecture/`.
@@ -103,6 +108,7 @@ See:
 - `registry/symbol-map.json`
 - `registry/workbook-comparison-cases.json`
 - `registry/validation-cases.json`
+- `registry/database-sources.json`
 - `registry/engineering-rules.json`
 - `registry/qualification.json`
 - `registry/normative-interpretations.json`
@@ -155,6 +161,45 @@ The FAST R09 guide registry records worksheet metadata and defined-name clusters
 `registry/workbook-comparison-cases.json` records FAST R09 cached-value comparison cases. These tests compare implemented helpers against workbook values without executing macros and are not qualification evidence.
 
 `registry/validation-cases.json` records the independent expected-result cases still needed before any partially implemented formula can be promoted to `Validated` or `Qualified`.
+
+### Local Technical Databases
+
+`registry/database-sources.json` records the current local database root:
+
+```text
+C:\Users\ganfossi\Documents\DataBase\data
+```
+
+The registry includes `MyLib.json`, gasket geometry and parameters, bolting, facings, standard flanges, ASME B16 ratings, pipes, and tube BWG data. `NozzleLoads` is recorded as a future/missing category until a source file is available.
+
+The built-in `Defaults.databasePaths` value is intentionally portable and contains no workstation path. When the root folder is loaded from user settings or another defaults source, use `Defaults.databasePathsFromRootFolder` to create read-only `DatabasePathSettings`.
+
+`OptimizedFlange.DataSources` can now load configured local XML/JSON data files into searchable imported records. Each imported record keeps source id, source path, category, source units, converted SI scalar values when units are recognized, and provenance. Search filters currently cover category, source id, free text, family/type, standard/specification, grade/class, and scalar presence.
+
+Procedure-aware data resolution is available through `ProcedureDataResolver`: callers pass a `CalculationProcedureDefinition`, and the resolver returns candidate imported records for that procedure's expected data categories. Calculation modules still do not open database files directly.
+
+The data-source layer also includes initial domain mapping helpers:
+
+- material records to ambient `MaterialSnapshot` values;
+- bolting records to `BoltingAssembly` values when project bolt count and bolt-circle diameter are supplied;
+- ring-gasket records to `GasketAssembly` values using imported dimensions;
+- standard-flange records from `Flanges.xml` to `JointSideGeometry` using `RingOD`, `RingWT`, `BoltCircDiam`, `HubSmallDiam`, `HubLargeDiam`, `HubLength`, and RF facing dimensions.
+
+The ASME material SQLite databases are loaded through `Microsoft.Data.Sqlite` in read-only mode. The loader supports both the normalized `asme_sec2_partd_metric.sqlite3` schema and the PascalCase `asme_materials*.db` working schema.
+
+`JointSelectionBuilder` composes a calculation-ready `FlangedJoint` from explicit selected flange, gasket, gasket parameter, bolting, and material records plus project-only inputs such as bolt count, bolt-circle diameter, pressure, and temperature. This provides a real data-selection-to-dispatcher path for structural validation and for the currently implemented ASME VIII-2 / IOGP helper outputs.
+
+The ASME VIII-2 and IOGP dispatcher endpoints now resolve available inputs from the composed `FlangedJoint`: gasket reaction diameter, effective physical gasket width, selected gasket `m/y`, load-case pressure, gasket area, selected bolt root area, bolt count, and selected material allowable stress at the load-case temperature when that value is present in the `MaterialSnapshot`. These results remain `PartiallyImplemented` because they are helper-level outputs, not complete qualified code procedures.
+
+### Text Demo
+
+Run the no-UI assembly demo with:
+
+```bash
+dotnet run --project examples/OptimizedFlange.TextDemo/OptimizedFlange.TextDemo.fsproj --configuration Debug
+```
+
+The demo loads the local database root, selects a flange, ring gasket, gasket `m/y` parameter record, bolting record, and material record, builds a `FlangedJoint`, and runs structural, ASME VIII-2 helper, and IOGP S-614 helper dispatcher procedures. VS Code also has a `run-text-demo` task.
 
 ### VS Code tasks
 

@@ -2,6 +2,7 @@ namespace OptimizedFlange.ValidationTests
 
 open System.IO
 open System.Text.Json
+open System.Xml.Linq
 open Xunit
 
 module CampaignPlaceholderTests =
@@ -323,3 +324,45 @@ module CampaignPlaceholderTests =
             Assert.Equal("Needed", validationCase.GetProperty("status").GetString())
             Assert.True(validationCase.GetProperty("targetFormulaIds").GetArrayLength() > 0)
             Assert.True(validationCase.GetProperty("requiredEvidence").GetArrayLength() > 0)
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``local technical database registry points to parseable source files`` () =
+        use document = readJsonDocument "database-sources.json"
+        let root = document.RootElement
+        Assert.Equal(1, root.GetProperty("schemaVersion").GetInt32())
+
+        match root.GetProperty("rootPath").GetString() with
+        | null -> Assert.Fail("Database root path is missing.")
+        | databaseRoot ->
+            Assert.True(Directory.Exists(databaseRoot))
+
+            for source in root.GetProperty("sources").EnumerateArray() do
+                let fileName = source.GetProperty("fileName").GetString()
+                match fileName with
+                | null -> Assert.Fail("Database source file name is missing.")
+                | name ->
+                    let path = Path.Combine(databaseRoot, name)
+                    Assert.True(File.Exists(path))
+
+                    if source.GetProperty("format").GetString() = "Xml" then
+                        let xml = XDocument.Load(path)
+                        match source.GetProperty("rootElement").GetString() with
+                        | null -> Assert.Fail("XML database source root element is missing.")
+                        | rootElement ->
+                            match xml.Root with
+                            | null -> Assert.Fail("XML database source document has no root element.")
+                            | xmlRoot -> Assert.Equal(rootElement, xmlRoot.Name.LocalName)
+                    elif source.GetProperty("format").GetString() = "Json" then
+                        use json = JsonDocument.Parse(File.ReadAllText(path))
+                        Assert.True(json.RootElement.ValueKind = JsonValueKind.Object)
+
+        let missingOrFuture =
+            root.GetProperty("missingOrFutureCategories").EnumerateArray()
+            |> Seq.choose (fun category ->
+                match category.GetProperty("category").GetString() with
+                | null -> None
+                | categoryName -> Some categoryName)
+            |> Set.ofSeq
+
+        Assert.Contains("NozzleLoads", missingOrFuture)

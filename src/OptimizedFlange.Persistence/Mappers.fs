@@ -1020,6 +1020,8 @@ module PersistenceMappers =
                 | None -> null
             HasInnerRing = value.HasInnerRing
             HasOuterRing = value.HasOuterRing
+            SelectedGasketM = value.SelectedGasketM |> optionToNullable
+            SelectedGasketYPa = value.SelectedGasketYPa |> Option.map float |> optionToNullable
             ProjectAreaBasis = gasketAreaBasisToString value.ProjectAreaBasis
         }
 
@@ -1049,6 +1051,10 @@ module PersistenceMappers =
                 PartitionLayout = Option.ofObj dto.PartitionLayout |> Option.map partitionLayoutFromDto
                 HasInnerRing = dto.HasInnerRing
                 HasOuterRing = dto.HasOuterRing
+                SelectedGasketM = nullableToOption dto.SelectedGasketM
+                SelectedGasketYPa =
+                    nullableToOption dto.SelectedGasketYPa
+                    |> Option.map LanguagePrimitives.FloatWithMeasure<Pa>
                 ProjectAreaBasis = areaBasis
             }
         | Error message, _, _ -> Error message

@@ -126,6 +126,36 @@
       "name": "ASME VIII Division 2 Part 4.16 basic bolt-load helpers",
       "module": "OptimizedFlange.Calculations",
       "status": "Enabled"
+    },
+    {
+      "featureId": "DATA.LOCAL_TECHNICAL_DATABASE_REGISTRY",
+      "name": "Local technical database source registry",
+      "module": "registry",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "DATA.LOCAL_TECHNICAL_DATABASE_LOADERS",
+      "name": "Local technical database loaders and search filters",
+      "module": "OptimizedFlange.DataSources",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "DATA.DOMAIN_MAPPING",
+      "name": "Initial imported-record to domain-object mapping",
+      "module": "OptimizedFlange.DataSources",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "DATA.JOINT_SELECTION_BUILDER",
+      "name": "Selected imported records to flanged-joint composition",
+      "module": "OptimizedFlange.DataSources",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "CALC.PARTIAL_NORMATIVE_INPUT_RESOLUTION",
+      "name": "FlangedJoint-driven input resolution for ASME VIII-2 and IOGP helper endpoints",
+      "module": "OptimizedFlange.Calculations",
+      "status": "Enabled"
     }
   ]
 }

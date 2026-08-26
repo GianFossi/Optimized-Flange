@@ -60,6 +60,20 @@
       }
     },
     {
+      "label": "run-text-demo",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "examples/OptimizedFlange.TextDemo/OptimizedFlange.TextDemo.fsproj",
+        "--configuration",
+        "Debug"
+      ],
+      "dependsOn": "restore",
+      "problemMatcher": "$msCompile"
+    },
+    {
       "label": "test",
       "type": "process",
       "command": "dotnet",

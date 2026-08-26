@@ -84,6 +84,8 @@ module CalculationDispatcherTests =
             PartitionLayout = None
             HasInnerRing = true
             HasOuterRing = true
+            SelectedGasketM = Some 3.0
+            SelectedGasketYPa = Some 70.0e6<Pa>
             ProjectAreaBasis = TotalNominalSealingArea
         }
 
@@ -105,6 +107,38 @@ module CalculationDispatcherTests =
                 }
         }
 
+    let private material role allowable =
+        {
+            ComponentRole = role
+            Material =
+                {
+                    Identity =
+                        {
+                            MaterialId = $"{role}-material"
+                            Specification = Some "Test"
+                            Grade = Some "A"
+                            ProductForm = None
+                        }
+                    Properties =
+                        [
+                            {
+                                TemperatureK = 293.15<K>
+                                AllowableStressPa = Some allowable
+                                YieldStrengthPa = None
+                                UltimateStrengthPa = None
+                                ElasticModulusPa = None
+                                PoissonRatio = None
+                                ThermalExpansionPerK = None
+                                DensityKgPerM3 = None
+                            }
+                        ]
+                    ProviderId = "test"
+                    ProviderRevision = None
+                    SourceEdition = None
+                    Fingerprint = None
+                }
+        }
+
     let private joint =
         {
             JointId = "joint"
@@ -115,7 +149,12 @@ module CalculationDispatcherTests =
             Bolting = bolting
             LoadCases = [ loadCase ]
             AcceptanceCriteria = []
-            Materials = []
+            Materials =
+                [
+                    material "primary flange" 120.0e6<Pa>
+                    material "mating flange" 110.0e6<Pa>
+                    material "bolting" 100.0e6<Pa>
+                ]
         }
 
     let private request procedure =
@@ -200,27 +239,33 @@ module CalculationDispatcherTests =
                 Assert.Equal("CALCULATION.PROCEDURE.NOT_IMPLEMENTED", errors.Head.ErrorCode)
 
     [<Fact>]
-    let ``dispatcher returns incomplete result for partially implemented ASME VIII Division 2 procedure`` () =
+    let ``dispatcher resolves and runs partially implemented ASME VIII Division 2 helper procedure`` () =
         let actual = CalculationDispatcher.run (request NormativeProcedureCatalog.asmeViiiDivision2)
 
         match actual with
         | Result.Error errors -> Assert.Fail($"Unexpected errors: {errors}")
         | Ok result ->
             Assert.Equal(Completed, result.ExecutionStatus)
-            Assert.Equal(Incomplete, result.AssessmentStatus)
+            Assert.Equal(Satisfied, result.AssessmentStatus)
             Assert.Equal(PartiallyImplemented, result.Qualification)
             Assert.Single(result.Checks) |> ignore
-            Assert.Equal("ASME.VIII.2.FLANGE.INPUTS_REQUIRED", result.Checks.Head.MessageCode)
+            Assert.Equal("ASME.VIII.2.FLANGE.BASIC_BOLT_LOADS.CALCULATED", result.Checks.Head.MessageCode)
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.RESULT.W_OPERATING")
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.RESULT.W_SEATING")
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.INPUT.PRIMARY_ALLOWABLE_STRESS")
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.INPUT.BOLTING_ALLOWABLE_STRESS")
 
     [<Fact>]
-    let ``dispatcher returns incomplete result for partially implemented IOGP S-614 procedure`` () =
+    let ``dispatcher resolves and runs partially implemented IOGP S-614 helper procedure`` () =
         let actual = CalculationDispatcher.run (request NormativeProcedureCatalog.iogpS614Paragraph78Amendments)
 
         match actual with
         | Result.Error errors -> Assert.Fail($"Unexpected errors: {errors}")
         | Ok result ->
             Assert.Equal(Completed, result.ExecutionStatus)
-            Assert.Equal(Incomplete, result.AssessmentStatus)
+            Assert.Equal(Satisfied, result.AssessmentStatus)
             Assert.Equal(PartiallyImplemented, result.Qualification)
             Assert.Single(result.Checks) |> ignore
-            Assert.Equal("IOGP.S614.7.8.INPUTS_REQUIRED", result.Checks.Head.MessageCode)
+            Assert.Equal("IOGP.S614.7.8.10.EQ3.CALCULATED", result.Checks.Head.MessageCode)
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "IOGP.S614.RESULT.SB_REQ")
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "IOGP.S614.INPUT.BOLTING_ALLOWABLE_STRESS")

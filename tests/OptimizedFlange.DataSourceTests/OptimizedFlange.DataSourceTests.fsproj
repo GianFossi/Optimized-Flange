@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="CalculationDefaultsStoreTests.fs" />
-    <Compile Include="DatabasePathSettingsStoreTests.fs" />
-    <Compile Include="ProjectTechnicalDataMapperTests.fs" />
-    <Compile Include="ProjectFileStoreTests.fs" />
+    <Compile Include="LocalDatabaseLoaderTests.fs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,8 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\OptimizedFlange.Calculations\OptimizedFlange.Calculations.fsproj" />
     <ProjectReference Include="..\..\src\OptimizedFlange.Configuration\OptimizedFlange.Configuration.fsproj" />
-    <ProjectReference Include="..\..\src\OptimizedFlange.Persistence\OptimizedFlange.Persistence.fsproj" />
+    <ProjectReference Include="..\..\src\OptimizedFlange.DataSources\OptimizedFlange.DataSources.fsproj" />
+    <ProjectReference Include="..\..\src\OptimizedFlange.Domain\OptimizedFlange.Domain.fsproj" />
   </ItemGroup>
 
 </Project>

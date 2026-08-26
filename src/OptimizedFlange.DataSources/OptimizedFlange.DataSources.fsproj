@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>OptimizedFlange.DataSources</RootNamespace>
+    <AssemblyName>OptimizedFlange.DataSources</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="DataSourceTypes.fs" />
+    <Compile Include="UnitConversion.fs" />
+    <Compile Include="Search.fs" />
+    <Compile Include="LocalDatabaseLoaders.fs" />
+    <Compile Include="ProcedureDataResolver.fs" />
+    <Compile Include="DomainMapping.fs" />
+    <Compile Include="JointSelectionBuilder.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OptimizedFlange.Configuration\OptimizedFlange.Configuration.fsproj" />
+    <ProjectReference Include="..\OptimizedFlange.Domain\OptimizedFlange.Domain.fsproj" />
+  </ItemGroup>
+
+</Project>

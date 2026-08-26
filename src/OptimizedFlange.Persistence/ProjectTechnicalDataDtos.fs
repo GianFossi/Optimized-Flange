@@ -296,6 +296,10 @@ type GasketAssemblyDto =
         HasInnerRing: bool
         /// <summary>Whether an outer centering ring is physically present.</summary>
         HasOuterRing: bool
+        /// <summary>Optional selected gasket operating factor.</summary>
+        SelectedGasketM: System.Nullable<float>
+        /// <summary>Optional selected gasket seating stress in pascals.</summary>
+        SelectedGasketYPa: System.Nullable<float>
         /// <summary>Project gasket area basis identifier.</summary>
         ProjectAreaBasis: string
     }

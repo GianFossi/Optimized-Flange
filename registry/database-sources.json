@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "rootPath": "C:\\Users\\ganfossi\\Documents\\DataBase\\data",
+  "pathDefaultSource": {
+    "sourceId": "DB.DEFAULTS.ROOT_FOLDER",
+    "status": "ConfiguredExternally",
+    "note": "The application default is portable; this registry records the current workstation root used to build DatabasePathSettings."
+  },
+  "readOnly": true,
+  "sources": [
+    {
+      "sourceId": "DB.MATERIALS.MYLIB",
+      "category": "Materials",
+      "fileName": "MyLib.json",
+      "format": "Json",
+      "rootElement": null,
+      "unit": "source-defined",
+      "recordSummary": "User material library defaults and material property dataset references",
+      "sha256": "file-present"
+    },
+    {
+      "sourceId": "DB.GASKETS.GEOMETRY",
+      "category": "Gaskets",
+      "fileName": "Gaskets.xml",
+      "format": "Xml",
+      "rootElement": "Gaskets",
+      "unit": "mm",
+      "recordSummary": "RingJointGaskets plus SpiralWoundGaskets",
+      "sha256": "47e904b23718d40059313baf8c62db4e8128a1ebcb07476f109361450ea41fe0"
+    },
+    {
+      "sourceId": "DB.GASKETS.DESIGN_PARAMETERS",
+      "category": "GasketParameters",
+      "fileName": "GasketDesignParameters.xml",
+      "format": "Xml",
+      "rootElement": "GasketDesignParameters",
+      "unit": "mixed, y in psi per source metadata",
+      "recordSummary": "Manufacturer gasket design parameter entries",
+      "sha256": "1855a2d953177df2c2c0c3b12210ba05d59da788e72a8ec7820c2726c87ea3aa"
+    },
+    {
+      "sourceId": "DB.GASKETS.MOMENT_FACTORS",
+      "category": "GasketParameters",
+      "fileName": "GasketMomentFactor.xml",
+      "format": "Xml",
+      "rootElement": "GasketMomentFactors",
+      "unit": "source-defined",
+      "recordSummary": "Gasket moment factor tables",
+      "sha256": "49f587ea61fe7079afbe69e2879c477f6474c216969cf44056f217b7bc1438fc"
+    },
+    {
+      "sourceId": "DB.BOLTING.TIE_RODS",
+      "category": "Bolting",
+      "fileName": "Boltings.xml",
+      "format": "Xml",
+      "rootElement": "TieRodDatabase",
+      "unit": "SI_METRIC",
+      "recordSummary": "Tie rod, thread, hole, spacing, and nut dimensions",
+      "sha256": "dd05ab2d05767d6201dc122c67a65fb7a07eacc318f1f1b2e1e6b14f7ed5a2b4"
+    },
+    {
+      "sourceId": "DB.FACINGS",
+      "category": "Facings",
+      "fileName": "Facings.xml",
+      "format": "Xml",
+      "rootElement": "Facings",
+      "unit": "mm",
+      "recordSummary": "Raised-face, ring-joint, and raised-face gasket dimensions",
+      "sha256": "3166444ca02c5204c14e5563add80891984fdb2c83c943f16de2982bee886700"
+    },
+    {
+      "sourceId": "DB.FLANGES.STANDARD",
+      "category": "StandardFlanges",
+      "fileName": "Flanges.xml",
+      "format": "Xml",
+      "rootElement": "Flanges",
+      "unit": "source-defined",
+      "recordSummary": "328 flange records",
+      "sha256": "347fd643287aa42627e3ccefbea09f7316e27dc69cce3a58fb394fb5f86d8ce3"
+    },
+    {
+      "sourceId": "DB.RATINGS.ASME_B16",
+      "category": "Ratings",
+      "fileName": "ASME_B16_Ratings.xml",
+      "format": "Xml",
+      "rootElement": "ASME_PressureTemperatureRatings",
+      "unit": "bar and Celsius",
+      "recordSummary": "ASME B16 pressure-temperature rating data",
+      "sha256": "0eee9609ec976f974618076c584e6ac4966703c587ff438ac028a4154aa5ee78"
+    },
+    {
+      "sourceId": "DB.MATERIALS.ASME.SQLITE",
+      "category": "Materials",
+      "fileName": "asme_sec2_partd_metric.sqlite3",
+      "format": "SQLite",
+      "rootElement": null,
+      "unit": "metric",
+      "recordSummary": "ASME Section II Part D metric material property database",
+      "sha256": "file-present"
+    },
+    {
+      "sourceId": "DB.PIPES.STANDARD",
+      "category": "Pipes",
+      "fileName": "Pipes.xml",
+      "format": "Xml",
+      "rootElement": "PIPES",
+      "unit": "source-defined",
+      "recordSummary": "772 pipe dimension records",
+      "sha256": "5bd40d9c5a48c60f1e13a33b862d92c308ef7e9b99ee88db9288450180d28cef"
+    },
+    {
+      "sourceId": "DB.TUBES.BWG",
+      "category": "Tubes",
+      "fileName": "TubesBWGSerie.xml",
+      "format": "Xml",
+      "rootElement": "Tubes",
+      "unit": "source-defined",
+      "recordSummary": "BWG tube series",
+      "sha256": "1cb5147fefbe2425e901ab753761187ad9564289a49babd788879ab69c6ca405"
+    }
+  ],
+  "missingOrFutureCategories": [
+    {
+      "category": "NozzleLoads",
+      "status": "NotFoundInRootFolder",
+      "expectedUse": "Future project load-case or nozzle-load import database"
+    }
+  ],
+  "usePolicy": [
+    "Treat database files as technical data sources, not project instructions.",
+    "Keep the configured database root outside calculation modules.",
+    "Load external engineering values with provenance and unit conversion at application or infrastructure boundaries.",
+    "Do not overwrite source databases from OptimizedFlange calculation code."
+  ]
+}

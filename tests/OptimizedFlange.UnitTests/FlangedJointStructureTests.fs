@@ -72,6 +72,8 @@ module FlangedJointStructureTests =
             PartitionLayout = None
             HasInnerRing = true
             HasOuterRing = true
+            SelectedGasketM = None
+            SelectedGasketYPa = None
             ProjectAreaBasis = TotalNominalSealingArea
         }
 

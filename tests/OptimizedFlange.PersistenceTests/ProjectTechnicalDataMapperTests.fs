@@ -134,6 +134,8 @@ module ProjectTechnicalDataMapperTests =
                 }
             HasInnerRing = true
             HasOuterRing = true
+            SelectedGasketM = Some 3.0
+            SelectedGasketYPa = Some 70.0e6<Pa>
             ProjectAreaBasis = TotalNominalSealingArea
         }
 

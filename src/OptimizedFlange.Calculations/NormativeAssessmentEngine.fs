@@ -4,6 +4,16 @@ open OptimizedFlange.Domain
 
 /// <summary>Routes partially implemented normative procedures without fabricating unresolved source-derived inputs.</summary>
 module NormativeAssessmentEngine =
+    let private quantity id role value unit notes =
+        {
+            QuantityId = id
+            Role = role
+            CanonicalValue = decimal value
+            Unit = unit
+            SourceValueId = None
+            Notes = notes
+        }
+
     let private emptyTrace =
         {
             Quantities = []
@@ -53,26 +63,196 @@ module NormativeAssessmentEngine =
             Trace = emptyTrace
         }
 
+    let private completedResult request qualification checks trace =
+        {
+            ResultId = $"{request.RequestId}.{request.Procedure.ProcedureId}.RESULT"
+            ExecutionStatus = Completed
+            AssessmentStatus =
+                if checks |> List.exists (fun check -> check.Status = Incomplete) then Incomplete else Satisfied
+            Qualification = qualification
+            Checks = checks
+            Trace = trace
+        }
+
+    let private gasketDerivedInputs request =
+        let envelope = request.Joint.Gasket.Envelope
+        let inside = float envelope.InsideDiameterM
+        let outside = float envelope.OutsideDiameterM
+        let width = max 0.0 ((outside - inside) / 2.0)
+        let reactionDiameter = (inside + outside) / 2.0
+
+        match request.Joint.Gasket.SelectedGasketM, request.Joint.Gasket.SelectedGasketYPa with
+        | Some gasketM, Some gasketY ->
+            Microsoft.FSharp.Core.Ok(
+                LanguagePrimitives.FloatWithMeasure<m> reactionDiameter,
+                LanguagePrimitives.FloatWithMeasure<m> width,
+                gasketM,
+                gasketY)
+        | None, _ -> Microsoft.FSharp.Core.Error "Selected gasket m factor is missing from the joint."
+        | _, None -> Microsoft.FSharp.Core.Error "Selected gasket y seating stress is missing from the joint."
+
+    let private governingLoadCase request =
+        match request.SelectedLoadCaseIds with
+        | [] -> request.Joint.LoadCases |> List.tryHead
+        | selected ->
+            request.Joint.LoadCases
+            |> List.tryFind (fun loadCase -> selected |> List.contains loadCase.LoadCaseId)
+
+    let private roleMatches (role: string) (selectedMaterial: ComponentMaterial) =
+        selectedMaterial.ComponentRole.Contains(role, System.StringComparison.OrdinalIgnoreCase)
+
+    let private nearestPropertyAt temperature (material: MaterialSnapshot) =
+        material.Properties
+        |> List.sortBy (fun property -> abs (float (property.TemperatureK - temperature)))
+        |> List.tryHead
+
+    let private allowableStressQuantity quantityId role temperature request =
+        request.Joint.Materials
+        |> List.tryFind (roleMatches role)
+        |> Option.bind (fun selectedMaterial ->
+            nearestPropertyAt temperature selectedMaterial.Material
+            |> Option.bind (fun property ->
+                property.AllowableStressPa
+                |> Option.map (fun allowable ->
+                    quantity
+                        quantityId
+                        DerivedInput
+                        (float allowable)
+                        (Some "Pa")
+                        (Some $"Resolved from selected material '{selectedMaterial.ComponentRole}' at {float property.TemperatureK} K."))))
+
+    let private asmeBoltLoadCheck request (loadCase: JointLoadCase) (input: AsmeViii2Part416BoltLoadInput) result =
+        let rule = NormativeProcedureCatalog.asmeViiiDivision2FlangedJointRule
+        let materialQuantities =
+            [
+                allowableStressQuantity "ASME.VIII.2.INPUT.PRIMARY_ALLOWABLE_STRESS" "primary" loadCase.PrimaryCondition.TemperatureK request
+                allowableStressQuantity "ASME.VIII.2.INPUT.MATING_ALLOWABLE_STRESS" "mating" loadCase.MatingCondition.TemperatureK request
+                allowableStressQuantity "ASME.VIII.2.INPUT.BOLTING_ALLOWABLE_STRESS" "bolt" loadCase.PrimaryCondition.TemperatureK request
+            ]
+            |> List.choose id
+
+        {
+            CheckId = $"{rule.RuleId}.BASIC_BOLT_LOADS"
+            Rule = { rule with Qualification = PartiallyImplemented }
+            Status = Satisfied
+            Severity = Info
+            Comparison = None
+            GoverningCase = None
+            MessageCode = "ASME.VIII.2.FLANGE.BASIC_BOLT_LOADS.CALCULATED"
+            Trace =
+                {
+                    Quantities =
+                        [
+                            quantity "ASME.VIII.2.INPUT.P" Input (float input.PressurePa) (Some "Pa") None
+                            quantity "ASME.VIII.2.INPUT.G" DerivedInput (float input.GasketReactionDiameterM) (Some "m") (Some "Derived from selected gasket envelope.")
+                            quantity "ASME.VIII.2.INPUT.b" DerivedInput (float input.EffectiveGasketWidthM) (Some "m") (Some "Derived from selected gasket envelope.")
+                            quantity "ASME.VIII.2.INPUT.m" Input input.GasketM None None
+                            quantity "ASME.VIII.2.INPUT.y" Input (float input.GasketYPa) (Some "Pa") None
+                            quantity "ASME.VIII.2.RESULT.W_OPERATING" Result (float result.OperatingBoltLoadN) (Some "N") None
+                            quantity "ASME.VIII.2.RESULT.W_SEATING" Result (float result.GasketSeatingLoadN) (Some "N") None
+                        ] @ materialQuantities
+                    Dependencies =
+                        [
+                            { DependencyId = request.Joint.Gasket.AssemblyId; DependencyKind = "GasketAssembly"; Fingerprint = None }
+                            { DependencyId = rule.RuleId; DependencyKind = "EngineeringRule"; Fingerprint = None }
+                        ]
+                }
+        }
+
+    let private iogpPressureEffectCheck request (loadCase: JointLoadCase) (input: IogpS614FloatingHeadPressureEffectInput) result =
+        let rule = NormativeProcedureCatalog.iogpS614Paragraph78AmendmentsRule
+        let materialQuantities =
+            [
+                allowableStressQuantity "IOGP.S614.INPUT.BOLTING_ALLOWABLE_STRESS" "bolt" loadCase.PrimaryCondition.TemperatureK request
+            ]
+            |> List.choose id
+
+        {
+            CheckId = $"{rule.RuleId}.FLOATING_HEAD_PRESSURE_EFFECT"
+            Rule = { rule with Qualification = PartiallyImplemented }
+            Status = Satisfied
+            Severity = Info
+            Comparison = None
+            GoverningCase = None
+            MessageCode = "IOGP.S614.7.8.10.EQ3.CALCULATED"
+            Trace =
+                {
+                    Quantities =
+                        [
+                            quantity "IOGP.S614.INPUT.SG_MIN" Input (float input.MinimumGasketStressPa) (Some "Pa") None
+                            quantity "IOGP.S614.INPUT.AG" DerivedInput (float input.FloatingHeadGasketAreaM2) (Some "m2") None
+                            quantity "IOGP.S614.INPUT.DGI" DerivedInput (float input.FloatingHeadGasketInsideDiameterM) (Some "m") None
+                            quantity "IOGP.S614.INPUT.DFO" DerivedInput (float input.FloatingHeadOutsideDiameterM) (Some "m") None
+                            quantity "IOGP.S614.INPUT.PT" Input (float input.TubeSidePressurePa) (Some "Pa") None
+                            quantity "IOGP.S614.INPUT.PS" Input (float input.ShellSidePressurePa) (Some "Pa") None
+                            quantity "IOGP.S614.INPUT.KG" Input input.GasketFactor None None
+                            quantity "IOGP.S614.INPUT.AB_ROOT" DerivedInput (float input.BoltRootAreaM2) (Some "m2") None
+                            quantity "IOGP.S614.RESULT.SB_REQ" Result (float result.RequiredSelectedAssemblyBoltStressPa) (Some "Pa") None
+                            quantity "IOGP.S614.RESULT.F_PRESSURE" Intermediate (float result.PressureResultantN) (Some "N") None
+                            quantity "IOGP.S614.RESULT.F_GASKET" Intermediate (float result.GasketContributionN) (Some "N") None
+                        ] @ materialQuantities
+                    Dependencies =
+                        [
+                            { DependencyId = request.Joint.Gasket.AssemblyId; DependencyKind = "GasketAssembly"; Fingerprint = None }
+                            { DependencyId = request.Joint.Bolting.AssemblyId; DependencyKind = "BoltingAssembly"; Fingerprint = None }
+                            { DependencyId = rule.RuleId; DependencyKind = "EngineeringRule"; Fingerprint = None }
+                        ]
+                }
+        }
+
     /// <summary>Runs the partially implemented ASME VIII Division 2 assessment endpoint.</summary>
     let runAsmeViiiDivision2 request =
-        let checks =
-            [
-                missingInputCheck
-                    NormativeProcedureCatalog.asmeViiiDivision2FlangedJointRule
-                    "ASME.VIII.2.FLANGE.INPUTS_REQUIRED"
-                    "ASME VIII-2 Part 4.16 basic bolt-load helper formulas are implemented, but the dispatcher needs resolved G, b, m, y, self-energizing state, and validation case selection before producing numeric procedure results."
-            ]
+        match governingLoadCase request, gasketDerivedInputs request with
+        | Some loadCase, Microsoft.FSharp.Core.Ok (reactionDiameter, effectiveWidth, gasketM, gasketY) ->
+            let input =
+                {
+                    PressurePa = max loadCase.PrimaryCondition.PressurePa loadCase.MatingCondition.PressurePa
+                    GasketReactionDiameterM = reactionDiameter
+                    EffectiveGasketWidthM = effectiveWidth
+                    GasketM = gasketM
+                    GasketYPa = gasketY
+                    SelfEnergizing = gasketM = 0.0 && gasketY = 0.0<Pa>
+                    SelfEnergizingSeatingForceN = None
+                }
 
-        Ok(incompleteResult request checks)
+            match AsmeViii2Part416BoltLoads.calculate input with
+            | Microsoft.FSharp.Core.Ok result ->
+                let check = asmeBoltLoadCheck request loadCase input result
+                Microsoft.FSharp.Core.Ok(completedResult request PartiallyImplemented [ check ] check.Trace)
+            | Microsoft.FSharp.Core.Error errors ->
+                let notes = String.concat " " errors
+                Microsoft.FSharp.Core.Ok(incompleteResult request [ missingInputCheck NormativeProcedureCatalog.asmeViiiDivision2FlangedJointRule "ASME.VIII.2.FLANGE.INPUTS_INVALID" notes ])
+        | None, _ ->
+            Microsoft.FSharp.Core.Ok(incompleteResult request [ missingInputCheck NormativeProcedureCatalog.asmeViiiDivision2FlangedJointRule "ASME.VIII.2.FLANGE.LOAD_CASE_REQUIRED" "At least one load case is required." ])
+        | _, Microsoft.FSharp.Core.Error message ->
+            Microsoft.FSharp.Core.Ok(incompleteResult request [ missingInputCheck NormativeProcedureCatalog.asmeViiiDivision2FlangedJointRule "ASME.VIII.2.FLANGE.INPUTS_REQUIRED" message ])
 
     /// <summary>Runs the partially implemented IOGP S-614 paragraph 7.8 assessment endpoint.</summary>
     let runIogpS614Paragraph78 request =
-        let checks =
-            [
-                missingInputCheck
-                    NormativeProcedureCatalog.iogpS614Paragraph78AmendmentsRule
-                    "IOGP.S614.7.8.INPUTS_REQUIRED"
-                    "IOGP S-614 paragraph 7.8.10 Equation (3) helper is implemented, but the dispatcher needs resolved floating-head inputs before producing numeric procedure results."
-            ]
+        match governingLoadCase request, gasketDerivedInputs request with
+        | Some loadCase, Microsoft.FSharp.Core.Ok (_, _, gasketM, gasketY) ->
+            let gasket = request.Joint.Gasket
+            let input =
+                {
+                    MinimumGasketStressPa = gasketY
+                    FloatingHeadGasketAreaM2 = gasket.SealingZones |> List.sumBy _.NominalAreaM2
+                    FloatingHeadGasketInsideDiameterM = gasket.Envelope.InsideDiameterM
+                    FloatingHeadOutsideDiameterM = request.Joint.PrimarySide.Geometry.Nominal.OutsideDiameterM
+                    TubeSidePressurePa = loadCase.PrimaryCondition.PressurePa
+                    ShellSidePressurePa = loadCase.MatingCondition.PressurePa
+                    GasketFactor = if gasketM <= 0.0 then 1.0 else gasketM
+                    BoltCount = request.Joint.Bolting.Pattern.Count
+                    BoltRootAreaM2 = request.Joint.Bolting.Stud.Areas.MinimumRootAreaM2
+                }
 
-        Ok(incompleteResult request checks)
+            match IogpS614Paragraph78.requiredSelectedAssemblyBoltStress input with
+            | Microsoft.FSharp.Core.Ok result ->
+                let check = iogpPressureEffectCheck request loadCase input result
+                Microsoft.FSharp.Core.Ok(completedResult request PartiallyImplemented [ check ] check.Trace)
+            | Microsoft.FSharp.Core.Error errors ->
+                let notes = String.concat " " errors
+                Microsoft.FSharp.Core.Ok(incompleteResult request [ missingInputCheck NormativeProcedureCatalog.iogpS614Paragraph78AmendmentsRule "IOGP.S614.7.8.INPUTS_INVALID" notes ])
+        | None, _ ->
+            Microsoft.FSharp.Core.Ok(incompleteResult request [ missingInputCheck NormativeProcedureCatalog.iogpS614Paragraph78AmendmentsRule "IOGP.S614.7.8.LOAD_CASE_REQUIRED" "At least one load case is required." ])
+        | _, Microsoft.FSharp.Core.Error message ->
+            Microsoft.FSharp.Core.Ok(incompleteResult request [ missingInputCheck NormativeProcedureCatalog.iogpS614Paragraph78AmendmentsRule "IOGP.S614.7.8.INPUTS_REQUIRED" message ])
