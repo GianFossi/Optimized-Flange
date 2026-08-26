@@ -24,8 +24,9 @@
     }
   ],
   "gatesBeforeNormativeImplementation": [
-    "Select source standard edition.",
+    "Confirm source standard edition and source document.",
     "Record clause and formula references.",
+    "Create formula inventory records from the selected source documents.",
     "Add rule registry entries with stable rule IDs.",
     "Add clause/reference/regression validation cases.",
     "Implement formulas in focused calculation modules only.",

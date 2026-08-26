@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "referenceGuideIds": [
+    "GUIDE.FAST.FLANGE.DESIGN.R09"
+  ],
+  "sourceDocuments": [
+    {
+      "sourceDocumentId": "SRC.ASME.VIII.1.2025.EXCERPT",
+      "standardId": "ASME.VIII.1",
+      "edition": "2025",
+      "path": "doc/Calcs/ASME BPVC SEC VIII-1.pdf",
+      "pageCount": 4,
+      "textExtractionStatus": "SearchableOcrExtractable",
+      "inventoryStatus": "ClauseInventoryStarted"
+    },
+    {
+      "sourceDocumentId": "SRC.ASME.VIII.2.2025.PART1",
+      "standardId": "ASME.VIII.2",
+      "edition": "2025",
+      "path": "doc/Calcs/ASME BPVC SEC VIII-2 Part 1.pdf",
+      "pageCount": 22,
+      "textExtractionStatus": "SearchableOcrExtractable",
+      "inventoryStatus": "ClauseInventoryStarted"
+    },
+    {
+      "sourceDocumentId": "SRC.ASME.VIII.2.2025.PART2",
+      "standardId": "ASME.VIII.2",
+      "edition": "2025",
+      "path": "doc/Calcs/ASME BPVC SEC VIII-2 Part 2.pdf",
+      "pageCount": 26,
+      "textExtractionStatus": "SearchableOcrExtractable",
+      "inventoryStatus": "ClauseInventoryStarted"
+    },
+    {
+      "sourceDocumentId": "SRC.ASME.PCC.1.2022.APPENDIX.O",
+      "standardId": "ASME.PCC.1",
+      "edition": "2022",
+      "path": "doc/Calcs/ASME PCC-1 2022 Appendix O.pdf",
+      "pageCount": 16,
+      "textExtractionStatus": "SearchableWithOcrArtifacts",
+      "inventoryStatus": "NeedsManualClauseInventory"
+    },
+    {
+      "sourceDocumentId": "SRC.API.660.2015.PARAGRAPH.7.8",
+      "standardId": "API.660",
+      "edition": "2015",
+      "path": "doc/Calcs/API 660 2015 Par 7.8.pdf",
+      "pageCount": 2,
+      "textExtractionStatus": "CorruptOrUnreliableExtraction",
+      "inventoryStatus": "NeedsManualClauseInventory"
+    },
+    {
+      "sourceDocumentId": "SRC.IOGP.S-614.V18-12.PARAGRAPH.7.8.AMENDMENTS",
+      "standardId": "IOGP.S-614",
+      "edition": "v18-12 / December 2018",
+      "path": "doc/Calcs/IOGP S-614v18-12 Par 7.8 Ammendments.pdf",
+      "pageCount": 1,
+      "textExtractionStatus": "SearchableOcrExtractable",
+      "inventoryStatus": "ClauseInventoryStarted",
+      "amendsSourceDocumentId": "SRC.API.660.2015.PARAGRAPH.7.8"
+    }
+  ],
+  "formulaGroups": [
+    {
+      "formulaGroupId": "ASME.VIII.1.FLANGE.INVENTORY",
+      "standardId": "ASME.VIII.1",
+      "edition": "2025",
+      "title": "ASME VIII Division 1 flange assessment formula inventory",
+      "sourceDocumentIds": [
+        "SRC.ASME.VIII.1.2025.EXCERPT"
+      ],
+      "status": "ClauseInventoryStarted",
+      "clauseReferences": [
+        "Mandatory Appendix 2",
+        "2-1",
+        "2-2",
+        "2-4",
+        "2-15"
+      ],
+      "ruleIds": [
+        "ASME.VIII.1.FLANGE.PLACEHOLDER"
+      ],
+      "requiredBeforeImplementation": [
+        "Confirm exact clause references.",
+        "Confirm exact formula/table references.",
+        "Map formula symbols to SI input and output quantities.",
+        "Record applicability limits.",
+        "Add validation cases with expected results and tolerances."
+      ],
+      "formulas": []
+    },
+    {
+      "formulaGroupId": "ASME.VIII.2.FLANGE.INVENTORY",
+      "standardId": "ASME.VIII.2",
+      "edition": "2025",
+      "title": "ASME VIII Division 2 flange assessment formula inventory",
+      "sourceDocumentIds": [
+        "SRC.ASME.VIII.2.2025.PART1",
+        "SRC.ASME.VIII.2.2025.PART2"
+      ],
+      "status": "ClauseInventoryStarted",
+      "clauseReferences": [
+        "4.6",
+        "4.6.1",
+        "4.6.2",
+        "4.6.3",
+        "4.6.4",
+        "4.6.5",
+        "4.6.6",
+        "4.16",
+        "4.16.1",
+        "4.16.2",
+        "4.16.3",
+        "4.16.4",
+        "4.16.5"
+      ],
+      "ruleIds": [
+        "ASME.VIII.2.FLANGE.PLACEHOLDER"
+      ],
+      "requiredBeforeImplementation": [
+        "Confirm exact clause references.",
+        "Confirm exact formula/table references.",
+        "Map formula symbols to SI input and output quantities.",
+        "Record applicability limits.",
+        "Add validation cases with expected results and tolerances."
+      ],
+      "formulas": []
+    },
+    {
+      "formulaGroupId": "ASME.PCC.1.2022.APPENDIX.O.INVENTORY",
+      "standardId": "ASME.PCC.1",
+      "edition": "2022",
+      "title": "ASME PCC-1 Appendix O formula inventory",
+      "sourceDocumentIds": [
+        "SRC.ASME.PCC.1.2022.APPENDIX.O"
+      ],
+      "status": "NeedsManualClauseInventory",
+      "ruleIds": [
+        "ASME.PCC.1.ASSEMBLY.PLACEHOLDER"
+      ],
+      "requiredBeforeImplementation": [
+        "Confirm exact Appendix O paragraph references.",
+        "Confirm exact formula/table references.",
+        "Map formula symbols to SI input and output quantities.",
+        "Record applicability limits.",
+        "Add validation cases with expected results and tolerances."
+      ],
+      "formulas": []
+    },
+    {
+      "formulaGroupId": "API.660.2015.PARAGRAPH.7.8.INVENTORY",
+      "standardId": "API.660",
+      "edition": "2015",
+      "title": "API 660 paragraph 7.8 exchanger flange requirement inventory",
+      "sourceDocumentIds": [
+        "SRC.API.660.2015.PARAGRAPH.7.8"
+      ],
+      "status": "NeedsManualClauseInventory",
+      "ruleIds": [
+        "API.660.EXCHANGER.PLACEHOLDER"
+      ],
+      "requiredBeforeImplementation": [
+        "Confirm exact API 660 paragraph 7.8 requirement references.",
+        "Map requirement inputs and affected technical options.",
+        "Record applicability limits.",
+        "Add validation cases with expected pass/fail outcomes."
+      ],
+      "formulas": []
+    },
+    {
+      "formulaGroupId": "IOGP.S-614.V18-12.PARAGRAPH.7.8.AMENDMENTS.INVENTORY",
+      "standardId": "IOGP.S-614",
+      "edition": "v18-12 / December 2018",
+      "title": "IOGP S-614 amendments to API 660 paragraph 7.8 inventory",
+      "sourceDocumentIds": [
+        "SRC.IOGP.S-614.V18-12.PARAGRAPH.7.8.AMENDMENTS"
+      ],
+      "amendsFormulaGroupId": "API.660.2015.PARAGRAPH.7.8.INVENTORY",
+      "status": "ClauseInventoryStarted",
+      "clauseReferences": [
+        "7.8",
+        "7.8.1",
+        "7.8.10"
+      ],
+      "ruleIds": [
+        "IOGP.S-614.EXCHANGER.PLACEHOLDER"
+      ],
+      "requiredBeforeImplementation": [
+        "Confirm exact IOGP S-614 amendment text for API 660 paragraph 7.8.",
+        "Map replaced, added, and modified API 660 requirements.",
+        "Record precedence between API 660 base requirements and IOGP amendments.",
+        "Add validation cases with expected pass/fail outcomes."
+      ],
+      "formulas": []
+    }
+  ],
+  "implementationGate": {
+    "readyStatuses": [
+      "ReadyForImplementation"
+    ],
+    "requirements": [
+      "Each formula record must include standardId, edition, clauseReference, formulaReference, symbol map, SI units, applicability, validationCaseIds, and target ruleId.",
+      "No formula source may be implemented from unreliable OCR text.",
+      "No formula may be marked ReadyForImplementation while validationCaseIds is empty.",
+      "Reference workbooks may guide symbol mapping and comparison-case discovery, but cannot be treated as normative sources."
+    ]
+  }
+}

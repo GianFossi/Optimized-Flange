@@ -30,7 +30,7 @@
       "source": {
         "sourceKind": "Standard",
         "name": "ASME Boiler and Pressure Vessel Code Section VIII Division 1",
-        "edition": null,
+        "edition": "2025",
         "clause": null,
         "formulaReference": null
       },
@@ -46,7 +46,23 @@
       "source": {
         "sourceKind": "RecommendedPractice",
         "name": "ASME PCC-1 Guidelines for Pressure Boundary Bolted Flange Joint Assembly",
-        "edition": null,
+        "edition": "2022",
+        "clause": "Appendix O",
+        "formulaReference": null
+      },
+      "implementationStatus": "Planned",
+      "qualificationStatus": "Planned",
+      "normative": true,
+      "validationEvidence": []
+    },
+    {
+      "ruleId": "ASME.VIII.2.FLANGE.PLACEHOLDER",
+      "name": "ASME VIII Division 2 flange assessment placeholder",
+      "module": "FlangeStressAssessment",
+      "source": {
+        "sourceKind": "Standard",
+        "name": "ASME Boiler and Pressure Vessel Code Section VIII Division 2",
+        "edition": "2025",
         "clause": null,
         "formulaReference": null
       },
@@ -62,8 +78,8 @@
       "source": {
         "sourceKind": "Standard",
         "name": "API Standard 660 Shell-and-Tube Heat Exchangers",
-        "edition": null,
-        "clause": null,
+        "edition": "2015",
+        "clause": "7.8",
         "formulaReference": null
       },
       "implementationStatus": "Planned",
@@ -78,8 +94,8 @@
       "source": {
         "sourceKind": "CompanySpecification",
         "name": "IOGP S-614 Specification for Shell-and-Tube Heat Exchangers",
-        "edition": null,
-        "clause": null,
+        "edition": "v18-12 / December 2018",
+        "clause": "7.8 amendments to API 660",
         "formulaReference": null
       },
       "implementationStatus": "Planned",

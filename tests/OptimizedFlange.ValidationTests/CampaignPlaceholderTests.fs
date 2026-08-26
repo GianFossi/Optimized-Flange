@@ -51,6 +51,23 @@ module CampaignPlaceholderTests =
 
     [<Trait("Campaign", "Registry")>]
     [<Fact>]
+    let ``selected source standards record editions and documents`` () =
+        use document = readJsonDocument "standards-support.json"
+        let standards = document.RootElement.GetProperty("standards")
+
+        let selected =
+            standards.EnumerateArray()
+            |> Seq.filter (fun standard -> standard.GetProperty("supportStatus").GetString() = "SourceSelected")
+            |> Seq.toList
+
+        Assert.True(selected.Length >= 3)
+
+        for standard in selected do
+            Assert.False(System.String.IsNullOrWhiteSpace(standard.GetProperty("edition").GetString()))
+            Assert.True(standard.GetProperty("sourceDocuments").GetArrayLength() > 0)
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
     let ``engineering rule registry has no implemented normative placeholder rules`` () =
         use document = readJsonDocument "engineering-rules.json"
         let rules = document.RootElement.GetProperty("rules")
@@ -76,3 +93,95 @@ module CampaignPlaceholderTests =
         use document = readJsonDocument "normative-interpretations.json"
         let interpretations = document.RootElement.GetProperty("interpretations")
         Assert.Equal(0, interpretations.GetArrayLength())
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``formula inventory requires manual clause inventory before implementation`` () =
+        use document = readJsonDocument "formula-inventory.json"
+        let root = document.RootElement
+        Assert.Equal(1, root.GetProperty("schemaVersion").GetInt32())
+
+        let referenceGuideIds = root.GetProperty("referenceGuideIds")
+        Assert.Contains(
+            referenceGuideIds.EnumerateArray(),
+            fun referenceGuideId -> referenceGuideId.GetString() = "GUIDE.FAST.FLANGE.DESIGN.R09")
+
+        let sourceDocuments = root.GetProperty("sourceDocuments")
+        Assert.True(sourceDocuments.GetArrayLength() > 0)
+
+        for sourceDocument in sourceDocuments.EnumerateArray() do
+            match sourceDocument.GetProperty("path").GetString() with
+            | null -> Assert.Fail("Source document path is missing.")
+            | path ->
+                Assert.False(System.String.IsNullOrWhiteSpace(path))
+                Assert.True(File.Exists(Path.Combine(repositoryRoot, path)))
+
+        let formulaGroups = root.GetProperty("formulaGroups")
+        Assert.True(formulaGroups.GetArrayLength() > 0)
+
+        for formulaGroup in formulaGroups.EnumerateArray() do
+            let status = formulaGroup.GetProperty("status").GetString()
+            Assert.Contains(status, [| "NeedsManualClauseInventory"; "ClauseInventoryStarted" |])
+            Assert.Equal(0, formulaGroup.GetProperty("formulas").GetArrayLength())
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``formula inventory has no implementation-ready formulas without validation cases`` () =
+        use document = readJsonDocument "formula-inventory.json"
+        let formulaGroups = document.RootElement.GetProperty("formulaGroups")
+
+        for formulaGroup in formulaGroups.EnumerateArray() do
+            for formula in formulaGroup.GetProperty("formulas").EnumerateArray() do
+                let status = formula.GetProperty("status").GetString()
+                if status = "ReadyForImplementation" then
+                    Assert.False(System.String.IsNullOrWhiteSpace(formula.GetProperty("clauseReference").GetString()))
+                    Assert.False(System.String.IsNullOrWhiteSpace(formula.GetProperty("formulaReference").GetString()))
+                    Assert.True(formula.GetProperty("validationCaseIds").GetArrayLength() > 0)
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``IOGP S-614 paragraph 7.8 inventory amends API 660 paragraph 7.8`` () =
+        use document = readJsonDocument "formula-inventory.json"
+        let formulaGroups = document.RootElement.GetProperty("formulaGroups").EnumerateArray() |> Seq.toList
+
+        let apiGroup =
+            formulaGroups
+            |> List.find (fun group ->
+                group.GetProperty("formulaGroupId").GetString() = "API.660.2015.PARAGRAPH.7.8.INVENTORY")
+
+        let iogpGroup =
+            formulaGroups
+            |> List.find (fun group ->
+                group.GetProperty("formulaGroupId").GetString() = "IOGP.S-614.V18-12.PARAGRAPH.7.8.AMENDMENTS.INVENTORY")
+
+        Assert.Equal("API.660", apiGroup.GetProperty("standardId").GetString())
+        Assert.Equal("IOGP.S-614", iogpGroup.GetProperty("standardId").GetString())
+        Assert.Equal(
+            apiGroup.GetProperty("formulaGroupId").GetString(),
+            iogpGroup.GetProperty("amendsFormulaGroupId").GetString())
+        Assert.Equal("ClauseInventoryStarted", iogpGroup.GetProperty("status").GetString())
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``reference workbook guides are non normative and macro execution is disabled`` () =
+        use document = readJsonDocument "reference-guides.json"
+        let root = document.RootElement
+        Assert.Equal(1, root.GetProperty("schemaVersion").GetInt32())
+
+        let guides = root.GetProperty("referenceGuides")
+        Assert.True(guides.GetArrayLength() > 0)
+
+        for guide in guides.EnumerateArray() do
+            match guide.GetProperty("path").GetString() with
+            | null -> Assert.Fail("Reference guide path is missing.")
+            | path ->
+                Assert.False(System.String.IsNullOrWhiteSpace(path))
+                Assert.True(File.Exists(Path.Combine(repositoryRoot, path)))
+
+            Assert.False(guide.GetProperty("trustedAsNormativeSource").GetBoolean())
+            Assert.False(guide.GetProperty("macroExecutionAllowed").GetBoolean())
+
+            if guide.GetProperty("format").GetString() = "ExcelMacroEnabledWorkbook" then
+                Assert.True(guide.GetProperty("containsMacros").GetBoolean())
+
+            Assert.True(guide.GetProperty("linkedFormulaGroupIds").GetArrayLength() > 0)

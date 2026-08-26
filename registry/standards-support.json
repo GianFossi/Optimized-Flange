@@ -4,42 +4,74 @@
     {
       "standardId": "ASME.VIII.1",
       "name": "ASME Boiler and Pressure Vessel Code Section VIII Division 1",
-      "edition": null,
-      "supportStatus": "Planned",
+      "edition": "2025",
+      "supportStatus": "SourceSelected",
       "normativeFormulasImplemented": false,
-      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+      "sourceDocuments": [
+        "doc/Calcs/ASME BPVC SEC VIII-1.pdf"
+      ],
+      "notes": "Source edition selected. Clause/formula inventory and validation cases remain required before implementation."
     },
     {
       "standardId": "ASME.VIII.2",
       "name": "ASME Boiler and Pressure Vessel Code Section VIII Division 2",
-      "edition": null,
-      "supportStatus": "Planned",
+      "edition": "2025",
+      "supportStatus": "SourceSelected",
       "normativeFormulasImplemented": false,
-      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+      "sourceDocuments": [
+        "doc/Calcs/ASME BPVC SEC VIII-2 Part 1.pdf",
+        "doc/Calcs/ASME BPVC SEC VIII-2 Part 2.pdf"
+      ],
+      "notes": "Source edition selected. Clause/formula inventory and validation cases remain required before implementation."
     },
     {
       "standardId": "ASME.PCC.1",
       "name": "ASME PCC-1 Guidelines for Pressure Boundary Bolted Flange Joint Assembly",
-      "edition": null,
-      "supportStatus": "Planned",
+      "edition": "2022",
+      "supportStatus": "SourceSelected",
       "normativeFormulasImplemented": false,
-      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+      "sourceDocuments": [
+        "doc/Calcs/ASME PCC-1 2022 Appendix O.pdf"
+      ],
+      "selectedAppendices": [
+        "Appendix O"
+      ],
+      "notes": "Source edition and Appendix O selected. Clause/formula inventory and validation cases remain required before implementation."
     },
     {
       "standardId": "API.660",
       "name": "API Standard 660 Shell-and-Tube Heat Exchangers",
-      "edition": null,
-      "supportStatus": "Planned",
+      "edition": "2015",
+      "supportStatus": "SourceSelected",
       "normativeFormulasImplemented": false,
-      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+      "sourceDocuments": [
+        "doc/Calcs/API 660 2015 Par 7.8.pdf"
+      ],
+      "selectedClauses": [
+        "7.8"
+      ],
+      "notes": "API 660 2015 paragraph 7.8 source selected. Text extraction is corrupt/unreliable, so manual clause inventory remains required before implementation."
     },
     {
       "standardId": "IOGP.S-614",
       "name": "IOGP S-614 Specification for Shell-and-Tube Heat Exchangers",
-      "edition": null,
-      "supportStatus": "Planned",
+      "edition": "v18-12 / December 2018",
+      "supportStatus": "SourceSelected",
       "normativeFormulasImplemented": false,
-      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+      "sourceDocuments": [
+        "doc/Calcs/IOGP S-614v18-12 Par 7.8 Ammendments.pdf"
+      ],
+      "selectedClauses": [
+        "7.8 amendments to API 660"
+      ],
+      "amends": [
+        {
+          "standardId": "API.660",
+          "edition": "2015",
+          "clause": "7.8"
+        }
+      ],
+      "notes": "IOGP S-614 v18-12 amendments to API 660 paragraph 7.8 selected. Manual inventory remains required before implementation."
     },
     {
       "standardId": "TEMA",

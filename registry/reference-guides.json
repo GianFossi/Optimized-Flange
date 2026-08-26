@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "referenceGuides": [
+    {
+      "referenceGuideId": "GUIDE.FAST.FLANGE.DESIGN.R09",
+      "title": "Flange Design - FAST - R09",
+      "path": "doc/Calcs/Flange Design - FAST - R09.xlsm",
+      "format": "ExcelMacroEnabledWorkbook",
+      "role": "CalculationGuide",
+      "trustedAsNormativeSource": false,
+      "macroExecutionAllowed": false,
+      "containsMacros": true,
+      "inspectionStatus": "WorkbookStructureInspected",
+      "sheetCount": 8,
+      "totalFormulaCells": 8294,
+      "definedNameCount": 313,
+      "observedTopics": [
+        "girth flange geometry",
+        "floating head geometry",
+        "gasket parameters",
+        "bolting data",
+        "transposed loads",
+        "ASME PCC-1 Appendix O labels",
+        "API 660 labels",
+        "TEMA labels"
+      ],
+      "linkedFormulaGroupIds": [
+        "ASME.PCC.1.2022.APPENDIX.O.INVENTORY",
+        "API.660.2015.PARAGRAPH.7.8.INVENTORY",
+        "IOGP.S-614.V18-12.PARAGRAPH.7.8.AMENDMENTS.INVENTORY"
+      ],
+      "usePolicy": [
+        "Use as a guide for finding workbook concepts, symbol names, unit conversions, and future comparison scenarios.",
+        "Do not execute workbook macros during automated intake.",
+        "Do not copy workbook formulas into the calculation core unless each formula is traced back to an approved source standard, edition, clause or formula reference, and validation evidence.",
+        "Do not qualify calculations from workbook agreement alone."
+      ]
+    }
+  ]
+}

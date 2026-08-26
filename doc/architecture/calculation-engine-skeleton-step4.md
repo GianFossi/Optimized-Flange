@@ -34,6 +34,19 @@ Before normative formulas are implemented, the repository maintains machine-read
 - planned standards support in `registry/standards-support.json`;
 - engineering rule placeholders in `registry/engineering-rules.json`;
 - qualification scope in `registry/qualification.json`;
-- normative interpretations in `registry/normative-interpretations.json`.
+- normative interpretations in `registry/normative-interpretations.json`;
+- non-authoritative calculation workbook guides in `registry/reference-guides.json`.
 
 Normative rule placeholders remain `Planned` and unqualified until source editions, clauses, formulas, validation cases, and implementation evidence are added.
+
+The first selected source scope for future inventory is:
+
+- ASME VIII Division 1, 2025 edition;
+- ASME VIII Division 2, 2025 edition;
+- ASME PCC-1 Appendix O, 2022 edition.
+- API 660 paragraph 7.8, 2015 edition;
+- IOGP S-614 v18-12 amendments to API 660 paragraph 7.8.
+
+The formula inventory gate is tracked in `registry/formula-inventory.json`. Formula code should not begin until a group is moved from `NeedsManualClauseInventory` to an implementation-ready state with exact references and validation cases.
+
+Reference workbooks may help identify symbols, units, workbook comparison cases, and implementation sequencing. They do not replace source standards and must not be used as normative authority or qualification evidence.

@@ -193,3 +193,13 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Added `registry/qualification.json` declaring no qualified normative calculations.
 - Added `registry/normative-interpretations.json`, currently empty by design.
 - Added validation tests that keep normative placeholders planned until source clauses, formulas, validation cases, and implementation evidence exist.
+- Selected initial source scope: ASME VIII Division 1 2025, ASME VIII Division 2 2025, and ASME PCC-1 Appendix O 2022.
+- Added `doc/calculations/normative-formula-intake.md` to record the pre-implementation formula intake gate.
+- Added `registry/formula-inventory.json` with selected source documents and formula groups held at `NeedsManualClauseInventory`.
+- Added validation tests that keep formula groups out of implementation-ready status until exact references and validation cases are recorded.
+- Added API 660 2015 paragraph 7.8 and IOGP S-614 v18-12 amendments to API 660 paragraph 7.8 to the selected source/inventory scope.
+- Recorded IOGP S-614 as an amendment source linked to the API 660 paragraph 7.8 inventory group.
+- Rechecked searchable/OCR PDFs and moved ASME VIII Division 1, ASME VIII Division 2, and IOGP S-614 amendment sources to clause-inventory-started status.
+- Kept formula records empty until exact formula references, symbol mappings, applicability, and validation cases are manually confirmed.
+- Registered `doc/Calcs/Flange Design - FAST - R09.xlsm` as a non-authoritative macro-enabled reference guide for symbol mapping and future comparison-case discovery.
+- Added validation coverage that prevents reference workbooks from being treated as normative sources or macro-executable intake artifacts.

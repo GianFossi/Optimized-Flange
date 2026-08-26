@@ -84,6 +84,18 @@
       "name": "Standards support, engineering rule, interpretation, and qualification registries",
       "module": "registry",
       "status": "Enabled"
+    },
+    {
+      "featureId": "GOVERNANCE.FORMULA_INVENTORY",
+      "name": "Pre-implementation normative formula inventory gate",
+      "module": "registry",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "GOVERNANCE.REFERENCE_GUIDES",
+      "name": "Reference workbook guide registry",
+      "module": "registry",
+      "status": "Enabled"
     }
   ]
 }

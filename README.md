@@ -40,6 +40,8 @@ Implemented foundations:
 - central NuGet package metadata with bundled README and license;
 - NuGet publishing helper script and release documentation;
 - standards, engineering rule, qualification, and normative-interpretation registries;
+- pre-implementation formula inventory gate;
+- reference workbook guide registry for non-authoritative calculation workbooks;
 - automated test campaign skeleton.
 - calculation dispatcher and non-normative structural-validation engine.
 
@@ -91,7 +93,10 @@ See:
 - `doc/persistence/project-file-envelope.md`
 - `doc/release/nuget-publishing.md`
 - `doc/validation/test-campaign-skeleton.md`
+- `doc/calculations/normative-formula-intake.md`
 - `registry/standards-support.json`
+- `registry/formula-inventory.json`
+- `registry/reference-guides.json`
 - `registry/engineering-rules.json`
 - `registry/qualification.json`
 - `registry/normative-interpretations.json`
@@ -124,6 +129,12 @@ The F# calculation package now includes a dispatcher and an implemented non-norm
 ### Standards and qualification registries
 
 The repository now includes machine-readable registries for planned standards support, engineering rule placeholders, qualification status, and normative interpretations. These registries deliberately mark ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, and EN 1591 support as planned only. No normative formula is implemented, validated, or qualified yet.
+
+The selected source scope for the next formula-inventory phase is ASME VIII Division 1 2025, ASME VIII Division 2 2025, ASME PCC-1 Appendix O 2022, API 660 2015 paragraph 7.8, and IOGP S-614 v18-12 amendments to API 660 paragraph 7.8. See `doc/calculations/normative-formula-intake.md`.
+
+`registry/formula-inventory.json` records the selected source documents and keeps each formula group at `NeedsManualClauseInventory` until exact clauses, formula/table references, SI symbol mappings, applicability limits, and validation cases are available.
+
+`registry/reference-guides.json` records calculation workbooks that can guide symbol mapping and comparison-case discovery. `doc/Calcs/Flange Design - FAST - R09.xlsm` is registered as a macro-enabled reference guide, not as a normative source. Its formulas and macros must not be copied or executed as qualification evidence; every implemented formula still needs an approved standard, edition, clause/formula reference, and validation case.
 
 ### VS Code tasks
 
