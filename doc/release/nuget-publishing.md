@@ -86,11 +86,13 @@ Environment: leave empty
 Glob Patterns and Packages: OptimizedFlange.*
 ```
 
-The workflow uses `NuGet/login@v1` with the NuGet.org profile name:
+The workflow uses `NuGet/login@v1` with the NuGet.org username that created the Trusted Publishing policy:
 
 ```text
-Ganfoss
+GianFossi
 ```
+
+This value is not necessarily the same as `Package owner`. If NuGet.org reports `No matching trust policy owned by user ... was found`, update the workflow `user:` value to the NuGet.org username of the policy creator.
 
 After the policy is created, run the GitHub workflow manually:
 

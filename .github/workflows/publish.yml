@@ -37,7 +37,7 @@ jobs:
         id: nuget-login
         uses: NuGet/login@v1
         with:
-          user: Ganfoss
+          user: GianFossi
 
       - name: Push packages
         shell: bash

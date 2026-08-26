@@ -161,3 +161,4 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Documented where to retrieve the NuGet.org API key and source URL, plus how to pass a custom/private feed source.
 - Added `.github/workflows/publish.yml` for manual GitHub Actions publishing through NuGet.org Trusted Publishing.
 - Expanded `README.md` with Trusted Publishing policy values, glob pattern guidance, and the 7-day activation workflow.
+- Updated Trusted Publishing documentation and workflow to use the NuGet.org policy creator username for `NuGet/login@v1`.
