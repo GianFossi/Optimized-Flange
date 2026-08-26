@@ -213,3 +213,5 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Implemented `AsmeViii2Part416BoltLoads.calculate` for ASME VIII Division 2 2025 Part 4.16 basic operating and gasket seating bolt-load helpers as SI-only pure functions.
 - Added focused calculation tests and formula inventory records for ASME equations 4.16.4, 4.16.5, 4.16.8, and 4.16.9 as `PartiallyImplemented`, not qualified.
 - Added `registry/normative-implementation-blockers.json` for remaining ASME VIII, PCC-1 Appendix O, API 660, and FAST-reference limitations.
+- Added FAST R09 cached-value comparison tests for ASME 4.16.8 gasket seating base loads.
+- Added `registry/workbook-comparison-cases.json` to record workbook comparison cases as non-qualification evidence.

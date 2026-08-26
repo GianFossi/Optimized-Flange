@@ -106,3 +106,11 @@ Open blockers for the remaining formula families are recorded in:
 ```text
 registry/normative-implementation-blockers.json
 ```
+
+FAST R09 comparison cases are recorded in:
+
+```text
+registry/workbook-comparison-cases.json
+```
+
+The current comparison cases cover cached `Wg1 (Base)` gasket seating loads for Floating Head, Main Girth Flange SH, and Main Girth Flange CH. They are useful regression checks against the workbook but are not qualification evidence.

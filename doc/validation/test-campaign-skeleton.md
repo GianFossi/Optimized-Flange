@@ -24,6 +24,7 @@ tests/
 - Reference-guide checks that keep calculation workbooks non-normative and block macro execution during intake.
 - Symbol-map checks that keep workbook-to-domain mappings candidate-only and linked to registered guides.
 - Formula implementation checks that allow only registered implemented formulas with source references and validation evidence.
+- FAST R09 workbook comparison tests for cached gasket seating base loads.
 
 ## Boundaries
 
@@ -40,3 +41,5 @@ Reference-guide tests intentionally fail if a workbook guide is marked as a norm
 Symbol-map tests intentionally fail if mappings are treated as normative authority, require macro execution, or point to an unregistered reference guide.
 
 The first implemented formula test covers IOGP S-614 paragraph 7.8.10 Equation (3) as a focused SI-only helper. It is not a qualification claim because no independent worked example has been recorded yet.
+
+FAST R09 workbook comparison tests are regression aids only. They read cached values from the workbook inventory and do not execute macros or qualify normative formulas.

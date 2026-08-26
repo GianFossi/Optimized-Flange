@@ -288,3 +288,22 @@ module CampaignPlaceholderTests =
                 Assert.Contains(
                     entry.GetProperty("mappingStatus").GetString(),
                     [| "Candidate"; "NeedsReview"; "NeedsSourceFormula" |])
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``workbook comparison cases are not qualification evidence`` () =
+        use document = readJsonDocument "workbook-comparison-cases.json"
+        let root = document.RootElement
+        Assert.Equal(1, root.GetProperty("schemaVersion").GetInt32())
+        Assert.Equal("ReferenceWorkbookComparisonOnly", root.GetProperty("comparisonStatus").GetString())
+        Assert.False(root.GetProperty("macroExecutionRequired").GetBoolean())
+        Assert.False(root.GetProperty("qualificationEvidence").GetBoolean())
+
+        let cases = root.GetProperty("cases")
+        Assert.True(cases.GetArrayLength() > 0)
+
+        for comparisonCase in cases.EnumerateArray() do
+            Assert.False(System.String.IsNullOrWhiteSpace(comparisonCase.GetProperty("caseId").GetString()))
+            Assert.False(System.String.IsNullOrWhiteSpace(comparisonCase.GetProperty("sheetName").GetString()))
+            Assert.False(System.String.IsNullOrWhiteSpace(comparisonCase.GetProperty("implementedFormulaId").GetString()))
+            Assert.True(comparisonCase.GetProperty("sourceCells").EnumerateObject() |> Seq.length > 0)

@@ -10,6 +10,7 @@
     <Compile Include="CalculationDispatcherTests.fs" />
     <Compile Include="AsmeViii2Part416BoltLoadsTests.fs" />
     <Compile Include="IogpS614Paragraph78Tests.fs" />
+    <Compile Include="FastR09WorkbookComparisonTests.fs" />
   </ItemGroup>
 
   <ItemGroup>

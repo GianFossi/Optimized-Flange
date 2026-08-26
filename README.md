@@ -43,6 +43,7 @@ Implemented foundations:
 - pre-implementation formula inventory gate;
 - reference workbook guide registry for non-authoritative calculation workbooks;
 - candidate source-to-domain symbol mapping registry;
+- reference workbook comparison cases for FAST R09;
 - planned normative calculation procedure catalog;
 - automated test campaign skeleton.
 - calculation dispatcher and non-normative structural-validation engine.
@@ -100,6 +101,7 @@ See:
 - `registry/formula-inventory.json`
 - `registry/reference-guides.json`
 - `registry/symbol-map.json`
+- `registry/workbook-comparison-cases.json`
 - `registry/engineering-rules.json`
 - `registry/qualification.json`
 - `registry/normative-interpretations.json`
@@ -146,6 +148,8 @@ The FAST R09 guide registry records worksheet metadata and defined-name clusters
 `registry/symbol-map.json` records the first candidate mapping from FAST R09 defined names to domain paths and SI canonical units. Entries remain candidates until the corresponding source standard clause/formula, sign convention, and validation case are confirmed.
 
 `registry/normative-implementation-blockers.json` records why the remaining normative formula families are still blocked from implementation or qualification.
+
+`registry/workbook-comparison-cases.json` records FAST R09 cached-value comparison cases. These tests compare implemented helpers against workbook values without executing macros and are not qualification evidence.
 
 ### VS Code tasks
 

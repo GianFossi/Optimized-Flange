@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "referenceGuideId": "GUIDE.FAST.FLANGE.DESIGN.R09",
+  "comparisonStatus": "ReferenceWorkbookComparisonOnly",
+  "macroExecutionRequired": false,
+  "qualificationEvidence": false,
+  "cases": [
+    {
+      "caseId": "FAST.R09.FLOATING_HEAD.WG1.BASE",
+      "sheetName": "Floating Head",
+      "sourceCells": {
+        "Gsk.b": "C98",
+        "Gsk.G": "C99",
+        "Gsk.y": "C89",
+        "Load.Wgs.1": "C127"
+      },
+      "implementedFormulaId": "ASME.VIII.2.2025.4.16.8",
+      "comparisonTolerance": {
+        "absoluteKN": 0.000001
+      }
+    },
+    {
+      "caseId": "FAST.R09.MAIN_GIRTH_SH.WG1.BASE",
+      "sheetName": "Main Girth Flange SH",
+      "sourceCells": {
+        "Gsk.b": "C136",
+        "Gsk.G": "C137",
+        "Gsk.y": "C127",
+        "Load.Wgs.1": "C169"
+      },
+      "implementedFormulaId": "ASME.VIII.2.2025.4.16.8",
+      "comparisonTolerance": {
+        "absoluteKN": 0.000001
+      }
+    },
+    {
+      "caseId": "FAST.R09.MAIN_GIRTH_CH.WG1.BASE",
+      "sheetName": "Main Girth Flange CH",
+      "sourceCells": {
+        "Gsk.b": "C136",
+        "Gsk.G": "C137",
+        "Gsk.y": "C127",
+        "Load.Wgs.1": "C169"
+      },
+      "implementedFormulaId": "ASME.VIII.2.2025.4.16.8",
+      "comparisonTolerance": {
+        "absoluteKN": 0.000001
+      }
+    }
+  ],
+  "limitations": [
+    "These cases compare against cached workbook values from FAST R09 without executing macros.",
+    "These cases are regression/comparison aids only, not normative qualification evidence.",
+    "Workbook W0 values are not compared yet because the cached formulas include additional pressure/load terms outside the current ASME basic bolt-load helper."
+  ]
+}
