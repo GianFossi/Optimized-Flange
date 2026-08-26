@@ -140,13 +140,22 @@ Glob Patterns and Packages: OptimizedFlange.*
 
 `Workflow File` must be only `publish.yml`, not `.github/workflows/publish.yml`.
 
-The workflow login user must be the NuGet.org username that created the Trusted Publishing policy, not necessarily the package owner. The current workflow uses:
+The workflow login user must be the NuGet.org username that created the Trusted Publishing policy, not necessarily the package owner. The workflow reads it from this GitHub repository secret:
 
 ```text
-GianFossi
+NUGET_USER
 ```
 
-If GitHub Actions fails with `No matching trust policy owned by user ... was found`, change `.github/workflows/publish.yml` so `NuGet/login@v1` uses the policy creator's NuGet.org username.
+Create it in GitHub under `Settings` -> `Secrets and variables` -> `Actions` -> `New repository secret`.
+
+For the current NuGet.org account, set:
+
+```text
+Name: NUGET_USER
+Value: Ganfoss
+```
+
+This is not a NuGet API key. It is only the NuGet.org username used by `NuGet/login@v1` to find the Trusted Publishing policy. If GitHub Actions fails with `No matching trust policy owned by user ... was found`, make sure `NUGET_USER` matches the NuGet.org username that created the policy.
 
 `Glob Patterns and Packages` controls which package IDs the policy may publish. `OptimizedFlange.*` covers:
 

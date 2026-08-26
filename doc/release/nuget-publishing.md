@@ -86,13 +86,26 @@ Environment: leave empty
 Glob Patterns and Packages: OptimizedFlange.*
 ```
 
-The workflow uses `NuGet/login@v1` with the NuGet.org username that created the Trusted Publishing policy:
+The workflow uses `NuGet/login@v1` with the NuGet.org username that created the Trusted Publishing policy. The value is read from a GitHub Actions repository secret:
 
 ```text
-GianFossi
+NUGET_USER
 ```
 
-This value is not necessarily the same as `Package owner`. If NuGet.org reports `No matching trust policy owned by user ... was found`, update the workflow `user:` value to the NuGet.org username of the policy creator.
+Create it in GitHub:
+
+```text
+Repository -> Settings -> Secrets and variables -> Actions -> New repository secret
+```
+
+For the current NuGet.org account:
+
+```text
+Name: NUGET_USER
+Value: Ganfoss
+```
+
+This secret is not a NuGet API key. It is only the NuGet.org username used to locate the Trusted Publishing policy. This value is not necessarily the same as `Package owner`. If NuGet.org reports `No matching trust policy owned by user ... was found`, verify that `NUGET_USER` is the NuGet.org username that created the policy.
 
 After the policy is created, run the GitHub workflow manually:
 
