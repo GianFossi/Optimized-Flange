@@ -159,3 +159,5 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - The publishing script is dry-run by default and requires `-Publish` plus a NuGet API key before pushing packages.
 - Added a VS Code `publish-nuget-dry-run` task.
 - Documented where to retrieve the NuGet.org API key and source URL, plus how to pass a custom/private feed source.
+- Added `.github/workflows/publish.yml` for manual GitHub Actions publishing through NuGet.org Trusted Publishing.
+- Expanded `README.md` with Trusted Publishing policy values, glob pattern guidance, and the 7-day activation workflow.

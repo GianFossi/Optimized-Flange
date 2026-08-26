@@ -64,6 +64,43 @@ $env:NUGET_API_KEY = "replace-with-feed-token-or-api-key"
 
 Azure Artifacts, GitHub Packages, and other private feeds may use a personal access token or provider-specific credential instead of a NuGet.org API key. Follow that provider's feed connection page and keep credentials outside source control.
 
+## Trusted Publishing
+
+NuGet.org Trusted Publishing is the preferred GitHub Actions path because it avoids storing a long-lived NuGet API key in the repository.
+
+This repository includes:
+
+```text
+.github/workflows/publish.yml
+```
+
+Configure the NuGet.org Trusted Publishing policy with:
+
+```text
+Package owner: Ganfoss
+Publisher: GitHubActions
+Repository Owner: GianFossi
+Repository: OptimizedFlange
+Workflow File: publish.yml
+Environment: leave empty
+Glob Patterns and Packages: OptimizedFlange.*
+```
+
+The workflow uses `NuGet/login@v1` with the NuGet.org profile name:
+
+```text
+Ganfoss
+```
+
+After the policy is created, run the GitHub workflow manually:
+
+1. Open the GitHub repository.
+2. Select `Actions`.
+3. Select `Publish NuGet`.
+4. Select `Run workflow`.
+
+NuGet.org marks a new policy as provisional until it is used successfully. If the page says `Use within 7 day(s) to keep it permanently active`, run the workflow within that window. A successful trusted publish activates the policy permanently.
+
 ## Package Metadata
 
 Common package metadata is centralized in `Directory.Build.props`.

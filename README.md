@@ -120,6 +120,45 @@ NuGet packages include the repository README and PolyForm Noncommercial 1.0.0 li
 
 Use `scripts/publish-nuget.ps1` for a guarded NuGet publishing flow. It performs a dry run by default and requires `-Publish` plus a NuGet API key to push packages. See `doc/release/nuget-publishing.md` for where to retrieve the NuGet.org API key and source URL.
 
+The repository also includes `.github/workflows/publish.yml` for NuGet.org Trusted Publishing through GitHub Actions.
+
+### NuGet Trusted Publishing
+
+NuGet.org Trusted Publishing publishes from GitHub Actions without storing a long-lived NuGet API key in the repository.
+
+Create the Trusted Publishing policy on NuGet.org with these values:
+
+```text
+Package owner: Ganfoss
+Publisher: GitHubActions
+Repository Owner: GianFossi
+Repository: OptimizedFlange
+Workflow File: publish.yml
+Environment: leave empty
+Glob Patterns and Packages: OptimizedFlange.*
+```
+
+`Workflow File` must be only `publish.yml`, not `.github/workflows/publish.yml`.
+
+`Glob Patterns and Packages` controls which package IDs the policy may publish. `OptimizedFlange.*` covers:
+
+```text
+OptimizedFlange.Domain
+OptimizedFlange.Calculations
+OptimizedFlange.Configuration
+OptimizedFlange.Persistence
+```
+
+If NuGet.org shows `Use within 7 day(s) to keep it permanently active`, the policy is provisional. Run the GitHub workflow once within that window:
+
+1. Push `.github/workflows/publish.yml` to GitHub.
+2. Open the GitHub repository.
+3. Select `Actions`.
+4. Select `Publish NuGet`.
+5. Select `Run workflow`.
+
+A successful trusted publish activates the policy permanently.
+
 ### Project file envelope
 
 Persistence now includes a versioned project file envelope for metadata and project-owned calculation configuration. The explicit technical-data DTO fragment currently covers project acceptance criteria, physical load cases, joint-side geometries, bolting assemblies, gasket assemblies, material snapshots, and reference-based flanged-joint composition.

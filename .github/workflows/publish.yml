@@ -1,0 +1,50 @@
+name: Publish NuGet
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Build, test, pack, and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore OptimizedFlange.sln
+
+      - name: Build
+        run: dotnet build OptimizedFlange.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test OptimizedFlange.sln --configuration Release --no-build
+
+      - name: Pack
+        run: dotnet pack OptimizedFlange.sln --configuration Release --no-build --output artifacts/packages
+
+      - name: NuGet trusted publishing login
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: Ganfoss
+
+      - name: Push packages
+        shell: bash
+        run: |
+          for package in artifacts/packages/*.nupkg; do
+            dotnet nuget push "$package" \
+              --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
+              --source "https://api.nuget.org/v3/index.json" \
+              --skip-duplicate
+          done
