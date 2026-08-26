@@ -117,6 +117,13 @@ Value: <username>
 
 This secret is not a NuGet API key. It is only the NuGet.org username used to locate the Trusted Publishing policy. This value is not necessarily the same as `Package owner` or the visible display name. If NuGet.org reports `No matching trust policy owned by user 'Ganfoss' was found`, then `Ganfoss` is not the policy creator username for this policy. Update `NUGET_USER` to the exact profile username and re-run the workflow.
 
+The workflow uses Node 24-compatible GitHub Actions:
+
+```text
+actions/checkout@v5
+actions/setup-dotnet@v6
+```
+
 After the policy is created, run the GitHub workflow manually:
 
 1. Open the GitHub repository.
