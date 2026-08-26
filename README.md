@@ -35,6 +35,9 @@ Implemented foundations:
 - schema-versioned project file envelope;
 - explicit project-file migration boundary;
 - VS Code restore/build/test/run tasks;
+- VS Code validation/package tasks;
+- central NuGet package metadata with bundled README and license;
+- NuGet publishing helper script and release documentation;
 - automated test campaign skeleton.
 - calculation dispatcher and non-normative structural-validation engine.
 
@@ -80,6 +83,7 @@ See:
 - `doc/architecture/calculation-engine-skeleton-step4.md`
 - `doc/persistence/settings-and-project-data.md`
 - `doc/persistence/project-file-envelope.md`
+- `doc/release/nuget-publishing.md`
 - `doc/validation/test-campaign-skeleton.md`
 - `registry/policies/license-policy.json`
 - `AI.md`
@@ -105,6 +109,16 @@ The solution now includes F# xUnit projects for unit tests, persistence tests, a
 ### Step 4 — calculation engine skeleton
 
 The F# calculation package now includes a dispatcher and an implemented non-normative structural-validation procedure. Normative procedure kinds intentionally return a stable not-implemented error until sourced rules and validation cases are added.
+
+### VS Code tasks
+
+The `run` task currently executes the core Debug test suite because the project has no UI or executable host yet. Dedicated tasks are available for restore, build, release build, test, validation tests, and package preparation.
+
+### Packaging
+
+NuGet packages include the repository README and PolyForm Noncommercial 1.0.0 license file through central package metadata in `Directory.Build.props`.
+
+Use `scripts/publish-nuget.ps1` for a guarded NuGet publishing flow. It performs a dry run by default and requires `-Publish` plus a NuGet API key to push packages. See `doc/release/nuget-publishing.md` for where to retrieve the NuGet.org API key and source URL.
 
 ### Project file envelope
 

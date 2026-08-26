@@ -6,5 +6,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Deterministic>true</Deterministic>
+    <Authors>GianFossi</Authors>
+    <Company>GianFossi</Company>
+    <PackageProjectUrl>https://github.com/GianFossi/OptimizedFlange</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/GianFossi/OptimizedFlange</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>flange;engineering;calculation;fsharp</PackageTags>
+    <Description>Core libraries for OptimizedFlange, an engineering application for bolted gasketed flange joints.</Description>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" Pack="true" PackagePath="" />
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
 </Project>

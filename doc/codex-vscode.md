@@ -35,6 +35,23 @@ Do not paste all previous ChatGPT messages into every Codex prompt. Important du
 8. Review the diff before accepting/committing changes.
 9. Run the VS Code build/test tasks after the .NET SDK is installed.
 
+## VS Code tasks
+
+Until the UI or another executable host exists, the `run` task is defined as the core Debug verification path. Use:
+
+- `restore` for NuGet restore;
+- `build` for Debug build;
+- `build-release` for Release build;
+- `test` for the full Debug test suite;
+- `test-validation` for validation-campaign placeholders;
+- `run` for restore plus full Debug tests;
+- `package` for Release package preparation after a Release build.
+- `publish-nuget-dry-run` for the guarded NuGet publishing script without pushing packages.
+
+The package task uses central metadata from `Directory.Build.props` and includes the root `README.md` and `LICENSE` in generated NuGet packages.
+
+Actual NuGet publication is documented in `doc/release/nuget-publishing.md`. The helper script requires `-Publish` and a NuGet API key before it pushes anything.
+
 ## Git workflow
 
 Prefer a feature branch before asking Codex to modify files:

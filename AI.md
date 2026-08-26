@@ -139,3 +139,23 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Schema version 1 is currently accepted as-is.
 - Legacy and future project-file schema versions are rejected until documented migrations exist.
 - Added persistence tests for current, legacy, and future project-file schema handling.
+
+## 2026-08-25 — VS Code Task Maintenance
+
+- Updated the `run` task to execute the core Debug verification path while no executable UI/host exists.
+- Added dedicated `test-validation` and `package` tasks.
+- Documented the current task semantics in `README.md` and `doc/codex-vscode.md`.
+
+## 2026-08-26 — Package Metadata
+
+- Added central NuGet package metadata in `Directory.Build.props`.
+- Configured packages to include the repository `README.md` and `LICENSE`.
+- Kept the active package license file aligned with PolyForm Noncommercial License 1.0.0.
+
+## 2026-08-26 — NuGet Publishing Help
+
+- Added `doc/release/nuget-publishing.md` with manual NuGet.org publishing instructions.
+- Added `scripts/publish-nuget.ps1` for restore/build/test/pack and optional publish.
+- The publishing script is dry-run by default and requires `-Publish` plus a NuGet API key before pushing packages.
+- Added a VS Code `publish-nuget-dry-run` task.
+- Documented where to retrieve the NuGet.org API key and source URL, plus how to pass a custom/private feed source.

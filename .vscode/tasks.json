@@ -46,12 +46,13 @@
       "type": "process",
       "command": "dotnet",
       "args": [
-        "build",
+        "test",
         "OptimizedFlange.sln",
         "--configuration",
-        "Debug"
+        "Debug",
+        "--no-restore"
       ],
-      "dependsOn": "build",
+      "dependsOn": "restore",
       "problemMatcher": "$msCompile",
       "group": {
         "kind": "test",
@@ -67,6 +68,46 @@
         "OptimizedFlange.sln",
         "--configuration",
         "Debug"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "test-validation",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "test",
+        "tests/OptimizedFlange.ValidationTests/OptimizedFlange.ValidationTests.fsproj",
+        "--configuration",
+        "Debug"
+      ],
+      "dependsOn": "restore",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "package",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "pack",
+        "OptimizedFlange.sln",
+        "--configuration",
+        "Release",
+        "--no-build"
+      ],
+      "dependsOn": "build-release",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "publish-nuget-dry-run",
+      "type": "process",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "scripts/publish-nuget.ps1"
       ],
       "problemMatcher": "$msCompile"
     }
