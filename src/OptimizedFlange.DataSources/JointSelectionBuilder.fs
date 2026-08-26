@@ -14,15 +14,15 @@ type JointSelectionInputs =
         /// <summary>Bolt count selected for the joint.</summary>
         BoltCount: int
         /// <summary>Bolt-circle diameter selected for the joint.</summary>
-        BoltCircleDiameterM: float<m>
+        BoltCircleDiameter: float<m>
         /// <summary>Primary-side pressure for the initial calculation case.</summary>
-        PrimaryPressurePa: float<Pa>
+        PrimaryPressure: float<Pa>
         /// <summary>Mating-side pressure for the initial calculation case.</summary>
-        MatingPressurePa: float<Pa>
+        MatingPressure: float<Pa>
         /// <summary>Primary-side temperature for the initial calculation case.</summary>
-        PrimaryTemperatureK: float<K>
+        PrimaryTemperature: float<K>
         /// <summary>Mating-side temperature for the initial calculation case.</summary>
-        MatingTemperatureK: float<K>
+        MatingTemperature: float<K>
     }
 
 /// <summary>Records selected by the user or project defaults to compose a flanged joint.</summary>
@@ -63,7 +63,7 @@ module JointSelectionBuilder =
             selection.GasketParameters
             |> Option.map (fun parameters -> DomainMapping.toGasketAssemblyWithParameters parameters selection.Gasket)
             |> Option.defaultValue (DomainMapping.toGasketAssembly selection.Gasket)
-        let boltingResult = DomainMapping.toBoltingAssembly inputs.BoltCount inputs.BoltCircleDiameterM selection.Bolting
+        let boltingResult = DomainMapping.toBoltingAssembly inputs.BoltCount inputs.BoltCircleDiameter selection.Bolting
         let primaryMaterialResult = DomainMapping.toMaterialSnapshot selection.PrimaryMaterial
 
         match primaryGeometryResult, gasketResult, boltingResult, primaryMaterialResult with
@@ -112,13 +112,13 @@ module JointSelectionBuilder =
                                     Kind = LoadCaseKind.Design
                                     PrimaryCondition =
                                         {
-                                            PressurePa = inputs.PrimaryPressurePa
-                                            TemperatureK = inputs.PrimaryTemperatureK
+                                            PressurePa = inputs.PrimaryPressure
+                                            TemperatureK = inputs.PrimaryTemperature
                                         }
                                     MatingCondition =
                                         {
-                                            PressurePa = inputs.MatingPressurePa
-                                            TemperatureK = inputs.MatingTemperatureK
+                                            PressurePa = inputs.MatingPressure
+                                            TemperatureK = inputs.MatingTemperature
                                         }
                                     ExternalLoads = zeroLoads
                                 }

@@ -295,11 +295,11 @@ module LocalDatabaseLoaderTests =
                 PrimaryMaterialRole = "primary"
                 MatingMaterialRole = "mating"
                 BoltCount = 4
-                BoltCircleDiameterM = 0.0603<m>
-                PrimaryPressurePa = 1_000_000.0<Pa>
-                MatingPressurePa = 0.0<Pa>
-                PrimaryTemperatureK = 293.15<K>
-                MatingTemperatureK = 293.15<K>
+                BoltCircleDiameter = 0.0603<m>
+                PrimaryPressure = 1_000_000.0<Pa>
+                MatingPressure = 0.0<Pa>
+                PrimaryTemperature = 293.15<K>
+                MatingTemperature = 293.15<K>
             }
 
         let selection =

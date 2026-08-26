@@ -240,4 +240,5 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Added optional selected gasket `m/y` fields to `GasketAssembly` and the technical-data DTO.
 - Updated ASME VIII-2 and IOGP dispatcher endpoints to resolve available helper inputs from `FlangedJoint` and return numeric trace results when the required data is present.
 - Added trace-only material allowable-stress resolution from selected `MaterialSnapshot` records at load-case temperature where available; no allowable table interpolation or invented stress values are introduced.
+- Adjusted the new joint-selection boundary to avoid unit-of-measure suffixes in input field names and report dispatcher trace values in engineering units: MPa, mm, mm2, and DegC.
 - Updated the text demo to run structural validation plus ASME VIII-2 and IOGP helper endpoints.

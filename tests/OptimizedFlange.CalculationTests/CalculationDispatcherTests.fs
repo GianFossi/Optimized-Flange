@@ -254,6 +254,8 @@ module CalculationDispatcherTests =
             Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.RESULT.W_SEATING")
             Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.INPUT.PRIMARY_ALLOWABLE_STRESS")
             Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.INPUT.BOLTING_ALLOWABLE_STRESS")
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.INPUT.P" && quantity.Unit = Some "MPa")
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "ASME.VIII.2.INPUT.G" && quantity.Unit = Some "mm")
 
     [<Fact>]
     let ``dispatcher resolves and runs partially implemented IOGP S-614 helper procedure`` () =
@@ -269,3 +271,5 @@ module CalculationDispatcherTests =
             Assert.Equal("IOGP.S614.7.8.10.EQ3.CALCULATED", result.Checks.Head.MessageCode)
             Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "IOGP.S614.RESULT.SB_REQ")
             Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "IOGP.S614.INPUT.BOLTING_ALLOWABLE_STRESS")
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "IOGP.S614.RESULT.SB_REQ" && quantity.Unit = Some "MPa")
+            Assert.Contains(result.Trace.Quantities, fun quantity -> quantity.QuantityId = "IOGP.S614.INPUT.AG" && quantity.Unit = Some "mm2")

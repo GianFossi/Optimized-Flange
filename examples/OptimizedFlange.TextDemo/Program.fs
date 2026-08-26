@@ -12,6 +12,10 @@ let formatMeasure value unitName =
     | Some number -> $"{number:g6} {unitName}"
     | None -> "n/a"
 
+let mm value = value |> Option.map (fun number -> number * 1000.0)
+let squareMm value = value |> Option.map (fun number -> number * 1_000_000.0)
+let mpa value = value |> Option.map (fun number -> number / 1_000_000.0)
+
 let first label criteria =
     match LocalDatabaseLoaders.search settings criteria with
     | Microsoft.FSharp.Core.Error message -> failwith message
@@ -82,15 +86,15 @@ let material =
         }
 
 printfn ""
-printfn "Key imported SI values"
-printfn "Flange OD       : %s" (formatMeasure (scalar "RingOD" "m" flange) "m")
-printfn "Flange thickness: %s" (formatMeasure (scalar "RingWT" "m" flange) "m")
-printfn "Bolt circle     : %s" (formatMeasure (scalar "BoltCircDiam" "m" flange) "m")
-printfn "Gasket pitch P  : %s" (formatMeasure (scalar "P" "m" gasket) "m")
+printfn "Key imported engineering values"
+printfn "Flange OD       : %s" (formatMeasure (scalar "RingOD" "m" flange |> mm) "mm")
+printfn "Flange thickness: %s" (formatMeasure (scalar "RingWT" "m" flange |> mm) "mm")
+printfn "Bolt circle     : %s" (formatMeasure (scalar "BoltCircDiam" "m" flange |> mm) "mm")
+printfn "Gasket pitch P  : %s" (formatMeasure (scalar "P" "m" gasket |> mm) "mm")
 printfn "Gasket m        : %s" (formatMeasure (scalar "m" "" gasketParameters) "")
-printfn "Gasket y        : %s" (formatMeasure (scalar "y" "Pa" gasketParameters) "Pa")
-printfn "Bolt stress area: %s" (formatMeasure (scalar "TensileStressArea" "m2" bolting) "m2")
-printfn "Material SMYS   : %s" (formatMeasure (scalar "specifiedMinimumYieldStrength" "Pa" material) "Pa")
+printfn "Gasket y        : %s" (formatMeasure (scalar "y" "Pa" gasketParameters |> mpa) "MPa")
+printfn "Bolt stress area: %s" (formatMeasure (scalar "TensileStressArea" "m2" bolting |> squareMm) "mm2")
+printfn "Material SMYS   : %s" (formatMeasure (scalar "specifiedMinimumYieldStrength" "Pa" material |> mpa) "MPa")
 
 let boltCount =
     scalar "BoltNum" "" flange
@@ -108,11 +112,11 @@ let inputs =
         PrimaryMaterialRole = "primary-flange"
         MatingMaterialRole = "mating-flange"
         BoltCount = boltCount
-        BoltCircleDiameterM = boltCircle
-        PrimaryPressurePa = 1_000_000.0<Pa>
-        MatingPressurePa = 0.0<Pa>
-        PrimaryTemperatureK = 293.15<K>
-        MatingTemperatureK = 293.15<K>
+        BoltCircleDiameter = boltCircle
+        PrimaryPressure = 1_000_000.0<Pa>
+        MatingPressure = 0.0<Pa>
+        PrimaryTemperature = 293.15<K>
+        MatingTemperature = 293.15<K>
     }
 
 let selection =

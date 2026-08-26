@@ -14,6 +14,14 @@ module NormativeAssessmentEngine =
             Notes = notes
         }
 
+    let private toMillimetres (value: float<m>) = float value * 1000.0
+
+    let private toSquareMillimetres (value: float<m^2>) = float value * 1_000_000.0
+
+    let private toMegapascals (value: float<Pa>) = float value / 1_000_000.0
+
+    let private toDegreesCelsius (value: float<K>) = float value - 273.15
+
     let private emptyTrace =
         {
             Quantities = []
@@ -117,9 +125,9 @@ module NormativeAssessmentEngine =
                     quantity
                         quantityId
                         DerivedInput
-                        (float allowable)
-                        (Some "Pa")
-                        (Some $"Resolved from selected material '{selectedMaterial.ComponentRole}' at {float property.TemperatureK} K."))))
+                        (toMegapascals allowable)
+                        (Some "MPa")
+                        (Some $"Resolved from selected material '{selectedMaterial.ComponentRole}' at {toDegreesCelsius property.TemperatureK} DegC."))))
 
     let private asmeBoltLoadCheck request (loadCase: JointLoadCase) (input: AsmeViii2Part416BoltLoadInput) result =
         let rule = NormativeProcedureCatalog.asmeViiiDivision2FlangedJointRule
@@ -143,11 +151,11 @@ module NormativeAssessmentEngine =
                 {
                     Quantities =
                         [
-                            quantity "ASME.VIII.2.INPUT.P" Input (float input.PressurePa) (Some "Pa") None
-                            quantity "ASME.VIII.2.INPUT.G" DerivedInput (float input.GasketReactionDiameterM) (Some "m") (Some "Derived from selected gasket envelope.")
-                            quantity "ASME.VIII.2.INPUT.b" DerivedInput (float input.EffectiveGasketWidthM) (Some "m") (Some "Derived from selected gasket envelope.")
+                            quantity "ASME.VIII.2.INPUT.P" Input (toMegapascals input.PressurePa) (Some "MPa") None
+                            quantity "ASME.VIII.2.INPUT.G" DerivedInput (toMillimetres input.GasketReactionDiameterM) (Some "mm") (Some "Derived from selected gasket envelope.")
+                            quantity "ASME.VIII.2.INPUT.b" DerivedInput (toMillimetres input.EffectiveGasketWidthM) (Some "mm") (Some "Derived from selected gasket envelope.")
                             quantity "ASME.VIII.2.INPUT.m" Input input.GasketM None None
-                            quantity "ASME.VIII.2.INPUT.y" Input (float input.GasketYPa) (Some "Pa") None
+                            quantity "ASME.VIII.2.INPUT.y" Input (toMegapascals input.GasketYPa) (Some "MPa") None
                             quantity "ASME.VIII.2.RESULT.W_OPERATING" Result (float result.OperatingBoltLoadN) (Some "N") None
                             quantity "ASME.VIII.2.RESULT.W_SEATING" Result (float result.GasketSeatingLoadN) (Some "N") None
                         ] @ materialQuantities
@@ -179,15 +187,15 @@ module NormativeAssessmentEngine =
                 {
                     Quantities =
                         [
-                            quantity "IOGP.S614.INPUT.SG_MIN" Input (float input.MinimumGasketStressPa) (Some "Pa") None
-                            quantity "IOGP.S614.INPUT.AG" DerivedInput (float input.FloatingHeadGasketAreaM2) (Some "m2") None
-                            quantity "IOGP.S614.INPUT.DGI" DerivedInput (float input.FloatingHeadGasketInsideDiameterM) (Some "m") None
-                            quantity "IOGP.S614.INPUT.DFO" DerivedInput (float input.FloatingHeadOutsideDiameterM) (Some "m") None
-                            quantity "IOGP.S614.INPUT.PT" Input (float input.TubeSidePressurePa) (Some "Pa") None
-                            quantity "IOGP.S614.INPUT.PS" Input (float input.ShellSidePressurePa) (Some "Pa") None
+                            quantity "IOGP.S614.INPUT.SG_MIN" Input (toMegapascals input.MinimumGasketStressPa) (Some "MPa") None
+                            quantity "IOGP.S614.INPUT.AG" DerivedInput (toSquareMillimetres input.FloatingHeadGasketAreaM2) (Some "mm2") None
+                            quantity "IOGP.S614.INPUT.DGI" DerivedInput (toMillimetres input.FloatingHeadGasketInsideDiameterM) (Some "mm") None
+                            quantity "IOGP.S614.INPUT.DFO" DerivedInput (toMillimetres input.FloatingHeadOutsideDiameterM) (Some "mm") None
+                            quantity "IOGP.S614.INPUT.PT" Input (toMegapascals input.TubeSidePressurePa) (Some "MPa") None
+                            quantity "IOGP.S614.INPUT.PS" Input (toMegapascals input.ShellSidePressurePa) (Some "MPa") None
                             quantity "IOGP.S614.INPUT.KG" Input input.GasketFactor None None
-                            quantity "IOGP.S614.INPUT.AB_ROOT" DerivedInput (float input.BoltRootAreaM2) (Some "m2") None
-                            quantity "IOGP.S614.RESULT.SB_REQ" Result (float result.RequiredSelectedAssemblyBoltStressPa) (Some "Pa") None
+                            quantity "IOGP.S614.INPUT.AB_ROOT" DerivedInput (toSquareMillimetres input.BoltRootAreaM2) (Some "mm2") None
+                            quantity "IOGP.S614.RESULT.SB_REQ" Result (toMegapascals result.RequiredSelectedAssemblyBoltStressPa) (Some "MPa") None
                             quantity "IOGP.S614.RESULT.F_PRESSURE" Intermediate (float result.PressureResultantN) (Some "N") None
                             quantity "IOGP.S614.RESULT.F_GASKET" Intermediate (float result.GasketContributionN) (Some "N") None
                         ] @ materialQuantities

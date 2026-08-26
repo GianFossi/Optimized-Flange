@@ -49,7 +49,7 @@ Implemented foundations:
 - calculation dispatcher and non-normative structural-validation engine;
 - local technical database source registry for materials, gaskets, bolting, facings, standard flanges, ratings, pipes, and tube data.
 
-The F# domain also contains the Step 2 technical skeleton for `FlangedJoint` and the Step 3 calculation/check contracts. A small number of traceable ASME VIII-2 and IOGP S-614 SI-only helper formulas are implemented as `PartiallyImplemented`; they are not validated, qualified, or full end-to-end procedures yet.
+The F# domain also contains the Step 2 technical skeleton for `FlangedJoint` and the Step 3 calculation/check contracts. A small number of traceable ASME VIII-2 and IOGP S-614 strongly typed helper formulas are implemented as `PartiallyImplemented`; they are not validated, qualified, or full end-to-end procedures yet. User-facing engineering values are reported in MPa, mm, mm2, and DegC.
 
 ## Architecture
 
@@ -189,7 +189,7 @@ The ASME material SQLite databases are loaded through `Microsoft.Data.Sqlite` in
 
 `JointSelectionBuilder` composes a calculation-ready `FlangedJoint` from explicit selected flange, gasket, gasket parameter, bolting, and material records plus project-only inputs such as bolt count, bolt-circle diameter, pressure, and temperature. This provides a real data-selection-to-dispatcher path for structural validation and for the currently implemented ASME VIII-2 / IOGP helper outputs.
 
-The ASME VIII-2 and IOGP dispatcher endpoints now resolve available inputs from the composed `FlangedJoint`: gasket reaction diameter, effective physical gasket width, selected gasket `m/y`, load-case pressure, gasket area, selected bolt root area, bolt count, and selected material allowable stress at the load-case temperature when that value is present in the `MaterialSnapshot`. These results remain `PartiallyImplemented` because they are helper-level outputs, not complete qualified code procedures.
+The ASME VIII-2 and IOGP dispatcher endpoints now resolve available inputs from the composed `FlangedJoint`: gasket reaction diameter, effective physical gasket width, selected gasket `m/y`, load-case pressure, gasket area, selected bolt root area, bolt count, and selected material allowable stress at the load-case temperature when that value is present in the `MaterialSnapshot`. Dispatcher trace output reports pressure/stress in MPa, dimensions in mm, areas in mm2, and temperature notes in DegC. These results remain `PartiallyImplemented` because they are helper-level outputs, not complete qualified code procedures.
 
 ### Text Demo
 
