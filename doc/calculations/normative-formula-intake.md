@@ -65,6 +65,8 @@ The first implemented normative helpers are:
 
 They are registered as `PartiallyImplemented` because they have unit tests and source references, but no independent published worked-example validation cases yet.
 
+The dispatcher now exposes partially implemented ASME VIII Division 2 and IOGP S-614 procedure endpoints. They return `Incomplete` calculation results with diagnostic checks until the project model can provide resolved formula inputs such as `G`, `b`, `m`, `y`, self-energizing state, floating-head pressure-effect inputs, and validation-case selection.
+
 ## Reference Workbooks
 
 `doc/Calcs/Flange Design - FAST - R09.xlsm` is registered in `registry/reference-guides.json` as a calculation guide.
@@ -114,3 +116,9 @@ registry/workbook-comparison-cases.json
 ```
 
 The current comparison cases cover cached `Wg1 (Base)` gasket seating loads for Floating Head, Main Girth Flange SH, and Main Girth Flange CH. They are useful regression checks against the workbook but are not qualification evidence.
+
+Independent validation-case requirements are recorded in:
+
+```text
+registry/validation-cases.json
+```

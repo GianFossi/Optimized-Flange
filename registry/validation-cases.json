@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "qualificationStatus": "NeedsIndependentExpectedResults",
+  "cases": [
+    {
+      "validationCaseId": "VALIDATION.ASME.VIII.2.4.16.BASIC_BOLT_LOADS.INDEPENDENT",
+      "targetRuleId": "ASME.VIII.2.FLANGE.BASIC_BOLT_LOADS",
+      "targetFormulaIds": [
+        "ASME.VIII.2.2025.4.16.4",
+        "ASME.VIII.2.2025.4.16.5",
+        "ASME.VIII.2.2025.4.16.8",
+        "ASME.VIII.2.2025.4.16.9"
+      ],
+      "status": "Needed",
+      "requiredEvidence": [
+        "Independent input set with pressure, gasket reaction diameter, effective gasket width, m, y, and self-energizing state.",
+        "Expected operating bolt load and gasket seating load.",
+        "Tolerance and unit basis.",
+        "Source reference for the expected result."
+      ]
+    },
+    {
+      "validationCaseId": "VALIDATION.IOGP.S614.7.8.10.EQ3.INDEPENDENT",
+      "targetRuleId": "IOGP.S-614.EXCHANGER.FLOATING_HEAD_PRESSURE_EFFECT",
+      "targetFormulaIds": [
+        "IOGP.S-614.V18-12.7.8.10.EQ3"
+      ],
+      "status": "Needed",
+      "requiredEvidence": [
+        "Independent input set for floating-head gasket stress, gasket area, gasket ID, floating-head OD, tube-side pressure, shell-side pressure, gasket factor, bolt count, and bolt root area.",
+        "Expected required selected assembly bolt stress.",
+        "Tolerance and unit basis.",
+        "Source reference for the expected result."
+      ]
+    }
+  ],
+  "qualificationGate": [
+    "A formula can be Validated only after at least one independent expected-result case passes.",
+    "A formula can be Qualified only after the validation campaign defines coverage, tolerances, source provenance, and review approval.",
+    "FAST R09 workbook comparison cases are useful regression aids but do not satisfy independent expected-result evidence by themselves."
+  ]
+}

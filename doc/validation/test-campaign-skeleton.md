@@ -25,6 +25,7 @@ tests/
 - Symbol-map checks that keep workbook-to-domain mappings candidate-only and linked to registered guides.
 - Formula implementation checks that allow only registered implemented formulas with source references and validation evidence.
 - FAST R09 workbook comparison tests for cached gasket seating base loads.
+- Independent validation-case registry checks for promotion to validated/qualified status.
 
 ## Boundaries
 
@@ -43,3 +44,5 @@ Symbol-map tests intentionally fail if mappings are treated as normative authori
 The first implemented formula test covers IOGP S-614 paragraph 7.8.10 Equation (3) as a focused SI-only helper. It is not a qualification claim because no independent worked example has been recorded yet.
 
 FAST R09 workbook comparison tests are regression aids only. They read cached values from the workbook inventory and do not execute macros or qualify normative formulas.
+
+Independent validation cases are still required before any partially implemented formula is promoted beyond `PartiallyImplemented`.

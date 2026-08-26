@@ -18,6 +18,12 @@ module CalculationDispatcher =
         : Result<OptimizedFlange.Domain.CalculationResult, OptimizedFlange.Domain.CalculationError list> =
         match request.Procedure.Kind with
         | OptimizedFlange.Domain.StructuralValidation -> StructuralValidationEngine.run request
+        | OptimizedFlange.Domain.DesignCodeAssessment
+            when request.Procedure.ProcedureId = NormativeProcedureCatalog.asmeViiiDivision2.ProcedureId ->
+            NormativeAssessmentEngine.runAsmeViiiDivision2 request
+        | OptimizedFlange.Domain.IogpS614Assessment
+            when request.Procedure.ProcedureId = NormativeProcedureCatalog.iogpS614Paragraph78Amendments.ProcedureId ->
+            NormativeAssessmentEngine.runIogpS614Paragraph78 request
         | OptimizedFlange.Domain.GeometryResolutionProcedure
         | OptimizedFlange.Domain.DesignCodeAssessment
         | OptimizedFlange.Domain.Pcc1Assessment

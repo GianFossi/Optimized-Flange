@@ -215,3 +215,6 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Added `registry/normative-implementation-blockers.json` for remaining ASME VIII, PCC-1 Appendix O, API 660, and FAST-reference limitations.
 - Added FAST R09 cached-value comparison tests for ASME 4.16.8 gasket seating base loads.
 - Added `registry/workbook-comparison-cases.json` to record workbook comparison cases as non-qualification evidence.
+- Added `NormativeAssessmentEngine` and dispatcher routing for partially implemented ASME VIII Division 2 and IOGP S-614 procedure endpoints.
+- Added `registry/validation-cases.json` to record independent expected-result cases required before validation or qualification.
+- Searched public sources for independent worked examples; no authoritative complete input/output case was suitable for qualification at this stage.

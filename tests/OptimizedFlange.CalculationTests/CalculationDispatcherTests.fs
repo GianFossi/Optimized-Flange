@@ -180,7 +180,14 @@ module CalculationDispatcherTests =
 
     [<Fact>]
     let ``planned normative procedures remain unimplemented through dispatcher`` () =
-        for procedure in NormativeProcedureCatalog.all do
+        let procedures =
+            NormativeProcedureCatalog.all
+            |> List.except [
+                NormativeProcedureCatalog.asmeViiiDivision2
+                NormativeProcedureCatalog.iogpS614Paragraph78Amendments
+            ]
+
+        for procedure in procedures do
             Assert.Equal(Planned, procedure.Qualification)
             Assert.All(procedure.Rules, fun rule -> Assert.Equal(Planned, rule.Qualification))
 
@@ -191,3 +198,29 @@ module CalculationDispatcherTests =
             | Result.Error errors ->
                 Assert.Single(errors) |> ignore
                 Assert.Equal("CALCULATION.PROCEDURE.NOT_IMPLEMENTED", errors.Head.ErrorCode)
+
+    [<Fact>]
+    let ``dispatcher returns incomplete result for partially implemented ASME VIII Division 2 procedure`` () =
+        let actual = CalculationDispatcher.run (request NormativeProcedureCatalog.asmeViiiDivision2)
+
+        match actual with
+        | Result.Error errors -> Assert.Fail($"Unexpected errors: {errors}")
+        | Ok result ->
+            Assert.Equal(Completed, result.ExecutionStatus)
+            Assert.Equal(Incomplete, result.AssessmentStatus)
+            Assert.Equal(PartiallyImplemented, result.Qualification)
+            Assert.Single(result.Checks) |> ignore
+            Assert.Equal("ASME.VIII.2.FLANGE.INPUTS_REQUIRED", result.Checks.Head.MessageCode)
+
+    [<Fact>]
+    let ``dispatcher returns incomplete result for partially implemented IOGP S-614 procedure`` () =
+        let actual = CalculationDispatcher.run (request NormativeProcedureCatalog.iogpS614Paragraph78Amendments)
+
+        match actual with
+        | Result.Error errors -> Assert.Fail($"Unexpected errors: {errors}")
+        | Ok result ->
+            Assert.Equal(Completed, result.ExecutionStatus)
+            Assert.Equal(Incomplete, result.AssessmentStatus)
+            Assert.Equal(PartiallyImplemented, result.Qualification)
+            Assert.Single(result.Checks) |> ignore
+            Assert.Equal("IOGP.S614.7.8.INPUTS_REQUIRED", result.Checks.Head.MessageCode)

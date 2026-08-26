@@ -307,3 +307,19 @@ module CampaignPlaceholderTests =
             Assert.False(System.String.IsNullOrWhiteSpace(comparisonCase.GetProperty("sheetName").GetString()))
             Assert.False(System.String.IsNullOrWhiteSpace(comparisonCase.GetProperty("implementedFormulaId").GetString()))
             Assert.True(comparisonCase.GetProperty("sourceCells").EnumerateObject() |> Seq.length > 0)
+
+    [<Trait("Campaign", "Registry")>]
+    [<Fact>]
+    let ``independent validation cases are required before qualification`` () =
+        use document = readJsonDocument "validation-cases.json"
+        let root = document.RootElement
+        Assert.Equal(1, root.GetProperty("schemaVersion").GetInt32())
+        Assert.Equal("NeedsIndependentExpectedResults", root.GetProperty("qualificationStatus").GetString())
+
+        let cases = root.GetProperty("cases")
+        Assert.True(cases.GetArrayLength() > 0)
+
+        for validationCase in cases.EnumerateArray() do
+            Assert.Equal("Needed", validationCase.GetProperty("status").GetString())
+            Assert.True(validationCase.GetProperty("targetFormulaIds").GetArrayLength() > 0)
+            Assert.True(validationCase.GetProperty("requiredEvidence").GetArrayLength() > 0)

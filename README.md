@@ -102,6 +102,7 @@ See:
 - `registry/reference-guides.json`
 - `registry/symbol-map.json`
 - `registry/workbook-comparison-cases.json`
+- `registry/validation-cases.json`
 - `registry/engineering-rules.json`
 - `registry/qualification.json`
 - `registry/normative-interpretations.json`
@@ -133,6 +134,8 @@ The F# calculation package now includes a dispatcher, an implemented non-normati
 
 Normative procedure kinds still intentionally return a stable not-implemented error until complete sourced rules, formula mappings, integration logic, and validation cases are added. The implemented ASME and IOGP helpers are available as focused SI-only formulas and remain `PartiallyImplemented`, not qualified.
 
+The dispatcher now routes the partially implemented ASME VIII Division 2 and IOGP S-614 procedure contracts to incomplete traceable results instead of generic not-implemented errors. These endpoints report the resolved inputs still needed before producing numeric procedure results.
+
 ### Standards and qualification registries
 
 The repository now includes machine-readable registries for planned standards support, engineering rule placeholders, qualification status, and normative interpretations. These registries deliberately mark ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, and EN 1591 support as planned only. No normative formula is implemented, validated, or qualified yet.
@@ -150,6 +153,8 @@ The FAST R09 guide registry records worksheet metadata and defined-name clusters
 `registry/normative-implementation-blockers.json` records why the remaining normative formula families are still blocked from implementation or qualification.
 
 `registry/workbook-comparison-cases.json` records FAST R09 cached-value comparison cases. These tests compare implemented helpers against workbook values without executing macros and are not qualification evidence.
+
+`registry/validation-cases.json` records the independent expected-result cases still needed before any partially implemented formula can be promoted to `Validated` or `Qualified`.
 
 ### VS Code tasks
 
