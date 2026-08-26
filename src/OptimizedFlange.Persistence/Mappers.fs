@@ -1169,6 +1169,12 @@ module PersistenceMappers =
             Material = materialSnapshotFromDto dto.Material
         }
 
+    let private validateRequiredText value label =
+        if String.IsNullOrWhiteSpace(value) then
+            Error $"Missing {label}."
+        else
+            Ok ()
+
     /// <summary>Maps one joint side to a reference DTO.</summary>
     let jointSideToReferenceDto
         (value: OptimizedFlange.Domain.JointSide)
@@ -1183,13 +1189,23 @@ module PersistenceMappers =
         (geometries: OptimizedFlange.Domain.JointSideGeometry list)
         (dto: JointSideReferenceDto)
         : Result<OptimizedFlange.Domain.JointSide, string> =
-        match geometries |> List.tryFind (fun geometry -> geometry.SideId = dto.GeometrySideId) with
-        | Some geometry ->
-            Ok {
-                Geometry = geometry
-                MaterialRole = dto.MaterialRole
-            }
-        | None -> Error $"Unknown joint side geometry reference: {dto.GeometrySideId}"
+        if obj.ReferenceEquals(dto, null) then
+            Error "Missing joint side reference."
+        else
+            match
+                validateRequiredText dto.GeometrySideId "joint side geometry reference",
+                validateRequiredText dto.MaterialRole "joint side material role"
+            with
+            | Ok (), Ok () ->
+                match geometries |> List.tryFind (fun geometry -> geometry.SideId = dto.GeometrySideId) with
+                | Some geometry ->
+                    Ok {
+                        Geometry = geometry
+                        MaterialRole = dto.MaterialRole
+                    }
+                | None -> Error $"Unknown joint side geometry reference: {dto.GeometrySideId}"
+            | Error message, _ -> Error message
+            | _, Error message -> Error message
 
     /// <summary>Maps a flanged-joint composition to a reference-based persistence DTO.</summary>
     let flangedJointToDto
@@ -1228,6 +1244,47 @@ module PersistenceMappers =
             (Ok [])
         |> Result.map List.rev
 
+    let private validateUniqueById items getId label =
+        items
+        |> Array.map getId
+        |> Array.countBy id
+        |> Array.tryFind (fun (_, count) -> count > 1)
+        |> function
+            | Some (duplicateId, _) -> Error $"Duplicate {label} identifier: {duplicateId}"
+            | None -> Ok ()
+
+    let private validateRequiredIdentifiers items getId label =
+        items
+        |> Array.map getId
+        |> Array.tryFind String.IsNullOrWhiteSpace
+        |> function
+            | Some _ -> Error $"Missing {label} identifier."
+            | None -> Ok ()
+
+    let private validateRequiredArray items label =
+        if obj.ReferenceEquals(items, null) then
+            Error $"Technical data collection is missing: {label}"
+        else
+            Ok ()
+
+    let private validateUniqueReferences requestedIds label =
+        requestedIds
+        |> Array.countBy id
+        |> Array.tryFind (fun (_, count) -> count > 1)
+        |> function
+            | Some (duplicateId, _) -> Error $"Duplicate {label} reference: {duplicateId}"
+            | None -> Ok ()
+
+    let private validateRequiredReferences requestedIds label =
+        if obj.ReferenceEquals(requestedIds, null) then
+            Error $"Missing {label} reference collection."
+        else
+            requestedIds
+            |> Array.tryFind String.IsNullOrWhiteSpace
+            |> function
+                | Some _ -> Error $"Missing {label} reference."
+                | None -> Ok ()
+
     /// <summary>Maps a reference-based flanged-joint DTO to the domain model using already mapped technical fragments.</summary>
     let flangedJointFromDto
         (geometries: OptimizedFlange.Domain.JointSideGeometry list)
@@ -1245,9 +1302,39 @@ module PersistenceMappers =
             | None -> Ok None
 
         let gasket =
-            gaskets |> List.tryFind (fun gasket -> gasket.AssemblyId = dto.GasketAssemblyId)
+            match validateRequiredText dto.GasketAssemblyId "gasket assembly reference" with
+            | Ok () ->
+                match gaskets |> List.tryFind (fun gasket -> gasket.AssemblyId = dto.GasketAssemblyId) with
+                | Some mappedGasket -> Ok mappedGasket
+                | None -> Error $"Unknown gasket assembly reference: {dto.GasketAssemblyId}"
+            | Error message -> Error message
+
         let bolting =
-            boltingAssemblies |> List.tryFind (fun bolting -> bolting.AssemblyId = dto.BoltingAssemblyId)
+            match validateRequiredText dto.BoltingAssemblyId "bolting assembly reference" with
+            | Ok () ->
+                match boltingAssemblies |> List.tryFind (fun bolting -> bolting.AssemblyId = dto.BoltingAssemblyId) with
+                | Some mappedBolting -> Ok mappedBolting
+                | None -> Error $"Unknown bolting assembly reference: {dto.BoltingAssemblyId}"
+            | Error message -> Error message
+
+        let uniqueLoadCaseReferences =
+            validateUniqueReferences dto.LoadCaseIds "load case"
+
+        let uniqueAcceptanceCriterionReferences =
+            validateUniqueReferences dto.AcceptanceCriterionIds "acceptance criterion"
+
+        let uniqueComponentMaterialReferences =
+            validateUniqueReferences dto.ComponentMaterialRoles "component material"
+
+        let requiredLoadCaseReferences =
+            validateRequiredReferences dto.LoadCaseIds "load case"
+
+        let requiredAcceptanceCriterionReferences =
+            validateRequiredReferences dto.AcceptanceCriterionIds "acceptance criterion"
+
+        let requiredComponentMaterialReferences =
+            validateRequiredReferences dto.ComponentMaterialRoles "component material"
+
         let resolvedLoadCases =
             resolveManyById dto.LoadCaseIds loadCases (fun loadCase -> loadCase.LoadCaseId) "load case"
         let resolvedAcceptanceCriteria =
@@ -1261,11 +1348,17 @@ module PersistenceMappers =
             matingSide,
             gasket,
             bolting,
+            requiredLoadCaseReferences,
+            requiredAcceptanceCriterionReferences,
+            requiredComponentMaterialReferences,
+            uniqueLoadCaseReferences,
+            uniqueAcceptanceCriterionReferences,
+            uniqueComponentMaterialReferences,
             resolvedLoadCases,
             resolvedAcceptanceCriteria,
             resolvedMaterials
         with
-        | Ok matingSideMode, Ok mappedPrimarySide, Ok mappedMatingSide, Some mappedGasket, Some mappedBolting, Ok mappedLoadCases, Ok mappedCriteria, Ok mappedMaterials ->
+        | Ok matingSideMode, Ok mappedPrimarySide, Ok mappedMatingSide, Ok mappedGasket, Ok mappedBolting, Ok (), Ok (), Ok (), Ok (), Ok (), Ok (), Ok mappedLoadCases, Ok mappedCriteria, Ok mappedMaterials ->
             Ok {
                 JointId = dto.JointId
                 PrimarySide = mappedPrimarySide
@@ -1277,14 +1370,20 @@ module PersistenceMappers =
                 AcceptanceCriteria = mappedCriteria
                 Materials = mappedMaterials
             }
-        | Error message, _, _, _, _, _, _, _ -> Error message
-        | _, Error message, _, _, _, _, _, _ -> Error message
-        | _, _, Error message, _, _, _, _, _ -> Error message
-        | _, _, _, None, _, _, _, _ -> Error $"Unknown gasket assembly reference: {dto.GasketAssemblyId}"
-        | _, _, _, _, None, _, _, _ -> Error $"Unknown bolting assembly reference: {dto.BoltingAssemblyId}"
-        | _, _, _, _, _, Error message, _, _ -> Error message
-        | _, _, _, _, _, _, Error message, _ -> Error message
-        | _, _, _, _, _, _, _, Error message -> Error message
+        | Error message, _, _, _, _, _, _, _, _, _, _, _, _, _ -> Error message
+        | _, Error message, _, _, _, _, _, _, _, _, _, _, _, _ -> Error message
+        | _, _, Error message, _, _, _, _, _, _, _, _, _, _, _ -> Error message
+        | _, _, _, Error message, _, _, _, _, _, _, _, _, _, _ -> Error message
+        | _, _, _, _, Error message, _, _, _, _, _, _, _, _, _ -> Error message
+        | _, _, _, _, _, Error message, _, _, _, _, _, _, _, _ -> Error message
+        | _, _, _, _, _, _, Error message, _, _, _, _, _, _, _ -> Error message
+        | _, _, _, _, _, _, _, Error message, _, _, _, _, _, _ -> Error message
+        | _, _, _, _, _, _, _, _, Error message, _, _, _, _, _ -> Error message
+        | _, _, _, _, _, _, _, _, _, Error message, _, _, _, _ -> Error message
+        | _, _, _, _, _, _, _, _, _, _, Error message, _, _, _ -> Error message
+        | _, _, _, _, _, _, _, _, _, _, _, Error message, _, _ -> Error message
+        | _, _, _, _, _, _, _, _, _, _, _, _, Error message, _ -> Error message
+        | _, _, _, _, _, _, _, _, _, _, _, _, _, Error message -> Error message
 
     /// <summary>Maps technical project data to its versioned persistence DTO.</summary>
     let projectTechnicalDataToDto
@@ -1333,8 +1432,71 @@ module PersistenceMappers =
     let projectTechnicalDataFromDto
         (dto: ProjectTechnicalDataDto)
         : Result<OptimizedFlange.Domain.AcceptanceCriterion list * OptimizedFlange.Domain.JointLoadCase list * OptimizedFlange.Domain.JointSideGeometry list * OptimizedFlange.Domain.BoltingAssembly list * OptimizedFlange.Domain.GasketAssembly list * OptimizedFlange.Domain.ComponentMaterial list * OptimizedFlange.Domain.FlangedJoint list, string> =
+        let acceptanceCriteriaDto =
+            if obj.ReferenceEquals(dto.AcceptanceCriteria, null) then [||] else dto.AcceptanceCriteria
+
+        let loadCasesDto =
+            if obj.ReferenceEquals(dto.LoadCases, null) then [||] else dto.LoadCases
+
+        let jointSideGeometriesDto =
+            if obj.ReferenceEquals(dto.JointSideGeometries, null) then [||] else dto.JointSideGeometries
+
+        let boltingAssembliesDto =
+            if obj.ReferenceEquals(dto.BoltingAssemblies, null) then [||] else dto.BoltingAssemblies
+
+        let gasketAssembliesDto =
+            if obj.ReferenceEquals(dto.GasketAssemblies, null) then [||] else dto.GasketAssemblies
+
+        let componentMaterialsDto =
+            if obj.ReferenceEquals(dto.ComponentMaterials, null) then [||] else dto.ComponentMaterials
+
+        let flangedJointsDto =
+            if obj.ReferenceEquals(dto.FlangedJoints, null) then [||] else dto.FlangedJoints
+
+        let requiredCollections =
+            [
+                validateRequiredArray dto.AcceptanceCriteria "AcceptanceCriteria"
+                validateRequiredArray dto.LoadCases "LoadCases"
+                validateRequiredArray dto.JointSideGeometries "JointSideGeometries"
+                validateRequiredArray dto.BoltingAssemblies "BoltingAssemblies"
+                validateRequiredArray dto.GasketAssemblies "GasketAssemblies"
+                validateRequiredArray dto.ComponentMaterials "ComponentMaterials"
+                validateRequiredArray dto.FlangedJoints "FlangedJoints"
+            ]
+            |> List.tryPick (function
+                | Ok () -> None
+                | Error message -> Some message)
+
+        let uniqueIdentifiers =
+            [
+                validateUniqueById acceptanceCriteriaDto (fun item -> item.CriterionId) "acceptance criterion"
+                validateUniqueById loadCasesDto (fun item -> item.LoadCaseId) "load case"
+                validateUniqueById jointSideGeometriesDto (fun item -> item.SideId) "joint side geometry"
+                validateUniqueById boltingAssembliesDto (fun item -> item.AssemblyId) "bolting assembly"
+                validateUniqueById gasketAssembliesDto (fun item -> item.AssemblyId) "gasket assembly"
+                validateUniqueById componentMaterialsDto (fun item -> item.ComponentRole) "component material"
+                validateUniqueById flangedJointsDto (fun item -> item.JointId) "flanged joint"
+            ]
+            |> List.tryPick (function
+                | Ok () -> None
+                | Error message -> Some message)
+
+        let requiredIdentifiers =
+            [
+                validateRequiredIdentifiers acceptanceCriteriaDto (fun item -> item.CriterionId) "acceptance criterion"
+                validateRequiredIdentifiers loadCasesDto (fun item -> item.LoadCaseId) "load case"
+                validateRequiredIdentifiers jointSideGeometriesDto (fun item -> item.SideId) "joint side geometry"
+                validateRequiredIdentifiers boltingAssembliesDto (fun item -> item.AssemblyId) "bolting assembly"
+                validateRequiredIdentifiers gasketAssembliesDto (fun item -> item.AssemblyId) "gasket assembly"
+                validateRequiredIdentifiers componentMaterialsDto (fun item -> item.ComponentRole) "component material"
+                validateRequiredIdentifiers flangedJointsDto (fun item -> item.JointId) "flanged joint"
+            ]
+            |> List.tryPick (function
+                | Ok () -> None
+                | Error message -> Some message)
+
         let criteria =
-            dto.AcceptanceCriteria
+            acceptanceCriteriaDto
             |> Array.toList
             |> List.fold
                 (fun state item ->
@@ -1346,7 +1508,7 @@ module PersistenceMappers =
             |> Result.map List.rev
 
         let loadCases =
-            dto.LoadCases
+            loadCasesDto
             |> Array.toList
             |> List.fold
                 (fun state item ->
@@ -1358,7 +1520,7 @@ module PersistenceMappers =
             |> Result.map List.rev
 
         let jointSideGeometries =
-            dto.JointSideGeometries
+            jointSideGeometriesDto
             |> Array.toList
             |> List.fold
                 (fun state item ->
@@ -1370,7 +1532,7 @@ module PersistenceMappers =
             |> Result.map List.rev
 
         let boltingAssemblies =
-            dto.BoltingAssemblies
+            boltingAssembliesDto
             |> Array.toList
             |> List.fold
                 (fun state item ->
@@ -1382,7 +1544,7 @@ module PersistenceMappers =
             |> Result.map List.rev
 
         let gasketAssemblies =
-            dto.GasketAssemblies
+            gasketAssembliesDto
             |> Array.toList
             |> List.fold
                 (fun state item ->
@@ -1394,14 +1556,17 @@ module PersistenceMappers =
             |> Result.map List.rev
 
         let componentMaterials =
-            dto.ComponentMaterials
+            componentMaterialsDto
             |> Array.map componentMaterialFromDto
             |> Array.toList
 
-        match criteria, loadCases, jointSideGeometries, boltingAssemblies, gasketAssemblies with
-        | Ok mappedCriteria, Ok mappedLoadCases, Ok mappedGeometries, Ok mappedBolting, Ok mappedGaskets ->
+        match requiredCollections, requiredIdentifiers, uniqueIdentifiers, criteria, loadCases, jointSideGeometries, boltingAssemblies, gasketAssemblies with
+        | Some message, _, _, _, _, _, _, _ -> Error message
+        | None, Some message, _, _, _, _, _, _ -> Error message
+        | None, None, Some message, _, _, _, _, _ -> Error message
+        | None, None, None, Ok mappedCriteria, Ok mappedLoadCases, Ok mappedGeometries, Ok mappedBolting, Ok mappedGaskets ->
             let flangedJoints =
-                dto.FlangedJoints
+                flangedJointsDto
                 |> Array.toList
                 |> List.fold
                     (fun state item ->
@@ -1425,8 +1590,8 @@ module PersistenceMappers =
             flangedJoints
             |> Result.map (fun mappedJoints ->
                 (mappedCriteria, mappedLoadCases, mappedGeometries, mappedBolting, mappedGaskets, componentMaterials, mappedJoints))
-        | Error message, _, _, _, _ -> Error message
-        | _, Error message, _, _, _ -> Error message
-        | _, _, Error message, _, _ -> Error message
-        | _, _, _, Error message, _ -> Error message
-        | _, _, _, _, Error message -> Error message
+        | None, None, None, Error message, _, _, _, _ -> Error message
+        | None, None, None, _, Error message, _, _, _ -> Error message
+        | None, None, None, _, _, Error message, _, _ -> Error message
+        | None, None, None, _, _, _, Error message, _ -> Error message
+        | None, None, None, _, _, _, _, Error message -> Error message

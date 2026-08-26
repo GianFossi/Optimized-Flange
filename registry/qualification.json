@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "qualificationScope": {
+    "softwareVersion": "0.1.0",
+    "releaseChannel": "Development",
+    "normativeCalculationsQualified": false,
+    "qualifiedStandards": []
+  },
+  "modules": [
+    {
+      "moduleId": "OptimizedFlange.Domain",
+      "qualificationStatus": "Implemented",
+      "notes": "Domain skeleton and non-normative structural validation only."
+    },
+    {
+      "moduleId": "OptimizedFlange.Calculations",
+      "qualificationStatus": "Implemented",
+      "notes": "Dispatcher and non-normative structural validation engine only."
+    },
+    {
+      "moduleId": "OptimizedFlange.Persistence",
+      "qualificationStatus": "Implemented",
+      "notes": "Schema-versioned DTO persistence and migration boundaries."
+    }
+  ],
+  "gatesBeforeNormativeImplementation": [
+    "Select source standard edition.",
+    "Record clause and formula references.",
+    "Add rule registry entries with stable rule IDs.",
+    "Add clause/reference/regression validation cases.",
+    "Implement formulas in focused calculation modules only.",
+    "Keep UI, persistence, reporting, and settings free of engineering equations."
+  ]
+}

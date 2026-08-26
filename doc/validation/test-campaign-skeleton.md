@@ -19,9 +19,12 @@ tests/
 - Recent-file list behavior, including pinned entry preservation and the 20-entry non-pinned cap.
 - Calculation-default persistence round trip through the JSON store.
 - Explicit placeholders for future clause, reference, and regression campaigns.
+- Registry checks for planned standards support, rule placeholders, qualification status, and empty normative interpretations.
 
 ## Boundaries
 
 The tests added in this phase do not validate ASME, PCC-1, API 660, IOGP S-614, TEMA, EN 1591, or project-policy engineering equations.
 
 Future normative rule tests must identify source standard, edition, clause/formula reference, reference inputs, expected outputs, and tolerances.
+
+The registry tests intentionally fail if planned normative placeholders are marked implemented before the supporting rule implementation and validation evidence are added.

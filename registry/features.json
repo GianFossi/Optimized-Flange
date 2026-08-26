@@ -66,6 +66,24 @@
       "name": "Explicit project file schema migration boundary",
       "module": "OptimizedFlange.Persistence",
       "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.TECHNICAL_DATA_MIGRATIONS",
+      "name": "Explicit technical-data schema migration boundary",
+      "module": "OptimizedFlange.Persistence",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "CORE.TECHNICAL_DATA_REFERENCE_VALIDATION",
+      "name": "Technical-data duplicate identifier validation",
+      "module": "OptimizedFlange.Persistence",
+      "status": "Enabled"
+    },
+    {
+      "featureId": "GOVERNANCE.STANDARDS_RULE_REGISTRIES",
+      "name": "Standards support, engineering rule, interpretation, and qualification registries",
+      "module": "registry",
+      "status": "Enabled"
     }
   ]
 }

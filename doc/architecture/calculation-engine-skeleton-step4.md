@@ -26,3 +26,14 @@ The calculation package depends on `OptimizedFlange.Domain` only.
 It does not implement ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, EN 1591, or project-policy engineering equations.
 
 Future normative engines must be added as focused modules with source standard, edition, clause/formula references, validation evidence, and tests.
+
+## Registry Boundary Before Normative Formulas
+
+Before normative formulas are implemented, the repository maintains machine-readable registries for:
+
+- planned standards support in `registry/standards-support.json`;
+- engineering rule placeholders in `registry/engineering-rules.json`;
+- qualification scope in `registry/qualification.json`;
+- normative interpretations in `registry/normative-interpretations.json`.
+
+Normative rule placeholders remain `Planned` and unqualified until source editions, clauses, formulas, validation cases, and implementation evidence are added.

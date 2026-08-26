@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "standards": [
+    {
+      "standardId": "ASME.VIII.1",
+      "name": "ASME Boiler and Pressure Vessel Code Section VIII Division 1",
+      "edition": null,
+      "supportStatus": "Planned",
+      "normativeFormulasImplemented": false,
+      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+    },
+    {
+      "standardId": "ASME.VIII.2",
+      "name": "ASME Boiler and Pressure Vessel Code Section VIII Division 2",
+      "edition": null,
+      "supportStatus": "Planned",
+      "normativeFormulasImplemented": false,
+      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+    },
+    {
+      "standardId": "ASME.PCC.1",
+      "name": "ASME PCC-1 Guidelines for Pressure Boundary Bolted Flange Joint Assembly",
+      "edition": null,
+      "supportStatus": "Planned",
+      "normativeFormulasImplemented": false,
+      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+    },
+    {
+      "standardId": "API.660",
+      "name": "API Standard 660 Shell-and-Tube Heat Exchangers",
+      "edition": null,
+      "supportStatus": "Planned",
+      "normativeFormulasImplemented": false,
+      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+    },
+    {
+      "standardId": "IOGP.S-614",
+      "name": "IOGP S-614 Specification for Shell-and-Tube Heat Exchangers",
+      "edition": null,
+      "supportStatus": "Planned",
+      "normativeFormulasImplemented": false,
+      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+    },
+    {
+      "standardId": "TEMA",
+      "name": "Tubular Exchanger Manufacturers Association standards",
+      "edition": null,
+      "supportStatus": "Planned",
+      "normativeFormulasImplemented": false,
+      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+    },
+    {
+      "standardId": "EN.1591",
+      "name": "EN 1591 flanges and their joints",
+      "edition": null,
+      "supportStatus": "Planned",
+      "normativeFormulasImplemented": false,
+      "notes": "Edition, clauses, formulas, validation cases, and qualification evidence must be recorded before implementation."
+    }
+  ]
+}

@@ -34,10 +34,12 @@ Implemented foundations:
 - atomic-style write/flush/validate/replace workflow;
 - schema-versioned project file envelope;
 - explicit project-file migration boundary;
+- explicit technical-data payload migration boundary;
 - VS Code restore/build/test/run tasks;
 - VS Code validation/package tasks;
 - central NuGet package metadata with bundled README and license;
 - NuGet publishing helper script and release documentation;
+- standards, engineering rule, qualification, and normative-interpretation registries;
 - automated test campaign skeleton.
 - calculation dispatcher and non-normative structural-validation engine.
 
@@ -69,6 +71,10 @@ The repository targets .NET 10 LTS.
 
 OptimizedFlange is licensed under the PolyForm Noncommercial License 1.0.0. See `LICENSE` and `registry/policies/license-policy.json`.
 
+## Credits
+
+See `CREDITS.md` for project credits, technology acknowledgements, and notes about future standards references.
+
 ## Core rule
 
 Software settings, calculation defaults, and project engineering data are different data domains. Global configuration changes must never silently alter an existing engineering project.
@@ -85,7 +91,12 @@ See:
 - `doc/persistence/project-file-envelope.md`
 - `doc/release/nuget-publishing.md`
 - `doc/validation/test-campaign-skeleton.md`
+- `registry/standards-support.json`
+- `registry/engineering-rules.json`
+- `registry/qualification.json`
+- `registry/normative-interpretations.json`
 - `registry/policies/license-policy.json`
+- `CREDITS.md`
 - `AI.md`
 
 ## Core implementation status
@@ -110,13 +121,17 @@ The solution now includes F# xUnit projects for unit tests, persistence tests, a
 
 The F# calculation package now includes a dispatcher and an implemented non-normative structural-validation procedure. Normative procedure kinds intentionally return a stable not-implemented error until sourced rules and validation cases are added.
 
+### Standards and qualification registries
+
+The repository now includes machine-readable registries for planned standards support, engineering rule placeholders, qualification status, and normative interpretations. These registries deliberately mark ASME VIII, PCC-1, API 660, IOGP S-614, TEMA, and EN 1591 support as planned only. No normative formula is implemented, validated, or qualified yet.
+
 ### VS Code tasks
 
 The `run` task currently executes the core Debug test suite because the project has no UI or executable host yet. Dedicated tasks are available for restore, build, release build, test, validation tests, and package preparation.
 
 ### Packaging
 
-NuGet packages include the repository README and PolyForm Noncommercial 1.0.0 license file through central package metadata in `Directory.Build.props`.
+NuGet packages include the repository README, credits, and PolyForm Noncommercial 1.0.0 license file through central package metadata in `Directory.Build.props`.
 
 Use `scripts/publish-nuget.ps1` for a guarded NuGet publishing flow. It performs a dry run by default and requires `-Publish` plus a NuGet API key to push packages. See `doc/release/nuget-publishing.md` for where to retrieve the NuGet.org API key and source URL.
 
@@ -180,7 +195,7 @@ A successful trusted publish activates the policy permanently.
 
 Persistence now includes a versioned project file envelope for metadata and project-owned calculation configuration. The explicit technical-data DTO fragment currently covers project acceptance criteria, physical load cases, joint-side geometries, bolting assemblies, gasket assemblies, material snapshots, and reference-based flanged-joint composition.
 
-The project file store can now embed and extract the versioned technical-data payload from the `.ofj` envelope.
+The project file store can now embed and extract the versioned technical-data payload from the `.ofj` envelope. Project-file and technical-data schema versions both pass through explicit migration boundaries before being accepted. Technical-data mapping also rejects missing technical collections, missing side references, blank identifiers, blank scalar/array references, duplicate fragment identifiers, and duplicate joint reference IDs before resolving reference-based joints.
 
 Codex users should read the repository-root `AGENTS.md` before editing. It points to the project memory and engineering standard and records the mandatory implementation sequence: Core first, testing second, WPF/MVVM UI last.
 

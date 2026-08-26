@@ -13,11 +13,13 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>See CREDITS.md, README.md, and repository documentation for current project status.</PackageReleaseNotes>
     <PackageTags>flange;engineering;calculation;fsharp</PackageTags>
     <Description>Core libraries for OptimizedFlange, an engineering application for bolted gasketed flange joints.</Description>
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)LICENSE" Pack="true" PackagePath="" />
     <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="" />
+    <None Include="$(MSBuildThisFileDirectory)CREDITS.md" Pack="true" PackagePath="" />
   </ItemGroup>
 </Project>

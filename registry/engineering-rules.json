@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "rules": [
+    {
+      "ruleId": "OF.STRUCTURE.COMPLETE",
+      "name": "Flanged joint structural completeness",
+      "module": "ProjectPolicy",
+      "source": {
+        "sourceKind": "ProjectSpecification",
+        "name": "OptimizedFlange internal structural validation",
+        "edition": "V1",
+        "clause": null,
+        "formulaReference": null
+      },
+      "implementationStatus": "Implemented",
+      "qualificationStatus": "Implemented",
+      "normative": false,
+      "validationEvidence": [
+        {
+          "evidenceId": "TEST.UNIT.FLANGED_JOINT_STRUCTURE",
+          "evidenceKind": "UnitTest",
+          "location": "tests/OptimizedFlange.UnitTests/FlangedJointStructureTests.fs"
+        }
+      ]
+    },
+    {
+      "ruleId": "ASME.VIII.1.FLANGE.PLACEHOLDER",
+      "name": "ASME VIII Division 1 flange assessment placeholder",
+      "module": "FlangeStressAssessment",
+      "source": {
+        "sourceKind": "Standard",
+        "name": "ASME Boiler and Pressure Vessel Code Section VIII Division 1",
+        "edition": null,
+        "clause": null,
+        "formulaReference": null
+      },
+      "implementationStatus": "Planned",
+      "qualificationStatus": "Planned",
+      "normative": true,
+      "validationEvidence": []
+    },
+    {
+      "ruleId": "ASME.PCC.1.ASSEMBLY.PLACEHOLDER",
+      "name": "ASME PCC-1 assembly assessment placeholder",
+      "module": "AssemblyAssessment",
+      "source": {
+        "sourceKind": "RecommendedPractice",
+        "name": "ASME PCC-1 Guidelines for Pressure Boundary Bolted Flange Joint Assembly",
+        "edition": null,
+        "clause": null,
+        "formulaReference": null
+      },
+      "implementationStatus": "Planned",
+      "qualificationStatus": "Planned",
+      "normative": true,
+      "validationEvidence": []
+    },
+    {
+      "ruleId": "API.660.EXCHANGER.PLACEHOLDER",
+      "name": "API 660 exchanger flange requirement placeholder",
+      "module": "ProjectPolicy",
+      "source": {
+        "sourceKind": "Standard",
+        "name": "API Standard 660 Shell-and-Tube Heat Exchangers",
+        "edition": null,
+        "clause": null,
+        "formulaReference": null
+      },
+      "implementationStatus": "Planned",
+      "qualificationStatus": "Planned",
+      "normative": true,
+      "validationEvidence": []
+    },
+    {
+      "ruleId": "IOGP.S-614.EXCHANGER.PLACEHOLDER",
+      "name": "IOGP S-614 exchanger flange requirement placeholder",
+      "module": "ProjectPolicy",
+      "source": {
+        "sourceKind": "CompanySpecification",
+        "name": "IOGP S-614 Specification for Shell-and-Tube Heat Exchangers",
+        "edition": null,
+        "clause": null,
+        "formulaReference": null
+      },
+      "implementationStatus": "Planned",
+      "qualificationStatus": "Planned",
+      "normative": true,
+      "validationEvidence": []
+    },
+    {
+      "ruleId": "TEMA.EXCHANGER.PLACEHOLDER",
+      "name": "TEMA exchanger flange requirement placeholder",
+      "module": "ProjectPolicy",
+      "source": {
+        "sourceKind": "Standard",
+        "name": "Tubular Exchanger Manufacturers Association standards",
+        "edition": null,
+        "clause": null,
+        "formulaReference": null
+      },
+      "implementationStatus": "Planned",
+      "qualificationStatus": "Planned",
+      "normative": true,
+      "validationEvidence": []
+    },
+    {
+      "ruleId": "EN.1591.FLANGE.PLACEHOLDER",
+      "name": "EN 1591 flange assessment placeholder",
+      "module": "FlangeStressAssessment",
+      "source": {
+        "sourceKind": "Standard",
+        "name": "EN 1591 flanges and their joints",
+        "edition": null,
+        "clause": null,
+        "formulaReference": null
+      },
+      "implementationStatus": "Planned",
+      "qualificationStatus": "Planned",
+      "normative": true,
+      "validationEvidence": []
+    }
+  ]
+}

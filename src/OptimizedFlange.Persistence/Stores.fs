@@ -59,26 +59,27 @@ module ProjectFileStore =
 
     /// <summary>Current technical-data schema version stored inside a project file.</summary>
     [<Literal>]
-    let CurrentTechnicalDataSchemaVersion = 1
+    let CurrentTechnicalDataSchemaVersion = ProjectTechnicalDataMigrations.CurrentSchemaVersion
 
     /// <summary>Embeds versioned technical project data in a project file envelope.</summary>
     let withTechnicalData (technicalData: ProjectTechnicalDataDto) (projectFile: ProjectFileDto) =
-        if technicalData.SchemaVersion <> CurrentTechnicalDataSchemaVersion then
-            Error $"Unsupported technical data schema version: {technicalData.SchemaVersion}"
-        else
+        ProjectTechnicalDataMigrations.migrateToCurrent technicalData
+        |> Result.map (fun currentTechnicalData ->
             let json = JsonSerializer.Serialize(technicalData, JsonOptions.create ())
-            Ok {
+            {
                 projectFile with
-                    TechnicalDataSchemaVersion = Nullable technicalData.SchemaVersion
+                    TechnicalDataSchemaVersion = Nullable currentTechnicalData.SchemaVersion
                     TechnicalDataJson = json
-            }
+            })
 
     /// <summary>Extracts and validates versioned technical project data from a project file envelope.</summary>
     let technicalData (projectFile: ProjectFileDto) =
         if not projectFile.TechnicalDataSchemaVersion.HasValue then
             Error "Project file does not contain technical data."
-        elif projectFile.TechnicalDataSchemaVersion.Value <> CurrentTechnicalDataSchemaVersion then
-            Error $"Unsupported technical data schema version: {projectFile.TechnicalDataSchemaVersion.Value}"
+        elif projectFile.TechnicalDataSchemaVersion.Value > CurrentTechnicalDataSchemaVersion then
+            Error $"Unsupported future technical data schema version: {projectFile.TechnicalDataSchemaVersion.Value}"
+        elif projectFile.TechnicalDataSchemaVersion.Value < CurrentTechnicalDataSchemaVersion then
+            Error $"Unsupported legacy technical data schema version: {projectFile.TechnicalDataSchemaVersion.Value}"
         else
             match Option.ofObj projectFile.TechnicalDataJson with
             | None -> Error "Project file technical data payload is empty."
@@ -98,7 +99,7 @@ module ProjectFileStore =
                         if dto.SchemaVersion <> projectFile.TechnicalDataSchemaVersion.Value then
                             Error $"Technical data schema mismatch: envelope={projectFile.TechnicalDataSchemaVersion.Value}, payload={dto.SchemaVersion}"
                         else
-                            Ok dto
+                            ProjectTechnicalDataMigrations.migrateToCurrent dto
                 with ex ->
                     Error ex.Message
 

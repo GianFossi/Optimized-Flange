@@ -337,6 +337,130 @@ module ProjectTechnicalDataMapperTests =
             Assert.Fail(message)
 
     [<Fact>]
+    let ``flanged joint reference DTO rejects duplicate load case references`` () =
+        let dto =
+            {
+                PersistenceMappers.flangedJointToDto flangedJoint with
+                    LoadCaseIds = [| loadCase.LoadCaseId; loadCase.LoadCaseId |]
+            }
+
+        let actual =
+            PersistenceMappers.flangedJointFromDto
+                [ jointSideGeometry ]
+                [ gasketAssembly ]
+                [ boltingAssembly ]
+                [ loadCase ]
+                [ acceptanceCriterion ]
+                [ componentMaterial ]
+                dto
+
+        match actual with
+        | Ok _ ->
+            Assert.Fail("Duplicate load-case references should be rejected.")
+        | Result.Error message ->
+            Assert.Contains("Duplicate load case reference", message)
+
+    [<Fact>]
+    let ``flanged joint reference DTO rejects blank references explicitly`` () =
+        let dto =
+            {
+                PersistenceMappers.flangedJointToDto flangedJoint with
+                    ComponentMaterialRoles = [| componentMaterial.ComponentRole; " " |]
+            }
+
+        let actual =
+            PersistenceMappers.flangedJointFromDto
+                [ jointSideGeometry ]
+                [ gasketAssembly ]
+                [ boltingAssembly ]
+                [ loadCase ]
+                [ acceptanceCriterion ]
+                [ componentMaterial ]
+                dto
+
+        match actual with
+        | Ok _ ->
+            Assert.Fail("Blank component-material references should be rejected.")
+        | Result.Error message ->
+            Assert.Contains("Missing component material reference.", message)
+
+    [<Fact>]
+    let ``flanged joint reference DTO rejects blank scalar assembly references explicitly`` () =
+        let dto =
+            {
+                PersistenceMappers.flangedJointToDto flangedJoint with
+                    GasketAssemblyId = " "
+            }
+
+        let actual =
+            PersistenceMappers.flangedJointFromDto
+                [ jointSideGeometry ]
+                [ gasketAssembly ]
+                [ boltingAssembly ]
+                [ loadCase ]
+                [ acceptanceCriterion ]
+                [ componentMaterial ]
+                dto
+
+        match actual with
+        | Ok _ ->
+            Assert.Fail("Blank gasket assembly references should be rejected.")
+        | Result.Error message ->
+            Assert.Contains("Missing gasket assembly reference.", message)
+
+    [<Fact>]
+    let ``flanged joint side reference DTO rejects blank geometry references explicitly`` () =
+        let dto =
+            {
+                PersistenceMappers.flangedJointToDto flangedJoint with
+                    PrimarySide =
+                        {
+                            GeometrySideId = " "
+                            MaterialRole = componentMaterial.ComponentRole
+                        }
+            }
+
+        let actual =
+            PersistenceMappers.flangedJointFromDto
+                [ jointSideGeometry ]
+                [ gasketAssembly ]
+                [ boltingAssembly ]
+                [ loadCase ]
+                [ acceptanceCriterion ]
+                [ componentMaterial ]
+                dto
+
+        match actual with
+        | Ok _ ->
+            Assert.Fail("Blank side geometry references should be rejected.")
+        | Result.Error message ->
+            Assert.Contains("Missing joint side geometry reference.", message)
+
+    [<Fact>]
+    let ``flanged joint reference DTO rejects missing primary side reference explicitly`` () =
+        let dto =
+            {
+                PersistenceMappers.flangedJointToDto flangedJoint with
+                    PrimarySide = Unchecked.defaultof<JointSideReferenceDto>
+            }
+
+        let actual =
+            PersistenceMappers.flangedJointFromDto
+                [ jointSideGeometry ]
+                [ gasketAssembly ]
+                [ boltingAssembly ]
+                [ loadCase ]
+                [ acceptanceCriterion ]
+                [ componentMaterial ]
+                dto
+
+        match actual with
+        | Ok _ ->
+            Assert.Fail("Missing primary side references should be rejected.")
+        | Result.Error message ->
+            Assert.Contains("Missing joint side reference.", message)
+
+    [<Fact>]
     let ``project technical data DTO maps acceptance criteria load cases geometries bolting gaskets materials and joints`` () =
         let criteria = [ acceptanceCriterion ]
 
@@ -372,3 +496,64 @@ module ProjectTechnicalDataMapperTests =
             Assert.Equal(flangedJoint.JointId, mappedJoints.Head.JointId)
         | Result.Error message ->
             Assert.Fail(message)
+
+    [<Fact>]
+    let ``project technical data DTO rejects duplicate fragment identifiers before resolving references`` () =
+        let dto =
+            PersistenceMappers.projectTechnicalDataToDto
+                1
+                [ acceptanceCriterion ]
+                [ loadCase; { loadCase with Name = "Duplicate load case" } ]
+                [ jointSideGeometry ]
+                [ boltingAssembly ]
+                [ gasketAssembly ]
+                [ componentMaterial ]
+                [ flangedJoint ]
+
+        match PersistenceMappers.projectTechnicalDataFromDto dto with
+        | Ok _ ->
+            Assert.Fail("Duplicate load-case identifiers should be rejected.")
+        | Result.Error message ->
+            Assert.Contains("Duplicate load case identifier", message)
+
+    [<Fact>]
+    let ``project technical data DTO rejects missing required collections explicitly`` () =
+        let dto =
+            {
+                PersistenceMappers.projectTechnicalDataToDto
+                    1
+                    [ acceptanceCriterion ]
+                    [ loadCase ]
+                    [ jointSideGeometry ]
+                    [ boltingAssembly ]
+                    [ gasketAssembly ]
+                    [ componentMaterial ]
+                    [ flangedJoint ]
+                with
+                    LoadCases = Unchecked.defaultof<JointLoadCaseDto array>
+            }
+
+        match PersistenceMappers.projectTechnicalDataFromDto dto with
+        | Ok _ ->
+            Assert.Fail("Null technical-data collections should be rejected.")
+        | Result.Error message ->
+            Assert.Contains("Technical data collection is missing: LoadCases", message)
+
+    [<Fact>]
+    let ``project technical data DTO rejects blank fragment identifiers explicitly`` () =
+        let dto =
+            PersistenceMappers.projectTechnicalDataToDto
+                1
+                [ acceptanceCriterion ]
+                [ { loadCase with LoadCaseId = " " } ]
+                [ jointSideGeometry ]
+                [ boltingAssembly ]
+                [ gasketAssembly ]
+                [ componentMaterial ]
+                [ flangedJoint ]
+
+        match PersistenceMappers.projectTechnicalDataFromDto dto with
+        | Ok _ ->
+            Assert.Fail("Blank technical-data identifiers should be rejected.")
+        | Result.Error message ->
+            Assert.Contains("Missing load case identifier.", message)

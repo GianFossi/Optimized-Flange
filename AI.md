@@ -42,6 +42,7 @@ No engineering/normative flange formulas are implemented in this step.
 - README.md, doc/, AI.md, .vscode and test campaign must evolve with implementation.
 - Do not write directly to protected/main workflow when a feature branch can be used.
 - Project license: PolyForm Noncommercial License 1.0.0.
+- Project credits are maintained in `CREDITS.md`.
 
 ## GitHub status
 
@@ -165,3 +166,30 @@ Attempt to create `feature/core-bootstrap` through the available GitHub integrat
 - Changed the Trusted Publishing workflow to read the NuGet.org policy creator username from the `NUGET_USER` GitHub Actions secret.
 - Clarified Trusted Publishing troubleshooting: `NUGET_USER` must match the NuGet.org profile username from `https://www.nuget.org/profiles/<username>`, not necessarily the package owner/display name.
 - Updated the NuGet publishing workflow to Node 24-compatible `actions/checkout@v5` and `actions/setup-dotnet@v6`.
+
+## 2026-08-26 — Technical Data Migrations
+
+- Added `ProjectTechnicalDataMigrations.migrateToCurrent` as the explicit technical-data payload migration boundary.
+- Centralized the current technical-data schema version in the migration module.
+- Updated `ProjectFileStore.withTechnicalData` and `ProjectFileStore.technicalData` to pass payloads through the migration boundary.
+- Added persistence tests for current, legacy, and future technical-data schema handling.
+- Added duplicate identifier validation for technical-data fragments before reference-based `FlangedJointDto` resolution.
+- Added duplicate reference validation for `FlangedJointDto` load-case, acceptance-criterion, and component-material reference arrays.
+- Added explicit rejection for missing/null required technical-data collections.
+- Added explicit rejection for blank technical-data fragment identifiers and blank joint references.
+- Added explicit rejection for blank scalar `FlangedJointDto` side, gasket, and bolting references.
+- Added explicit rejection for missing/null `FlangedJointDto` side-reference DTOs.
+
+## 2026-08-26 — Credits
+
+- Added `CREDITS.md` for project credits, technology acknowledgements, and future standards-reference notes.
+- Included `CREDITS.md` in NuGet packages through central package metadata.
+- Updated `README.md` and project memory with the credits location.
+
+## 2026-08-26 — Pre-Normative Rule Registries
+
+- Added `registry/standards-support.json` for planned standards support.
+- Added `registry/engineering-rules.json` with non-normative implemented structural validation and planned normative placeholders.
+- Added `registry/qualification.json` declaring no qualified normative calculations.
+- Added `registry/normative-interpretations.json`, currently empty by design.
+- Added validation tests that keep normative placeholders planned until source clauses, formulas, validation cases, and implementation evidence exist.
